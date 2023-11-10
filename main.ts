@@ -1,4 +1,4 @@
-#!/usr/bin/env -S  deno run --allow-run=read --allow-ffi --allow-env=DENO_PYTHON_PATH --unstable-ffi main.ts
+#!/usr/bin/env -S  deno run --allow-run=gnome-session-inhibit --allow-ffi --allow-env=DENO_PYTHON_PATH --unstable-ffi main.ts
 import {
   Adw,
   Gdk,
