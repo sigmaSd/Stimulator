@@ -67,5 +67,5 @@ function noSleep(): Deno.ChildProcess {
   return new Deno.Command("read").spawn();
 }
 
-const app = new App(kw`application_id=${"com.example.com"}`);
+const app = new App(kw`application_id=${"io.sigmasd.nosleep"}`);
 app.run(Deno.args);
