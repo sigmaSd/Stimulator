@@ -64,7 +64,9 @@ class App extends Adw.Application {
 }
 
 function noSleep(): Deno.ChildProcess {
-  return new Deno.Command("read").spawn();
+  return new Deno.Command("gnome-session-inhibit", {
+    args: ["--inhibit", "idle", "read"],
+  }).spawn();
 }
 
 const app = new App(kw`application_id=${"io.sigmasd.nosleep"}`);
