@@ -4,5 +4,4 @@ Type=Application
 Name=No Sleep
 Icon=/home/mrcool/dev/deno/nosleep/nosleep.svg
 Exec=deno run --allow-run=read --allow-ffi --allow-env=DENO_PYTHON_PATH --unstable-ffi /home/mrcool/dev/deno/nosleep/main.ts
-Actions=
 Categories=Utility;
