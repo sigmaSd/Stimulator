@@ -1,9 +1,18 @@
-import { Adw, Gdk, Gtk } from "/home/mrcool/dev/deno/gtk/mod.ts";
-import { kw, NamedArgument, python } from "/home/mrcool/dev/deno/gtk/mod.ts";
-import type { Gtk_ } from "/home/mrcool/dev/deno/gtk/mod.ts";
+#!/usr/bin/env -S  deno run --allow-run=read --allow-ffi --allow-env=DENO_PYTHON_PATH --unstable-ffi main.ts
+import {
+  Adw,
+  Gdk,
+  Gtk,
+  Gtk_,
+  kw,
+  NamedArgument,
+  python,
+} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/13f3da6c4890d62e09312747c905fa85263f5ca8/mod.ts";
 
 const css_provider = Gtk.CssProvider();
-css_provider.load_from_path("./main.css");
+css_provider.load_from_path(
+  new URL(import.meta.resolve("./main.css")).pathname,
+);
 Gtk.StyleContext.add_provider_for_display(
   Gdk.Display.get_default(),
   css_provider,

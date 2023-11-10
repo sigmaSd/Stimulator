@@ -1,0 +1,9 @@
+# Example of a desktop file
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=No Sleep
+Icon=/home/mrcool/dev/deno/nosleep/nosleep.svg
+Exec=deno run -A --unstable /home/mrcool/dev/deno/nosleep/main.ts
+Actions=
+Categories=Utility;
