@@ -2,8 +2,8 @@
 
 Temporarily stops gnome from sleeping
 
-![image](https://github.com/sigmaSd/gnome-nosleep/assets/22427111/01a9f16f-3ebc-4c45-a88b-124da72b8998)
-![image](https://github.com/sigmaSd/gnome-nosleep/assets/22427111/d1217769-5ff0-480f-82a5-9a17e3e925af)
+![image](https://github.com/sigmaSd/gnome-nosleep/assets/22427111/a7d51547-c5de-427e-9cd7-f7be423cbe09)
+![image](https://github.com/sigmaSd/gnome-nosleep/assets/22427111/669e7d37-358f-45dd-b6b6-e7750d17c5e7)
 
 ## How it works
 
