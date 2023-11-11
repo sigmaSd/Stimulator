@@ -7,22 +7,11 @@ import {
   kw,
   NamedArgument,
   python,
-} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/13f3da6c4890d62e09312747c905fa85263f5ca8/mod.ts";
-
-const css_provider = Gtk.CssProvider();
-css_provider.load_from_path(
-  new URL(import.meta.resolve("./main.css")).pathname,
-);
-Gtk.StyleContext.add_provider_for_display(
-  Gdk.Display.get_default(),
-  css_provider,
-  Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION,
-);
+} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/9e2432d/mod.ts";
 
 class MainWindow extends Gtk.ApplicationWindow {
   #button;
-  #noSleep = false;
-  #proc: Deno.ChildProcess | undefined;
+  #idleStop = new IdleStop();
   constructor(kwArg: NamedArgument) {
     super(kwArg);
     this.set_default_size(300, 150);
@@ -33,20 +22,22 @@ class MainWindow extends Gtk.ApplicationWindow {
     );
     this.#button.connect("clicked", this.toggleSleep);
     this.set_child(this.#button);
+
+    this.connect(
+      "close-request",
+      python.callback((): undefined => {
+        this.#idleStop.end();
+      }),
+    );
   }
 
   toggleSleep = python.callback((_, button: Gtk_.ToggleButton): undefined => {
-    this.#noSleep = !this.#noSleep;
-    if (this.#noSleep) {
+    if (button.get_active().toString() === "True") {
       button.set_label("No Sleep: ON");
-      this.#proc = noSleep();
+      this.#idleStop.start();
     } else {
       button.set_label("No Sleep: OFF");
-      if (this.#proc) {
-        //FIXME: this doesn't work
-        // seems to be an interaciton with python.callback
-        this.#proc.kill();
-      }
+      this.#idleStop.end();
     }
   });
 }
@@ -63,11 +54,39 @@ class App extends Adw.Application {
   });
 }
 
-function noSleep(): Deno.ChildProcess {
-  return new Deno.Command("gnome-session-inhibit", {
-    args: ["--inhibit", "idle", "read"],
-  }).spawn();
+class IdleStop {
+  #enc = new TextEncoder();
+  // keep track of all process spawned
+  // since there is a bug, that we can't end the process at runtime
+  // this atleast ensures that at exit, all processs gets cleaned up
+  #procs: Deno.ChildProcess[] = [];
+  start() {
+    this.#procs.push(new Deno.Command("gnome-session-inhibit", {
+      args: ["--inhibit", "idle", "read"],
+      stdin: "piped",
+    }).spawn());
+  }
+  end() {
+    for (const proc of this.#procs) {
+      try {
+        proc.stdin.getWriter().write(this.#enc.encode("\n"));
+      } catch {
+        // we tried to close it twice, its cool
+      }
+    }
+  }
 }
 
-const app = new App(kw`application_id=${"io.sigmasd.nosleep"}`);
-app.run(Deno.args);
+if (import.meta.main) {
+  const css_provider = Gtk.CssProvider();
+  css_provider.load_from_path(
+    new URL(import.meta.resolve("./main.css")).pathname,
+  );
+  Gtk.StyleContext.add_provider_for_display(
+    Gdk.Display.get_default(),
+    css_provider,
+    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION,
+  );
+  const app = new App(kw`application_id=${"io.sigmasd.nosleep"}`);
+  app.run(Deno.args);
+}
