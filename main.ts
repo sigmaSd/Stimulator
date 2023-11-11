@@ -15,10 +15,10 @@ class MainWindow extends Gtk.ApplicationWindow {
   constructor(kwArg: NamedArgument) {
     super(kwArg);
     this.set_default_size(300, 150);
-    this.set_title("Awaker");
+    this.set_title("No Sleep");
 
     this.#button = Gtk.ToggleButton(
-      new NamedArgument("label", "No Sleep: OFF"),
+      new NamedArgument("label", "OFF"),
     );
     this.#button.connect("clicked", this.toggleSleep);
     this.set_child(this.#button);
@@ -33,10 +33,10 @@ class MainWindow extends Gtk.ApplicationWindow {
 
   toggleSleep = python.callback((_, button: Gtk_.ToggleButton): undefined => {
     if (button.get_active().toString() === "True") {
-      button.set_label("No Sleep: ON");
+      button.set_label("ON");
       this.#idleStop.start();
     } else {
-      button.set_label("No Sleep: OFF");
+      button.set_label("OFF");
       this.#idleStop.end();
     }
   });

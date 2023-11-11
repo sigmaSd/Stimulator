@@ -1,9 +1,11 @@
-.toggle:checked {
+.toggle {
   color: red;
-  font-size: 24px;
+  font-size: 60px;
+  font-weight:bold;
 }
 
-.toggle {
+.toggle:checked {
   color: green;
-  font-size: 24px;
+  font-size: 60px;
+  font-weight:bold;
 }
