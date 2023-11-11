@@ -7,7 +7,7 @@ import {
   kw,
   NamedArgument,
   python,
-} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/9e2432d/mod.ts";
+} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/2b8ccc0/mod.ts";
 
 class MainWindow extends Gtk.ApplicationWindow {
   #button;
@@ -16,6 +16,7 @@ class MainWindow extends Gtk.ApplicationWindow {
     super(kwArg);
     this.set_default_size(300, 150);
     this.set_title("No Sleep");
+    this.set_resizable(false);
 
     this.#button = Gtk.ToggleButton(
       new NamedArgument("label", "OFF"),
