@@ -55,7 +55,6 @@ class App extends Adw.Application {
 }
 
 class IdleStop {
-  #enc = new TextEncoder();
   #proc?: Deno.ChildProcess;
   start() {
     this.#proc = new Deno.Command("gnome-session-inhibit", {
