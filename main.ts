@@ -56,24 +56,18 @@ class App extends Adw.Application {
 
 class IdleStop {
   #enc = new TextEncoder();
-  // keep track of all process spawned
-  // since there is a bug, that we can't end the process at runtime
-  // this atleast ensures that at exit, all processs gets cleaned up
-  #procs: Deno.ChildProcess[] = [];
+  #proc?: Deno.ChildProcess;
   start() {
-    this.#procs.push(new Deno.Command("gnome-session-inhibit", {
+    this.#proc = new Deno.Command("gnome-session-inhibit", {
       args: ["--inhibit", "idle", "read"],
       stdin: "piped",
-    }).spawn());
+    }).spawn();
   }
   end() {
-    for (const proc of this.#procs) {
-      try {
-        proc.stdin.getWriter().write(this.#enc.encode("\n"));
-      } catch {
-        // we tried to close it twice, its cool
-      }
-    }
+    //FIXME: this does't kill the process at runtime
+    // it seems to be an ineraction with Gtk.Application
+    // But its still needed to stop the gnome idle inhibitor
+    this.#proc?.kill();
   }
 }
 
