@@ -7,7 +7,7 @@ import {
   kw,
   NamedArgument,
   python,
-} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.1.0/mod.ts";
+} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.1.1/mod.ts";
 
 class MainWindow extends Gtk.ApplicationWindow {
   #button;
@@ -33,7 +33,7 @@ class MainWindow extends Gtk.ApplicationWindow {
   }
 
   toggleSleep = python.callback((_, button: Gtk_.ToggleButton): undefined => {
-    if (button.get_active().toString() === "True") {
+    if (button.get_active().valueOf()) {
       button.set_label("ON");
       this.#idleStop.start();
     } else {
