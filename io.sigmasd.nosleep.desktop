@@ -1,9 +1,8 @@
-# Example of a desktop file
-# Should be copied/symlinked to ~/.local/share/applications/
 [Desktop Entry]
 Version=1.1
 Type=Application
 Name=No Sleep
 Icon=/home/mrcool/dev/deno/nosleep/nosleep.svg
-Exec=deno run --allow-run=gnome-session-inhibit --allow-ffi --allow-env=DENO_PYTHON_PATH --unstable-ffi /home/mrcool/dev/deno/nosleep/main.ts
+Exec=/home/mrcool/dev/deno/nosleep/bin/nosleep
+Actions=
 Categories=Utility;
