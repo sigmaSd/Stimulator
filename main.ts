@@ -7,7 +7,7 @@ import {
   kw,
   NamedArgument,
   python,
-} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.1.1/mod.ts";
+} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.1.2/mod.ts";
 
 class MainWindow extends Gtk.ApplicationWindow {
   #button;
@@ -26,13 +26,13 @@ class MainWindow extends Gtk.ApplicationWindow {
 
     this.connect(
       "close-request",
-      python.callback((): undefined => {
+      python.callback(() => {
         this.#idleStop.end();
       }),
     );
   }
 
-  toggleSleep = python.callback((_, button: Gtk_.ToggleButton): undefined => {
+  toggleSleep = python.callback((_, button: Gtk_.ToggleButton) => {
     if (button.get_active().valueOf()) {
       button.set_label("ON");
       this.#idleStop.start();
@@ -49,7 +49,7 @@ class App extends Adw.Application {
     super(kwArg);
     this.connect("activate", this.onActivate);
   }
-  onActivate = python.callback((_kwarg, app: Gtk_.Application): undefined => {
+  onActivate = python.callback((_kwarg, app: Gtk_.Application) => {
     this.#win = new MainWindow(new NamedArgument("application", app));
     this.#win.present();
   });
