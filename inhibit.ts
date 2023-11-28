@@ -1,7 +1,23 @@
 const ENCODER = new TextEncoder();
+const DECODER = new TextDecoder();
+
+const libgio2Path: string | undefined = (() => {
+  const output = DECODER.decode(
+    new Deno.Command("ldconfig", { args: ["-p"] })
+      .outputSync().stdout,
+  );
+  const line = output.split("\n").find((line) =>
+    line.includes("libgio-2.0.so")
+  );
+  if (!line) return;
+  const path = line.split("=>")[1].trim();
+  if (!path) return;
+  return path;
+})();
+if (!libgio2Path) throw new Error("Could not find libgio-2.0.so");
 
 const LIB_DBUS = Deno.dlopen(
-  "/usr/lib64/libgio-2.0.so.0",
+  libgio2Path,
   {
     "g_bus_get_sync": {
       parameters: ["u8", "pointer", "pointer"],
