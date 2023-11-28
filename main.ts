@@ -1,4 +1,4 @@
-#!/usr/bin/env -S  deno run --allow-run=gnome-session-inhibit --allow-ffi --allow-env=DENO_PYTHON_PATH --unstable-ffi main.ts
+#!/usr/bin/env -S  deno run --allow-run=gnome-session-inhibit --allow-ffi --allow-env=DENO_PYTHON_PATH,CSS --unstable-ffi main.ts
 import {
   Adw,
   Gdk,
@@ -8,10 +8,11 @@ import {
   NamedArgument,
   python,
 } from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.1.2/mod.ts";
+import { Inhibitor } from "./inhibit.ts";
 
 class MainWindow extends Gtk.ApplicationWindow {
   #button;
-  #idleStop = new IdleStop();
+  #inhibitor = new Inhibitor();
   constructor(kwArg: NamedArgument) {
     super(kwArg);
     this.set_default_size(300, 150);
@@ -27,7 +28,7 @@ class MainWindow extends Gtk.ApplicationWindow {
     this.connect(
       "close-request",
       python.callback(() => {
-        this.#idleStop.end();
+        this.#inhibitor.unInhibit();
       }),
     );
   }
@@ -35,10 +36,10 @@ class MainWindow extends Gtk.ApplicationWindow {
   toggleSleep = python.callback((_, button: Gtk_.ToggleButton) => {
     if (button.get_active().valueOf()) {
       button.set_label("ON");
-      this.#idleStop.start();
+      this.#inhibitor.inhibit();
     } else {
       button.set_label("OFF");
-      this.#idleStop.end();
+      this.#inhibitor.unInhibit();
     }
   });
 }
@@ -55,26 +56,10 @@ class App extends Adw.Application {
   });
 }
 
-class IdleStop {
-  #proc?: Deno.ChildProcess;
-  start() {
-    this.#proc = new Deno.Command("gnome-session-inhibit", {
-      args: ["--inhibit", "idle", "read"],
-      stdin: "piped",
-    }).spawn();
-  }
-  end() {
-    //FIXME: this does't kill the process at runtime
-    // it seems to be an ineraction with Gtk.Application
-    // But its still needed to stop the gnome idle inhibitor
-    this.#proc?.kill();
-  }
-}
-
 if (import.meta.main) {
   const css_provider = Gtk.CssProvider();
   css_provider.load_from_path(
-    new URL(import.meta.resolve("./main.css")).pathname,
+    Deno.env.get("CSS") || new URL(import.meta.resolve("./main.css")).pathname,
   );
   Gtk.StyleContext.add_provider_for_display(
     Gdk.Display.get_default(),
