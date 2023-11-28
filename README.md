@@ -7,4 +7,4 @@ Temporarily stops gnome from sleeping
 
 ## How it works
 
-It just runs `gnome-session-inhibit --inhibit idle read`
+It uses ffi bindings to libgio, to send a dbus message to inhibit gnome ideling. (same way that `gnome-session-inhibit --inhibit idle` does it.)
