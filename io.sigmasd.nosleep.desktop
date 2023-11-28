@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.1
-Type=Application
-Name=No Sleep
-Icon=/home/mrcool/dev/deno/nosleep/nosleep.svg
-Exec=/home/mrcool/dev/deno/nosleep/bin/nosleep
-Actions=
-Categories=Utility;
