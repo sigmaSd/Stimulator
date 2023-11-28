@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="console-application">
+  <id>io.github.sigmasd.nosleep</id>
+  <name>No Sleep</name>
+  <summary>Stop Gnome from Ideling</summary>
+  <developer_name>Bedis Nbiba</developer_name>
+
+  <metadata_license>MIT</metadata_license>
+  <project_license>MIT</project_license>
+
+  <description>
+    <p>
+      Stop gnome for ideling. (yes Should've been a shortcut in gnome)
+    </p>
+  </description>
+
+  <launchable type="desktop-id">io.github.sigmasd.nosleep.desktop</launchable>
+
+  <screenshots>
+    <screenshot type="default">
+      <caption>No Sleep screenshot</caption>
+      <image>FIXME</image>
+    </screenshot>
+  </screenshots>
+
+  <url type="homepage">https://github.com/sigmaSd/gnome-nosleep</url>
+  <url type="bugtracker">https://github.com/sigmaSd/gnome-nosleep/issues</url>
+
+  <content_rating type="oars-1.1" />
+
+  <releases>
+    <release version="0.2.0" date="2023-11-29">
+      <description>
+        <ul>
+          <li>Initial Release</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+
+  <keywords>
+    <keyword>caffeine</keyword>
+    <keyword>sleep</keyword>
+    <keyword>power</keyword>
+  </keywords>
+
+  <categories>
+    <category>Utility</category>
+  </categories>
+  
+  <provides>
+    <binary>nosleep</binary>
+  </provides>
+</component>
