@@ -66,6 +66,6 @@ if (import.meta.main) {
     css_provider,
     Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION,
   );
-  const app = new App(kw`application_id=${"io.sigmasd.nosleep"}`);
+  const app = new App(kw`application_id=${"io.github.sigmasd.nosleep"}`);
   app.run(Deno.args);
 }
