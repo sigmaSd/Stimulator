@@ -1,18 +1,13 @@
+import { existsSync } from "https://deno.land/std@0.208.0/fs/exists.ts";
+
 const ENCODER = new TextEncoder();
-const DECODER = new TextDecoder();
 
 const libgio2Path: string | undefined = (() => {
-  const output = DECODER.decode(
-    new Deno.Command("ldconfig", { args: ["-p"] })
-      .outputSync().stdout,
-  );
-  const line = output.split("\n").find((line) =>
-    line.includes("libgio-2.0.so")
-  );
-  if (!line) return;
-  const path = line.split("=>")[1].trim();
-  if (!path) return;
-  return path;
+  const PATHS = [
+    "/usr/lib64/libgio-2.0.so.0",
+    "/usr/lib/x86_64-linux-gnu/libgio-2.0.so.0",
+  ];
+  return PATHS.find((path) => existsSync(path));
 })();
 if (!libgio2Path) throw new Error("Could not find libgio-2.0.so");
 
