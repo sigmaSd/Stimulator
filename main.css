@@ -1,10 +1,10 @@
-.toggle {
+.mainToggle {
   color: red;
   font-size: 60px;
   font-weight:bold;
 }
 
-.toggle:checked {
+.mainToggle:checked {
   color: green;
   font-size: 60px;
   font-weight:bold;
