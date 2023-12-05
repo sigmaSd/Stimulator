@@ -88,9 +88,9 @@ class App extends Adw.Application {
   #win?: MainWindow;
   constructor(kwArg: NamedArgument) {
     super(kwArg);
-    this.connect("activate", this.onActivate);
+    this.connect("activate", this.#onActivate);
   }
-  onActivate = python.callback((_kwarg, app: Adw_.Application) => {
+  #onActivate = python.callback((_kwarg, app: Adw_.Application) => {
     this.#win = new MainWindow(app);
     this.#win.present();
   });
