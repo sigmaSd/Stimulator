@@ -13,11 +13,7 @@ import {
 
 class MainWindow extends Gtk.ApplicationWindow {
   #app: Adw_.Application;
-  #button;
-  #about?: Gtk_.AboutDialog;
-  #popover: Gtk_.PopoverMenu;
-  #hamburger: Gtk_.MenuButton;
-  #header: Gtk_.HeaderBar;
+  #button: Gtk_.ToggleButton;
   #cookie?: number;
   constructor(app: Adw_.Application) {
     super(new NamedArgument("application", app));
@@ -25,8 +21,8 @@ class MainWindow extends Gtk.ApplicationWindow {
     this.set_default_size(300, 150);
     this.set_title("No Sleep");
     this.set_resizable(false);
-    this.#header = Gtk.HeaderBar();
-    this.set_titlebar(this.#header);
+    const header = Gtk.HeaderBar();
+    this.set_titlebar(header);
 
     this.#button = Gtk.ToggleButton(
       new NamedArgument("label", "OFF"),
@@ -37,12 +33,12 @@ class MainWindow extends Gtk.ApplicationWindow {
 
     // menu
     const menu = Gio.Menu.new();
-    this.#popover = Gtk.PopoverMenu();
-    this.#popover.set_menu_model(menu);
-    this.#hamburger = Gtk.MenuButton();
-    this.#hamburger.set_popover(this.#popover);
-    this.#hamburger.set_icon_name("open-menu-symbolic");
-    this.#header.pack_start(this.#hamburger);
+    const popover = Gtk.PopoverMenu();
+    popover.set_menu_model(menu);
+    const hamburger = Gtk.MenuButton();
+    hamburger.set_popover(popover);
+    hamburger.set_icon_name("open-menu-symbolic");
+    header.pack_start(hamburger);
 
     // about dialog
     const action = Gio.SimpleAction.new("about");
@@ -69,22 +65,22 @@ class MainWindow extends Gtk.ApplicationWindow {
   });
 
   #showAbout = python.callback(() => {
-    this.#about = Gtk.AboutDialog();
-    this.#about.set_transient_for(this);
-    this.#about.set_modal(this);
+    const about = Gtk.AboutDialog();
+    about.set_transient_for(this);
+    about.set_modal(this);
 
-    this.#about.set_program_name("No Sleep");
-    this.#about.set_comments(
+    about.set_program_name("No Sleep");
+    about.set_comments(
       "Inhibit the desktop environment from sleeping (Ideling)",
     );
-    this.#about.set_authors(["Bedis Nbiba"]);
-    this.#about.set_license_type(Gtk.License.MIT_X11);
-    this.#about.set_website("https://github.com/sigmaSd/nosleep");
-    this.#about.set_website_label("Github");
-    this.#about.set_version("0.3.0");
-    this.#about.set_logo_icon_name("io.github.sigmasd.nosleep");
+    about.set_authors(["Bedis Nbiba"]);
+    about.set_license_type(Gtk.License.MIT_X11);
+    about.set_website("https://github.com/sigmaSd/nosleep");
+    about.set_website_label("Github");
+    about.set_version("0.3.0");
+    about.set_logo_icon_name("io.github.sigmasd.nosleep");
 
-    this.#about.set_visible(true);
+    about.set_visible(true);
   });
 }
 
