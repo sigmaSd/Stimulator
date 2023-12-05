@@ -85,7 +85,7 @@ class MainWindow extends Gtk.ApplicationWindow {
 }
 
 class App extends Adw.Application {
-  #win: MainWindow | undefined;
+  #win?: MainWindow;
   constructor(kwArg: NamedArgument) {
     super(kwArg);
     this.connect("activate", this.onActivate);
