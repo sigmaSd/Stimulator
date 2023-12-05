@@ -31,6 +31,13 @@
   <content_rating type="oars-1.1" />
 
   <releases>
+    <release version="0.3.0" date="2023-12-05">
+      <description>
+        <ul>
+          <li>Switch to Gtk Inhibit api that works across DEs</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.2.0" date="2023-11-29">
       <description>
         <ul>
