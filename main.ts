@@ -1,6 +1,7 @@
 #!/usr/bin/env -S  deno run --allow-ffi --allow-read --allow-env=DENO_PYTHON_PATH,CSS --unstable-ffi main.ts
 import {
   Adw,
+  Adw_,
   Gdk,
   Gio,
   Gtk,
@@ -8,18 +9,19 @@ import {
   kw,
   NamedArgument,
   python,
-} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.1.3/mod.ts";
-import { Inhibitor } from "./inhibit.ts";
+} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.1.4/mod.ts";
 
 class MainWindow extends Gtk.ApplicationWindow {
+  #app: Adw_.Application;
   #button;
-  #inhibitor = new Inhibitor();
   #about?: Gtk_.AboutDialog;
   #popover: Gtk_.PopoverMenu;
   #hamburger: Gtk_.MenuButton;
   #header: Gtk_.HeaderBar;
-  constructor(kwArg: NamedArgument) {
-    super(kwArg);
+  #cookie?: number;
+  constructor(app: Adw_.Application) {
+    super(new NamedArgument("application", app));
+    this.#app = app;
     this.set_default_size(300, 150);
     this.set_title("No Sleep");
     this.set_resizable(false);
@@ -32,13 +34,6 @@ class MainWindow extends Gtk.ApplicationWindow {
     this.#button.set_css_classes(["mainToggle"]);
     this.#button.connect("clicked", this.#toggleSleep);
     this.set_child(this.#button);
-
-    this.connect(
-      "close-request",
-      python.callback(() => {
-        this.#inhibitor.unInhibit();
-      }),
-    );
 
     // menu
     const menu = Gio.Menu.new();
@@ -59,10 +54,17 @@ class MainWindow extends Gtk.ApplicationWindow {
   #toggleSleep = python.callback((_, button: Gtk_.ToggleButton) => {
     if (button.get_active().valueOf()) {
       button.set_label("ON");
-      this.#inhibitor.inhibit();
+      if (this.#cookie !== undefined) return;
+      // NOTE: works but for some reason it issues a warning the first time its called about invalid flags
+      this.#cookie = this.#app.inhibit(
+        this,
+        Gtk.ApplicationInhibitFlags.IDLE,
+      );
     } else {
       button.set_label("OFF");
-      this.#inhibitor.unInhibit();
+      if (this.#cookie === undefined) return;
+      this.#app.uninhibit(this.#cookie);
+      this.#cookie = undefined;
     }
   });
 
@@ -72,7 +74,9 @@ class MainWindow extends Gtk.ApplicationWindow {
     this.#about.set_modal(this);
 
     this.#about.set_program_name("No Sleep");
-    this.#about.set_comments("Inhibit gnome from sleeping (Ideling)");
+    this.#about.set_comments(
+      "Inhibit the desktop environment from sleeping (Ideling)",
+    );
     this.#about.set_authors(["Bedis Nbiba"]);
     this.#about.set_license_type(Gtk.License.MIT_X11);
     this.#about.set_website("https://github.com/sigmaSd/gnome-nosleep");
@@ -90,8 +94,8 @@ class App extends Adw.Application {
     super(kwArg);
     this.connect("activate", this.onActivate);
   }
-  onActivate = python.callback((_kwarg, app: Gtk_.Application) => {
-    this.#win = new MainWindow(new NamedArgument("application", app));
+  onActivate = python.callback((_kwarg, app: Adw_.Application) => {
+    this.#win = new MainWindow(app);
     this.#win.present();
   });
 }

@@ -2,7 +2,9 @@
 <component type="console-application">
   <id>io.github.sigmasd.nosleep</id>
   <name>No Sleep</name>
-  <summary>Stop Gnome from Ideling</summary>
+  <summary>
+    Stops the desktop environment from sleeping.  
+  </summary>
   <developer_name>Bedis Nbiba</developer_name>
 
   <metadata_license>MIT</metadata_license>
@@ -10,7 +12,7 @@
 
   <description>
     <p>
-      Stop gnome for ideling. (yes Should've been a shortcut in gnome)
+    Stops the desktop environment from sleeping. (yes Should've been a shortcut in gnome)
     </p>
   </description>
 
@@ -42,6 +44,7 @@
     <keyword>caffeine</keyword>
     <keyword>sleep</keyword>
     <keyword>power</keyword>
+    <keyword>inhibit</keyword>
   </keywords>
 
   <categories>
