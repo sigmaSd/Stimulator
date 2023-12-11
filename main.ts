@@ -78,7 +78,7 @@ class MainWindow extends Gtk.ApplicationWindow {
     about.set_license_type(Gtk.License.MIT_X11);
     about.set_website("https://github.com/sigmaSd/nosleep");
     about.set_website_label("Github");
-    about.set_version("0.3.0");
+    about.set_version("0.3.1");
     about.set_logo_icon_name("io.github.sigmasd.nosleep");
 
     about.set_visible(true);
