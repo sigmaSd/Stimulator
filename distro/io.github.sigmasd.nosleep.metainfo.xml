@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component type="console-application">
+<component type="desktop-application">
   <id>io.github.sigmasd.nosleep</id>
   <name>No Sleep</name>
   <summary>
@@ -7,7 +7,7 @@
   </summary>
   <developer_name>Bedis Nbiba</developer_name>
 
-  <metadata_license>MIT</metadata_license>
+  <metadata_license>CC0</metadata_license>
   <project_license>MIT</project_license>
 
   <description>
