@@ -4,12 +4,13 @@ import {
   Adw_,
   Gdk,
   Gio,
+  GLib,
   Gtk,
   Gtk_,
   kw,
   NamedArgument,
   python,
-} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.1.4/mod.ts";
+} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.0/mod.ts";
 
 class MainWindow extends Gtk.ApplicationWindow {
   #app: Adw_.Application;
@@ -107,5 +108,13 @@ if (import.meta.main) {
     Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION,
   );
   const app = new App(kw`application_id=${"io.github.sigmasd.nosleep"}`);
+  const signal = python.import("signal");
+  GLib.unix_signal_add(
+    GLib.PRIORITY_HIGH,
+    signal.SIGINT,
+    python.callback(() => {
+      app.quit();
+    }),
+  );
   app.run(Deno.args);
 }
