@@ -3,7 +3,7 @@
   <id>io.github.sigmasd.nosleep</id>
   <name>No Sleep</name>
   <summary>
-    Stops the desktop environment from sleeping
+    Stop the desktop environment from sleeping
   </summary>
   <developer_name>Bedis Nbiba</developer_name>
 
@@ -12,7 +12,8 @@
 
   <description>
     <p>
-    Stops the desktop environment from sleeping. (yes should've been a shortcut in gnome)
+      This is a simple app that prevents the desktop environment (DE) from sleeping while its on.
+      It should work regardless of the used DE thanks to the Inhibit portal.
     </p>
   </description>
 
