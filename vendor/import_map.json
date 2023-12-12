@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "https://deno.land/": "./deno.land/",
+    "https://raw.githubusercontent.com/": "./raw.githubusercontent.com/"
+  }
+}
