@@ -72,7 +72,7 @@ class MainWindow extends Gtk.ApplicationWindow {
 
     about.set_program_name("No Sleep");
     about.set_comments(
-      "Inhibit the desktop environment from sleeping (Ideling)",
+      "Stop the desktop environment from sleeping",
     );
     about.set_authors(["Bedis Nbiba"]);
     about.set_license_type(Gtk.License.MIT_X11);
