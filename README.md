@@ -2,8 +2,8 @@
 
 Stop the desktop environment from sleeping
 
-![image](https://github.com/sigmaSd/gnome-nosleep/assets/22427111/a7d51547-c5de-427e-9cd7-f7be423cbe09)
-![image](https://github.com/sigmaSd/gnome-nosleep/assets/22427111/66f72f3b-c415-4f08-8dbf-ab8483e391ff)
+![image](https://raw.githubusercontent.com/sigmaSd/NoSleep/master/assets/on.png)
+![image](https://raw.githubusercontent.com/sigmaSd/NoSleep/master/assets/off.png)
 
 [![Get it from FlatHub](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/flathub.png)](https://flathub.org/apps/io.github.sigmasd.nosleep)
 
