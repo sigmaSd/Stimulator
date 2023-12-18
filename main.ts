@@ -10,7 +10,7 @@ import {
   kw,
   NamedArgument,
   python,
-} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.0/mod.ts";
+} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.1/mod.ts";
 
 class MainWindow extends Gtk.ApplicationWindow {
   #app: Adw_.Application;
@@ -25,9 +25,8 @@ class MainWindow extends Gtk.ApplicationWindow {
     const header = Gtk.HeaderBar();
     this.set_titlebar(header);
 
-    this.#button = Gtk.ToggleButton(
-      new NamedArgument("label", "OFF"),
-    );
+    this.#button = Gtk.ToggleButton();
+    this.#button.set_icon_name("system-shutdown-symbolic");
     this.#button.set_css_classes(["mainToggle"]);
     this.#button.connect("clicked", this.#toggleSleep);
     this.set_child(this.#button);
@@ -50,7 +49,6 @@ class MainWindow extends Gtk.ApplicationWindow {
 
   #toggleSleep = python.callback((_, button: Gtk_.ToggleButton) => {
     if (button.get_active().valueOf()) {
-      button.set_label("ON");
       if (this.#cookie !== undefined) return;
       // NOTE: works but for some reason it issues a warning the first time its called about invalid flags
       this.#cookie = this.#app.inhibit(
@@ -58,7 +56,6 @@ class MainWindow extends Gtk.ApplicationWindow {
         Gtk.ApplicationInhibitFlags.IDLE,
       );
     } else {
-      button.set_label("OFF");
       if (this.#cookie === undefined) return;
       this.#app.uninhibit(this.#cookie);
       this.#cookie = undefined;
