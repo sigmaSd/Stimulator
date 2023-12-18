@@ -12,6 +12,8 @@ import {
   python,
 } from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.1/mod.ts";
 
+const VERSION = "0.3.7";
+
 class MainWindow extends Gtk.ApplicationWindow {
   #app: Adw_.Application;
   #button: Gtk_.ToggleButton;
@@ -75,7 +77,7 @@ class MainWindow extends Gtk.ApplicationWindow {
     about.set_license_type(Gtk.License.MIT_X11);
     about.set_website("https://github.com/sigmaSd/nosleep");
     about.set_website_label("Github");
-    about.set_version("0.3.6");
+    about.set_version(VERSION);
     about.set_logo_icon_name("io.github.sigmasd.nosleep");
 
     about.set_visible(true);

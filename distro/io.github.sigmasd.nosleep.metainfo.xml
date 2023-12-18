@@ -36,6 +36,14 @@
   <content_rating type="oars-1.1" />
 
   <releases>
+    <release version="0.3.7" date="2023-12-18">
+      <description>
+        <ul>
+          <li>Replace ON/OFF text with symbolic power button icon</li>
+          <li>Update about info</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.3.6" date="2023-12-11">
       <description>
         <ul>
