@@ -2,8 +2,10 @@
 
 Stop the desktop environment from sleeping
 
-![image](https://raw.githubusercontent.com/sigmaSd/NoSleep/master/assets/on.png)
-![image](https://raw.githubusercontent.com/sigmaSd/NoSleep/master/assets/off.png)
+<div style="display:flex">
+<img src="https://raw.githubusercontent.com/sigmaSd/NoSleep/master/assets/on.png"/>
+<img src="https://raw.githubusercontent.com/sigmaSd/NoSleep/master/assets/off.png"/>
+</div>
 
 [![Get it from FlatHub](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/flathub.png)](https://flathub.org/apps/io.github.sigmasd.nosleep)
 
