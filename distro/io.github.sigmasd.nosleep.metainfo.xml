@@ -36,6 +36,13 @@
   <content_rating type="oars-1.1" />
 
   <releases>
+    <release version="0.4.0" date="2023-12-20">
+      <description>
+        <ul>
+          <li>Improve Looks</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.3.7" date="2023-12-18">
       <description>
         <ul>

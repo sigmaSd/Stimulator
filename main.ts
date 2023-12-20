@@ -12,7 +12,7 @@ import {
   python,
 } from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.1/mod.ts";
 
-const VERSION = "0.3.7";
+const VERSION = "0.4.0";
 
 class MainWindow extends Gtk.ApplicationWindow {
   #app: Adw_.Application;
