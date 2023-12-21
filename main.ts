@@ -65,22 +65,21 @@ class MainWindow extends Gtk.ApplicationWindow {
   });
 
   #showAbout = python.callback(() => {
-    const about = Gtk.AboutDialog();
-    about.set_transient_for(this);
-    about.set_modal(this);
-
-    about.set_program_name("No Sleep");
-    about.set_comments(
-      "Stop the desktop environment from sleeping",
+    const dialog = Adw.AboutWindow(
+      new NamedArgument("transient_for", this.#app.get_active_window()),
     );
-    about.set_authors(["Bedis Nbiba"]);
-    about.set_license_type(Gtk.License.MIT_X11);
-    about.set_website("https://github.com/sigmaSd/nosleep");
-    about.set_website_label("Github");
-    about.set_version(VERSION);
-    about.set_logo_icon_name("io.github.sigmasd.nosleep");
+    dialog.set_application_name("No Sleep");
+    dialog.set_version(VERSION);
+    dialog.set_developer_name("Bedis Nbiba");
+    dialog.set_license_type(Gtk.License.MIT_X11);
+    dialog.set_comments("Stop the desktop environment from sleeping");
+    dialog.set_website("https://github.com/sigmaSd/nosleep");
+    dialog.set_issue_url(
+      "https://github.com/sigmaSd/nosleep/issues",
+    );
+    dialog.set_application_icon("io.github.sigmasd.nosleep");
 
-    about.set_visible(true);
+    dialog.set_visible(true);
   });
 }
 
