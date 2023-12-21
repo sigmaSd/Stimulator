@@ -10,7 +10,7 @@ import {
   kw,
   NamedArgument,
   python,
-} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.1/mod.ts";
+} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.2/mod.ts";
 
 const VERSION = "0.4.0";
 
