@@ -1,4 +1,4 @@
-#!/usr/bin/env -S  deno run --allow-ffi --allow-env=DENO_PYTHON_PATH,CSS --unstable-ffi main.ts
+#!/usr/bin/env -S  deno run --allow-read=locales --allow-ffi --allow-env=DENO_PYTHON_PATH,CSS --unstable-ffi main.ts
 import {
   Adw,
   Adw_,
@@ -11,6 +11,7 @@ import {
   NamedArgument,
   python,
 } from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.2/mod.ts";
+import { t } from "./i18n.ts";
 
 const VERSION = "0.4.1";
 
@@ -46,7 +47,7 @@ class MainWindow extends Gtk.ApplicationWindow {
     const action = Gio.SimpleAction.new("about");
     action.connect("activate", this.#showAbout);
     this.add_action(action);
-    menu.append("About", "win.about");
+    menu.append(t("About"), "win.about");
   }
 
   #toggleSleep = python.callback((_, button: Gtk_.ToggleButton) => {
@@ -72,7 +73,7 @@ class MainWindow extends Gtk.ApplicationWindow {
     dialog.set_version(VERSION);
     dialog.set_developer_name("Bedis Nbiba");
     dialog.set_license_type(Gtk.License.MIT_X11);
-    dialog.set_comments("Stop the desktop environment from sleeping");
+    dialog.set_comments(t("Stop the desktop environment from sleeping"));
     dialog.set_website("https://github.com/sigmaSd/nosleep");
     dialog.set_issue_url(
       "https://github.com/sigmaSd/nosleep/issues",
