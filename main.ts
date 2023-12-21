@@ -11,8 +11,7 @@ import {
   NamedArgument,
   python,
 } from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.1/mod.ts";
-import i18n from "./i18n.ts";
-const t = i18n();
+import { t } from "./i18n.ts";
 
 const VERSION = "0.4.1";
 
@@ -74,7 +73,7 @@ class MainWindow extends Gtk.ApplicationWindow {
     dialog.set_version(VERSION);
     dialog.set_developer_name("Bedis Nbiba");
     dialog.set_license_type(Gtk.License.MIT_X11);
-    dialog.set_comments("Stop the desktop environment from sleeping");
+    dialog.set_comments(t("Stop the desktop environment from sleeping"));
     dialog.set_website("https://github.com/sigmaSd/nosleep");
     dialog.set_issue_url(
       "https://github.com/sigmaSd/nosleep/issues",
