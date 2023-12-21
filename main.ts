@@ -1,4 +1,4 @@
-#!/usr/bin/env -S  deno run --allow-ffi --allow-env=DENO_PYTHON_PATH,CSS --unstable-ffi main.ts
+#!/usr/bin/env -S  deno run --allow-read=locales --allow-ffi --allow-env=DENO_PYTHON_PATH,CSS --unstable-ffi main.ts
 import {
   Adw,
   Adw_,
@@ -10,7 +10,9 @@ import {
   kw,
   NamedArgument,
   python,
-} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.2/mod.ts";
+} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.1/mod.ts";
+import i18n from "./i18n.ts";
+const t = i18n();
 
 const VERSION = "0.4.1";
 
@@ -46,7 +48,7 @@ class MainWindow extends Gtk.ApplicationWindow {
     const action = Gio.SimpleAction.new("about");
     action.connect("activate", this.#showAbout);
     this.add_action(action);
-    menu.append("About", "win.about");
+    menu.append(t("About"), "win.about");
   }
 
   #toggleSleep = python.callback((_, button: Gtk_.ToggleButton) => {
