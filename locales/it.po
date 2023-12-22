@@ -1,0 +1,4 @@
+{
+  "About": "Informazioni",
+  "Stop the desktop environment from sleeping": "Evita che l'ambiente desktop entri in modalità di sospensione"
+}
