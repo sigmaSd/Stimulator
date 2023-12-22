@@ -6,7 +6,8 @@ await i18next
   .use(Backend)
   .init({
     backend: {
-      loadPath: "locales/{{lng}}/{{ns}}.json",
+      loadPath: new URL(import.meta.resolve("./locales")).pathname +
+        "/{{lng}}/{{ns}}.json",
     },
   });
 await i18next.changeLanguage(systemLocale);
