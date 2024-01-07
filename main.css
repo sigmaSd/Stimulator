@@ -3,16 +3,24 @@
   -gtk-icon-size: 1em;
   border-radius: 0;
   background-color: @window_bg_color;
-  color: @destructive_bg_color;
+  color: @success_bg_color;
   transition: 0.3s;
 }
 
 .mainToggle:checked {
   background-color: @window_bg_color;
-  color: @success_bg_color;
+  color: @destructive_bg_color;
 }
 
 .mainToggle:hover {
   background-color: @sidebar_backdrop_color;
   transition: 0.3s;
+}
+
+.mainBox {
+margin: 0.5em;
+}
+
+.labelsBox {
+  font-weight: bold;
 }

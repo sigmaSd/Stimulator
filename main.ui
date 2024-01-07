@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created with Cambalache 0.16.0 -->
+<interface>
+  <!-- interface-name hh.ui -->
+  <requires lib="gtk" version="4.12"/>
+  <object class="GtkApplicationWindow" id="mainWindow">
+    <property name="default-height">150</property>
+    <property name="default-width">250</property>
+    <child>
+      <object class="GtkBox">
+        <property name="margin-end">10</property>
+        <property name="margin-start">10</property>
+        <property name="spacing">19</property>
+        <child>
+          <object class="GtkToggleButton" id="mainToggle">
+            <property name="css-classes">mainToggle</property>
+            <property name="icon-name">system-shutdown-symbolic</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="css-classes">labelsBox</property>
+            <property name="hexpand">True</property>
+            <property name="orientation">vertical</property>
+            <property name="spacing">10</property>
+            <property name="valign">baseline-center</property>
+            <child>
+              <object class="GtkBox">
+                <property name="halign">baseline</property>
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="halign">start</property>
+                    <property name="label">Automatic suspend:</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="suspendLabel">
+                    <property name="halign">start</property>
+                    <property name="label">System default</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="halign">start</property>
+                    <property name="label">Screen blank:</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="screenLabel">
+                    <property name="halign">start</property>
+                    <property name="label">System default</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

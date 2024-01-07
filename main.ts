@@ -15,25 +15,34 @@ import { t } from "./i18n.ts";
 
 const VERSION = "0.4.3";
 
-class MainWindow extends Gtk.ApplicationWindow {
+const UI_LABELS = {
+  SystemDefault: "System Default",
+  Never: "Never",
+};
+
+class MainWindow {
+  #win: Gtk_.ApplicationWindow;
   #app: Adw_.Application;
-  #button: Gtk_.ToggleButton;
+  #mainToggle: Gtk_.ToggleButton;
   #cookie?: number;
   #keepScreenOn = true;
+  #suspendLabel: Gtk_.Label;
+  #screenLabel: Gtk_.Label;
   constructor(app: Adw_.Application) {
-    super(new NamedArgument("application", app));
-    this.#app = app;
-    this.set_default_size(300, 150);
-    this.set_title("No Sleep");
-    this.set_resizable(false);
-    const header = Gtk.HeaderBar();
-    this.set_titlebar(header);
+    const builder = Gtk.Builder();
+    builder.add_from_file(new URL(import.meta.resolve("./main.ui")).pathname);
+    this.#win = builder.get_object("mainWindow");
+    this.#mainToggle = builder.get_object("mainToggle");
+    this.#suspendLabel = builder.get_object("suspendLabel");
+    this.#screenLabel = builder.get_object("screenLabel");
 
-    this.#button = Gtk.ToggleButton();
-    this.#button.set_icon_name("system-shutdown-symbolic");
-    this.#button.set_css_classes(["mainToggle"]);
-    this.#button.connect("clicked", this.#toggleSleep);
-    this.set_child(this.#button);
+    this.#app = app;
+    this.#win.set_application(app);
+
+    const header = Gtk.HeaderBar();
+    this.#win.set_titlebar(header);
+
+    this.#mainToggle.connect("clicked", this.#toggleSleep);
 
     // menu
     const menu = Gio.Menu.new();
@@ -48,7 +57,7 @@ class MainWindow extends Gtk.ApplicationWindow {
     {
       const action = Gio.SimpleAction.new("about");
       action.connect("activate", this.#showAbout);
-      this.add_action(action);
+      this.#win.add_action(action);
       menu.append(t("About"), "win.about");
     }
 
@@ -56,13 +65,22 @@ class MainWindow extends Gtk.ApplicationWindow {
     {
       const action = Gio.SimpleAction.new("preference");
       action.connect("activate", this.#showPreference);
-      this.add_action(action);
+      this.#win.add_action(action);
       menu.append(t("Preferences"), "win.preference");
     }
   }
 
+  present() {
+    this.#win.present();
+  }
+
   #toggleSleep = python.callback((_, button: Gtk_.ToggleButton) => {
     if (button.get_active().valueOf()) {
+      this.#suspendLabel.set_label(UI_LABELS.Never);
+      this.#screenLabel.set_label(
+        this.#keepScreenOn ? UI_LABELS.Never : UI_LABELS.SystemDefault,
+      );
+
       if (this.#cookie !== undefined) {
         this.#app.uninhibit(this.#cookie);
         this.#cookie = undefined;
@@ -74,10 +92,12 @@ class MainWindow extends Gtk.ApplicationWindow {
         : Gtk.ApplicationInhibitFlags.SUSPEND;
 
       this.#cookie = this.#app.inhibit(
-        this,
+        this.#win,
         flags,
       );
     } else {
+      this.#suspendLabel.set_label(UI_LABELS.SystemDefault);
+      this.#screenLabel.set_label(UI_LABELS.SystemDefault);
       if (this.#cookie === undefined) return;
       this.#app.uninhibit(this.#cookie);
       this.#cookie = undefined;
@@ -129,19 +149,18 @@ class MainWindow extends Gtk.ApplicationWindow {
 
   #onKeepScreenOnSwitchClicked = python.callback((_, _switch, state) => {
     this.#keepScreenOn = state.valueOf();
-    this.#toggleSleep.callback(undefined, this.#button);
+    this.#toggleSleep.callback(undefined, this.#mainToggle);
   });
 }
 
 class App extends Adw.Application {
-  #win?: MainWindow;
   constructor(kwArg: NamedArgument) {
     super(kwArg);
     this.connect("activate", this.#onActivate);
   }
   #onActivate = python.callback((_kwarg, app: Adw_.Application) => {
-    this.#win = new MainWindow(app);
-    this.#win.present();
+    const win = new MainWindow(app);
+    win.present();
   });
 }
 
