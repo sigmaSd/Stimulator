@@ -7,6 +7,9 @@ import type {
 } from "../mod.ts";
 
 export interface Adw {
+  PreferencesGroup(): PreferencesGroup;
+  PreferencesPage(): PreferencesPage;
+  PreferencesWindow(kwArg: NamedArgument): PreferencesWindow;
   AboutWindow(kwArg: NamedArgument): AboutWindow;
   Application: ApplicationConstructor;
   run: () => void;
@@ -45,4 +48,16 @@ export interface Application extends PyObject {
   // it should be ApplicaitonWindow
   get_active_window: () => PythonConvertible;
   quit: () => void;
+}
+
+export interface PreferencesPage extends Gtk_.Widget {
+  add(group: PreferencesGroup): void;
+}
+export interface PreferencesWindow /* extends Gtk_.Window */ {
+  set_visible(yes: boolean): void;
+  add(page: PreferencesPage): void;
+}
+export interface PreferencesGroup extends Gtk_.Widget {
+  set_title(title: string): void;
+  add(child: Gtk_.Widget): void;
 }
