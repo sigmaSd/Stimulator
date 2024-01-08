@@ -30,7 +30,9 @@ class MainWindow {
   #screenLabel: Gtk_.Label;
   constructor(app: Adw_.Application) {
     const builder = Gtk.Builder();
-    builder.add_from_file(new URL(import.meta.resolve("./main.ui")).pathname);
+    builder.add_from_file(
+      new URL(import.meta.resolve("./ui/nosleep.ui")).pathname,
+    );
     this.#win = builder.get_object("mainWindow");
     this.#mainToggle = builder.get_object("mainToggle");
     this.#suspendLabel = builder.get_object("suspendLabel");

@@ -4,13 +4,17 @@
   <!-- interface-name hh.ui -->
   <requires lib="gtk" version="4.12"/>
   <object class="GtkApplicationWindow" id="mainWindow">
-    <property name="default-height">150</property>
-    <property name="default-width">250</property>
+    <property name="default-height">180</property>
+    <property name="default-width">300</property>
+    <property name="resizable">False</property>
+    <property name="title">No Sleep</property>
     <child>
       <object class="GtkBox">
-        <property name="margin-end">10</property>
-        <property name="margin-start">10</property>
-        <property name="spacing">19</property>
+        <property name="margin-bottom">20</property>
+        <property name="margin-end">20</property>
+        <property name="margin-start">20</property>
+        <property name="margin-top">20</property>
+        <property name="spacing">20</property>
         <child>
           <object class="GtkToggleButton" id="mainToggle">
             <property name="css-classes">mainToggle</property>
