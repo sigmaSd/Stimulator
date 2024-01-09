@@ -104,6 +104,7 @@ class MainWindow {
           throw new Error("unexpcted type:", type);
       }
 
+      // NOTE(only for idle flag): works but for some reason it issues a warning the first time its called about invalid flags
       this.#cookies[type] = this.#app.inhibit(this.#win, flag);
     } else {
       // Nothing to uninhibit just return
