@@ -8,6 +8,7 @@
     <property name="default-height">200</property>
     <property name="default-width">450</property>
     <property name="resizable">False</property>
+    <property name="title">No Sleep</property>
     <child>
       <object class="AdwPreferencesPage">
         <child>
