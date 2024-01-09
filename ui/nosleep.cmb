@@ -2,47 +2,45 @@
 <!DOCTYPE cambalache-project SYSTEM "cambalache-project.dtd">
 <cambalache-project version="0.13.1" target_tk="gtk-4.0">
   <ui>
-	(1,None,"hh.ui","nosleep.ui",None,None,None,None,None,None,None)
+	(1,None,"hh.ui","nosleep.ui",None,None,None,None,None,None,None),
+	(2,None,None,None,None,None,None,None,None,None,None)
   </ui>
   <object>
 	(1,15,"GtkApplicationWindow","mainWindow",None,None,None,None,-1,None),
-	(1,16,"GtkBox",None,15,None,None,None,None,None),
-	(1,18,"GtkBox",None,16,None,None,None,2,None),
-	(1,19,"GtkBox",None,18,None,None,None,None,None),
-	(1,20,"GtkLabel",None,19,None,None,None,None,None),
-	(1,21,"GtkLabel","suspendLabel",19,None,None,None,1,None),
-	(1,22,"GtkBox",None,18,None,None,None,1,None),
-	(1,23,"GtkLabel",None,22,None,None,None,None,None),
-	(1,24,"GtkLabel","screenLabel",22,None,None,None,1,None),
-	(1,25,"GtkToggleButton","mainToggle",16,None,None,None,1,None)
+	(1,16,"GtkBox",None,15,None,None,None,-1,None),
+	(1,17,"GtkBox",None,16,None,None,None,None,None),
+	(1,18,"GtkBox",None,16,None,None,None,1,None),
+	(1,19,"GtkBox",None,17,None,None,None,None,None),
+	(1,20,"GtkSwitch",None,17,None,None,None,1,None),
+	(1,22,"GtkSwitch",None,18,None,None,None,1,None),
+	(1,23,"GtkLabel",None,19,None,None,None,-1,None),
+	(1,24,"GtkBox",None,19,None,None,None,1,None),
+	(1,25,"GtkLabel",None,24,None,None,None,None,None),
+	(1,26,"GtkLabel",None,24,None,None,None,1,None),
+	(1,27,"GtkBox",None,18,None,None,None,None,None),
+	(1,28,"GtkLabel",None,27,None,None,None,None,None),
+	(1,29,"GtkBox",None,27,None,None,None,1,None),
+	(1,30,"GtkLabel",None,29,None,None,None,None,None),
+	(1,31,"GtkLabel",None,29,None,None,None,1,None),
+	(2,1,"AdwPreferencesWindow",None,None,None,None,None,-1,None),
+	(2,2,"AdwPreferencesPage",None,1,None,None,None,-1,None),
+	(2,3,"AdwPreferencesGroup",None,2,None,None,None,-1,None),
+	(2,4,"AdwEntryRow",None,3,None,None,None,-1,None)
   </object>
   <object_property>
 	(1,15,"GtkWindow","default-height","180",None,None,None,None,None,None,None,None,None),
 	(1,15,"GtkWindow","default-width","300",None,None,None,None,None,None,None,None,None),
 	(1,15,"GtkWindow","resizable","False",None,None,None,None,None,None,None,None,None),
 	(1,15,"GtkWindow","title","No Sleep",None,None,None,None,None,None,None,None,None),
-	(1,16,"GtkBox","spacing","20",None,None,None,None,None,None,None,None,None),
-	(1,16,"GtkWidget","margin-bottom","20",None,None,None,None,None,None,None,None,None),
-	(1,16,"GtkWidget","margin-end","20",None,None,None,None,None,None,None,None,None),
-	(1,16,"GtkWidget","margin-start","20",None,None,None,None,None,None,None,None,None),
-	(1,16,"GtkWidget","margin-top","20",None,None,None,None,None,None,None,None,None),
-	(1,18,"GtkBox","spacing","10",None,None,None,None,None,None,None,None,None),
-	(1,18,"GtkOrientable","orientation","vertical",None,None,None,None,None,None,None,None,None),
-	(1,18,"GtkWidget","css-classes","labelsBox",None,None,None,None,None,None,None,None,None),
-	(1,18,"GtkWidget","hexpand","True",None,None,None,None,None,None,None,None,None),
-	(1,18,"GtkWidget","valign","baseline-center",None,None,None,None,None,None,None,None,None),
+	(1,16,"GtkOrientable","orientation","vertical",None,None,None,None,None,None,None,None,None),
 	(1,19,"GtkOrientable","orientation","vertical",None,None,None,None,None,None,None,None,None),
-	(1,19,"GtkWidget","halign","baseline",None,None,None,None,None,None,None,None,None),
-	(1,20,"GtkLabel","label","Automatic suspend:",None,None,None,None,None,None,None,None,None),
-	(1,20,"GtkWidget","halign","start",None,None,None,None,None,None,None,None,None),
-	(1,21,"GtkLabel","label","System default",None,None,None,None,None,None,None,None,None),
-	(1,21,"GtkWidget","halign","start",None,None,None,None,None,None,None,None,None),
-	(1,22,"GtkOrientable","orientation","vertical",None,None,None,None,None,None,None,None,None),
-	(1,23,"GtkLabel","label","Screen blank:",None,None,None,None,None,None,None,None,None),
-	(1,23,"GtkWidget","halign","start",None,None,None,None,None,None,None,None,None),
-	(1,24,"GtkLabel","label","System default",None,None,None,None,None,None,None,None,None),
-	(1,24,"GtkWidget","halign","start",None,None,None,None,None,None,None,None,None),
-	(1,25,"GtkButton","icon-name","system-shutdown-symbolic",None,None,None,None,None,None,None,None,None),
-	(1,25,"GtkWidget","css-classes","mainToggle",None,None,None,None,None,None,None,None,None)
+	(1,23,"GtkLabel","label","Disable Automatic Suspending:",None,None,None,None,None,None,None,None,None),
+	(1,25,"GtkLabel","label","Current state:",None,None,None,None,None,None,None,None,None),
+	(1,26,"GtkLabel","label","Infinitely",None,None,None,None,None,None,None,None,None),
+	(1,27,"GtkOrientable","orientation","vertical",None,None,None,None,None,None,None,None,None),
+	(1,28,"GtkLabel","label","Disable Screen Blanking:",None,None,None,None,None,None,None,None,None),
+	(1,30,"GtkLabel","label","Current state:",None,None,None,None,None,None,None,None,None),
+	(1,31,"GtkLabel","label","Infinitely",None,None,None,None,None,None,None,None,None),
+	(2,4,"AdwPreferencesRow","title","Hello",None,None,None,None,None,None,None,None,None)
   </object_property>
 </cambalache-project>

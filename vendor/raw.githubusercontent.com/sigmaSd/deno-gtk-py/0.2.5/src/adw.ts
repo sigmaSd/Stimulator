@@ -61,3 +61,8 @@ export interface PreferencesGroup extends Gtk_.Widget {
   set_title(title: string): void;
   add(child: Gtk_.Widget): void;
 }
+export interface SwitchRow extends Gtk_.Switch {
+  get_active(): { valueOf: () => boolean };
+  set_subtitle(subTitle: string): void;
+  connect(event: "state-set" | "notify::active", callback: Callback): void;
+}

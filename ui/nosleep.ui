@@ -2,65 +2,26 @@
 <!-- Created with Cambalache 0.16.0 -->
 <interface>
   <!-- interface-name hh.ui -->
-  <requires lib="gtk" version="4.12"/>
+  <requires lib="gtk" version="4.6"/>
+  <requires lib="libadwaita" version="1.4"/>
   <object class="GtkApplicationWindow" id="mainWindow">
-    <property name="default-height">180</property>
-    <property name="default-width">300</property>
+    <property name="default-height">200</property>
+    <property name="default-width">450</property>
     <property name="resizable">False</property>
-    <property name="title">No Sleep</property>
     <child>
-      <object class="GtkBox">
-        <property name="margin-bottom">20</property>
-        <property name="margin-end">20</property>
-        <property name="margin-start">20</property>
-        <property name="margin-top">20</property>
-        <property name="spacing">20</property>
+      <object class="AdwPreferencesPage">
         <child>
-          <object class="GtkToggleButton" id="mainToggle">
-            <property name="css-classes">mainToggle</property>
-            <property name="icon-name">system-shutdown-symbolic</property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkBox">
-            <property name="css-classes">labelsBox</property>
-            <property name="hexpand">True</property>
-            <property name="orientation">vertical</property>
-            <property name="spacing">10</property>
-            <property name="valign">baseline-center</property>
+          <object class="AdwPreferencesGroup">
             <child>
-              <object class="GtkBox">
-                <property name="halign">baseline</property>
-                <property name="orientation">vertical</property>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="halign">start</property>
-                    <property name="label">Automatic suspend:</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="suspendLabel">
-                    <property name="halign">start</property>
-                    <property name="label">System default</property>
-                  </object>
-                </child>
+              <object class="AdwSwitchRow" id="suspendRow">
+                <property name="subtitle">Inhibit suspending the session or computer</property>
+                <property name="title">Inhibit Suspend</property>
               </object>
             </child>
             <child>
-              <object class="GtkBox">
-                <property name="orientation">vertical</property>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="halign">start</property>
-                    <property name="label">Screen blank:</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="screenLabel">
-                    <property name="halign">start</property>
-                    <property name="label">System default</property>
-                  </object>
-                </child>
+              <object class="AdwSwitchRow" id="idleRow">
+                <property name="subtitle">Inhibit the session being marked as idle (and possibly locked)</property>
+                <property name="title">Inhibit Idle</property>
               </object>
             </child>
           </object>
