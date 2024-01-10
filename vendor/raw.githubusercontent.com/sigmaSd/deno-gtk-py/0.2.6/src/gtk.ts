@@ -31,10 +31,10 @@ export interface Gtk {
     GPL_3_0: never;
   };
   ApplicationInhibitFlags: {
-    LOGOUT: number;
-    SWITCH: number;
-    SUSPEND: number;
-    IDLE: number;
+    LOGOUT: ApplicationInhibitFlags;
+    SWITCH: ApplicationInhibitFlags;
+    SUSPEND: ApplicationInhibitFlags;
+    IDLE: ApplicationInhibitFlags;
   };
   FileFilter(): FileFilter;
   STYLE_PROVIDER_PRIORITY_APPLICATION: number;
@@ -183,4 +183,11 @@ export interface DrawingArea extends Widget {
   set_draw_func(callback: Callback): void;
   set_vexpand(arg0: boolean): void;
   set_hexpand(arg0: boolean): void;
+}
+
+export enum ApplicationInhibitFlags {
+  LOGOUT,
+  SWITCH,
+  SUSPEND,
+  IDLE,
 }
