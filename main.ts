@@ -54,6 +54,7 @@ class MainWindow {
     this.#idleRow = builder.get_object("idleRow");
     this.#idleRow.connect(
       "notify::active",
+      // NOTE: works but for some reason it issues a warning the first time its called about invalid flags
       python.callback(() => this.#toggle(this.#idleRow, "idle")),
     );
 
@@ -114,7 +115,6 @@ class MainWindow {
           throw new Error("unexpcted type:", type);
       }
 
-      // NOTE(only for idle flag): works but for some reason it issues a warning the first time its called about invalid flags
       this.#cookies[type] = this.#app.inhibit(this.#win, flag).valueOf();
     } else {
       // Nothing to uninhibit just return
