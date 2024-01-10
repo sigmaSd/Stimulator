@@ -24,6 +24,8 @@ interface Flags {
 class MainWindow {
   #app: Adw_.Application;
   #win: Gtk_.ApplicationWindow;
+  #logoutRow: Adw_.SwitchRow;
+  #switchRow: Adw_.SwitchRow;
   #suspendRow: Adw_.SwitchRow;
   #idleRow: Adw_.SwitchRow;
 
@@ -34,10 +36,26 @@ class MainWindow {
       new URL(import.meta.resolve("./ui/nosleep.ui")).pathname,
     );
     this.#win = builder.get_object("mainWindow");
+    this.#logoutRow = builder.get_object("logoutRow");
+    this.#logoutRow.connect(
+      "notify::active",
+      python.callback(() => this.#toggle(this.#logoutRow, "logout")),
+    );
+    this.#switchRow = builder.get_object("switchRow");
+    this.#switchRow.connect(
+      "notify::active",
+      python.callback(() => this.#toggle(this.#switchRow, "switch")),
+    );
     this.#suspendRow = builder.get_object("suspendRow");
-    this.#suspendRow.connect("notify::active", this.#toggleSuspend);
+    this.#suspendRow.connect(
+      "notify::active",
+      python.callback(() => this.#toggle(this.#suspendRow, "suspend")),
+    );
     this.#idleRow = builder.get_object("idleRow");
-    this.#idleRow.connect("notify::active", this.#toggleIdle);
+    this.#idleRow.connect(
+      "notify::active",
+      python.callback(() => this.#toggle(this.#idleRow, "idle")),
+    );
 
     this.#app = app;
     this.#win.set_application(this.#app);
@@ -65,14 +83,6 @@ class MainWindow {
   present() {
     this.#win.present();
   }
-
-  #toggleSuspend = python.callback(() => {
-    this.#toggle(this.#suspendRow, "suspend");
-  });
-
-  #toggleIdle = python.callback((_) => {
-    this.#toggle(this.#idleRow, "idle");
-  });
 
   #toggle = (
     row: Adw_.SwitchRow,
