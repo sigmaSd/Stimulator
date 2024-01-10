@@ -144,13 +144,14 @@ class MainWindow {
 }
 
 class App extends Adw.Application {
+  #win?: MainWindow;
   constructor(kwArg: NamedArgument) {
     super(kwArg);
     this.connect("activate", this.#onActivate);
   }
   #onActivate = python.callback((_kwarg, app: Adw_.Application) => {
-    const win = new MainWindow(app);
-    win.present();
+    this.#win = new MainWindow(app);
+    this.#win.present();
   });
 }
 
