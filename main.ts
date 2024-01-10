@@ -115,7 +115,7 @@ class MainWindow {
       }
 
       // NOTE(only for idle flag): works but for some reason it issues a warning the first time its called about invalid flags
-      this.#cookies[type] = this.#app.inhibit(this.#win, flag);
+      this.#cookies[type] = this.#app.inhibit(this.#win, flag).valueOf();
     } else {
       // Nothing to uninhibit just return
       if (cookie === undefined) return;
