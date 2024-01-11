@@ -2,6 +2,7 @@
 import {
   Adw,
   Adw_,
+  Gdk,
   Gio,
   GLib,
   Gtk,
@@ -21,11 +22,14 @@ interface Flags {
   "idle"?: number;
 }
 
+const UI_LABELS = {
+  Indefinitely: "Current state: Indefinitely",
+  SystemDefault: "Current state: System default",
+};
+
 class MainWindow {
   #app: Adw_.Application;
   #win: Gtk_.ApplicationWindow;
-  #logoutRow: Adw_.SwitchRow;
-  #switchRow: Adw_.SwitchRow;
   #suspendRow: Adw_.SwitchRow;
   #idleRow: Adw_.SwitchRow;
 
@@ -36,16 +40,6 @@ class MainWindow {
       new URL(import.meta.resolve("./ui/nosleep.ui")).pathname,
     );
     this.#win = builder.get_object("mainWindow");
-    this.#logoutRow = builder.get_object("logoutRow");
-    this.#logoutRow.connect(
-      "notify::active",
-      python.callback(() => this.#toggle(this.#logoutRow, "logout")),
-    );
-    this.#switchRow = builder.get_object("switchRow");
-    this.#switchRow.connect(
-      "notify::active",
-      python.callback(() => this.#toggle(this.#switchRow, "switch")),
-    );
     this.#suspendRow = builder.get_object("suspendRow");
     this.#suspendRow.connect(
       "notify::active",
@@ -91,6 +85,7 @@ class MainWindow {
   ) => {
     const cookie = this.#cookies[type];
     if (row.get_active().valueOf()) {
+      row.set_subtitle(UI_LABELS.Indefinitely);
       // If there is an already active inhibitor for this type disable it
       if (cookie !== undefined) {
         this.#app.uninhibit(cookie);
@@ -117,6 +112,7 @@ class MainWindow {
 
       this.#cookies[type] = this.#app.inhibit(this.#win, flag).valueOf();
     } else {
+      row.set_subtitle(UI_LABELS.SystemDefault);
       // Nothing to uninhibit just return
       if (cookie === undefined) return;
       this.#app.uninhibit(cookie);
@@ -156,6 +152,15 @@ class App extends Adw.Application {
 }
 
 if (import.meta.main) {
+  const css_provider = Gtk.CssProvider();
+  css_provider.load_from_path(
+    new URL(import.meta.resolve("./main.css")).pathname,
+  );
+  Gtk.StyleContext.add_provider_for_display(
+    Gdk.Display.get_default(),
+    css_provider,
+    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION,
+  );
   const app = new App(kw`application_id=${"io.github.sigmasd.nosleep"}`);
   const signal = python.import("signal");
   GLib.unix_signal_add(

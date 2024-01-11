@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Created with Cambalache 0.16.0 -->
 <interface>
-  <!-- interface-name hh.ui -->
+  <!-- interface-name nosleep.ui -->
   <requires lib="gtk" version="4.6"/>
   <requires lib="libadwaita" version="1.4"/>
   <object class="GtkApplicationWindow" id="mainWindow">
-    <property name="default-height">330</property>
+    <property name="default-height">220</property>
     <property name="default-width">450</property>
     <property name="resizable">False</property>
     <property name="title">No Sleep</property>
@@ -14,27 +14,15 @@
         <child>
           <object class="AdwPreferencesGroup">
             <child>
-              <object class="AdwSwitchRow" id="logoutRow">
-                <property name="subtitle">Inhibit ending the user session by logging out or by shutting down the computer</property>
-                <property name="title">Inhibit Logout</property>
-              </object>
-            </child>
-            <child>
-              <object class="AdwSwitchRow" id="switchRow">
-                <property name="subtitle">Inhibit user switching</property>
-                <property name="title">Inhibit Switch</property>
-              </object>
-            </child>
-            <child>
               <object class="AdwSwitchRow" id="suspendRow">
-                <property name="subtitle">Inhibit suspending the session or computer</property>
-                <property name="title">Inhibit Suspend</property>
+                <property name="subtitle">Current state: System default</property>
+                <property name="title">Disable automatic suspending:</property>
               </object>
             </child>
             <child>
               <object class="AdwSwitchRow" id="idleRow">
-                <property name="subtitle">Inhibit the session being marked as idle (and possibly locked)</property>
-                <property name="title">Inhibit Idle</property>
+                <property name="subtitle">Current state: System default</property>
+                <property name="title">Disable Screen Blanking</property>
               </object>
             </child>
           </object>
