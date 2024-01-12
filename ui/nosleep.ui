@@ -5,25 +5,33 @@
   <requires lib="gtk" version="4.6"/>
   <requires lib="libadwaita" version="1.4"/>
   <object class="GtkApplicationWindow" id="mainWindow">
-    <property name="default-height">220</property>
+    <property name="default-height">320</property>
     <property name="default-width">450</property>
     <property name="resizable">False</property>
     <property name="title">No Sleep</property>
     <child>
-      <object class="AdwPreferencesPage">
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
         <child>
-          <object class="AdwPreferencesGroup">
+          <object class="GtkPicture" id="mainLogo"/>
+        </child>
+        <child>
+          <object class="AdwPreferencesPage">
             <child>
-              <object class="AdwSwitchRow" id="suspendRow">
-                <property name="subtitle">Current state: System default</property>
-                <property name="title">Disable automatic Suspending:</property>
-              </object>
-            </child>
-            <child>
-              <object class="AdwSwitchRow" id="idleRow">
-                <property name="sensitive">False</property>
-                <property name="subtitle">Current state: System default</property>
-                <property name="title">Disable Screen Blanking:</property>
+              <object class="AdwPreferencesGroup">
+                <child>
+                  <object class="AdwSwitchRow" id="suspendRow">
+                    <property name="subtitle">Current state: System default</property>
+                    <property name="title">Disable automatic Suspending:</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSwitchRow" id="idleRow">
+                    <property name="sensitive">False</property>
+                    <property name="subtitle">Current state: System default</property>
+                    <property name="title">Disable Screen Blanking:</property>
+                  </object>
+                </child>
               </object>
             </child>
           </object>

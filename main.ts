@@ -34,6 +34,7 @@ class MainWindow {
   #idleRow: Adw_.SwitchRow;
 
   #cookies: Flags = {};
+  #mainLogo: Gtk_.Picture;
   constructor(app: Adw_.Application) {
     const builder = Gtk.Builder();
     builder.add_from_file(
@@ -50,6 +51,11 @@ class MainWindow {
       "notify::active",
       // NOTE: works but for some reason it issues a warning the first time its called about invalid flags
       python.callback(() => this.#toggle(this.#idleRow, "idle")),
+    );
+    this.#mainLogo = builder.get_object("mainLogo");
+    this.#mainLogo.set_filename(
+      new URL(import.meta.resolve("./ui/io.github.sigmasd.nosleep.svg"))
+        .pathname,
     );
 
     this.#app = app;
