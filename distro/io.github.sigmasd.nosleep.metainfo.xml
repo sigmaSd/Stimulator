@@ -32,6 +32,14 @@
   <content_rating type="oars-1.1" />
 
   <releases>
+    <release version="0.5.3" date="2024-01-12">
+      <description>
+        <ul>
+          <li>Change main logo to an icon instead of a picture</li>
+          <li>Fix Suspend on flatpak</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.5.0" date="2024-01-12">
       <description>
         <ul>
