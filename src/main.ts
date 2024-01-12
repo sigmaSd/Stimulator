@@ -41,6 +41,11 @@ class MainWindow {
       new URL(import.meta.resolve("./ui/nosleep.ui")).pathname,
     );
     this.#win = builder.get_object("mainWindow");
+    this.#mainLogo = builder.get_object("mainLogo");
+    this.#mainLogo.set_filename(
+      new URL(import.meta.resolve("./ui/io.github.sigmasd.nosleep.svg"))
+        .pathname,
+    );
     this.#suspendRow = builder.get_object("suspendRow");
     this.#suspendRow.connect(
       "notify::active",
@@ -51,11 +56,6 @@ class MainWindow {
       "notify::active",
       // NOTE: works but for some reason it issues a warning the first time its called about invalid flags
       python.callback(() => this.#toggle(this.#idleRow, "idle")),
-    );
-    this.#mainLogo = builder.get_object("mainLogo");
-    this.#mainLogo.set_filename(
-      new URL(import.meta.resolve("./ui/io.github.sigmasd.nosleep.svg"))
-        .pathname,
     );
 
     this.#app = app;
@@ -95,12 +95,6 @@ class MainWindow {
       // if suspend is active, allow setting idle
       if (type === "suspend") this.#idleRow.set_sensitive(true);
 
-      // If there is an already active inhibitor for this type disable it
-      if (cookie !== undefined) {
-        this.#app.uninhibit(cookie);
-        this.#cookies[type] = undefined;
-      }
-
       let flag = undefined;
       switch (type) {
         case "logout":
@@ -122,19 +116,15 @@ class MainWindow {
       this.#cookies[type] = this.#app.inhibit(this.#win, flag).valueOf();
     } else {
       row.set_subtitle(UI_LABELS.SystemDefault);
-      // if suspend is desactivated, disallow setting idle
-      if (type === "suspend") {
-        this.#idleRow.set_active(false);
-        this.#idleRow.set_sensitive(false);
-      }
-
-      // Nothing to uninhibit just return
-      if (cookie === undefined) return;
+      assert(cookie);
       this.#app.uninhibit(cookie);
       this.#cookies[type] = undefined;
 
-      // if we unihibit suspend we also uninhibit idle
       if (type === "suspend") {
+        // if suspend is desactivated, disallow setting idle
+        this.#idleRow.set_active(false);
+        this.#idleRow.set_sensitive(false);
+        // if we unihibit suspend we also uninhibit idle
         const idleCookie = this.#cookies["idle"];
         if (idleCookie) {
           this.#app.uninhibit(idleCookie);
@@ -174,6 +164,15 @@ class App extends Adw.Application {
     this.#win = new MainWindow(app);
     this.#win.present();
   });
+}
+
+function assert<T>(
+  value: T,
+  message = "Value should be defined",
+): asserts value is NonNullable<T> {
+  if (value === undefined || value === null) {
+    throw new Error(message);
+  }
 }
 
 if (import.meta.main) {
