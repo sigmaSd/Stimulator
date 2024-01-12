@@ -10,31 +10,59 @@ import {
   kw,
   NamedArgument,
   python,
-} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.4/mod.ts";
+} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.8/mod.ts";
 import { t } from "./i18n.ts";
 
 const VERSION = "0.4.3";
 
-class MainWindow extends Gtk.ApplicationWindow {
+interface Flags {
+  "logout"?: number;
+  "switch"?: number;
+  "suspend"?: number;
+  "idle"?: number;
+}
+
+const UI_LABELS = {
+  Indefinitely: "Current state: Indefinitely",
+  SystemDefault: "Current state: System default",
+};
+
+class MainWindow {
   #app: Adw_.Application;
-  #button: Gtk_.ToggleButton;
-  #cookie?: number;
-  #keepScreenOn = true;
+  #win: Gtk_.ApplicationWindow;
+  #suspendRow: Adw_.SwitchRow;
+  #idleRow: Adw_.SwitchRow;
+
+  #cookies: Flags = {};
+  #mainLogo: Gtk_.Picture;
   constructor(app: Adw_.Application) {
-    super(new NamedArgument("application", app));
+    const builder = Gtk.Builder();
+    builder.add_from_file(
+      new URL(import.meta.resolve("./ui/nosleep.ui")).pathname,
+    );
+    this.#win = builder.get_object("mainWindow");
+    this.#suspendRow = builder.get_object("suspendRow");
+    this.#suspendRow.connect(
+      "notify::active",
+      python.callback(() => this.#toggle(this.#suspendRow, "suspend")),
+    );
+    this.#idleRow = builder.get_object("idleRow");
+    this.#idleRow.connect(
+      "notify::active",
+      // NOTE: works but for some reason it issues a warning the first time its called about invalid flags
+      python.callback(() => this.#toggle(this.#idleRow, "idle")),
+    );
+    this.#mainLogo = builder.get_object("mainLogo");
+    this.#mainLogo.set_filename(
+      new URL(import.meta.resolve("./ui/io.github.sigmasd.nosleep.svg"))
+        .pathname,
+    );
+
     this.#app = app;
-    this.set_default_size(300, 150);
-    this.set_title("No Sleep");
-    this.set_resizable(false);
+    this.#win.set_application(this.#app);
+
     const header = Gtk.HeaderBar();
-    this.set_titlebar(header);
-
-    this.#button = Gtk.ToggleButton();
-    this.#button.set_icon_name("system-shutdown-symbolic");
-    this.#button.set_css_classes(["mainToggle"]);
-    this.#button.connect("clicked", this.#toggleSleep);
-    this.set_child(this.#button);
-
+    this.#win.set_titlebar(header);
     // menu
     const menu = Gio.Menu.new();
     const popover = Gtk.PopoverMenu();
@@ -44,45 +72,63 @@ class MainWindow extends Gtk.ApplicationWindow {
     hamburger.set_icon_name("open-menu-symbolic");
     header.pack_start(hamburger);
 
-    // about dialog
+    // about menu
     {
       const action = Gio.SimpleAction.new("about");
       action.connect("activate", this.#showAbout);
-      this.add_action(action);
+      this.#win.add_action(action);
       menu.append(t("About"), "win.about");
-    }
-
-    // preference dialog
-    {
-      const action = Gio.SimpleAction.new("preference");
-      action.connect("activate", this.#showPreference);
-      this.add_action(action);
-      menu.append(t("Preferences"), "win.preference");
     }
   }
 
-  #toggleSleep = python.callback((_, button: Gtk_.ToggleButton) => {
-    if (button.get_active().valueOf()) {
-      if (this.#cookie !== undefined) {
-        this.#app.uninhibit(this.#cookie);
-        this.#cookie = undefined;
-      }
-      // idle keeps the screen on
-      const flags = this.#keepScreenOn
-        // NOTE(only for idle flag): works but for some reason it issues a warning the first time its called about invalid flags
-        ? Gtk.ApplicationInhibitFlags.IDLE
-        : Gtk.ApplicationInhibitFlags.SUSPEND;
+  present() {
+    this.#win.present();
+  }
 
-      this.#cookie = this.#app.inhibit(
-        this,
-        flags,
-      );
+  #toggle = (
+    row: Adw_.SwitchRow,
+    type: keyof Flags,
+  ) => {
+    const cookie = this.#cookies[type];
+    if (row.get_active().valueOf()) {
+      row.set_subtitle(UI_LABELS.Indefinitely);
+      // if suspend is active, allow setting idle
+      if (type === "suspend") this.#idleRow.set_sensitive(true);
+      // If there is an already active inhibitor for this type disable it
+      if (cookie !== undefined) {
+        this.#app.uninhibit(cookie);
+        this.#cookies[type] = undefined;
+      }
+
+      let flag = undefined;
+      switch (type) {
+        case "logout":
+          flag = Gtk.ApplicationInhibitFlags.LOGOUT;
+          break;
+        case "switch":
+          flag = Gtk.ApplicationInhibitFlags.SWITCH;
+          break;
+        case "suspend":
+          flag = Gtk.ApplicationInhibitFlags.SUSPEND;
+          break;
+        case "idle":
+          flag = Gtk.ApplicationInhibitFlags.IDLE;
+          break;
+        default:
+          throw new Error("unexpcted type:", type);
+      }
+
+      this.#cookies[type] = this.#app.inhibit(this.#win, flag).valueOf();
     } else {
-      if (this.#cookie === undefined) return;
-      this.#app.uninhibit(this.#cookie);
-      this.#cookie = undefined;
+      row.set_subtitle(UI_LABELS.SystemDefault);
+      // if suspend is desactivated, disallow setting idle
+      if (type === "suspend") this.#idleRow.set_sensitive(false);
+      // Nothing to uninhibit just return
+      if (cookie === undefined) return;
+      this.#app.uninhibit(cookie);
+      this.#cookies[type] = undefined;
     }
-  });
+  };
 
   #showAbout = python.callback(() => {
     const dialog = Adw.AboutWindow(
@@ -101,36 +147,6 @@ class MainWindow extends Gtk.ApplicationWindow {
 
     dialog.set_visible(true);
   });
-
-  #showPreference = python.callback(() => {
-    const menu = Adw.PreferencesWindow(
-      new NamedArgument("transient_for", this.#app.get_active_window()),
-    );
-    const page = Adw.PreferencesPage();
-    const behaviorGroup = Adw.PreferencesGroup();
-    behaviorGroup.set_title("Behavior");
-
-    const firstRow = Gtk.Box(
-      new NamedArgument("orientation", Gtk.Orientation.HORIZONTAL),
-    );
-    firstRow.set_spacing(10);
-    firstRow.append(Gtk.Label(new NamedArgument("label", "Keep screen on")));
-    const keepScreenOnSwitch = Gtk.Switch();
-    keepScreenOnSwitch.set_active(this.#keepScreenOn);
-    keepScreenOnSwitch.connect("state-set", this.#onKeepScreenOnSwitchClicked);
-
-    firstRow.append(keepScreenOnSwitch);
-    behaviorGroup.add(firstRow);
-    page.add(behaviorGroup);
-    menu.add(page);
-
-    menu.set_visible(true);
-  });
-
-  #onKeepScreenOnSwitchClicked = python.callback((_, _switch, state) => {
-    this.#keepScreenOn = state.valueOf();
-    this.#toggleSleep.callback(undefined, this.#button);
-  });
 }
 
 class App extends Adw.Application {
@@ -148,7 +164,7 @@ class App extends Adw.Application {
 if (import.meta.main) {
   const css_provider = Gtk.CssProvider();
   css_provider.load_from_path(
-    Deno.env.get("CSS") || new URL(import.meta.resolve("./main.css")).pathname,
+    new URL(import.meta.resolve("./main.css")).pathname,
   );
   Gtk.StyleContext.add_provider_for_display(
     Gdk.Display.get_default(),

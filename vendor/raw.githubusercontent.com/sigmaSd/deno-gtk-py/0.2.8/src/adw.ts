@@ -15,6 +15,7 @@ export interface Adw {
   run: () => void;
 }
 export interface AboutWindow {
+  set_designers(designers: string[]): void;
   set_application_icon(icon: string): void;
   set_visible(visible: boolean): void;
   set_developers(developers: string[]): void;
@@ -60,4 +61,10 @@ export interface PreferencesWindow /* extends Gtk_.Window */ {
 export interface PreferencesGroup extends Gtk_.Widget {
   set_title(title: string): void;
   add(child: Gtk_.Widget): void;
+}
+export interface SwitchRow extends Gtk_.Switch {
+  get_active(): { valueOf: () => boolean };
+  set_subtitle(subTitle: string): void;
+  set_sensitive(yes: boolean): void;
+  connect(event: "state-set" | "notify::active", callback: Callback): void;
 }
