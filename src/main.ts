@@ -1,4 +1,4 @@
-#!/usr/bin/env -S  deno run --allow-read=locales --allow-ffi --allow-env=DENO_PYTHON_PATH,CSS --unstable-ffi main.ts
+#!/usr/bin/env -S  deno run --allow-read=./src/locales --allow-ffi --allow-env=DENO_PYTHON_PATH,CSS --unstable-ffi
 import {
   Adw,
   Adw_,
