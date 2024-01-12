@@ -1,0 +1,9 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "About"
+msgstr "معلومات"
+
+msgid "Stop the desktop environment from sleeping"
+msgstr "منع توقف بيئة سطح المكتب"
