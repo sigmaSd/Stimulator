@@ -11,4 +11,5 @@ Stop the desktop environment from sleeping
 
 ## How it works
 
-Uses `Gtk.Application.inhibit` which internally uses `org.freedesktop.portal.Inhibit` which should work across DEs that supports it.
+Uses `Gtk.Application.inhibit` which internally uses
+`org.freedesktop.portal.Inhibit` which should work across DEs that supports it.
