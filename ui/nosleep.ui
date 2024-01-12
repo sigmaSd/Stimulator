@@ -21,6 +21,7 @@
             </child>
             <child>
               <object class="AdwSwitchRow" id="idleRow">
+                <property name="sensitive">False</property>
                 <property name="subtitle">Current state: System default</property>
                 <property name="title">Disable Screen Blanking</property>
               </object>

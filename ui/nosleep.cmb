@@ -19,6 +19,7 @@
 	(1,4,"AdwActionRow","subtitle","Current state: System default",None,None,None,None,None,None,None,None,None),
 	(1,4,"AdwPreferencesRow","title","Disable automatic suspending:",None,None,None,None,None,None,None,None,None),
 	(1,5,"AdwActionRow","subtitle","Current state: System default",None,None,None,None,None,None,None,None,None),
-	(1,5,"AdwPreferencesRow","title","Disable Screen Blanking",None,None,None,None,None,None,None,None,None)
+	(1,5,"AdwPreferencesRow","title","Disable Screen Blanking",None,None,None,None,None,None,None,None,None),
+	(1,5,"GtkWidget","sensitive","False",None,None,None,None,None,None,None,None,None)
   </object_property>
 </cambalache-project>
