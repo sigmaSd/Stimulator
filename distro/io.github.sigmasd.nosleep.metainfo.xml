@@ -21,12 +21,8 @@
 
   <screenshots>
     <screenshot type="default">
-      <caption>Stimulator ON screenshot</caption>
-      <image>https://raw.githubusercontent.com/sigmaSd/Stimulator/master/assets/on.png</image>
-    </screenshot>
-    <screenshot type="default">
-      <caption>Stimulator OFF screenshot</caption>
-      <image>https://raw.githubusercontent.com/sigmaSd/Stimulator/master/assets/off.png</image>
+      <caption>Stimulator screenshot</caption>
+      <image>https://raw.githubusercontent.com/sigmaSd/Stimulator/master/distro/demo.png</image>
     </screenshot>
   </screenshots>
 
@@ -36,6 +32,15 @@
   <content_rating type="oars-1.1" />
 
   <releases>
+    <release version="0.5.0" date="2024-01-12">
+      <description>
+        <ul>
+          <li>Rebrand app to "Stimulator"</li>
+          <li>New UI design</li>
+          <li>Option to keep screen on/off</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.4.3" date="2023-12-22">
       <description>
         <ul>
