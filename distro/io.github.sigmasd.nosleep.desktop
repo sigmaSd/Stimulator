@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=No Sleep
-TryExec=nosleep
-Exec=nosleep %F
+Name=Stimulator
+TryExec=stimulator
+Exec=stimulator %F
 Type=Application
 Keywords=Caffeine;Sleep;
 Categories=Utility;

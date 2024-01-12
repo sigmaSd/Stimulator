@@ -66,6 +66,10 @@ export interface ApplicationWindowConstructor {
   new (kwArg: NamedArgument): ApplicationWindow;
 }
 export interface ApplicationWindow {
+  get_default_size(): {
+    width: { valueOf(): number };
+    height: { valueOf(): number };
+  };
   set_application(app: Adw_.Application): void;
   set_child: (widget: Widget) => void;
   set_default_size: (width: number, height: number) => void;

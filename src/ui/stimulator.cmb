@@ -2,7 +2,7 @@
 <!DOCTYPE cambalache-project SYSTEM "cambalache-project.dtd">
 <cambalache-project version="0.13.1" target_tk="gtk-4.0">
   <ui>
-	(1,None,"nosleep.ui","nosleep.ui",None,None,None,None,None,None,None)
+	(1,None,"stimulator.ui","stimulator.ui",None,None,None,None,None,None,None)
   </ui>
   <object>
 	(1,1,"GtkApplicationWindow","mainWindow",None,None,None,None,-1,None),
@@ -14,13 +14,15 @@
 	(1,13,"GtkPicture","mainLogo",7,None,None,None,None,None)
   </object>
   <object_property>
-	(1,1,"GtkWindow","default-height","320",None,None,None,None,None,None,None,None,None),
+	(1,1,"GtkWindow","default-height","350",None,None,None,None,None,None,None,None,None),
 	(1,1,"GtkWindow","default-width","450",None,None,None,None,None,None,None,None,None),
 	(1,1,"GtkWindow","resizable","False",None,None,None,None,None,None,None,None,None),
-	(1,1,"GtkWindow","title","No Sleep",None,None,None,None,None,None,None,None,None),
+	(1,1,"GtkWindow","title","Stimulator",None,None,None,None,None,None,None,None,None),
 	(1,7,"GtkOrientable","orientation","vertical",None,None,None,None,None,None,None,None,None),
 	(1,11,"AdwActionRow","subtitle","Current state: System default",None,None,None,None,None,None,None,None,None),
 	(1,12,"AdwActionRow","subtitle","Current state: System default",None,None,None,None,None,None,None,None,None),
-	(1,12,"GtkWidget","sensitive","False",None,None,None,None,None,None,None,None,None)
+	(1,12,"GtkWidget","sensitive","False",None,None,None,None,None,None,None,None,None),
+	(1,13,"GtkWidget","margin-bottom","5",None,None,None,None,None,None,None,None,None),
+	(1,13,"GtkWidget","margin-top","10",None,None,None,None,None,None,None,None,None)
   </object_property>
 </cambalache-project>
