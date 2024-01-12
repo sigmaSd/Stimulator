@@ -184,6 +184,9 @@ export interface DrawingArea extends Widget {
   set_vexpand(arg0: boolean): void;
   set_hexpand(arg0: boolean): void;
 }
+export interface Picture extends Widget {
+  set_filename(filename: string): void;
+}
 
 export enum ApplicationInhibitFlags {
   LOGOUT,
