@@ -43,7 +43,12 @@ class MainWindow {
       new URL(import.meta.resolve("./ui/stimulator.ui")).pathname,
     );
     this.#win = builder.get_object("mainWindow");
-    if (systemLocale.startsWith("ar")) this.#win.set_default_size(380, 450);
+    if (systemLocale.startsWith("ar")) {
+      this.#win.set_default_size(
+        this.#win.get_default_size().height.valueOf() + 50,
+        450,
+      );
+    }
     this.#mainLogo = builder.get_object("mainLogo");
     this.#mainLogo.set_filename(
       new URL(import.meta.resolve("./ui/io.github.sigmasd.stimulator.svg"))
