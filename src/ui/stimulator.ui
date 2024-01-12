@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Created with Cambalache 0.16.0 -->
 <interface>
-  <!-- interface-name nosleep.ui -->
+  <!-- interface-name stimulator.ui -->
   <requires lib="gtk" version="4.6"/>
   <requires lib="libadwaita" version="1.4"/>
   <object class="GtkApplicationWindow" id="mainWindow">
     <property name="default-height">320</property>
     <property name="default-width">450</property>
     <property name="resizable">False</property>
-    <property name="title">No Sleep</property>
+    <property name="title">Stimulator</property>
     <child>
       <object class="GtkBox">
         <property name="orientation">vertical</property>

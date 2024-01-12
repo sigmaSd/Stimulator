@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>io.github.sigmasd.nosleep</id>
-  <name>No Sleep</name>
+  <id>io.github.sigmasd.stimulator</id>
+  <name>Stimulator</name>
   <summary>
     Stop the desktop environment from sleeping
   </summary>
@@ -17,21 +17,21 @@
     </p>
   </description>
 
-  <launchable type="desktop-id">io.github.sigmasd.nosleep.desktop</launchable>
+  <launchable type="desktop-id">io.github.sigmasd.stimulator.desktop</launchable>
 
   <screenshots>
     <screenshot type="default">
-      <caption>No Sleep ON screenshot</caption>
-      <image>https://raw.githubusercontent.com/sigmaSd/NoSleep/master/assets/on.png</image>
+      <caption>Stimulator ON screenshot</caption>
+      <image>https://raw.githubusercontent.com/sigmaSd/Stimulator/master/assets/on.png</image>
     </screenshot>
     <screenshot type="default">
-      <caption>No Sleep OFF screenshot</caption>
-      <image>https://raw.githubusercontent.com/sigmaSd/NoSleep/master/assets/off.png</image>
+      <caption>Stimulator OFF screenshot</caption>
+      <image>https://raw.githubusercontent.com/sigmaSd/Stimulator/master/assets/off.png</image>
     </screenshot>
   </screenshots>
 
-  <url type="homepage">https://github.com/sigmaSd/nosleep</url>
-  <url type="bugtracker">https://github.com/sigmaSd/nosleep/issues</url>
+  <url type="homepage">https://github.com/sigmaSd/stimulator</url>
+  <url type="bugtracker">https://github.com/sigmaSd/stimulator/issues</url>
 
   <content_rating type="oars-1.1" />
 
@@ -136,6 +136,6 @@
   </categories>
   
   <provides>
-    <binary>nosleep</binary>
+    <binary>stimulator</binary>
   </provides>
 </component>

@@ -40,13 +40,13 @@ class MainWindow {
   constructor(app: Adw_.Application) {
     const builder = Gtk.Builder();
     builder.add_from_file(
-      new URL(import.meta.resolve("./ui/nosleep.ui")).pathname,
+      new URL(import.meta.resolve("./ui/stimulator.ui")).pathname,
     );
     this.#win = builder.get_object("mainWindow");
     if (systemLocale.startsWith("ar")) this.#win.set_default_size(380, 450);
     this.#mainLogo = builder.get_object("mainLogo");
     this.#mainLogo.set_filename(
-      new URL(import.meta.resolve("./ui/io.github.sigmasd.nosleep.svg"))
+      new URL(import.meta.resolve("./ui/io.github.sigmasd.stimulator.svg"))
         .pathname,
     );
     this.#suspendRow = builder.get_object("suspendRow");
@@ -145,17 +145,17 @@ class MainWindow {
     const dialog = Adw.AboutWindow(
       new NamedArgument("transient_for", this.#app.get_active_window()),
     );
-    dialog.set_application_name("No Sleep");
+    dialog.set_application_name("Stimulator");
     dialog.set_version(VERSION);
     dialog.set_developer_name("Bedis Nbiba");
     dialog.set_designers(["Meybo Nõmme"]);
     dialog.set_license_type(Gtk.License.MIT_X11);
     dialog.set_comments(t("Stop the desktop environment from sleeping"));
-    dialog.set_website("https://github.com/sigmaSd/nosleep");
+    dialog.set_website("https://github.com/sigmaSd/stimulator");
     dialog.set_issue_url(
-      "https://github.com/sigmaSd/nosleep/issues",
+      "https://github.com/sigmaSd/stimulator/issues",
     );
-    dialog.set_application_icon("io.github.sigmasd.nosleep");
+    dialog.set_application_icon("io.github.sigmasd.stimulator");
 
     dialog.set_visible(true);
   });
@@ -192,7 +192,7 @@ if (import.meta.main) {
     css_provider,
     Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION,
   );
-  const app = new App(kw`application_id=${"io.github.sigmasd.nosleep"}`);
+  const app = new App(kw`application_id=${"io.github.sigmasd.stimulator"}`);
   const signal = python.import("signal");
   GLib.unix_signal_add(
     GLib.PRIORITY_HIGH,

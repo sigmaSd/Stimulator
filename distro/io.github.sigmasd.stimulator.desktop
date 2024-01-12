@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Stimulator
+TryExec=stimulator
+Exec=stimulator %F
+Type=Application
+Keywords=Caffeine;Sleep;
+Categories=Utility;
+Icon=io.github.sigmasd.stimulator
