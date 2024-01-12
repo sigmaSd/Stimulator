@@ -125,7 +125,11 @@ class MainWindow {
           throw new Error("unexpcted type:", type);
       }
 
-      this.#cookies[type] = this.#app.inhibit(this.#win, flag).valueOf();
+      this.#cookies[type] = this.#app.inhibit(
+        this.#win,
+        flag,
+        "Stimulator active",
+      ).valueOf();
     } else {
       row.set_subtitle(UI_LABELS.SystemDefault);
       assert(cookie);
