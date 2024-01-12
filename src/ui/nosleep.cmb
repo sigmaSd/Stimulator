@@ -20,9 +20,7 @@
 	(1,1,"GtkWindow","title","No Sleep",None,None,None,None,None,None,None,None,None),
 	(1,7,"GtkOrientable","orientation","vertical",None,None,None,None,None,None,None,None,None),
 	(1,11,"AdwActionRow","subtitle","Current state: System default",None,None,None,None,None,None,None,None,None),
-	(1,11,"AdwPreferencesRow","title","Disable automatic Suspending:",None,None,None,None,None,None,None,None,None),
 	(1,12,"AdwActionRow","subtitle","Current state: System default",None,None,None,None,None,None,None,None,None),
-	(1,12,"AdwPreferencesRow","title","Disable Screen Blanking:",None,None,None,None,None,None,None,None,None),
 	(1,12,"GtkWidget","sensitive","False",None,None,None,None,None,None,None,None,None)
   </object_property>
 </cambalache-project>

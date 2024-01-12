@@ -11,7 +11,7 @@ import {
   NamedArgument,
   python,
 } from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.8/mod.ts";
-import { t } from "./i18n.ts";
+import { systemLocale, t } from "./i18n.ts";
 
 const VERSION = "0.4.3";
 
@@ -23,8 +23,10 @@ interface Flags {
 }
 
 const UI_LABELS = {
-  Indefinitely: "Current state: Indefinitely",
-  SystemDefault: "Current state: System default",
+  suspendTitle: t("Disable automatic Suspending:"),
+  idleTitle: t("Disable Screen Blanking:"),
+  Indefinitely: t("Current state: Indefinitely"),
+  SystemDefault: t("Current state: System default"),
 };
 
 class MainWindow {
@@ -41,17 +43,22 @@ class MainWindow {
       new URL(import.meta.resolve("./ui/nosleep.ui")).pathname,
     );
     this.#win = builder.get_object("mainWindow");
+    if (systemLocale.startsWith("ar")) this.#win.set_default_size(380, 450);
     this.#mainLogo = builder.get_object("mainLogo");
     this.#mainLogo.set_filename(
       new URL(import.meta.resolve("./ui/io.github.sigmasd.nosleep.svg"))
         .pathname,
     );
     this.#suspendRow = builder.get_object("suspendRow");
+    this.#suspendRow.set_title(UI_LABELS.suspendTitle);
+    this.#suspendRow.set_subtitle(UI_LABELS.SystemDefault);
     this.#suspendRow.connect(
       "notify::active",
       python.callback(() => this.#toggle(this.#suspendRow, "suspend")),
     );
     this.#idleRow = builder.get_object("idleRow");
+    this.#idleRow.set_title(UI_LABELS.idleTitle);
+    this.#idleRow.set_subtitle(UI_LABELS.SystemDefault);
     this.#idleRow.connect(
       "notify::active",
       // NOTE: works but for some reason it issues a warning the first time its called about invalid flags

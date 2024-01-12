@@ -2,6 +2,18 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 
+msgid "Disable automatic Suspending:"
+msgstr "تعطيل التعليق التلقائي:"
+
+msgid "Disable Screen Blanking:"
+msgstr "تعطيل اطفاء الشاشة تلقائيًا:"
+
+msgid "Current state: System default"
+msgstr "الحالة الحالية: الإعداد الاصلي للنظام"
+
+msgid "Current state: Indefinitely"
+msgstr "الحالة الحالية: إلى أجل غير مسمى"
+
 msgid "About"
 msgstr "معلومات"
 
