@@ -36,7 +36,6 @@ class MainWindow {
   #idleRow: Adw_.SwitchRow;
 
   #cookies: Flags = {};
-  #mainLogo: Gtk_.Picture;
   constructor(app: Adw_.Application) {
     const builder = Gtk.Builder();
     builder.add_from_file(
@@ -45,15 +44,10 @@ class MainWindow {
     this.#win = builder.get_object("mainWindow");
     if (systemLocale.startsWith("ar")) {
       this.#win.set_default_size(
-        this.#win.get_default_size().height.valueOf() + 50,
         450,
+        this.#win.get_default_size().height.valueOf() + 50,
       );
     }
-    this.#mainLogo = builder.get_object("mainLogo");
-    this.#mainLogo.set_filename(
-      new URL(import.meta.resolve("./ui/io.github.sigmasd.stimulator.svg"))
-        .pathname,
-    );
     this.#suspendRow = builder.get_object("suspendRow");
     this.#suspendRow.set_title(UI_LABELS.suspendTitle);
     this.#suspendRow.set_subtitle(UI_LABELS.SystemDefault);

@@ -11,10 +11,10 @@
 	(1,10,"AdwPreferencesGroup",None,9,None,None,None,None,None),
 	(1,11,"AdwSwitchRow","suspendRow",10,None,None,None,None,None),
 	(1,12,"AdwSwitchRow","idleRow",10,None,None,None,1,None),
-	(1,13,"GtkPicture","mainLogo",7,None,None,None,None,None)
+	(1,14,"GtkImage",None,7,None,None,None,None,None)
   </object>
   <object_property>
-	(1,1,"GtkWindow","default-height","350",None,None,None,None,None,None,None,None,None),
+	(1,1,"GtkWindow","default-height","315",None,None,None,None,None,None,None,None,None),
 	(1,1,"GtkWindow","default-width","450",None,None,None,None,None,None,None,None,None),
 	(1,1,"GtkWindow","resizable","False",None,None,None,None,None,None,None,None,None),
 	(1,1,"GtkWindow","title","Stimulator",None,None,None,None,None,None,None,None,None),
@@ -22,7 +22,9 @@
 	(1,11,"AdwActionRow","subtitle","Current state: System default",None,None,None,None,None,None,None,None,None),
 	(1,12,"AdwActionRow","subtitle","Current state: System default",None,None,None,None,None,None,None,None,None),
 	(1,12,"GtkWidget","sensitive","False",None,None,None,None,None,None,None,None,None),
-	(1,13,"GtkWidget","margin-bottom","5",None,None,None,None,None,None,None,None,None),
-	(1,13,"GtkWidget","margin-top","10",None,None,None,None,None,None,None,None,None)
+	(1,14,"GtkImage","icon-name","io.github.sigmasd.nosleep",None,None,None,None,None,None,None,None,None),
+	(1,14,"GtkImage","pixel-size","96",None,None,None,None,None,None,None,None,None),
+	(1,14,"GtkWidget","margin-bottom","5",None,None,None,None,None,None,None,None,None),
+	(1,14,"GtkWidget","margin-top","10",None,None,None,None,None,None,None,None,None)
   </object_property>
 </cambalache-project>
