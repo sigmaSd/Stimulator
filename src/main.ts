@@ -94,6 +94,7 @@ class MainWindow {
       row.set_subtitle(UI_LABELS.Indefinitely);
       // if suspend is active, allow setting idle
       if (type === "suspend") this.#idleRow.set_sensitive(true);
+
       // If there is an already active inhibitor for this type disable it
       if (cookie !== undefined) {
         this.#app.uninhibit(cookie);
@@ -122,11 +123,24 @@ class MainWindow {
     } else {
       row.set_subtitle(UI_LABELS.SystemDefault);
       // if suspend is desactivated, disallow setting idle
-      if (type === "suspend") this.#idleRow.set_sensitive(false);
+      if (type === "suspend") {
+        this.#idleRow.set_active(false);
+        this.#idleRow.set_sensitive(false);
+      }
+
       // Nothing to uninhibit just return
       if (cookie === undefined) return;
       this.#app.uninhibit(cookie);
       this.#cookies[type] = undefined;
+
+      // if we unihibit suspend we also uninhibit idle
+      if (type === "suspend") {
+        const idleCookie = this.#cookies["idle"];
+        if (idleCookie) {
+          this.#app.uninhibit(idleCookie);
+          this.#cookies["idle"] = undefined;
+        }
+      }
     }
   };
 
