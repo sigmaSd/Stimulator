@@ -7,8 +7,10 @@ for await (const lang of Deno.readDir("./po")) {
     langName,
     await Deno.readTextFile("./po/" + lang.name),
   );
+  const targetDir = "./src/locales/" + langName;
+  await Deno.mkdir(targetDir, { recursive: true });
   await Deno.writeTextFile(
-    "./src/locales/" + langName + "/translation.json",
+    targetDir + "/translation.json",
     compiled,
   );
 }
