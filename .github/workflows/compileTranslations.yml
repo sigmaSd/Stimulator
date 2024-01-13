@@ -1,0 +1,29 @@
+name: PR Translator Bot
+
+on:
+  pull_request:
+    paths:
+      - 'po/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v3
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@61fe2df320078202e33d7d5ad347e7dcfa0e8f31  # v1.1.2
+        with:
+          deno-version: v1.x
+  
+      - name: Run translation script
+        run: ./scripts/compileTranslations.ts
+  
+      - name: Commit and push changes
+        run: |
+          git config --local user.name "Translator Bot"
+          git add .
+          git commit -m "Compile translations"
+          git push origin ${{ github.head_ref }}
