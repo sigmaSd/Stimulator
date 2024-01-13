@@ -4,7 +4,7 @@ Stop the desktop environment from sleeping
 
 <img src="https://raw.githubusercontent.com/sigmaSd/Stimulator/master/distro/demo.png"/>
 
-[![Get it from FlatHub](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/flathub.png)](https://flathub.org/apps/io.github.sigmasd.stimulator)
+[![Get it from FlatHub](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/flathub.png)](https://flathub.org/apps/io.github.sigmasd.nosleep)
 
 ## How it works
 
