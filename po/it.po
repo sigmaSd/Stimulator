@@ -1,0 +1,21 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Disable automatic Suspending:"
+msgstr "Disattiva la sospensione automatica:"
+
+msgid "Disable Screen Blanking:"
+msgstr "Disattiva lo spegnimento automatico dello schermo:"
+
+msgid "Current state: System default"
+msgstr "Stato corrente: impostazione predefinita del sistema"
+
+msgid "Current state: Indefinitely"
+msgstr "Stato attuale: a tempo indeterminato"
+
+msgid "About"
+msgstr "Informazioni"
+
+msgid "Stop the desktop environment from sleeping"
+msgstr "Interrompere la modalità di sospensione dell'ambiente desktop"
