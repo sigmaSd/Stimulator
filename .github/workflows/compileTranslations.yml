@@ -23,6 +23,7 @@ jobs:
   
       - name: Commit and push changes
         run: |
+          git config --local user.email "translator-bot@sigmasd.io"
           git config --local user.name "Translator Bot"
           git add .
           git commit -m "Compile translations"
