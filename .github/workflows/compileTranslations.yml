@@ -28,6 +28,7 @@ jobs:
         run: |
           git config --local user.email "translator-bot@sigmasd.io"
           git config --local user.name "Translator Bot"
+          git config pull.rebase true
           git checkout -b ${{ github.head_ref }}
           git add .
           git commit -m "Compile translations"
