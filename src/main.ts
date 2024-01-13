@@ -13,7 +13,7 @@ import {
 } from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.10/mod.ts";
 import { systemLocale, t } from "./i18n.ts";
 
-const VERSION = "0.5.3";
+const VERSION = "0.5.4";
 
 interface Flags {
   "logout"?: number;

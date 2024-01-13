@@ -32,7 +32,13 @@
   <content_rating type="oars-1.1" />
 
   <releases>
-    <release version="0.5.3" date="2024-01-12">
+    <release version="0.5.4" date="2024-01-13">
+      <description>
+        <ul>
+          <li>Add italien translations</li>
+        </ul>
+      </description>
+    </release><release version="0.5.3" date="2024-01-12">
       <description>
         <ul>
           <li>Change main logo to an icon instead of a picture</li>
