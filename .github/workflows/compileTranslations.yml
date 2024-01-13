@@ -31,4 +31,5 @@ jobs:
           git checkout -b ${{ github.head_ref }}
           git add .
           git commit -m "Compile translations"
+          git pull origin ${{ github.head_ref }}
           git push origin ${{ github.head_ref }}
