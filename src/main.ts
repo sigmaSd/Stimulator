@@ -14,7 +14,7 @@ import {
 import { systemLocale, t } from "./i18n.ts";
 
 const APP_ID = "io.github.sigmasd.nosleep";
-const VERSION = "0.7.1";
+const VERSION = "0.7.2";
 
 const UI_LABELS = {
   SuspendTitle: t("Disable Automatic Suspending"),
