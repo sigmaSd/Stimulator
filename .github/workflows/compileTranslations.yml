@@ -22,7 +22,9 @@ jobs:
           deno-version: v1.x
   
       - name: Run translation script
-        run: ./scripts/compileTranslations.ts
+        run: |
+          ./scripts/compileTranslations.ts
+          ./scripts/translationsPercantage.ts
   
       - name: Commit and push changes
         run: |

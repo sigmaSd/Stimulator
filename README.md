@@ -10,3 +10,11 @@ Stop the desktop environment from sleeping
 
 Uses `Gtk.Application.inhibit` which internally uses
 `org.freedesktop.portal.Inhibit` which should work across DEs that supports it.
+
+## Translations
+
+| Language | Translated (%) |
+| -------- | -------------- |
+| French   | 100            |
+| Arabic   | 100            |
+| Italian  | 87.5           |
