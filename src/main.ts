@@ -23,8 +23,8 @@ interface Flags {
 }
 
 const UI_LABELS = {
-  suspendTitle: t("Disable automatic Suspending:"),
-  idleTitle: t("Disable Screen Blanking:"),
+  suspendTitle: t("Disable Automatic Suspending"),
+  idleTitle: t("Disable Screen Blanking"),
   Indefinitely: t("Current state: Indefinitely"),
   SystemDefault: t("Current state: System default"),
 };
