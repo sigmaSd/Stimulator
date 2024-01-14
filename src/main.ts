@@ -34,8 +34,17 @@ class MainWindow {
   #suspendRow: Adw_.SwitchRow;
   #idleRow: Adw_.SwitchRow;
 
+  #state = {
+    "logout": false,
+    "switch": false,
+    "suspend": false,
+    "idle": false,
+  };
   #cookies: { [key in Flags]?: number } = {};
   constructor(app: Adw_.Application) {
+    const savedState = localStorage.getItem("state");
+    if (savedState) this.#state = JSON.parse(savedState);
+
     const builder = Gtk.Builder();
     builder.add_from_file(
       new URL(import.meta.resolve("./ui/stimulator.ui")).pathname,
@@ -84,6 +93,11 @@ class MainWindow {
       this.#win.add_action(action);
       menu.append(UI_LABELS.About, "win.about");
     }
+
+    // ui modifications needs to be done last
+    // this will update the state to the last saved one
+    if (this.#state["suspend"]) this.#suspendRow.set_active(true);
+    if (this.#state["idle"]) this.#idleRow.set_active(true);
   }
 
   present() {
@@ -95,7 +109,12 @@ class MainWindow {
     type: Flags,
   ) => {
     const cookie = this.#cookies[type];
-    if (row.get_active().valueOf()) {
+    const active = row.get_active().valueOf();
+
+    this.#state[type] = active;
+    localStorage.setItem("state", JSON.stringify(this.#state));
+
+    if (active) {
       row.set_subtitle(UI_LABELS.Indefinitely);
       // if suspend is active, allow setting idle
       if (type === "suspend") this.#idleRow.set_sensitive(true);
