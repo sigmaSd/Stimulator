@@ -2,10 +2,10 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 
-msgid "Disable automatic Suspending:"
+msgid "Disable Automatic Suspending"
 msgstr "Désactiver la suspension automatique:"
 
-msgid "Disable Screen Blanking:"
+msgid "Disable Screen Blanking"
 msgstr "Désactiver l'extinction automatique de l'écran:"
 
 msgid "Current state: System default"
