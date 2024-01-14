@@ -19,3 +19,6 @@ msgstr "معلومات"
 
 msgid "Stop the desktop environment from sleeping"
 msgstr "منع توقف بيئة سطح المكتب"
+
+msgid "Stimulator is active"
+msgstr "Stimulator في حالة تشغيل"

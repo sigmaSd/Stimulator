@@ -123,7 +123,7 @@ class MainWindow {
         this.#win,
         flag,
         // NOTE: the reason is needed for flatpak to work
-        "Stimulator active",
+        t("Stimulator is active"),
       ).valueOf();
     } else {
       row.set_subtitle(UI_LABELS.SystemDefault);
