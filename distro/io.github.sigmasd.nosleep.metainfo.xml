@@ -21,7 +21,11 @@
 
   <screenshots>
     <screenshot type="default">
-      <caption>Stimulator screenshot</caption>
+      <caption>Stimulator light screenshot</caption>
+      <image>https://raw.githubusercontent.com/sigmaSd/Stimulator/master/distro/demo_light.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Stimulator dark screenshot</caption>
       <image>https://raw.githubusercontent.com/sigmaSd/Stimulator/master/distro/demo.png</image>
     </screenshot>
   </screenshots>
