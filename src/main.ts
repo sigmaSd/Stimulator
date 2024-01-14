@@ -122,6 +122,7 @@ class MainWindow {
       this.#cookies[type] = this.#app.inhibit(
         this.#win,
         flag,
+        // NOTE: the reason is needed for flatpak to work
         "Stimulator active",
       ).valueOf();
     } else {
