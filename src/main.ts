@@ -15,13 +15,6 @@ import { systemLocale, t } from "./i18n.ts";
 
 const VERSION = "0.7.1";
 
-interface Flags {
-  "logout"?: number;
-  "switch"?: number;
-  "suspend"?: number;
-  "idle"?: number;
-}
-
 const UI_LABELS = {
   suspendTitle: t("Disable Automatic Suspending"),
   idleTitle: t("Disable Screen Blanking"),
@@ -29,13 +22,15 @@ const UI_LABELS = {
   SystemDefault: t("Current state: System default"),
 };
 
+type Flags = "logout" | "switch" | "suspend" | "idle";
+
 class MainWindow {
   #app: Adw_.Application;
   #win: Gtk_.ApplicationWindow;
   #suspendRow: Adw_.SwitchRow;
   #idleRow: Adw_.SwitchRow;
 
-  #cookies: Flags = {};
+  #cookies: { [key in Flags]?: number } = {};
   constructor(app: Adw_.Application) {
     const builder = Gtk.Builder();
     builder.add_from_file(
@@ -93,7 +88,7 @@ class MainWindow {
 
   #toggle = (
     row: Adw_.SwitchRow,
-    type: keyof Flags,
+    type: Flags,
   ) => {
     const cookie = this.#cookies[type];
     if (row.get_active().valueOf()) {
