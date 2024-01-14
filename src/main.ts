@@ -17,10 +17,13 @@ const APP_ID = "io.github.sigmasd.nosleep";
 const VERSION = "0.7.1";
 
 const UI_LABELS = {
-  suspendTitle: t("Disable Automatic Suspending"),
-  idleTitle: t("Disable Screen Blanking"),
+  SuspendTitle: t("Disable Automatic Suspending"),
+  IdleTitle: t("Disable Screen Blanking"),
   Indefinitely: t("Current state: Indefinitely"),
   SystemDefault: t("Current state: System default"),
+  About: t("About"),
+  SimulatorActive: t("Stimulator is active"),
+  Comments: t("Stop the desktop environment from sleeping"),
 };
 
 type Flags = "logout" | "switch" | "suspend" | "idle";
@@ -45,14 +48,14 @@ class MainWindow {
       );
     }
     this.#suspendRow = builder.get_object("suspendRow");
-    this.#suspendRow.set_title(UI_LABELS.suspendTitle);
+    this.#suspendRow.set_title(UI_LABELS.SuspendTitle);
     this.#suspendRow.set_subtitle(UI_LABELS.SystemDefault);
     this.#suspendRow.connect(
       "notify::active",
       python.callback(() => this.#toggle(this.#suspendRow, "suspend")),
     );
     this.#idleRow = builder.get_object("idleRow");
-    this.#idleRow.set_title(UI_LABELS.idleTitle);
+    this.#idleRow.set_title(UI_LABELS.IdleTitle);
     this.#idleRow.set_subtitle(UI_LABELS.SystemDefault);
     this.#idleRow.connect(
       "notify::active",
@@ -79,7 +82,7 @@ class MainWindow {
       const action = Gio.SimpleAction.new("about");
       action.connect("activate", this.#showAbout);
       this.#win.add_action(action);
-      menu.append(t("About"), "win.about");
+      menu.append(UI_LABELS.About, "win.about");
     }
   }
 
@@ -119,7 +122,7 @@ class MainWindow {
         this.#win,
         flag,
         // NOTE: the reason is needed for flatpak to work
-        t("Stimulator is active"),
+        UI_LABELS.SimulatorActive,
       ).valueOf();
     } else {
       row.set_subtitle(UI_LABELS.SystemDefault);
@@ -150,7 +153,7 @@ class MainWindow {
     dialog.set_developer_name("Bedis Nbiba");
     dialog.set_designers(["Meybo Nõmme"]);
     dialog.set_license_type(Gtk.License.MIT_X11);
-    dialog.set_comments(t("Stop the desktop environment from sleeping"));
+    dialog.set_comments(UI_LABELS.Comments);
     dialog.set_website("https://github.com/sigmaSd/stimulator");
     dialog.set_issue_url(
       "https://github.com/sigmaSd/stimulator/issues",
