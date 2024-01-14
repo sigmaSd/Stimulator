@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>io.github.sigmasd.stimulator</id>
+  <id>io.github.sigmasd.nosleep</id>
   <name>Stimulator</name>
   <summary>
     Stop the desktop environment from sleeping
@@ -17,7 +17,7 @@
     </p>
   </description>
 
-  <launchable type="desktop-id">io.github.sigmasd.stimulator.desktop</launchable>
+  <launchable type="desktop-id">io.github.sigmasd.nosleep.desktop</launchable>
 
   <screenshots>
     <screenshot type="default">

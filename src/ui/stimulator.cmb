@@ -22,7 +22,7 @@
 	(1,11,"AdwActionRow","subtitle","Current state: System default",None,None,None,None,None,None,None,None,None),
 	(1,12,"AdwActionRow","subtitle","Current state: System default",None,None,None,None,None,None,None,None,None),
 	(1,12,"GtkWidget","sensitive","False",None,None,None,None,None,None,None,None,None),
-	(1,14,"GtkImage","icon-name","io.github.sigmasd.stimulator",None,None,None,None,None,None,None,None,None),
+	(1,14,"GtkImage","icon-name","io.github.sigmasd.nosleep",None,None,None,None,None,None,None,None,None),
 	(1,14,"GtkImage","pixel-size","96",None,None,None,None,None,None,None,None,None),
 	(1,14,"GtkWidget","margin-bottom","5",None,None,None,None,None,None,None,None,None),
 	(1,14,"GtkWidget","margin-top","10",None,None,None,None,None,None,None,None,None)

@@ -158,7 +158,7 @@ class MainWindow {
     dialog.set_issue_url(
       "https://github.com/sigmaSd/stimulator/issues",
     );
-    dialog.set_application_icon("io.github.sigmasd.stimulator");
+    dialog.set_application_icon("io.github.sigmasd.nosleep");
 
     dialog.set_visible(true);
   });
@@ -195,7 +195,7 @@ if (import.meta.main) {
     css_provider,
     Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION,
   );
-  const app = new App(kw`application_id=${"io.github.sigmasd.stimulator"}`);
+  const app = new App(kw`application_id=${"io.github.sigmasd.nosleep"}`);
   const signal = python.import("signal");
   GLib.unix_signal_add(
     GLib.PRIORITY_HIGH,
