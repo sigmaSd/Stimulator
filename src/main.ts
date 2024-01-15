@@ -10,7 +10,7 @@ import {
   kw,
   NamedArgument,
   python,
-} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.10/mod.ts";
+} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.11/mod.ts";
 import { systemLocale, t } from "./i18n.ts";
 
 const APP_ID = "io.github.sigmasd.nosleep";

@@ -191,6 +191,9 @@ export interface DrawingArea extends Widget {
 export interface Picture extends Widget {
   set_filename(filename: string): void;
 }
+export interface Image extends Widget {
+  set_from_icon_name(iconName: string): void;
+}
 
 export enum ApplicationInhibitFlags {
   LOGOUT,
