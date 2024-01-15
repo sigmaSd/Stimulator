@@ -11,7 +11,7 @@
 	(1,10,"AdwPreferencesGroup",None,9,None,None,None,None,None),
 	(1,11,"AdwSwitchRow","suspendRow",10,None,None,None,None,None),
 	(1,12,"AdwSwitchRow","idleRow",10,None,None,None,1,None),
-	(1,14,"GtkImage",None,7,None,None,None,None,None)
+	(1,14,"GtkImage","mainIcon",7,None,None,None,None,None)
   </object>
   <object_property>
 	(1,1,"GtkWindow","default-height","315",None,None,None,None,None,None,None,None,None),

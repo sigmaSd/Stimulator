@@ -30,6 +30,7 @@ modules:
 
       - install -Dm644 distro/io.github.sigmasd.nosleep.desktop -t /app/share/applications/
       - install -Dm644 distro/io.github.sigmasd.nosleep.svg -t /app/share/icons/hicolor/scalable/apps/
+      - install -Dm644 distro/io.github.sigmasd.nosleep_active.svg -t /app/share/icons/hicolor/scalable/apps/
       - install -Dm644 distro/io.github.sigmasd.nosleep.metainfo.xml -t /app/share/metainfo/
 
     sources:

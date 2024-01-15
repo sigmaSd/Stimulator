@@ -31,6 +31,7 @@ type Flags = "logout" | "switch" | "suspend" | "idle";
 class MainWindow {
   #app: Adw_.Application;
   #win: Gtk_.ApplicationWindow;
+  #mainIcon: Gtk_.Image;
   #suspendRow: Adw_.SwitchRow;
   #idleRow: Adw_.SwitchRow;
 
@@ -56,6 +57,7 @@ class MainWindow {
         this.#win.get_default_size().height.valueOf() + 50,
       );
     }
+    this.#mainIcon = builder.get_object("mainIcon");
     this.#suspendRow = builder.get_object("suspendRow");
     this.#suspendRow.set_title(UI_LABELS.SuspendTitle);
     this.#suspendRow.set_subtitle(UI_LABELS.SystemDefault);
@@ -117,7 +119,12 @@ class MainWindow {
     if (active) {
       row.set_subtitle(UI_LABELS.Indefinitely);
       // if suspend is active, allow setting idle
-      if (type === "suspend") this.#idleRow.set_sensitive(true);
+      if (type === "suspend") {
+        this.#mainIcon.set_from_icon_name(
+          APP_ID + "_active",
+        );
+        this.#idleRow.set_sensitive(true);
+      }
 
       let flag = undefined;
       switch (type) {
@@ -150,6 +157,9 @@ class MainWindow {
       this.#cookies[type] = undefined;
 
       if (type === "suspend") {
+        this.#mainIcon.set_from_icon_name(
+          APP_ID,
+        );
         // if suspend is desactivated, disallow setting idle
         this.#idleRow.set_active(false);
         this.#idleRow.set_sensitive(false);
