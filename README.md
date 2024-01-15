@@ -20,4 +20,4 @@ Uses `Gtk.Application.inhibit` which internally uses
 | -------- | -------------- |
 | French   | 100            |
 | Arabic   | 100            |
-| Italian  | 87.5           |
+| Italian  | 75             |

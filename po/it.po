@@ -14,8 +14,5 @@ msgstr "Stato corrente: impostazione predefinita del sistema"
 msgid "Current state: Indefinitely"
 msgstr "Stato attuale: a tempo indeterminato"
 
-msgid "About"
-msgstr "Informazioni"
-
 msgid "Stop the desktop environment from sleeping"
 msgstr "Interrompere la modalità di sospensione dell'ambiente desktop"

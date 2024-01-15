@@ -14,8 +14,8 @@ msgstr "الحالة الحالية: الإعداد الاصلي للنظام"
 msgid "Current state: Indefinitely"
 msgstr "الحالة الحالية: إلى أجل غير مسمى"
 
-msgid "About"
-msgstr "معلومات"
+msgid "About Stimulator"
+msgstr "معلومات حول Stimulator"
 
 msgid "Stop the desktop environment from sleeping"
 msgstr "منع توقف بيئة سطح المكتب"

@@ -21,7 +21,7 @@ const UI_LABELS = {
   IdleTitle: t("Disable Screen Blanking"),
   Indefinitely: t("Current state: Indefinitely"),
   SystemDefault: t("Current state: System default"),
-  About: t("About"),
+  About: t("About Stimulator"),
   SimulatorActive: t("Stimulator is active"),
   Comments: t("Stop the desktop environment from sleeping"),
 };
