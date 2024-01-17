@@ -1,4 +1,4 @@
-app-id: io.github.sigmasd.nosleep
+app-id: io.github.sigmasd.stimulator
 
 runtime: org.gnome.Platform
 runtime-version: '45'
@@ -28,10 +28,10 @@ modules:
       - echo "DENO_PYTHON_PATH=/usr/lib/$(uname -m)-linux-gnu/libpython3.11.so.1.0 /app/bin/deno run --allow-read=/app/bin/runtime/src/locales --allow-env=DENO_PYTHON_PATH --allow-ffi --unstable-ffi /app/bin/runtime/src/main.ts" >/app/bin/stimulator
       - chmod +x /app/bin/stimulator
 
-      - install -Dm644 distro/io.github.sigmasd.nosleep.desktop -t /app/share/applications/
-      - install -Dm644 distro/io.github.sigmasd.nosleep.svg -t /app/share/icons/hicolor/scalable/apps/
-      - install -Dm644 distro/io.github.sigmasd.nosleep_active.svg -t /app/share/icons/hicolor/scalable/apps/
-      - install -Dm644 distro/io.github.sigmasd.nosleep.metainfo.xml -t /app/share/metainfo/
+      - install -Dm644 distro/io.github.sigmasd.stimulator.desktop -t /app/share/applications/
+      - install -Dm644 distro/io.github.sigmasd.stimulator.svg -t /app/share/icons/hicolor/scalable/apps/
+      - install -Dm644 distro/io.github.sigmasd.stimulator_active.svg -t /app/share/icons/hicolor/scalable/apps/
+      - install -Dm644 distro/io.github.sigmasd.stimulator.metainfo.xml -t /app/share/metainfo/
 
     sources:
       - type: archive
