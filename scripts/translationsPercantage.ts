@@ -22,7 +22,9 @@ ${mdHeader}
       const translations = [...data.matchAll(/msgid/g)].length;
 
       const name = iso6391.getName(langPath.slice(0, -3));
-      output += `|${name}|${(translations / TOTAL_TRANSLATIONS) * 100}|\n`;
+      output += `|${name}|${
+        ((translations / TOTAL_TRANSLATIONS) * 100).toFixed(2)
+      }|\n`;
     });
   }
   return output;
