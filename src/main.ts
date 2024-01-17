@@ -14,7 +14,7 @@ import {
 import { systemLocale, t } from "./i18n.ts";
 
 const APP_ID = "io.github.sigmasd.stimulator";
-const VERSION = "0.7.4";
+const VERSION = "0.7.5";
 
 const UI_LABELS = {
   SuspendTitle: t("Disable Automatic Suspending"),
