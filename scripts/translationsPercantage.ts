@@ -11,11 +11,17 @@ ${mdHeader}
 | Language   | Translated (%) |
 |------------|-----------------|\n`;
 
+  const langs = [];
   for await (const lang of Deno.readDir("./po")) {
-    await Deno.readTextFile("./po/" + lang.name).then((data) => {
+    langs.push(lang.name);
+  }
+  langs.sort();
+
+  for (const langPath of langs) {
+    await Deno.readTextFile("./po/" + langPath).then((data) => {
       const translations = [...data.matchAll(/msgid/g)].length;
 
-      const name = iso6391.getName(lang.name.slice(0, -3));
+      const name = iso6391.getName(langPath.slice(0, -3));
       output += `|${name}|${(translations / TOTAL_TRANSLATIONS) * 100}|\n`;
     });
   }
