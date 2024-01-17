@@ -1,7 +1,8 @@
-#!/usr/bin/env -S deno run --allow-read=./po,README.md --allow-write=README.md --allow-run=deno
+#!/usr/bin/env -S deno run --allow-read=./po,README.md,./src/locales --allow-write=README.md --allow-run=deno
 import iso6391 from "npm:iso-639-1@3.1.0";
+import { UI_LABELS } from "../src/labels.ts";
 
-const TOTAL_TRANSLATIONS = 8;
+const TOTAL_TRANSLATIONS = Object.keys(UI_LABELS).length + 1;
 
 const mdHeader = "## Translations";
 async function generateTranslationsTable() {

@@ -11,20 +11,11 @@ import {
   NamedArgument,
   python,
 } from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.11/mod.ts";
-import { systemLocale, t } from "./i18n.ts";
+import { systemLocale } from "./i18n.ts";
+import { UI_LABELS } from "./labels.ts";
 
 const APP_ID = "io.github.sigmasd.stimulator";
 const VERSION = "0.7.6";
-
-const UI_LABELS = {
-  SuspendTitle: t("Disable Automatic Suspending"),
-  IdleTitle: t("Disable Screen Blanking"),
-  Indefinitely: t("Current state: Indefinitely"),
-  SystemDefault: t("Current state: System default"),
-  About: t("About Stimulator"),
-  SimulatorActive: t("Stimulator is active"),
-  Comments: t("Stop the desktop environment from sleeping"),
-};
 
 type Flags = "logout" | "switch" | "suspend" | "idle";
 
