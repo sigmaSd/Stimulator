@@ -15,6 +15,7 @@ import { systemLocale } from "./i18n.ts";
 import { UI_LABELS } from "./labels.ts";
 
 const APP_ID = "io.github.sigmasd.stimulator";
+const APP_NAME = UI_LABELS.AppName;
 const VERSION = "0.7.6";
 
 type Flags = "logout" | "switch" | "suspend" | "idle";
@@ -42,6 +43,7 @@ class MainWindow {
       new URL(import.meta.resolve("./ui/stimulator.ui")).pathname,
     );
     this.#win = builder.get_object("mainWindow");
+    this.#win.set_title(APP_NAME);
     if (systemLocale.startsWith("ar")) {
       this.#win.set_default_size(
         450,
@@ -168,7 +170,7 @@ class MainWindow {
     const dialog = Adw.AboutWindow(
       new NamedArgument("transient_for", this.#app.get_active_window()),
     );
-    dialog.set_application_name("Stimulator");
+    dialog.set_application_name(APP_NAME);
     dialog.set_version(VERSION);
     dialog.set_developer_name("Bedis Nbiba");
     dialog.set_designers(["Meybo Nõmme"]);

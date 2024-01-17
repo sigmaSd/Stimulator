@@ -17,7 +17,6 @@
 	(1,1,"GtkWindow","default-height","315",None,None,None,None,None,None,None,None,None),
 	(1,1,"GtkWindow","default-width","450",None,None,None,None,None,None,None,None,None),
 	(1,1,"GtkWindow","resizable","False",None,None,None,None,None,None,None,None,None),
-	(1,1,"GtkWindow","title","Stimulator",None,None,None,None,None,None,None,None,None),
 	(1,7,"GtkOrientable","orientation","vertical",None,None,None,None,None,None,None,None,None),
 	(1,11,"AdwActionRow","subtitle","Current state: System default",None,None,None,None,None,None,None,None,None),
 	(1,12,"AdwActionRow","subtitle","Current state: System default",None,None,None,None,None,None,None,None,None),

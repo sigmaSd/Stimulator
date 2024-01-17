@@ -8,7 +8,6 @@
     <property name="default-height">315</property>
     <property name="default-width">450</property>
     <property name="resizable">False</property>
-    <property name="title">Stimulator</property>
     <child>
       <object class="GtkBox">
         <property name="orientation">vertical</property>
