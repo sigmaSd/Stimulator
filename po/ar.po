@@ -1,12 +1,24 @@
+#
+# Meybo Nõmme <meybo@meybo.ee>, 2024.
+#
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
+"MIME-Version: 1.0\n"
+"Project-Id-Version: unnamed project\n"
+"Last-Translator: Meybo Nõmme <meybo@meybo.ee>\n"
+"Language-Team: Estonian <>\n"
+"Language: et\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"PO-Revision-Date: 2024-01-17 22:03+0200\n"
+"X-Generator: Gtranslator 45.3\n"
 
 msgid "Disable Automatic Suspending"
-msgstr "تعطيل التعليق التلقائي:"
+msgstr "تعطيل التعليق التلقائي"
 
 msgid "Disable Screen Blanking"
-msgstr "تعطيل اطفاء الشاشة تلقائيًا:"
+msgstr "تعطيل اطفاء الشاشة تلقائيًا"
 
 msgid "Current state: System default"
 msgstr "الحالة الحالية: الإعداد الاصلي للنظام"

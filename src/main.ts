@@ -114,7 +114,7 @@ class MainWindow {
       // if suspend is active, allow setting idle
       if (type === "suspend") {
         this.#mainIcon.set_from_icon_name(
-          APP_ID + "_active",
+          APP_ID,
         );
         this.#idleRow.set_sensitive(true);
       }
@@ -151,7 +151,7 @@ class MainWindow {
 
       if (type === "suspend") {
         this.#mainIcon.set_from_icon_name(
-          APP_ID,
+          APP_ID + "_inactive",
         );
         // if suspend is desactivated, disallow setting idle
         this.#idleRow.set_active(false);
