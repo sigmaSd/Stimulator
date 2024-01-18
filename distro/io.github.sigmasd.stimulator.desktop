@@ -1,8 +1,12 @@
 [Desktop Entry]
 Name=Stimulator
+Name[et]=Stimulaator
+Comment=Keep desktop awake
+Comment[et]=Hoia töölaud ärkvel
+Keywords=caffeine;nosleep;awake;keepawake;keepon;
+Keywords[et]=kofeiin;eiuinu;ärkvel;hoiaärkvel;jätka;
 TryExec=stimulator
 Exec=stimulator %F
-Type=Application
-Keywords=Caffeine;Sleep;
-Categories=Utility;
 Icon=io.github.sigmasd.stimulator
+Type=Application
+Categories=Utility;
