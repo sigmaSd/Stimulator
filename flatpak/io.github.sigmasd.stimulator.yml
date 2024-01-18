@@ -30,7 +30,7 @@ modules:
 
       - install -Dm644 distro/io.github.sigmasd.stimulator.desktop -t /app/share/applications/
       - install -Dm644 distro/io.github.sigmasd.stimulator.svg -t /app/share/icons/hicolor/scalable/apps/
-      - install -Dm644 distro/io.github.sigmasd.stimulator_active.svg -t /app/share/icons/hicolor/scalable/apps/
+      - install -Dm644 distro/io.github.sigmasd.stimulator_inactive.svg -t /app/share/icons/hicolor/scalable/apps/
       - install -Dm644 distro/io.github.sigmasd.stimulator.metainfo.xml -t /app/share/metainfo/
 
     sources:
