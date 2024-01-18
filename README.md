@@ -1,6 +1,6 @@
 # Stimulator
 
-Stop the desktop environment from sleeping
+Keep desktop awake
 
 <div style="display:flex;">
 <img style="width:25em;" src="https://raw.githubusercontent.com/sigmaSd/Stimulator/master/distro/demo_light.png"/>
@@ -18,7 +18,7 @@ Uses `Gtk.Application.inhibit` which internally uses
 
 | Language | Translated (%) |
 | -------- | -------------- |
-| Arabic   | 88.89          |
-| Estonian | 100.00         |
-| French   | 88.89          |
-| Italian  | 66.67          |
+| Arabic   | 77.78          |
+| Estonian | 88.89          |
+| French   | 77.78          |
+| Italian  | 55.56          |

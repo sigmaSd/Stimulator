@@ -8,5 +8,5 @@ export const UI_LABELS = {
   SystemDefault: t("Current state: System default"),
   About: t("About Stimulator"),
   SimulatorActive: t("Stimulator is active"),
-  Comments: t("Stop the desktop environment from sleeping"),
+  Comments: t("Keep desktop awake"),
 };

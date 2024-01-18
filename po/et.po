@@ -20,8 +20,5 @@ msgstr "Hetkeolek: Määramata ajaks"
 msgid "About Stimulator"
 msgstr "Stimulaatori teave"
 
-msgid "Stop the desktop environment from sleeping"
-msgstr "Keela töölaua keskkonna uinumine"
-
 msgid "Stimulator is active"
 msgstr "Stimulaator on aktiivne"

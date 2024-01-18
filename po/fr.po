@@ -17,8 +17,5 @@ msgstr "État actuel: Indéfiniment"
 msgid "About Stimulator"
 msgstr "À Propos de Stimulator"
 
-msgid "Stop the desktop environment from sleeping"
-msgstr "Empêcher l'environnement de bureau de dormir"
-
 msgid "Stimulator is active"
 msgstr "Stimulator est active"

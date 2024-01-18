@@ -3,7 +3,7 @@
   <id>io.github.sigmasd.stimulator</id>
   <name>Stimulator</name>
   <summary>
-    Stop the desktop environment from sleeping
+    Keep desktop awake
   </summary>
   <developer_name>Bedis Nbiba</developer_name>
 
