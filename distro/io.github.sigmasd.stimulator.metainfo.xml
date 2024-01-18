@@ -36,6 +36,17 @@
   <content_rating type="oars-1.1" />
 
   <releases>
+    <release version="0.8.0" date="2024-01-18">
+      <description>
+        <ul>
+          <li>Updated icons with new color tones</li>
+          <li>Behavior of alternating icons has been changed in main window</li>
+          <li>"Disable Screen Blanking" now remembers the last state</li>
+          <li>App have now full translation support, including app name</li>
+          <li>Minor bugfixes and tweaks</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.7.6" date="2024-01-17">
       <description>
         <ul>
