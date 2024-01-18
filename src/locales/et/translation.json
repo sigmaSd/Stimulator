@@ -1,6 +1,7 @@
 {
+    "Stimulator": "Stimulaator",
     "Disable Automatic Suspending": "Keela automaatne uinak",
-    "Disable Screen Blanking": "Keela ekraani väljalülitamine",
+    "Disable Screen Blanking": "Keela ekraani tumenemine",
     "Current state: System default": "Hetkeolek: Süsteemi vaikeseade",
     "Current state: Indefinitely": "Hetkeolek: Määramata ajaks",
     "About Stimulator": "Stimulaatori teave",

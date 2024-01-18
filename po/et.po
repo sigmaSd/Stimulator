@@ -2,11 +2,14 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 
+msgid "Stimulator"
+msgstr "Stimulaator"
+
 msgid "Disable Automatic Suspending"
 msgstr "Keela automaatne uinak"
 
 msgid "Disable Screen Blanking"
-msgstr "Keela ekraani väljalülitamine"
+msgstr "Keela ekraani tumenemine"
 
 msgid "Current state: System default"
 msgstr "Hetkeolek: Süsteemi vaikeseade"
