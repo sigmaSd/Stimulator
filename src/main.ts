@@ -27,7 +27,7 @@ class MainWindow {
   #suspendRow: Adw_.SwitchRow;
   #idleRow: Adw_.SwitchRow;
 
-  #state = {
+  #state: { [key in Flags]?: boolean | "active_disabled" } = {
     "logout": false,
     "switch": false,
     "suspend": false,
@@ -56,7 +56,9 @@ class MainWindow {
     this.#suspendRow.set_subtitle(UI_LABELS.SystemDefault);
     this.#suspendRow.connect(
       "notify::active",
-      python.callback(() => this.#toggle(this.#suspendRow, "suspend")),
+      python.callback(() =>
+        this.#toggleSuspend(this.#suspendRow.get_active().valueOf())
+      ),
     );
     this.#idleRow = builder.get_object("idleRow");
     this.#idleRow.set_title(UI_LABELS.IdleTitle);
@@ -64,7 +66,9 @@ class MainWindow {
     this.#idleRow.connect(
       "notify::active",
       // NOTE: works but for some reason it issues a warning the first time its called about invalid flags
-      python.callback(() => this.#toggle(this.#idleRow, "idle")),
+      python.callback(() =>
+        this.#toggleIdle(this.#idleRow.get_active().valueOf())
+      ),
     );
 
     this.#app = app;
@@ -91,79 +95,92 @@ class MainWindow {
 
     // ui modifications needs to be done last
     // this will update the state to the last saved one
-    if (this.#state["suspend"]) this.#suspendRow.set_active(true);
-    if (this.#state["idle"]) this.#idleRow.set_active(true);
+    // NOTE: set_active(false) doesn't trigger the button callback
+    // Adw bug ?
+    if (this.#state["idle"] === "active_disabled") {
+      this.#idleRow.set_active(true);
+    } else {
+      this.#idleRow.set_active(this.#state["idle"] as boolean);
+    }
+    if (!this.#state["idle"]) this.#toggleIdle(false);
+
+    this.#suspendRow.set_active(this.#state["suspend"] as boolean); // we don't disable suspend
+    if (!this.#state["suspend"]) this.#toggleSuspend(false);
   }
 
   present() {
     this.#win.present();
   }
 
-  #toggle = (
-    row: Adw_.SwitchRow,
-    type: Flags,
-  ) => {
-    const cookie = this.#cookies[type];
-    const active = row.get_active().valueOf();
-
-    this.#state[type] = active;
+  #updateState(state: { [key in Flags]?: boolean | "active_disabled" }) {
+    this.#state = { ...this.#state, ...state };
     localStorage.setItem("state", JSON.stringify(this.#state));
+  }
 
-    if (active) {
-      row.set_subtitle(UI_LABELS.Indefinitely);
-      // if suspend is active, allow setting idle
-      if (type === "suspend") {
-        this.#mainIcon.set_from_icon_name(
-          APP_ID,
-        );
-        this.#idleRow.set_sensitive(true);
+  #toggleSuspend = (yes: boolean) => {
+    const idleRowActive = this.#idleRow.get_active().valueOf();
+    if (yes) {
+      this.#suspendRow.set_subtitle(UI_LABELS.Indefinitely);
+      this.#mainIcon.set_from_icon_name(
+        APP_ID,
+      );
+
+      this.#idleRow.set_sensitive(true);
+      if (idleRowActive) {
+        this.#toggleIdle(true);
       }
 
-      let flag = undefined;
-      switch (type) {
-        case "logout":
-          flag = Gtk.ApplicationInhibitFlags.LOGOUT;
-          break;
-        case "switch":
-          flag = Gtk.ApplicationInhibitFlags.SWITCH;
-          break;
-        case "suspend":
-          flag = Gtk.ApplicationInhibitFlags.SUSPEND;
-          break;
-        case "idle":
-          flag = Gtk.ApplicationInhibitFlags.IDLE;
-          break;
-        default:
-          throw new Error("unexpcted type:", type);
-      }
-
-      this.#cookies[type] = this.#app.inhibit(
+      this.#cookies["suspend"] = this.#app.inhibit(
         this.#win,
-        flag,
+        Gtk.ApplicationInhibitFlags.SUSPEND,
         // NOTE: the reason is needed for flatpak to work
         UI_LABELS.SimulatorActive,
       ).valueOf();
     } else {
-      row.set_subtitle(UI_LABELS.SystemDefault);
-      assert(cookie);
-      this.#app.uninhibit(cookie);
-      this.#cookies[type] = undefined;
+      this.#suspendRow.set_subtitle(UI_LABELS.SystemDefault);
+      this.#mainIcon.set_from_icon_name(
+        APP_ID + "_inactive",
+      );
 
-      if (type === "suspend") {
-        this.#mainIcon.set_from_icon_name(
-          APP_ID + "_inactive",
-        );
-        // if suspend is desactivated, disallow setting idle
-        this.#idleRow.set_active(false);
-        this.#idleRow.set_sensitive(false);
-        // if we unihibit suspend we also uninhibit idle
-        const idleCookie = this.#cookies["idle"];
-        if (idleCookie) {
-          this.#app.uninhibit(idleCookie);
-          this.#cookies["idle"] = undefined;
-        }
+      const suspendCookie = this.#cookies["suspend"];
+      if (suspendCookie) {
+        this.#app.uninhibit(suspendCookie);
+        this.#cookies["suspend"] = undefined;
+      }
+
+      // if suspend is desactivated, disallow setting idle
+      this.#idleRow.set_sensitive(false);
+
+      // if we unihibit suspend we also uninhibit idle
+      // if it was active make it active_disabled
+      if (idleRowActive) {
+        this.#toggleIdle("active_disabled");
       }
     }
+
+    this.#updateState({ "suspend": yes });
+  };
+
+  #toggleIdle = (state: boolean | "active_disabled") => {
+    const suspendRowActive = this.#suspendRow.get_active().valueOf();
+    if (suspendRowActive && state === true) {
+      this.#idleRow.set_subtitle(UI_LABELS.Indefinitely);
+      this.#cookies["idle"] = this.#app.inhibit(
+        this.#win,
+        Gtk.ApplicationInhibitFlags.IDLE,
+        // NOTE: the reason is needed for flatpak to work
+        UI_LABELS.SimulatorActive,
+      ).valueOf();
+    } else {
+      this.#idleRow.set_subtitle(UI_LABELS.SystemDefault);
+      const idleCookie = this.#cookies["idle"];
+      if (idleCookie) {
+        this.#app.uninhibit(idleCookie);
+        this.#cookies["idle"] = undefined;
+      }
+    }
+
+    this.#updateState({ "idle": state });
   };
 
   #showAbout = python.callback(() => {
@@ -196,15 +213,6 @@ class App extends Adw.Application {
     this.#win = new MainWindow(app);
     this.#win.present();
   });
-}
-
-function assert<T>(
-  value: T,
-  message = "Value should be defined",
-): asserts value is NonNullable<T> {
-  if (value === undefined || value === null) {
-    throw new Error(message);
-  }
 }
 
 if (import.meta.main) {
