@@ -16,7 +16,7 @@ import { UI_LABELS } from "./labels.ts";
 
 const APP_ID = "io.github.sigmasd.stimulator";
 const APP_NAME = UI_LABELS.AppName;
-const VERSION = "0.7.6";
+const VERSION = "0.8.0";
 
 type Flags = "logout" | "switch" | "suspend" | "idle";
 
