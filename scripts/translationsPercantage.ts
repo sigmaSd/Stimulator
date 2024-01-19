@@ -3,8 +3,7 @@ import iso6391 from "npm:iso-639-1@3.1.0";
 import { EN_UI_LABELS } from "../src/consts.ts";
 
 //deno-fmt-ignore
-const TOTAL_TRANSLATIONS = Object.keys(EN_UI_LABELS).length
-  + 1 /* empty string */;
+const TOTAL_TRANSLATIONS = Object.keys(EN_UI_LABELS).length;
 
 const mdHeader = "## Translations";
 async function generateTranslationsTable() {
@@ -21,11 +20,17 @@ ${mdHeader}
 
   for (const langPath of langs) {
     await Deno.readTextFile("./po/" + langPath).then((data) => {
-      const translations = [...data.matchAll(/msgid/g)].length;
+      const msgIdNum = [...data.matchAll(/msgid/g)].length;
+      if (msgIdNum !== TOTAL_TRANSLATIONS + 1 /*first empty string*/) {
+        throw new Error(`po file: ${langPath} is missing some entries`);
+      }
+      const emptyMsgStr = [...data.matchAll(/msgstr ""/g)].length -
+        1 /* first empty msgstr */;
 
       const name = iso6391.getName(langPath.slice(0, -3));
       output += `|${name}|${
-        ((translations / TOTAL_TRANSLATIONS) * 100).toFixed(2)
+        (((TOTAL_TRANSLATIONS - emptyMsgStr) / TOTAL_TRANSLATIONS) * 100)
+          .toFixed(2)
       }|\n`;
     });
   }
