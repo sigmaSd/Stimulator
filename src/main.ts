@@ -12,11 +12,7 @@ import {
   python,
 } from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.11/mod.ts";
 import { systemLocale } from "./i18n.ts";
-import { UI_LABELS } from "./labels.ts";
-
-const APP_ID = "io.github.sigmasd.stimulator";
-const APP_NAME = UI_LABELS.AppName;
-const VERSION = "0.8.0";
+import { APP_ID, APP_NAME, UI_LABELS, VERSION } from "./consts.ts";
 
 type Flags = "logout" | "switch" | "suspend" | "idle";
 

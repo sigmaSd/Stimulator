@@ -25,3 +25,6 @@ msgstr "About Stimulator"
 
 msgid "Stimulator is active"
 msgstr "Stimulator is active"
+
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "caffeine;nosleep;awake;keepawake;keepon;"

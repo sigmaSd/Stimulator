@@ -14,5 +14,14 @@ await i18next.changeLanguage(systemLocale);
 
 const i18n = (lng?: string) => i18next.getFixedT(lng || systemLocale);
 
+export { i18next };
 export default i18n;
-export const t = i18n();
+const rawT = i18n();
+export const t = (string: string) => {
+  const translated = rawT(string);
+  if (translated) {
+    return translated;
+  } else {
+    return string;
+  }
+};

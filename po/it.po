@@ -13,3 +13,18 @@ msgstr "Stato corrente: impostazione predefinita del sistema"
 
 msgid "Current state: Indefinitely"
 msgstr "Stato attuale: a tempo indeterminato"
+
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr ""
+
+msgid "Stimulator"
+msgstr ""
+
+msgid "Keep desktop awake"
+msgstr ""
+
+msgid "About Stimulator"
+msgstr ""
+
+msgid "Stimulator is active"
+msgstr "Stimulator est active"
