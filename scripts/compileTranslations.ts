@@ -25,6 +25,7 @@ async function genDesktopFile() {
   const keywords = [`Keywords=${EN_UI_LABELS.Keywords}`];
   for await (const lang of Deno.readDir("./po")) {
     const langName = lang.name.slice(0, -3);
+    if (langName === "en") continue;
     await i18next.changeLanguage(langName);
     const name = i18n(langName)(EN_UI_LABELS.AppName);
     const comment = i18n(langName)(EN_UI_LABELS.Comments);

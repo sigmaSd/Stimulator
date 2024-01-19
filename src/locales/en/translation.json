@@ -1,0 +1,11 @@
+{
+    "Stimulator": "Stimulator",
+    "Keep desktop awake": "Keep desktop awake",
+    "Disable Automatic Suspending": "Disable Automatic Suspending",
+    "Disable Screen Blanking": "Disable Screen Blanking",
+    "Current state: System default": "Current state: System default",
+    "Current state: Indefinitely": "Current state: Indefinitely",
+    "About Stimulator": "About Stimulator",
+    "Stimulator is active": "Stimulator is active",
+    "caffeine;nosleep;awake;keepawake;keepon;": "caffeine;nosleep;awake;keepawake;keepon;"
+}
