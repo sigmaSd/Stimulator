@@ -22,3 +22,10 @@ Uses `Gtk.Application.inhibit` which internally uses
 | Estonian | 100.00         |
 | French   | 77.78          |
 | Italian  | 55.56          |
+
+## How to add translations
+
+- Copy content of `en.po` template from <a href="https://github.com/sigmaSd/Stimulator/blob/master/po/en.po" target="_blank">here</a>
+- Create a new file <a href="https://github.com/sigmaSd/Stimulator/tree/master/po" target="_blank">here</a> with "Add file" -> "Create new file" button
+- Paste content of `en.po` and translate strings
+- Name created file as `yourlanguagecode.po`, commit changes and submit pull request
