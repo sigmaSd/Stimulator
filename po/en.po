@@ -3,25 +3,25 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 
 msgid "Stimulator"
-msgstr ""
+msgstr "Stimulator"
 
 msgid "Keep desktop awake"
-msgstr ""
+msgstr "Keep desktop awake"
 
 msgid "Disable Automatic Suspending"
-msgstr ""
+msgstr "Disable Automatic Suspending"
 
 msgid "Disable Screen Blanking"
-msgstr ""
+msgstr "Disable Screen Blanking"
 
 msgid "Current state: System default"
-msgstr ""
+msgstr "Current state: System default"
 
 msgid "Current state: Indefinitely"
-msgstr ""
+msgstr "Current state: Indefinitely"
 
 msgid "About Stimulator"
-msgstr ""
+msgstr "About Stimulator"
 
 msgid "Stimulator is active"
-msgstr ""
+msgstr "Stimulator is active"
