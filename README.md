@@ -25,7 +25,7 @@ Uses `Gtk.Application.inhibit` which internally uses
 
 | Language | Translated (%) |
 | -------- | -------------- |
-| Arabic   | 77.78          |
+| Arabic   | 70.00          |
 | Estonian | 100.00         |
-| French   | 77.78          |
-| Italian  | 55.56          |
+| French   | 70.00          |
+| Italian  | 50.00          |

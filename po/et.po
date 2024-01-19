@@ -25,3 +25,6 @@ msgstr "Stimulaatori teave"
 
 msgid "Stimulator is active"
 msgstr "Stimulaator on aktiivne"
+
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "kofeiin;eiuinu;ärkvel;hoiaärkvel;jätka;"
