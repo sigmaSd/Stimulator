@@ -9,7 +9,7 @@ msgid "Keep desktop awake"
 msgstr "Keep desktop awake"
 
 msgid "Disable Automatic Suspending"
-msgstr "Disable Automatic Suspendin"
+msgstr "Disable Automatic Suspending"
 
 msgid "Disable Screen Blanking"
 msgstr "Disable Screen Blanking"
