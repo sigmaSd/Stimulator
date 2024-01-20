@@ -1,8 +1,7 @@
 [Desktop Entry]
 Name=Stimulator
 Name[et]=Stimulaator
-Comment=Keep desktop awake
-Comment[et]=Hoia töölaud ärkvel
+Comment=Keep your computer from sleeping
 Keywords=caffeine;nosleep;awake;keepawake;keepon;
 Keywords[et]=kofeiin;eiuinu;ärkvel;hoiaärkvel;jätka;
 TryExec=stimulator

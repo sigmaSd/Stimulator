@@ -1,6 +1,6 @@
 # Stimulator
 
-Keep desktop awake
+Keep your computer from sleeping
 
 <div style="display:flex;">
 <img style="width:25em;" src="https://raw.githubusercontent.com/sigmaSd/Stimulator/master/distro/demo_light_active.png"/>
@@ -33,6 +33,6 @@ Uses `Gtk.Application.inhibit` which internally uses
 | -------- | -------------- |
 | Arabic   | 50.00          |
 | English  | 100.00         |
-| Estonian | 75.00          |
+| Estonian | 66.67          |
 | French   | 50.00          |
 | Italian  | 41.67          |

@@ -20,7 +20,7 @@ msgstr ""
 msgid "Stimulator"
 msgstr ""
 
-msgid "Keep desktop awake"
+msgid "Keep your computer from sleeping"
 msgstr ""
 
 msgid "About Stimulator"

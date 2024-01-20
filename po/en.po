@@ -5,8 +5,8 @@ msgstr ""
 msgid "Stimulator"
 msgstr "Stimulator"
 
-msgid "Keep desktop awake"
-msgstr "Keep desktop awake"
+msgid "Keep your computer from sleeping"
+msgstr "Keep your computer from sleeping"
 
 msgid "Disable Automatic Suspending"
 msgstr "Disable Automatic Suspending"
