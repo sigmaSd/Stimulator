@@ -1,5 +1,6 @@
 import type {
   Callback,
+  Gio_,
   Gtk_,
   NamedArgument,
   PyObject,
@@ -36,6 +37,8 @@ export interface ApplicationConstructor {
 }
 
 export interface Application extends PyObject {
+  set_accels_for_action(detailedActionName: string, accels: [string]): void;
+  add_action(action: Gio_.SimpleAction): void;
   inhibit(
     window: Gtk_.ApplicationWindow,
     flags: number,

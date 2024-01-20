@@ -65,7 +65,13 @@ export interface CssProvider {
 export interface ApplicationWindowConstructor {
   new (kwArg: NamedArgument): ApplicationWindow;
 }
-export interface ApplicationWindow {
+export interface Window extends Widget {
+  present: () => void;
+}
+// deno-lint-ignore no-empty-interface
+export interface ShortcutsWindow extends Window {
+}
+export interface ApplicationWindow extends Window {
   get_default_size(): {
     width: { valueOf(): number };
     height: { valueOf(): number };
@@ -75,7 +81,6 @@ export interface ApplicationWindow {
   set_default_size: (width: number, height: number) => void;
   set_title: (name: string) => void;
   set_titlebar: (header: HeaderBar) => void;
-  present: () => void;
   close: () => void;
   add_action(action: Gio_.SimpleAction): void;
   connect(signal: "close-request", callback: Callback): void;
