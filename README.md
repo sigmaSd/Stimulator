@@ -7,7 +7,9 @@ Keep desktop awake
 <img style="width:25em;" src="https://raw.githubusercontent.com/sigmaSd/Stimulator/master/distro/demo_dark_active.png"/>
 </div>
 
-[![Get it from FlatHub](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/flathub.png)](https://flathub.org/apps/io.github.sigmasd.stimulator)
+<a href='https://flathub.org/apps/io.github.sigmasd.stimulator'>
+  <img width='240' alt='Download on Flathub' src='https://dl.flathub.org/assets/badges/flathub-badge-i-en.png'/>
+</a>
 
 ## How it works
 
