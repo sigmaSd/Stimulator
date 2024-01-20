@@ -199,6 +199,12 @@ export interface Picture extends Widget {
 export interface Image extends Widget {
   set_from_icon_name(iconName: string): void;
 }
+export interface ShortcutsGroup extends Box {
+  props: { title: string };
+}
+export interface ShortcutsShortcut extends Widget {
+  props: { title: string };
+}
 
 export enum ApplicationInhibitFlags {
   LOGOUT,
