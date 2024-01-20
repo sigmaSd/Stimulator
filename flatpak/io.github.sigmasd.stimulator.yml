@@ -25,8 +25,7 @@ modules:
       - cp deno.json /app/bin/runtime/deno.json
       - cp -r vendor /app/bin/runtime/vendor
 
-      - echo "DENO_PYTHON_PATH=/usr/lib/$(uname -m)-linux-gnu/libpython3.11.so.1.0 /app/bin/deno run --allow-read=/app/bin/runtime/src/locales --allow-env=DENO_PYTHON_PATH --allow-ffi --unstable-ffi /app/bin/runtime/src/main.ts" >/app/bin/stimulator
-      - chmod +x /app/bin/stimulator
+      - mv stimulator /app/bin/stimulator
 
       - install -Dm644 distro/io.github.sigmasd.stimulator.desktop -t /app/share/applications/
       - install -Dm644 distro/io.github.sigmasd.stimulator.svg -t /app/share/icons/hicolor/scalable/apps/
@@ -34,6 +33,11 @@ modules:
       - install -Dm644 distro/io.github.sigmasd.stimulator.metainfo.xml -t /app/share/metainfo/
 
     sources:
+      - type: script
+        dest-filename: stimulator
+        commands:
+          - DENO_PYTHON_PATH=/usr/lib/$(uname -m)-linux-gnu/libpython3.11.so.1.0 /app/bin/deno run --allow-read=/app/bin/runtime/src/locales --allow-env=DENO_PYTHON_PATH --allow-ffi --unstable-ffi /app/bin/runtime/src/main.ts
+
       - type: archive
         url: https://github.com/denoland/deno/releases/download/v1.39.3/deno-x86_64-unknown-linux-gnu.zip
         sha256: 744213c03b8e480b0709040ba5dde8a71d6594a5ad20dc5f62b88550489367da
