@@ -28,3 +28,12 @@ msgstr "Stimulator is active"
 
 msgid "caffeine;nosleep;awake;keepawake;keepon;"
 msgstr "caffeine;nosleep;awake;keepawake;keepon;"
+
+msgid "Keyboard Shortcuts"
+msgstr "Keyboard Shortcuts"
+
+msgid "Quit"
+msgstr "Quit"
+
+msgid "General"
+msgstr "General"

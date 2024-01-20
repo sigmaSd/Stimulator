@@ -28,3 +28,12 @@ msgstr "Stimulaator on aktiivne"
 
 msgid "caffeine;nosleep;awake;keepawake;keepon;"
 msgstr "kofeiin;eiuinu;ärkvel;hoiaärkvel;jätka;"
+
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+msgid "Quit"
+msgstr ""
+
+msgid "General"
+msgstr ""

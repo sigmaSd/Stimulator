@@ -2,6 +2,7 @@
 import {
   Adw,
   Adw_,
+  Callback,
   Gdk,
   Gio,
   GLib,
@@ -81,13 +82,20 @@ class MainWindow {
     hamburger.set_icon_name("open-menu-symbolic");
     header.pack_start(hamburger);
 
-    // about menu
-    {
-      const action = Gio.SimpleAction.new("about");
-      action.connect("activate", this.#showAbout);
-      this.#win.add_action(action);
-      menu.append(UI_LABELS.About, "win.about");
-    }
+    this.#createAction("shortcuts", this.#showShortcuts, ["<primary>question"]);
+    menu.append(UI_LABELS.KeyboardShortcuts, "app.shortcuts");
+    this.#createAction("about", this.#showAbout);
+    menu.append(UI_LABELS.About, "app.about");
+    this.#createAction(
+      "quit",
+      python.callback(() => this.#app.quit()),
+      ["<primary>q"],
+    );
+    this.#createAction(
+      "close",
+      python.callback(() => this.#app.quit()),
+      ["<primary>w"],
+    );
 
     // ui modifications needs to be done last
     // this will update the state to the last saved one
@@ -107,6 +115,13 @@ class MainWindow {
   present() {
     this.#win.present();
   }
+
+  #createAction = (name: string, callback: Callback, shortcuts?: [string]) => {
+    const action = Gio.SimpleAction.new(name);
+    action.connect("activate", callback);
+    this.#app.add_action(action);
+    if (shortcuts) this.#app.set_accels_for_action(`app.${name}`, shortcuts);
+  };
 
   #updateState(state: { [key in Flags]?: boolean | "active_disabled" }) {
     this.#state = { ...this.#state, ...state };
@@ -196,6 +211,30 @@ class MainWindow {
     dialog.set_application_icon(APP_ID);
 
     dialog.set_visible(true);
+  });
+
+  #showShortcuts = python.callback(() => {
+    const builder = Gtk.Builder();
+    builder.add_from_file(
+      new URL(import.meta.resolve("./ui/shortcuts.ui")).pathname,
+    );
+    const shortcutsWin = builder.get_object(
+      "shortcutsWin",
+    ) as Gtk_.ShortcutsWindow;
+    const shortcutsGroup = builder.get_object(
+      "shortcutsGroup",
+    );
+    shortcutsGroup.props.title = UI_LABELS.General;
+    const keyboardShortcutShortcut = builder.get_object(
+      "keyboardShortcutShortcut",
+    );
+    keyboardShortcutShortcut.props.title = UI_LABELS.KeyboardShortcuts;
+    const quitShortcut = builder.get_object(
+      "quitShortcut",
+    );
+    quitShortcut.props.title = UI_LABELS.Quit;
+
+    shortcutsWin.present();
   });
 }
 

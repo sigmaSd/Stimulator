@@ -2,7 +2,8 @@
 <!DOCTYPE cambalache-project SYSTEM "cambalache-project.dtd">
 <cambalache-project version="0.13.1" target_tk="gtk-4.0">
   <ui>
-	(1,None,"stimulator.ui","stimulator.ui",None,None,None,None,None,None,None)
+	(1,None,"stimulator.ui","stimulator.ui",None,None,None,None,None,None,None),
+	(2,None,None,"shortcuts.ui",None,None,None,None,None,None,None)
   </ui>
   <object>
 	(1,1,"GtkApplicationWindow","mainWindow",None,None,None,None,-1,None),
@@ -11,7 +12,12 @@
 	(1,10,"AdwPreferencesGroup",None,9,None,None,None,None,None),
 	(1,11,"AdwSwitchRow","suspendRow",10,None,None,None,None,None),
 	(1,12,"AdwSwitchRow","idleRow",10,None,None,None,1,None),
-	(1,14,"GtkImage","mainIcon",7,None,None,None,None,None)
+	(1,14,"GtkImage","mainIcon",7,None,None,None,None,None),
+	(2,1,"GtkShortcutsWindow","shortcutsWin",None,None,None,None,-1,None),
+	(2,2,"GtkShortcutsSection",None,1,None,None,None,-1,None),
+	(2,3,"GtkShortcutsGroup","shortcutsGroup",2,None,None,None,-1,None),
+	(2,4,"GtkShortcutsShortcut","keyboardShortcutShortcut",3,None,None,None,-1,None),
+	(2,5,"GtkShortcutsShortcut","quitShortcut",3,None,None,None,1,None)
   </object>
   <object_property>
 	(1,1,"GtkWindow","default-height","315",None,None,None,None,None,None,None,None,None),
@@ -21,9 +27,11 @@
 	(1,11,"AdwActionRow","subtitle","Current state: System default",None,None,None,None,None,None,None,None,None),
 	(1,12,"AdwActionRow","subtitle","Current state: System default",None,None,None,None,None,None,None,None,None),
 	(1,12,"GtkWidget","sensitive","False",None,None,None,None,None,None,None,None,None),
-	(1,14,"GtkImage","icon-name","io.github.sigmasd.stimulator",None,None,None,None,None,None,None,None,None),
+	(1,14,"GtkImage","icon-name","io.github.sigmasd.stimulator_inactive",None,None,None,None,None,None,None,None,None),
 	(1,14,"GtkImage","pixel-size","96",None,None,None,None,None,None,None,None,None),
 	(1,14,"GtkWidget","margin-bottom","5",None,None,None,None,None,None,None,None,None),
-	(1,14,"GtkWidget","margin-top","10",None,None,None,None,None,None,None,None,None)
+	(1,14,"GtkWidget","margin-top","10",None,None,None,None,None,None,None,None,None),
+	(2,4,"GtkShortcutsShortcut","accelerator","&lt;primary&gt;question",None,None,None,None,None,None,None,None,None),
+	(2,5,"GtkShortcutsShortcut","accelerator","&lt;primary&gt;q",None,None,None,None,None,None,None,None,None)
   </object_property>
 </cambalache-project>

@@ -28,3 +28,12 @@ msgstr ""
 
 msgid "Keep desktop awake"
 msgstr ""
+
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+msgid "Quit"
+msgstr ""
+
+msgid "General"
+msgstr ""

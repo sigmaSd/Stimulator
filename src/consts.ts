@@ -10,6 +10,9 @@ export const EN_UI_LABELS = {
   SimulatorActive: "Stimulator is active",
   Comments: "Keep desktop awake",
   Keywords: "caffeine;nosleep;awake;keepawake;keepon;",
+  KeyboardShortcuts: "Keyboard Shortcuts",
+  Quit: "Quit",
+  General: "General",
 };
 
 export const UI_LABELS = {
@@ -22,6 +25,9 @@ export const UI_LABELS = {
   SimulatorActive: t(EN_UI_LABELS.SimulatorActive),
   Comments: t(EN_UI_LABELS.Comments),
   Keywords: t(EN_UI_LABELS.Keywords),
+  KeyboardShortcuts: t(EN_UI_LABELS.KeyboardShortcuts),
+  Quit: t(EN_UI_LABELS.Quit),
+  General: t(EN_UI_LABELS.General),
 };
 
 export const APP_ID = "io.github.sigmasd.stimulator";
