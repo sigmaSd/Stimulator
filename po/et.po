@@ -6,7 +6,7 @@ msgid "Stimulator"
 msgstr "Stimulaator"
 
 msgid "Keep your computer awake"
-msgstr ""
+msgstr "Hoia oma arvuti ärkvel"
 
 msgid "Disable Automatic Suspending"
 msgstr "Keela automaatne uinak"
@@ -30,22 +30,22 @@ msgid "caffeine;nosleep;awake;keepawake;keepon;"
 msgstr "kofeiin;eiuinu;ärkvel;hoiaärkvel;jätka;"
 
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Klaviatuuri otseteed"
 
 msgid "Quit"
-msgstr ""
+msgstr "Välju"
 
 msgid "General"
-msgstr ""
+msgstr "Üldine"
 
 msgid "Confirm close?"
-msgstr ""
+msgstr "Kinnitad sulgemise?"
 
 msgid "Stimulator is still active, do you want to close?"
-msgstr ""
+msgstr "Stimulaator on endiselt aktiivne, kas soovid sulgeda?"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Tühista"
 
 msgid "Close"
-msgstr ""
+msgstr "Sulge"
