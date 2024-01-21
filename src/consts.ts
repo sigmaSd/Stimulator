@@ -14,7 +14,7 @@ export const EN_UI_LABELS = {
   Quit: "Quit",
   General: "General",
   ConfirmClose: "Confirm close?",
-  ConfirmCloseBody: "Stimulator is still active, do you still want to close?",
+  ConfirmCloseBody: "Stimulator is still active, do you want to close?",
   Cancel: "Cancel",
   Close: "Close",
 };

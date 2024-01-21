@@ -12,7 +12,7 @@
     "Quit": "Quitter",
     "General": "Général",
     "Confirm close?": "Confirmer la fermeture ?",
-    "Stimulator is still active, do you still want to close?": "Stimulateur est toujours actif, voulez-vous toujours fermer ?",
+    "Stimulator is still active, do you want to close?": "Stimulateur est toujours actif, voulez-vous toujours fermer ?",
     "Cancel": "Annuler",
     "Close": "Fermer"
 }

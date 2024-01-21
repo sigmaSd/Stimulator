@@ -41,7 +41,7 @@ msgstr ""
 msgid "Confirm close?"
 msgstr ""
 
-msgid "Stimulator is still active, do you still want to close?"
+msgid "Stimulator is still active, do you want to close?"
 msgstr ""
 
 msgid "Cancel"

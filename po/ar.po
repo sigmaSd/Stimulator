@@ -41,7 +41,7 @@ msgstr "عام"
 msgid "Confirm close?"
 msgstr "تأكيد الإغلاق؟"
 
-msgid "Stimulator is still active, do you still want to close?"
+msgid "Stimulator is still active, do you want to close?"
 msgstr "المحفز لا يزال نشطًا، هل تريد متابعة الإغلاق؟"
 
 msgid "Cancel"

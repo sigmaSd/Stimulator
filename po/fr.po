@@ -41,7 +41,7 @@ msgstr "Général"
 msgid "Confirm close?"
 msgstr "Confirmer la fermeture ?"
 
-msgid "Stimulator is still active, do you still want to close?"
+msgid "Stimulator is still active, do you want to close?"
 msgstr "Stimulateur est toujours actif, voulez-vous toujours fermer ?"
 
 msgid "Cancel"
