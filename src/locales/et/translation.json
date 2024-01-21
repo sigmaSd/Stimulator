@@ -1,6 +1,6 @@
 {
     "Stimulator": "Stimulaator",
-    "Keep your computer awake": "",
+    "Keep your computer awake": "Hoia oma arvuti ärkvel",
     "Disable Automatic Suspending": "Keela automaatne uinak",
     "Disable Screen Blanking": "Keela ekraani tumenemine",
     "Current state: System default": "Hetkeolek: Süsteemi vaikeseade",
@@ -8,11 +8,11 @@
     "About Stimulator": "Stimulaatori teave",
     "Stimulator is active": "Stimulaator on aktiivne",
     "caffeine;nosleep;awake;keepawake;keepon;": "kofeiin;eiuinu;ärkvel;hoiaärkvel;jätka;",
-    "Keyboard Shortcuts": "",
-    "Quit": "",
-    "General": "",
-    "Confirm close?": "",
-    "Stimulator is still active, do you want to close?": "",
-    "Cancel": "",
-    "Close": ""
+    "Keyboard Shortcuts": "Klaviatuuri otseteed",
+    "Quit": "Välju",
+    "General": "Üldine",
+    "Confirm close?": "Kinnitad sulgemise?",
+    "Stimulator is still active, do you want to close?": "Stimulaator on endiselt aktiivne, kas soovid sulgeda?",
+    "Cancel": "Tühista",
+    "Close": "Sulge"
 }

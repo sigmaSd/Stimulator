@@ -1,15 +1,16 @@
 [Desktop Entry]
 Name=Stimulator
 Name[ar]=المحفز
-Name[et]=Stimulaator
 Name[fr]=Stimulateur
+Name[et]=Stimulaator
 Comment=Keep your computer awake
 Comment[ar]=أبقِ جهاز الكمبيوتر مستيقظًا
 Comment[fr]=Gardez votre ordinateur éveillé
+Comment[et]=Hoia oma arvuti ärkvel
 Keywords=caffeine;nosleep;awake;keepawake;keepon;
 Keywords[ar]=كافيين; بدون نوم; مستيقظ;
-Keywords[et]=kofeiin;eiuinu;ärkvel;hoiaärkvel;jätka;
 Keywords[fr]=caféine;pas de someil;éveillé;
+Keywords[et]=kofeiin;eiuinu;ärkvel;hoiaärkvel;jätka;
 TryExec=stimulator
 Exec=stimulator %F
 Icon=io.github.sigmasd.stimulator
