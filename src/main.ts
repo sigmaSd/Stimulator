@@ -42,12 +42,6 @@ class MainWindow {
     this.#win = builder.get_object("mainWindow");
     this.#win.set_title(APP_NAME);
     this.#win.connect("close-request", python.callback(this.#onCloseRequest));
-    if (systemLocale.startsWith("ar")) {
-      this.#win.set_default_size(
-        450,
-        this.#win.get_default_size().height.valueOf() + 50,
-      );
-    }
     this.#mainIcon = builder.get_object("mainIcon");
     this.#suspendRow = builder.get_object("suspendRow");
     this.#suspendRow.set_title(UI_LABELS.SuspendTitle);

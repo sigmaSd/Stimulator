@@ -24,7 +24,7 @@ msgid "caffeine;nosleep;awake;keepawake;keepon;"
 msgstr "كافيين; بدون نوم; مستيقظ;"
 
 msgid "Stimulator"
-msgstr "محفز"
+msgstr "المحفز"
 
 msgid "Keep your computer awake"
 msgstr "أبقِ جهاز الكمبيوتر مستيقظًا"
