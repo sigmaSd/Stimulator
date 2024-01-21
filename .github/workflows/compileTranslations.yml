@@ -3,24 +3,16 @@ name: PR Translator Bot
 on:
   pull_request:
     paths:
-      - 'po/**'
-      
-permissions:
-  contents: write
+      - 'po/**'      
 
 jobs:
-  test:
+  translate:
     runs-on: ubuntu-latest
 
     steps:
       - name: Setup repo
         uses: actions/checkout@v3
-      
-      - name: Checkout PR
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr checkout ${{ github.event.pull_request.number }}
-
+        
       - name: Setup Deno
         uses: denoland/setup-deno@61fe2df320078202e33d7d5ad347e7dcfa0e8f31  # v1.1.2
         with:
@@ -32,9 +24,10 @@ jobs:
           ./scripts/translationsPercantage.ts
   
       - name: Commit and push changes
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: github.event_name == 'push'
         run: |
+          git config --local user.email "translator-bot@sigmasd.io"
+          git config --local user.name "Translator Bot"
           git add .
           git commit -m "Compile translations"
           git push
