@@ -21,31 +21,31 @@ msgid "Stimulator is active"
 msgstr "Stimulator est active"
 
 msgid "caffeine;nosleep;awake;keepawake;keepon;"
-msgstr ""
+msgstr "caféine;pas de someil;éveillé;"
 
 msgid "Stimulator"
-msgstr ""
+msgstr "Stimulateur"
 
 msgid "Keep your computer awake"
-msgstr ""
+msgstr "Gardez votre ordinateur éveillé"
 
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Raccourcis clavier"
 
 msgid "Quit"
-msgstr ""
+msgstr "Quitter"
 
 msgid "General"
-msgstr ""
+msgstr "Général"
 
 msgid "Confirm close?"
-msgstr ""
+msgstr "Confirmer la fermeture ?"
 
 msgid "Stimulator is still active, do you still want to close?"
-msgstr ""
+msgstr "Stimulateur est toujours actif, voulez-vous toujours fermer ?"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
