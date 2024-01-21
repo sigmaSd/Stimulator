@@ -8,7 +8,7 @@ export const EN_UI_LABELS = {
   SystemDefault: "Current state: System default",
   About: "About Stimulator",
   SimulatorActive: "Stimulator is active",
-  Comments: "Keep your computer from sleeping",
+  Comments: "Keep your computer awake",
   Keywords: "caffeine;nosleep;awake;keepawake;keepon;",
   KeyboardShortcuts: "Keyboard Shortcuts",
   Quit: "Quit",

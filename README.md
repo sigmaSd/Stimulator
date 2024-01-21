@@ -1,6 +1,6 @@
 # Stimulator
 
-Keep your computer from sleeping
+Keep your computer awake
 
 <div style="display:flex;">
 <img style="width:25em;" src="https://raw.githubusercontent.com/sigmaSd/Stimulator/master/distro/demo_light_active.png"/>

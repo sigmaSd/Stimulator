@@ -26,7 +26,7 @@ msgstr ""
 msgid "Stimulator"
 msgstr ""
 
-msgid "Keep your computer from sleeping"
+msgid "Keep your computer awake"
 msgstr ""
 
 msgid "Keyboard Shortcuts"
