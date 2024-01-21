@@ -10,5 +10,9 @@
     "caffeine;nosleep;awake;keepawake;keepon;": "kofeiin;eiuinu;ärkvel;hoiaärkvel;jätka;",
     "Keyboard Shortcuts": "",
     "Quit": "",
-    "General": ""
+    "General": "",
+    "Confirm close?": "",
+    "Stimulator is still active, do you still want to close?": "",
+    "Cancel": "",
+    "Close": ""
 }

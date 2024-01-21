@@ -13,6 +13,10 @@ export const EN_UI_LABELS = {
   KeyboardShortcuts: "Keyboard Shortcuts",
   Quit: "Quit",
   General: "General",
+  ConfirmClose: "Confirm close?",
+  ConfirmCloseBody: "Stimulator is still active, do you still want to close?",
+  Cancel: "Cancel",
+  Close: "Close",
 };
 
 export const UI_LABELS = {
@@ -28,6 +32,10 @@ export const UI_LABELS = {
   KeyboardShortcuts: t(EN_UI_LABELS.KeyboardShortcuts),
   Quit: t(EN_UI_LABELS.Quit),
   General: t(EN_UI_LABELS.General),
+  ConfirmClose: t(EN_UI_LABELS.ConfirmClose),
+  ConfirmCloseBody: t(EN_UI_LABELS.ConfirmCloseBody),
+  Cancel: t(EN_UI_LABELS.Cancel),
+  Close: t(EN_UI_LABELS.Close),
 };
 
 export const APP_ID = "io.github.sigmasd.stimulator";

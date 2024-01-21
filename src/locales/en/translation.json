@@ -10,5 +10,9 @@
     "caffeine;nosleep;awake;keepawake;keepon;": "caffeine;nosleep;awake;keepawake;keepon;",
     "Keyboard Shortcuts": "Keyboard Shortcuts",
     "Quit": "Quit",
-    "General": "General"
+    "General": "General",
+    "Confirm close?": "Confirm close?",
+    "Stimulator is still active, do you still want to close?": "Stimulator is still active, do you still want to close?",
+    "Cancel": "Cancel",
+    "Close": "Close"
 }

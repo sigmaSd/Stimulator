@@ -41,6 +41,7 @@ class MainWindow {
     );
     this.#win = builder.get_object("mainWindow");
     this.#win.set_title(APP_NAME);
+    this.#win.connect("close-request", python.callback(this.#onCloseRequest));
     if (systemLocale.startsWith("ar")) {
       this.#win.set_default_size(
         450,
@@ -115,6 +116,38 @@ class MainWindow {
   present() {
     this.#win.present();
   }
+
+  #onCloseRequest = () => {
+    // only run this if suspend button is active
+    if (!this.#state["suspend"]) return false;
+
+    const dialog = Adw.MessageDialog(
+      new NamedArgument("transient_for", this.#app.get_active_window()),
+      new NamedArgument("heading", UI_LABELS.ConfirmClose),
+      new NamedArgument(
+        "body",
+        UI_LABELS.ConfirmCloseBody,
+      ),
+    );
+
+    dialog.add_response("cancel", UI_LABELS.Cancel);
+    dialog.add_response("close", UI_LABELS.Close);
+    dialog.set_close_response("cancel");
+    dialog.set_default_response("cancel");
+    dialog.set_response_appearance(
+      "close",
+      Adw.ResponseAppearance.DESTRUCTIVE,
+    );
+    dialog.connect(
+      "response",
+      python.callback((_, __, id) => {
+        if (id === "close") this.#app.quit();
+      }),
+    );
+
+    dialog.set_visible(true);
+    return true;
+  };
 
   #createAction = (name: string, callback: Callback, shortcuts?: [string]) => {
     const action = Gio.SimpleAction.new(name);

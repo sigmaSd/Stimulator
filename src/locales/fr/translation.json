@@ -10,5 +10,9 @@
     "Keep your computer awake": "",
     "Keyboard Shortcuts": "",
     "Quit": "",
-    "General": ""
+    "General": "",
+    "Confirm close?": "",
+    "Stimulator is still active, do you still want to close?": "",
+    "Cancel": "",
+    "Close": ""
 }

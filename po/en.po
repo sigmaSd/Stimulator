@@ -37,3 +37,15 @@ msgstr "Quit"
 
 msgid "General"
 msgstr "General"
+
+msgid "Confirm close?"
+msgstr "Confirm close?"
+
+msgid "Stimulator is still active, do you still want to close?"
+msgstr "Stimulator is still active, do you still want to close?"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Close"
+msgstr "Close"
