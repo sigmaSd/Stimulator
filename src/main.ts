@@ -89,12 +89,18 @@ class MainWindow {
     menu.append(UI_LABELS.About, "app.about");
     this.#createAction(
       "quit",
-      python.callback(() => this.#app.quit()),
+      python.callback(() => {
+        if (this.#state["suspend"]) this.#onCloseRequest();
+        else this.#app.quit();
+      }),
       ["<primary>q"],
     );
     this.#createAction(
       "close",
-      python.callback(() => this.#app.quit()),
+      python.callback(() => {
+        if (this.#state["suspend"]) this.#onCloseRequest();
+        else this.#app.quit();
+      }),
       ["<primary>w"],
     );
 
