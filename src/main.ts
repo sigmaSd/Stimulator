@@ -11,7 +11,7 @@ import {
   kw,
   NamedArgument,
   python,
-} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.13/mod.ts";
+} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.14/mod.ts";
 import { systemLocale } from "./i18n.ts";
 import { APP_ID, APP_NAME, UI_LABELS, VERSION } from "./consts.ts";
 

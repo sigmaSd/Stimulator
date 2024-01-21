@@ -89,6 +89,7 @@ export interface ApplicationWindow extends Window {
 
 export interface Widget {
   set_css_classes(classes: string[]): void;
+  set_visible(visible: boolean): void;
 }
 export interface FileDialog extends Widget {
   set_default_filter(f: FileFilter): void;
@@ -121,7 +122,6 @@ export interface AboutDialog extends Widget {
    * Sets the name to display in the about dialog. If this is not set, it defaults to g_get_application_name().
    */
   set_program_name(name: string): void;
-  set_visible(visible: boolean): void;
   set_logo_icon_name(name: string): void;
   set_version(version: string): void;
   set_website_label(label: string): void;

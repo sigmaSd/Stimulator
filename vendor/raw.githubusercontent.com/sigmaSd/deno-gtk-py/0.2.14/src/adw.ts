@@ -8,9 +8,15 @@ import type {
 } from "../mod.ts";
 
 export interface Adw {
+  ResponseAppearance: {
+    DEFAULT: ResponseAppearance.DEFAULT;
+    SUGGESTED: ResponseAppearance.SUGGESTED;
+    DESTRUCTIVE: ResponseAppearance.DESTRUCTIVE;
+  };
   PreferencesGroup(): PreferencesGroup;
   PreferencesPage(): PreferencesPage;
   PreferencesWindow(kwArg: NamedArgument): PreferencesWindow;
+  MessageDialog(...kwArg: NamedArgument[]): MessageDialog;
   AboutWindow(kwArg: NamedArgument): AboutWindow;
   Application: ApplicationConstructor;
   run: () => void;
@@ -71,4 +77,18 @@ export interface SwitchRow extends Gtk_.Switch {
   set_subtitle(subTitle: string): void;
   set_sensitive(yes: boolean): void;
   connect(event: "state-set" | "notify::active", callback: Callback): void;
+}
+
+export interface MessageDialog extends Gtk_.Window {
+  add_response(id: string, label: string): void;
+  set_response_appearance(id: string, apperance: ResponseAppearance): void;
+  set_default_response(id: string): void;
+  set_close_response(id: string): void;
+  connect(signal: string, callback: Callback): void;
+}
+
+export enum ResponseAppearance {
+  DEFAULT,
+  SUGGESTED,
+  DESTRUCTIVE,
 }
