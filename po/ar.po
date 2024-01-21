@@ -3,7 +3,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 
 msgid "Disable Automatic Suspending"
-msgstr "تعطيل التعليق التلقائي"
+msgstr "تعطيل التعليق التلقائي "
 
 msgid "Disable Screen Blanking"
 msgstr "تعطيل اطفاء الشاشة تلقائيًا"
