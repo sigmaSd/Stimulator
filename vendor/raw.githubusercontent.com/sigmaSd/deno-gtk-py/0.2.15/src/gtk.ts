@@ -67,6 +67,8 @@ export interface ApplicationWindowConstructor {
 }
 export interface Window extends Widget {
   present: () => void;
+  set_transient_for(parent: ApplicationWindow): void;
+  set_modal(modal: boolean): void;
 }
 // deno-lint-ignore no-empty-interface
 export interface ShortcutsWindow extends Window {
