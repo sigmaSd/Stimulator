@@ -253,6 +253,8 @@ class MainWindow {
     const shortcutsWin = builder.get_object(
       "shortcutsWin",
     ) as Gtk_.ShortcutsWindow;
+    shortcutsWin.set_transient_for(this.#win);
+    shortcutsWin.set_modal(true);
     const shortcutsGroup = builder.get_object(
       "shortcutsGroup",
     ) as Gtk_.ShortcutsGroup;
