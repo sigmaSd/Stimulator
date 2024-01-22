@@ -15,10 +15,10 @@ msgid "Current state: Indefinitely"
 msgstr "الحالة الحالية: إلى أجل غير مسمى"
 
 msgid "About Stimulator"
-msgstr "معلومات حول Stimulator"
+msgstr "معلومات حول المحفز"
 
 msgid "Stimulator is active"
-msgstr "Stimulator في حالة تشغيل"
+msgstr "المحفز في حالة تشغيل"
 
 msgid "caffeine;nosleep;awake;keepawake;keepon;"
 msgstr "كافيين; بدون نوم; مستيقظ;"
