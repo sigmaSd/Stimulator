@@ -14,5 +14,7 @@
     "Confirm close?": "Kinnitad sulgemise?",
     "Stimulator is still active, do you want to close?": "Stimulaator on endiselt aktiivne, kas soovid sulgeda?",
     "Cancel": "Tühista",
-    "Close": "Sulge"
+    "Close": "Sulge",
+    "Enable exit confirmation": "",
+    "Preferences": ""
 }

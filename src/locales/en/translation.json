@@ -14,5 +14,7 @@
     "Confirm close?": "Confirm close?",
     "Stimulator is still active, do you want to close?": "Stimulator is still active, do you want to close?",
     "Cancel": "Cancel",
-    "Close": "Close"
+    "Close": "Close",
+    "Enable exit confirmation": "Enable exit confirmation",
+    "Preferences": "Preferences"
 }

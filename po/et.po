@@ -49,3 +49,9 @@ msgstr "Tühista"
 
 msgid "Close"
 msgstr "Sulge"
+
+msgid "Enable exit confirmation"
+msgstr ""
+
+msgid "Preferences"
+msgstr ""

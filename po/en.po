@@ -49,3 +49,9 @@ msgstr "Cancel"
 
 msgid "Close"
 msgstr "Close"
+
+msgid "Enable exit confirmation"
+msgstr "Enable exit confirmation"
+
+msgid "Preferences"
+msgstr "Preferences"

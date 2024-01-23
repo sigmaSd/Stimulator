@@ -17,6 +17,8 @@ export const EN_UI_LABELS = {
   ConfirmCloseBody: "Stimulator is still active, do you want to close?",
   Cancel: "Cancel",
   Close: "Close",
+  EnableExistConfirmation: "Enable exit confirmation",
+  Preferences: "Preferences",
 };
 
 export const UI_LABELS = {
@@ -36,6 +38,8 @@ export const UI_LABELS = {
   ConfirmCloseBody: t(EN_UI_LABELS.ConfirmCloseBody),
   Cancel: t(EN_UI_LABELS.Cancel),
   Close: t(EN_UI_LABELS.Close),
+  EnableExistConfirmation: t(EN_UI_LABELS.EnableExistConfirmation),
+  Preferences: t(EN_UI_LABELS.Preferences),
 };
 
 export const APP_ID = "io.github.sigmasd.stimulator";

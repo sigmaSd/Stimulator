@@ -23,11 +23,14 @@ class MainWindow {
   #suspendRow: Adw_.SwitchRow;
   #idleRow: Adw_.SwitchRow;
 
-  #state: { [key in Flags]?: boolean | "active_disabled" } = {
+  #state: {
+    [key in Flags | "confirmExitMenu"]: boolean | "active_disabled";
+  } = {
     "logout": false,
     "switch": false,
     "suspend": false,
     "idle": false,
+    "confirmExitMenu": true,
   };
   #cookies: { [key in Flags]?: number } = {};
   constructor(app: Adw_.Application) {
@@ -83,19 +86,23 @@ class MainWindow {
     this.#createAction(
       "quit",
       python.callback(() => {
-        if (this.#state["suspend"]) this.#onCloseRequest();
-        else this.#app.quit();
+        if (!this.#onCloseRequest()) this.#app.quit();
       }),
       ["<primary>q"],
     );
     this.#createAction(
       "close",
       python.callback(() => {
-        if (this.#state["suspend"]) this.#onCloseRequest();
-        else this.#app.quit();
+        if (!this.#onCloseRequest()) this.#app.quit();
       }),
       ["<primary>w"],
     );
+    this.#createAction(
+      "preferences",
+      python.callback(this.#showPreferences),
+      ["<primary>comma"],
+    );
+    menu.append(UI_LABELS.Preferences, "app.preferences");
 
     // ui modifications needs to be done last
     // this will update the state to the last saved one
@@ -116,9 +123,40 @@ class MainWindow {
     this.#win.present();
   }
 
+  #showPreferences = () => {
+    const builder = Gtk.Builder();
+    builder.add_from_file(
+      new URL(import.meta.resolve("./ui/preferences.ui")).pathname,
+    );
+    const preferencesWin = builder.get_object(
+      "preferencesWin",
+    ) as Adw_.PreferencesWindow;
+    preferencesWin.set_transient_for(this.#win);
+    preferencesWin.set_modal(true);
+    const confirmExitSwitchRow = builder.get_object(
+      "confirmExitSwitchRow",
+    ) as Adw_.SwitchRow;
+    confirmExitSwitchRow.set_title(UI_LABELS.EnableExistConfirmation);
+    confirmExitSwitchRow.set_active(
+      this.#state["confirmExitMenu"] as boolean,
+    );
+    confirmExitSwitchRow.connect(
+      "notify::active",
+      python.callback(() => {
+        this.#updateState({
+          "confirmExitMenu": confirmExitSwitchRow.get_active().valueOf(),
+        });
+      }),
+    );
+
+    preferencesWin.set_visible(true);
+  };
+
   #onCloseRequest = () => {
     // only run this if suspend button is active
     if (!this.#state["suspend"]) return false;
+    // if confirm on exit is disabled return
+    if (!this.#state["confirmExitMenu"]) return false;
 
     const dialog = Adw.MessageDialog(
       new NamedArgument("transient_for", this.#app.get_active_window()),
@@ -155,7 +193,11 @@ class MainWindow {
     if (shortcuts) this.#app.set_accels_for_action(`app.${name}`, shortcuts);
   };
 
-  #updateState(state: { [key in Flags]?: boolean | "active_disabled" }) {
+  #updateState(
+    state: {
+      [key in Flags | "confirmExitMenu"]?: boolean | "active_disabled";
+    },
+  ) {
     this.#state = { ...this.#state, ...state };
     localStorage.setItem("state", JSON.stringify(this.#state));
   }
