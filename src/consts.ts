@@ -23,6 +23,8 @@ export const EN_UI_LABELS = {
   ThemeSystem: "System",
   ThemeLight: "Light",
   ThemeDark: "Dark",
+  EnableExistConfirmationSubTitle:
+    "Show a confirmation dialog when trying to exit while Stimulator is active",
 };
 
 export const UI_LABELS = {
@@ -48,6 +50,9 @@ export const UI_LABELS = {
   ThemeSystem: t(EN_UI_LABELS.ThemeSystem),
   ThemeLight: t(EN_UI_LABELS.ThemeLight),
   ThemeDark: t(EN_UI_LABELS.ThemeDark),
+  EnableExistConfirmationSubTitle: t(
+    EN_UI_LABELS.EnableExistConfirmationSubTitle,
+  ),
 };
 
 export const APP_ID = "io.github.sigmasd.stimulator";

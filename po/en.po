@@ -67,3 +67,6 @@ msgstr "Light"
 
 msgid "Dark"
 msgstr "Dark"
+
+msgid "Show a confirmation dialog when trying to exit while Stimulator is active"
+msgstr "Show a confirmation dialog when trying to exit while Stimulator is active"

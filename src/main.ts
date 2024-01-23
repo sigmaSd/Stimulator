@@ -175,6 +175,9 @@ class MainWindow {
       "confirmExitSwitchRow",
     ) as Adw_.SwitchRow;
     confirmExitSwitchRow.set_title(UI_LABELS.EnableExistConfirmation);
+    confirmExitSwitchRow.set_subtitle(
+      UI_LABELS.EnableExistConfirmationSubTitle,
+    );
     confirmExitSwitchRow.set_active(
       this.#state["confirmExitMenu"] as boolean,
     );

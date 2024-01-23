@@ -20,5 +20,6 @@
     "Theme": "Theme",
     "System": "System",
     "Light": "Light",
-    "Dark": "Dark"
+    "Dark": "Dark",
+    "Show a confirmation dialog when trying to exit while Stimulator is active": "Show a confirmation dialog when trying to exit while Stimulator is active"
 }
