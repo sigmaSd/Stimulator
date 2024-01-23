@@ -39,7 +39,8 @@ class MainWindow {
   #cookies: { [key in Flags]?: number } = {};
   constructor(app: Adw_.Application) {
     const savedState = localStorage.getItem("state");
-    if (savedState) this.#state = JSON.parse(savedState);
+    // NOTE: If we update the state with new apis, the spreading will make sure that users who have old versions will get default values
+    if (savedState) this.#state = { ...this.#state, ...JSON.parse(savedState) };
     // deno-fmt-ignore
     const currentTheme =
         this.#state["theme"] === 0 ? Adw.ColorScheme.DEFAULT
