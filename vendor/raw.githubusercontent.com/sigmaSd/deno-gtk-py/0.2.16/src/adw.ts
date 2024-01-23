@@ -63,7 +63,7 @@ export interface Application extends PyObject {
 export interface PreferencesPage extends Gtk_.Widget {
   add(group: PreferencesGroup): void;
 }
-export interface PreferencesWindow /* extends Gtk_.Window */ {
+export interface PreferencesWindow extends Gtk_.Window {
   set_visible(yes: boolean): void;
   add(page: PreferencesPage): void;
 }
