@@ -13,12 +13,18 @@ export interface Adw {
     SUGGESTED: ResponseAppearance.SUGGESTED;
     DESTRUCTIVE: ResponseAppearance.DESTRUCTIVE;
   };
+  ColorScheme: {
+    DEFAULT: ColorScheme.DEFAULT;
+    FORCE_LIGHT: ColorScheme.FORCE_LIGHT;
+    FORCE_DARK: ColorScheme.FORCE_DARK;
+  };
   PreferencesGroup(): PreferencesGroup;
   PreferencesPage(): PreferencesPage;
   PreferencesWindow(kwArg: NamedArgument): PreferencesWindow;
   MessageDialog(...kwArg: NamedArgument[]): MessageDialog;
   AboutWindow(kwArg: NamedArgument): AboutWindow;
   Application: ApplicationConstructor;
+  StyleManager: { get_default(): StyleManager };
   run: () => void;
 }
 export interface AboutWindow {
@@ -71,12 +77,24 @@ export interface PreferencesGroup extends Gtk_.Widget {
   set_title(title: string): void;
   add(child: Gtk_.Widget): void;
 }
-export interface SwitchRow extends Gtk_.Switch {
-  get_active(): { valueOf: () => boolean };
+
+export interface PreferencesRow extends Gtk_.Widget {
   set_title(title: string): void;
+}
+
+export interface SwitchRow extends PreferencesRow {
+  get_active(): { valueOf: () => boolean };
+  set_active(yes: boolean): void;
   set_subtitle(subTitle: string): void;
   set_sensitive(yes: boolean): void;
   connect(event: "state-set" | "notify::active", callback: Callback): void;
+}
+
+export interface ComboRow extends PreferencesRow {
+  get_selected(): { valueOf(): number };
+  set_selected(item: number): void;
+  set_model(model: Gio_.ListModel): void;
+  connect(signal: "notify::selected", callback: Callback): void;
 }
 
 export interface MessageDialog extends Gtk_.Window {
@@ -87,8 +105,18 @@ export interface MessageDialog extends Gtk_.Window {
   connect(signal: string, callback: Callback): void;
 }
 
+export interface StyleManager {
+  set_color_scheme: (scheme: ColorScheme) => void;
+}
+
 export enum ResponseAppearance {
   DEFAULT,
   SUGGESTED,
   DESTRUCTIVE,
+}
+
+export enum ColorScheme {
+  DEFAULT,
+  FORCE_LIGHT,
+  FORCE_DARK,
 }

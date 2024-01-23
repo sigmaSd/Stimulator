@@ -42,6 +42,7 @@ export interface Gtk {
   CssProvider(): CssProvider;
   ApplicationWindow: ApplicationWindowConstructor;
   FileDialog: FileDialog;
+  StringList: { new: (strings: string[]) => StringList };
 }
 
 export type Application = PythonConvertible;
@@ -206,6 +207,10 @@ export interface ShortcutsGroup extends Box {
 }
 export interface ShortcutsShortcut extends Widget {
   props: { title: string };
+}
+
+// deno-lint-ignore no-empty-interface
+export interface StringList extends Gio_.ListModel {
 }
 
 export enum ApplicationInhibitFlags {

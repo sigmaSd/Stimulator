@@ -22,6 +22,11 @@ export interface ListStore {
   new: (filter: any) => ListStore;
   append(f: Gtk_.FileFilter): void;
 }
+
+// deno-lint-ignore no-empty-interface
+export interface ListModel {
+}
+
 export interface File {
   get_path(): { valueOf: () => string };
 }
