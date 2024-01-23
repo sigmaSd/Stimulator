@@ -24,18 +24,28 @@ class MainWindow {
   #idleRow: Adw_.SwitchRow;
 
   #state: {
-    [key in Flags | "confirmExitMenu"]: boolean | "active_disabled";
+    [key in Flags | "confirmExitMenu" | "theme"]:
+      | boolean
+      | "active_disabled"
+      | number;
   } = {
     "logout": false,
     "switch": false,
     "suspend": false,
     "idle": false,
     "confirmExitMenu": true,
+    "theme": 0, /*System Theme*/
   };
   #cookies: { [key in Flags]?: number } = {};
   constructor(app: Adw_.Application) {
     const savedState = localStorage.getItem("state");
     if (savedState) this.#state = JSON.parse(savedState);
+    // deno-fmt-ignore
+    const currentTheme =
+        this.#state["theme"] === 0 ? Adw.ColorScheme.DEFAULT
+      : this.#state["theme"] === 1 ? Adw.ColorScheme.FORCE_LIGHT
+      : Adw.ColorScheme.FORCE_DARK;
+    Adw.StyleManager.get_default().set_color_scheme(currentTheme);
 
     const builder = Gtk.Builder();
     builder.add_from_file(
@@ -133,6 +143,33 @@ class MainWindow {
     ) as Adw_.PreferencesWindow;
     preferencesWin.set_transient_for(this.#win);
     preferencesWin.set_modal(true);
+
+    const themeRow = builder.get_object(
+      "themeRow",
+    ) as Adw_.ComboRow;
+    themeRow.set_title(UI_LABELS.Theme);
+    themeRow.set_model(
+      Gtk.StringList.new([
+        UI_LABELS.ThemeSystem,
+        UI_LABELS.ThemeLight,
+        UI_LABELS.ThemeDark,
+      ]),
+    );
+    themeRow.set_selected(this.#state["theme"] as number);
+    themeRow.connect(
+      "notify::selected",
+      python.callback(() => {
+        const themeNumber = themeRow.get_selected().valueOf();
+        //deno-fmt-ignore
+        Adw.StyleManager.get_default().set_color_scheme(
+            themeNumber === 0 ? Adw.ColorScheme.DEFAULT
+          : themeNumber === 1 ? Adw.ColorScheme.FORCE_LIGHT
+          : Adw.ColorScheme.FORCE_DARK,
+        );
+        this.#updateState({ "theme": themeNumber });
+      }),
+    );
+
     const confirmExitSwitchRow = builder.get_object(
       "confirmExitSwitchRow",
     ) as Adw_.SwitchRow;
@@ -195,7 +232,10 @@ class MainWindow {
 
   #updateState(
     state: {
-      [key in Flags | "confirmExitMenu"]?: boolean | "active_disabled";
+      [key in Flags | "confirmExitMenu" | "theme"]?:
+        | boolean
+        | "active_disabled"
+        | number;
     },
   ) {
     this.#state = { ...this.#state, ...state };

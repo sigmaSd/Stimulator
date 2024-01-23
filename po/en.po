@@ -55,3 +55,15 @@ msgstr "Enable exit confirmation"
 
 msgid "Preferences"
 msgstr "Preferences"
+
+msgid "Theme"
+msgstr "Theme"
+
+msgid "System"
+msgstr "System"
+
+msgid "Light"
+msgstr "Light"
+
+msgid "Dark"
+msgstr "Dark"

@@ -19,6 +19,10 @@ export const EN_UI_LABELS = {
   Close: "Close",
   EnableExistConfirmation: "Enable exit confirmation",
   Preferences: "Preferences",
+  Theme: "Theme",
+  ThemeSystem: "System",
+  ThemeLight: "Light",
+  ThemeDark: "Dark",
 };
 
 export const UI_LABELS = {
@@ -40,6 +44,10 @@ export const UI_LABELS = {
   Close: t(EN_UI_LABELS.Close),
   EnableExistConfirmation: t(EN_UI_LABELS.EnableExistConfirmation),
   Preferences: t(EN_UI_LABELS.Preferences),
+  Theme: t(EN_UI_LABELS.Theme),
+  ThemeSystem: t(EN_UI_LABELS.ThemeSystem),
+  ThemeLight: t(EN_UI_LABELS.ThemeLight),
+  ThemeDark: t(EN_UI_LABELS.ThemeDark),
 };
 
 export const APP_ID = "io.github.sigmasd.stimulator";

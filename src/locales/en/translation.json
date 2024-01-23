@@ -16,5 +16,9 @@
     "Cancel": "Cancel",
     "Close": "Close",
     "Enable exit confirmation": "Enable exit confirmation",
-    "Preferences": "Preferences"
+    "Preferences": "Preferences",
+    "Theme": "Theme",
+    "System": "System",
+    "Light": "Light",
+    "Dark": "Dark"
 }

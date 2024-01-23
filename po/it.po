@@ -55,3 +55,15 @@ msgstr ""
 
 msgid "Preferences"
 msgstr ""
+
+msgid "Theme"
+msgstr ""
+
+msgid "System"
+msgstr ""
+
+msgid "Light"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
