@@ -8,11 +8,14 @@ msgstr "Stimulator"
 msgid "Keep your computer awake"
 msgstr "Keep your computer awake"
 
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "caffeine;nosleep;awake;keepawake;keepon;"
+
 msgid "Disable Automatic Suspending"
 msgstr "Disable Automatic Suspending"
 
-msgid "Disable Screen Blanking"
-msgstr "Disable Screen Blanking"
+msgid "Disable Screen Blanking and Locking"
+msgstr "Disable Screen Blanking and Locking"
 
 msgid "Current state: System default"
 msgstr "Current state: System default"
@@ -20,38 +23,20 @@ msgstr "Current state: System default"
 msgid "Current state: Indefinitely"
 msgstr "Current state: Indefinitely"
 
-msgid "About Stimulator"
-msgstr "About Stimulator"
-
 msgid "Stimulator is active"
 msgstr "Stimulator is active"
-
-msgid "caffeine;nosleep;awake;keepawake;keepon;"
-msgstr "caffeine;nosleep;awake;keepawake;keepon;"
-
-msgid "Keyboard Shortcuts"
-msgstr "Keyboard Shortcuts"
-
-msgid "Quit"
-msgstr "Quit"
-
-msgid "General"
-msgstr "General"
 
 msgid "Confirm close?"
 msgstr "Confirm close?"
 
-msgid "Stimulator is still active, do you want to close?"
-msgstr "Stimulator is still active, do you want to close?"
+msgid "Stimulator is active, do you want to close?"
+msgstr "Stimulator is active, do you want to close?"
 
 msgid "Cancel"
 msgstr "Cancel"
 
 msgid "Close"
 msgstr "Close"
-
-msgid "Enable exit confirmation"
-msgstr "Enable exit confirmation"
 
 msgid "Preferences"
 msgstr "Preferences"
@@ -68,5 +53,20 @@ msgstr "Light"
 msgid "Dark"
 msgstr "Dark"
 
-msgid "Show a confirmation dialog when trying to exit while Stimulator is active"
-msgstr "Show a confirmation dialog when trying to exit while Stimulator is active"
+msgid "Enable closing confirmation"
+msgstr "Enable closing confirmation"
+
+msgid "Confirmation asked when automatic suspending disabling is active"
+msgstr "Confirmation asked when automatic suspending disabling is active"
+
+msgid "Keyboard Shortcuts"
+msgstr "Keyboard Shortcuts"
+
+msgid "Quit"
+msgstr "Quit"
+
+msgid "General"
+msgstr "General"
+
+msgid "About Stimulator"
+msgstr "About Stimulator"
