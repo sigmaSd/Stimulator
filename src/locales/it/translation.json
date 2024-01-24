@@ -1,6 +1,6 @@
 {
     "Disable Automatic Suspending": "Disattiva la sospensione automatica",
-    "Disable Screen Blanking": "Disattiva lo spegnimento automatico dello schermo",
+    "Disable Screen Blanking and Locking": "Disattiva lo spegnimento automatico dello schermo",
     "Current state: System default": "Stato corrente: impostazione predefinita del sistema",
     "Current state: Indefinitely": "Stato attuale: a tempo indeterminato",
     "caffeine;nosleep;awake;keepawake;keepon;": "",
@@ -12,14 +12,14 @@
     "Quit": "",
     "General": "",
     "Confirm close?": "",
-    "Stimulator is still active, do you want to close?": "",
+    "Stimulator is active, do you want to close?": "",
     "Cancel": "",
     "Close": "",
-    "Enable exit confirmation": "",
+    "Enable closing confirmation": "",
     "Preferences": "",
     "Theme": "",
     "System": "",
     "Light": "",
     "Dark": "",
-    "Show a confirmation dialog when trying to exit while Stimulator is active": ""
+    "Confirmation asked when automatic suspending disabling is active": ""
 }

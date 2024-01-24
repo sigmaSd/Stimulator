@@ -5,7 +5,7 @@ msgstr ""
 msgid "Disable Automatic Suspending"
 msgstr "Disattiva la sospensione automatica"
 
-msgid "Disable Screen Blanking"
+msgid "Disable Screen Blanking and Locking"
 msgstr "Disattiva lo spegnimento automatico dello schermo"
 
 msgid "Current state: System default"
@@ -41,7 +41,7 @@ msgstr ""
 msgid "Confirm close?"
 msgstr ""
 
-msgid "Stimulator is still active, do you want to close?"
+msgid "Stimulator is active, do you want to close?"
 msgstr ""
 
 msgid "Cancel"
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-msgid "Enable exit confirmation"
+msgid "Enable closing confirmation"
 msgstr ""
 
 msgid "Preferences"
@@ -68,5 +68,5 @@ msgstr ""
 msgid "Dark"
 msgstr ""
 
-msgid "Show a confirmation dialog when trying to exit while Stimulator is active"
+msgid "Confirmation asked when automatic suspending disabling is active"
 msgstr ""

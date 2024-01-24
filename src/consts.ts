@@ -3,7 +3,7 @@ import { t } from "./i18n.ts";
 export const EN_UI_LABELS = {
   AppName: "Stimulator",
   SuspendTitle: "Disable Automatic Suspending",
-  IdleTitle: "Disable Screen Blanking",
+  IdleTitle: "Disable Screen Blanking and Locking",
   Indefinitely: "Current state: Indefinitely",
   SystemDefault: "Current state: System default",
   About: "About Stimulator",
@@ -14,17 +14,17 @@ export const EN_UI_LABELS = {
   Quit: "Quit",
   General: "General",
   ConfirmClose: "Confirm close?",
-  ConfirmCloseBody: "Stimulator is still active, do you want to close?",
+  ConfirmCloseBody: "Stimulator is active, do you want to close?",
   Cancel: "Cancel",
   Close: "Close",
-  EnableExistConfirmation: "Enable exit confirmation",
+  EnableExistConfirmation: "Enable closing confirmation",
   Preferences: "Preferences",
   Theme: "Theme",
   ThemeSystem: "System",
   ThemeLight: "Light",
   ThemeDark: "Dark",
   EnableExistConfirmationSubTitle:
-    "Show a confirmation dialog when trying to exit while Stimulator is active",
+    "Confirmation asked when automatic suspending disabling is active",
 };
 
 export const UI_LABELS = {

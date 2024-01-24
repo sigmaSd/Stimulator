@@ -5,7 +5,7 @@ msgstr ""
 msgid "Disable Automatic Suspending"
 msgstr "تعطيل التعليق التلقائي"
 
-msgid "Disable Screen Blanking"
+msgid "Disable Screen Blanking and Locking"
 msgstr "تعطيل اطفاء الشاشة تلقائيًا"
 
 msgid "Current state: System default"
@@ -41,7 +41,7 @@ msgstr "عام"
 msgid "Confirm close?"
 msgstr "تأكيد الإغلاق؟"
 
-msgid "Stimulator is still active, do you want to close?"
+msgid "Stimulator is active, do you want to close?"
 msgstr "المحفز لا يزال نشطًا، هل تريد متابعة الإغلاق؟"
 
 msgid "Cancel"
@@ -50,7 +50,7 @@ msgstr "إلغاء"
 msgid "Close"
 msgstr "إغلاق"
 
-msgid "Enable exit confirmation"
+msgid "Enable closing confirmation"
 msgstr ""
 
 msgid "Preferences"
@@ -68,5 +68,5 @@ msgstr ""
 msgid "Dark"
 msgstr ""
 
-msgid "Show a confirmation dialog when trying to exit while Stimulator is active"
+msgid "Confirmation asked when automatic suspending disabling is active"
 msgstr ""

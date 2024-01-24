@@ -8,7 +8,7 @@ msgstr "Stimulaator"
 msgid "Keep your computer awake"
 msgstr "Hoia oma arvuti ärkvel"
 
-msgid "Disable Automatic Suspending"
+msgid "Disable Automatic Suspending and Locking"
 msgstr "Keela automaatne uinak"
 
 msgid "Disable Screen Blanking"
@@ -41,7 +41,7 @@ msgstr "Üldine"
 msgid "Confirm close?"
 msgstr "Kinnitad sulgemise?"
 
-msgid "Stimulator is still active, do you want to close?"
+msgid "Stimulator is active, do you want to close?"
 msgstr "Stimulaator on endiselt aktiivne, kas soovid sulgeda?"
 
 msgid "Cancel"
@@ -50,7 +50,7 @@ msgstr "Tühista"
 msgid "Close"
 msgstr "Sulge"
 
-msgid "Enable exit confirmation"
+msgid "Enable closing confirmation"
 msgstr ""
 
 msgid "Preferences"
@@ -68,5 +68,5 @@ msgstr ""
 msgid "Dark"
 msgstr ""
 
-msgid "Show a confirmation dialog when trying to exit while Stimulator is active"
+msgid "Confirmation asked when automatic suspending disabling is active"
 msgstr ""

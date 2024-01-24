@@ -1,7 +1,7 @@
 {
     "Stimulator": "Stimulaator",
     "Keep your computer awake": "Hoia oma arvuti ärkvel",
-    "Disable Automatic Suspending": "Keela automaatne uinak",
+    "Disable Automatic Suspending and Locking": "Keela automaatne uinak",
     "Disable Screen Blanking": "Keela ekraani tumenemine",
     "Current state: System default": "Hetkeolek: Süsteemi vaikeseade",
     "Current state: Indefinitely": "Hetkeolek: Määramata ajaks",
@@ -12,14 +12,14 @@
     "Quit": "Välju",
     "General": "Üldine",
     "Confirm close?": "Kinnitad sulgemise?",
-    "Stimulator is still active, do you want to close?": "Stimulaator on endiselt aktiivne, kas soovid sulgeda?",
+    "Stimulator is active, do you want to close?": "Stimulaator on endiselt aktiivne, kas soovid sulgeda?",
     "Cancel": "Tühista",
     "Close": "Sulge",
-    "Enable exit confirmation": "",
+    "Enable closing confirmation": "",
     "Preferences": "",
     "Theme": "",
     "System": "",
     "Light": "",
     "Dark": "",
-    "Show a confirmation dialog when trying to exit while Stimulator is active": ""
+    "Confirmation asked when automatic suspending disabling is active": ""
 }

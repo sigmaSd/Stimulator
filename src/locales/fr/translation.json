@@ -1,6 +1,6 @@
 {
     "Disable Automatic Suspending": "Désactiver la suspension automatique",
-    "Disable Screen Blanking": "Désactiver l'extinction automatique de l'écran",
+    "Disable Screen Blanking and Locking": "Désactiver l'extinction automatique de l'écran",
     "Current state: System default": "État actuel: Paramètre par défaut du système",
     "Current state: Indefinitely": "État actuel: Indéfiniment",
     "About Stimulator": "À Propos de Stimulator",
@@ -12,14 +12,14 @@
     "Quit": "Quitter",
     "General": "Général",
     "Confirm close?": "Confirmer la fermeture ?",
-    "Stimulator is still active, do you want to close?": "Stimulateur est toujours actif, voulez-vous toujours fermer ?",
+    "Stimulator is active, do you want to close?": "Stimulateur est toujours actif, voulez-vous toujours fermer ?",
     "Cancel": "Annuler",
     "Close": "Fermer",
-    "Enable exit confirmation": "",
+    "Enable closing confirmation": "",
     "Preferences": "",
     "Theme": "",
     "System": "",
     "Light": "",
     "Dark": "",
-    "Show a confirmation dialog when trying to exit while Stimulator is active": ""
+    "Confirmation asked when automatic suspending disabling is active": ""
 }
