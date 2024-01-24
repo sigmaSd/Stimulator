@@ -8,10 +8,10 @@ msgstr "Stimulaator"
 msgid "Keep your computer awake"
 msgstr "Hoia oma arvuti ärkvel"
 
-msgid "Disable Automatic Suspending and Locking"
+msgid "Disable Automatic Suspending"
 msgstr "Keela automaatne uinak"
 
-msgid "Disable Screen Blanking"
+msgid "Disable Screen Blanking and Locking"
 msgstr "Keela ekraani tumenemine"
 
 msgid "Current state: System default"
