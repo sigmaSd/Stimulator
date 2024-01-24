@@ -1,8 +1,8 @@
 {
     "Stimulator": "Stimulaator",
     "Keep your computer awake": "Hoia oma arvuti ärkvel",
-    "Disable Automatic Suspending and Locking": "Keela automaatne uinak",
-    "Disable Screen Blanking": "Keela ekraani tumenemine",
+    "Disable Automatic Suspending": "Keela automaatne uinak",
+    "Disable Screen Blanking and Locking": "Keela ekraani tumenemine",
     "Current state: System default": "Hetkeolek: Süsteemi vaikeseade",
     "Current state: Indefinitely": "Hetkeolek: Määramata ajaks",
     "About Stimulator": "Stimulaatori teave",
