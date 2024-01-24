@@ -44,8 +44,8 @@ msgstr "Preferences"
 msgid "Theme"
 msgstr "Theme"
 
-msgid "System"
-msgstr "System"
+msgid "System theme"
+msgstr "System theme"
 
 msgid "Light"
 msgstr "Light"
