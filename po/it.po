@@ -2,11 +2,20 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 
+msgid "Stimulator"
+msgstr ""
+
+msgid "Keep your computer awake"
+msgstr ""
+
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr ""
+
 msgid "Disable Automatic Suspending"
 msgstr "Disattiva la sospensione automatica"
 
 msgid "Disable Screen Blanking and Locking"
-msgstr "Disattiva lo spegnimento automatico dello schermo"
+msgstr ""
 
 msgid "Current state: System default"
 msgstr "Stato corrente: impostazione predefinita del sistema"
@@ -14,29 +23,8 @@ msgstr "Stato corrente: impostazione predefinita del sistema"
 msgid "Current state: Indefinitely"
 msgstr "Stato attuale: a tempo indeterminato"
 
-msgid "caffeine;nosleep;awake;keepawake;keepon;"
-msgstr ""
-
-msgid "Stimulator"
-msgstr ""
-
-msgid "Keep your computer awake"
-msgstr ""
-
-msgid "About Stimulator"
-msgstr ""
-
 msgid "Stimulator is active"
 msgstr "Stimulator est active"
-
-msgid "Keyboard Shortcuts"
-msgstr ""
-
-msgid "Quit"
-msgstr ""
-
-msgid "General"
-msgstr ""
 
 msgid "Confirm close?"
 msgstr ""
@@ -50,16 +38,13 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-msgid "Enable closing confirmation"
-msgstr ""
-
 msgid "Preferences"
 msgstr ""
 
 msgid "Theme"
 msgstr ""
 
-msgid "System"
+msgid "System theme"
 msgstr ""
 
 msgid "Light"
@@ -68,5 +53,20 @@ msgstr ""
 msgid "Dark"
 msgstr ""
 
+msgid "Enable closing confirmation"
+msgstr ""
+
 msgid "Confirmation asked when automatic suspending disabling is active"
+msgstr ""
+
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+msgid "Quit"
+msgstr ""
+
+msgid "General"
+msgstr ""
+
+msgid "About Stimulator"
 msgstr ""
