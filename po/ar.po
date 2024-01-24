@@ -2,11 +2,20 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 
+msgid "Stimulator"
+msgstr "المحفز"
+
+msgid "Keep your computer awake"
+msgstr "أبقِ جهاز الكمبيوتر مستيقظًا"
+
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "كافيين; بدون نوم; مستيقظ;"
+
 msgid "Disable Automatic Suspending"
 msgstr "تعطيل التعليق التلقائي"
 
 msgid "Disable Screen Blanking and Locking"
-msgstr "تعطيل اطفاء الشاشة تلقائيًا"
+msgstr ""
 
 msgid "Current state: System default"
 msgstr "الحالة الحالية: الإعداد الاصلي للنظام"
@@ -14,20 +23,41 @@ msgstr "الحالة الحالية: الإعداد الاصلي للنظام"
 msgid "Current state: Indefinitely"
 msgstr "الحالة الحالية: إلى أجل غير مسمى"
 
-msgid "About Stimulator"
-msgstr "معلومات حول المحفز"
-
 msgid "Stimulator is active"
 msgstr "المحفز في حالة تشغيل"
 
-msgid "caffeine;nosleep;awake;keepawake;keepon;"
-msgstr "كافيين; بدون نوم; مستيقظ;"
+msgid "Confirm close?"
+msgstr "تأكيد الإغلاق؟"
 
-msgid "Stimulator"
-msgstr "المحفز"
+msgid "Stimulator is active, do you want to close?"
+msgstr ""
 
-msgid "Keep your computer awake"
-msgstr "أبقِ جهاز الكمبيوتر مستيقظًا"
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Close"
+msgstr "إغلاق"
+
+msgid "Preferences"
+msgstr ""
+
+msgid "Theme"
+msgstr ""
+
+msgid "System theme"
+msgstr ""
+
+msgid "Light"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "Enable closing confirmation"
+msgstr ""
+
+msgid "Confirmation asked when automatic suspending disabling is active"
+msgstr ""
 
 msgid "Keyboard Shortcuts"
 msgstr "اختصارات لوحة المفاتيح"
@@ -38,35 +68,5 @@ msgstr "خروج"
 msgid "General"
 msgstr "عام"
 
-msgid "Confirm close?"
-msgstr "تأكيد الإغلاق؟"
-
-msgid "Stimulator is active, do you want to close?"
-msgstr "المحفز لا يزال نشطًا، هل تريد متابعة الإغلاق؟"
-
-msgid "Cancel"
-msgstr "إلغاء"
-
-msgid "Close"
-msgstr "إغلاق"
-
-msgid "Enable closing confirmation"
-msgstr ""
-
-msgid "Preferences"
-msgstr ""
-
-msgid "Theme"
-msgstr ""
-
-msgid "System"
-msgstr ""
-
-msgid "Light"
-msgstr ""
-
-msgid "Dark"
-msgstr ""
-
-msgid "Confirmation asked when automatic suspending disabling is active"
-msgstr ""
+msgid "About Stimulator"
+msgstr "معلومات حول المحفز"
