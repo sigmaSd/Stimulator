@@ -90,6 +90,12 @@ class MainWindow {
     hamburger.set_icon_name("open-menu-symbolic");
     header.pack_start(hamburger);
 
+    this.#createAction(
+      "preferences",
+      python.callback(this.#showPreferences),
+      ["<primary>comma"],
+    );
+    menu.append(UI_LABELS.Preferences, "app.preferences");
     this.#createAction("shortcuts", this.#showShortcuts, ["<primary>question"]);
     menu.append(UI_LABELS.KeyboardShortcuts, "app.shortcuts");
     this.#createAction("about", this.#showAbout);
@@ -108,12 +114,6 @@ class MainWindow {
       }),
       ["<primary>w"],
     );
-    this.#createAction(
-      "preferences",
-      python.callback(this.#showPreferences),
-      ["<primary>comma"],
-    );
-    menu.append(UI_LABELS.Preferences, "app.preferences");
 
     // ui modifications needs to be done last
     // this will update the state to the last saved one
