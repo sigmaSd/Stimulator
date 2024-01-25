@@ -1,7 +1,7 @@
 {
     "Stimulator": "Stimulator",
     "Keep your computer awake": "Keep your computer awake",
-    "caffeine;nosleep;awake;keepawake;keepon;": "caffeine;nosleep;awake;keepawake;keepon;",
+    "caffeine;nosleep;awake;keepawake;keepon;": "caffeine;nosleep;awake;keepawake;keepon; ",
     "Disable Automatic Suspending": "Disable Automatic Suspending",
     "Disable Screen Blanking and Locking": "Disable Screen Blanking and Locking",
     "Current state: System default": "Current state: System default",
