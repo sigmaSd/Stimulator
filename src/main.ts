@@ -118,8 +118,7 @@ class MainWindow {
 
     // ui modifications needs to be done last
     // this will update the state to the last saved one
-    // NOTE: set_active(false) doesn't trigger the button callback
-    // Adw bug ?
+    // NOTE: set_active(false) doesn't trigger the button callback because the button starts in inactive state
     if (this.#state["idle"] === "active_disabled") {
       this.#idleRow.set_active(true);
     } else {
