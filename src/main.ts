@@ -86,6 +86,7 @@ class MainWindow {
     const popover = Gtk.PopoverMenu();
     popover.set_menu_model(menu);
     const hamburger = Gtk.MenuButton();
+    hamburger.set_primary(true);
     hamburger.set_popover(popover);
     hamburger.set_icon_name("open-menu-symbolic");
     header.pack_start(hamburger);
