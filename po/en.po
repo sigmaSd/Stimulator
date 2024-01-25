@@ -70,3 +70,6 @@ msgstr "General"
 
 msgid "About Stimulator"
 msgstr "About Stimulator"
+
+msgid "Main Menu"
+msgstr "Main Menu"

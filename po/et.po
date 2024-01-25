@@ -70,3 +70,6 @@ msgstr "Üldine"
 
 msgid "About Stimulator"
 msgstr "Stimulaatori teave"
+
+msgid "Main Menu"
+msgstr ""

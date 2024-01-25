@@ -8,8 +8,18 @@
         <child>
           <object class="GtkShortcutsGroup" id="shortcutsGroup">
             <child>
+              <object class="GtkShortcutsShortcut" id="preferencesShortcut">
+                <property name="accelerator">&lt;primary&gt;comma</property>
+              </object>
+            </child>
+            <child>
               <object class="GtkShortcutsShortcut" id="keyboardShortcutShortcut">
                 <property name="accelerator">&lt;primary&gt;question</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut" id="mainMenuShortcut">
+                <property name="accelerator">F10</property>
               </object>
             </child>
             <child>

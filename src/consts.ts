@@ -25,6 +25,7 @@ export const EN_UI_LABELS = {
   ThemeDark: "Dark",
   EnableExistConfirmationSubTitle:
     "Confirmation asked when automatic suspending disabling is active",
+  MainMenu: "Main Menu",
 };
 
 export const UI_LABELS = {
@@ -53,6 +54,7 @@ export const UI_LABELS = {
   EnableExistConfirmationSubTitle: t(
     EN_UI_LABELS.EnableExistConfirmationSubTitle,
   ),
+  MainMenu: t(EN_UI_LABELS.MainMenu),
 };
 
 export const APP_ID = "io.github.sigmasd.stimulator";

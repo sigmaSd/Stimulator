@@ -70,3 +70,6 @@ msgstr "Général"
 
 msgid "About Stimulator"
 msgstr "À Propos de Stimulator"
+
+msgid "Main Menu"
+msgstr ""

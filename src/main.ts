@@ -346,10 +346,18 @@ class MainWindow {
       "shortcutsGroup",
     ) as Gtk_.ShortcutsGroup;
     shortcutsGroup.props.title = UI_LABELS.General;
+    const preferencesShortcut = builder.get_object(
+      "preferencesShortcut",
+    ) as Gtk_.ShortcutsShortcut;
+    preferencesShortcut.props.title = UI_LABELS.Preferences;
     const keyboardShortcutShortcut = builder.get_object(
       "keyboardShortcutShortcut",
     ) as Gtk_.ShortcutsShortcut;
     keyboardShortcutShortcut.props.title = UI_LABELS.KeyboardShortcuts;
+    const mainMenuShortcut = builder.get_object(
+      "mainMenuShortcut",
+    ) as Gtk_.ShortcutsShortcut;
+    mainMenuShortcut.props.title = UI_LABELS.MainMenu;
     const quitShortcut = builder.get_object(
       "quitShortcut",
     ) as Gtk_.ShortcutsShortcut;
