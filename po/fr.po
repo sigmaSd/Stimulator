@@ -2,11 +2,20 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 
+msgid "Stimulator"
+msgstr "Stimulateur"
+
+msgid "Keep your computer awake"
+msgstr "Gardez votre ordinateur éveillé"
+
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "caféine;pas de someil;éveillé;"
+
 msgid "Disable Automatic Suspending"
 msgstr "Désactiver la suspension automatique"
 
 msgid "Disable Screen Blanking and Locking"
-msgstr "Désactiver l'extinction automatique de l'écran"
+msgstr ""
 
 msgid "Current state: System default"
 msgstr "État actuel: Paramètre par défaut du système"
@@ -14,20 +23,41 @@ msgstr "État actuel: Paramètre par défaut du système"
 msgid "Current state: Indefinitely"
 msgstr "État actuel: Indéfiniment"
 
-msgid "About Stimulator"
-msgstr "À Propos de Stimulator"
-
 msgid "Stimulator is active"
 msgstr "Stimulator est active"
 
-msgid "caffeine;nosleep;awake;keepawake;keepon;"
-msgstr "caféine;pas de someil;éveillé;"
+msgid "Confirm close?"
+msgstr "Confirmer la fermeture ?"
 
-msgid "Stimulator"
-msgstr "Stimulateur"
+msgid "Stimulator is active, do you want to close?"
+msgstr ""
 
-msgid "Keep your computer awake"
-msgstr "Gardez votre ordinateur éveillé"
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "Close"
+msgstr "Fermer"
+
+msgid "Preferences"
+msgstr ""
+
+msgid "Theme"
+msgstr ""
+
+msgid "System theme"
+msgstr ""
+
+msgid "Light"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "Enable closing confirmation"
+msgstr ""
+
+msgid "Confirmation asked when automatic suspending disabling is active"
+msgstr ""
 
 msgid "Keyboard Shortcuts"
 msgstr "Raccourcis clavier"
@@ -38,35 +68,5 @@ msgstr "Quitter"
 msgid "General"
 msgstr "Général"
 
-msgid "Confirm close?"
-msgstr "Confirmer la fermeture ?"
-
-msgid "Stimulator is active, do you want to close?"
-msgstr "Stimulateur est toujours actif, voulez-vous toujours fermer ?"
-
-msgid "Cancel"
-msgstr "Annuler"
-
-msgid "Close"
-msgstr "Fermer"
-
-msgid "Enable closing confirmation"
-msgstr ""
-
-msgid "Preferences"
-msgstr ""
-
-msgid "Theme"
-msgstr ""
-
-msgid "System"
-msgstr ""
-
-msgid "Light"
-msgstr ""
-
-msgid "Dark"
-msgstr ""
-
-msgid "Confirmation asked when automatic suspending disabling is active"
-msgstr ""
+msgid "About Stimulator"
+msgstr "À Propos de Stimulator"
