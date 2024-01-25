@@ -11,7 +11,7 @@ import {
   kw,
   NamedArgument,
   python,
-} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.17/mod.ts";
+} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.19/mod.ts";
 import { APP_ID, APP_NAME, UI_LABELS, VERSION } from "./consts.ts";
 
 type Flags = "logout" | "switch" | "suspend" | "idle";

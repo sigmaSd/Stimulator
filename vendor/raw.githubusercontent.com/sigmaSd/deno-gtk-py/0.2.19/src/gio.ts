@@ -4,6 +4,7 @@ export interface Gio {
   Menu: Menu;
   SimpleAction: SimpleAction;
   ListStore: ListStore;
+  File: File;
 }
 export interface Menu {
   new: () => Menu;
@@ -28,5 +29,6 @@ export interface ListModel {
 }
 
 export interface File {
+  new_for_uri(uri: string): File;
   get_path(): { valueOf: () => string };
 }

@@ -61,6 +61,7 @@ export interface StyleContext {
 }
 
 export interface CssProvider {
+  load_from_file(file: Gio_.File): void;
   load_from_path(path: string): void;
 }
 export interface ApplicationWindowConstructor {
@@ -146,6 +147,7 @@ export interface Box extends Widget {
 }
 
 export interface MenuButton extends Widget {
+  set_primary(yes: boolean): void;
   set_popover(menu: PopoverMenu): void;
   set_icon_name(name: string): void;
 }
