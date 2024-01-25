@@ -20,7 +20,7 @@ export const EN_UI_LABELS = {
   EnableExistConfirmation: "Enable closing confirmation",
   Preferences: "Preferences",
   Theme: "Theme",
-  ThemeSystem: "System",
+  ThemeSystem: "System theme",
   ThemeLight: "Light",
   ThemeDark: "Dark",
   EnableExistConfirmationSubTitle:
