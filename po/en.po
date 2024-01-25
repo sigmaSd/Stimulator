@@ -9,7 +9,7 @@ msgid "Keep your computer awake"
 msgstr "Keep your computer awake"
 
 msgid "caffeine;nosleep;awake;keepawake;keepon;"
-msgstr "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "caffeine;nosleep;awake;keepawake;keepon; "
 
 msgid "Disable Automatic Suspending"
 msgstr "Disable Automatic Suspending"
