@@ -1,4 +1,4 @@
-#!/usr/bin/env -S deno run --allow-read=./po,./src/locales --allow-write=./src/locales,./distro/
+#!/usr/bin/env -S deno run --allow-read=./po,./src/locales --allow-write=./src/locales,./distro/,./po --allow-run=deno
 import { gettextToI18next } from "npm:i18next-conv@14.0.0";
 import { APP_ID, EN_UI_LABELS } from "../src/consts.ts";
 import i18n, { i18next } from "../src/i18n.ts";
