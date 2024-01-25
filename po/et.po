@@ -8,11 +8,14 @@ msgstr "Stimulaator"
 msgid "Keep your computer awake"
 msgstr "Hoia oma arvuti ärkvel"
 
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "kofeiin;eiuinu;ärkvel;hoiaärkvel;jätka;"
+
 msgid "Disable Automatic Suspending"
-msgstr "Keela automaatne uinak"
+msgstr "Keela automaatne uinumine"
 
 msgid "Disable Screen Blanking and Locking"
-msgstr "Keela ekraani tumenemine"
+msgstr "Keela ekraani tumenemine ja lukustumine"
 
 msgid "Current state: System default"
 msgstr "Hetkeolek: Süsteemi vaikeseade"
@@ -20,14 +23,41 @@ msgstr "Hetkeolek: Süsteemi vaikeseade"
 msgid "Current state: Indefinitely"
 msgstr "Hetkeolek: Määramata ajaks"
 
-msgid "About Stimulator"
-msgstr "Stimulaatori teave"
-
 msgid "Stimulator is active"
 msgstr "Stimulaator on aktiivne"
 
-msgid "caffeine;nosleep;awake;keepawake;keepon;"
-msgstr "kofeiin;eiuinu;ärkvel;hoiaärkvel;jätka;"
+msgid "Confirm close?"
+msgstr "Kinnitad sulgemise?"
+
+msgid "Stimulator is active, do you want to close?"
+msgstr "Stimulaator on aktiivne, kas soovid sulgeda?"
+
+msgid "Cancel"
+msgstr "Tühista"
+
+msgid "Close"
+msgstr "Sulge"
+
+msgid "Preferences"
+msgstr "Eelistused"
+
+msgid "Theme"
+msgstr "Teema"
+
+msgid "System theme"
+msgstr "Süsteemi teema"
+
+msgid "Light"
+msgstr "Hele"
+
+msgid "Dark"
+msgstr "Tume"
+
+msgid "Enable closing confirmation"
+msgstr "Luba sulgemise kinnitus"
+
+msgid "Confirmation asked when automatic suspending disabling is active"
+msgstr "Kinnitust küsitakse, kui automaatse uinaku keelamine on aktiivne"
 
 msgid "Keyboard Shortcuts"
 msgstr "Klaviatuuri otseteed"
@@ -38,35 +68,5 @@ msgstr "Välju"
 msgid "General"
 msgstr "Üldine"
 
-msgid "Confirm close?"
-msgstr "Kinnitad sulgemise?"
-
-msgid "Stimulator is active, do you want to close?"
-msgstr "Stimulaator on endiselt aktiivne, kas soovid sulgeda?"
-
-msgid "Cancel"
-msgstr "Tühista"
-
-msgid "Close"
-msgstr "Sulge"
-
-msgid "Enable closing confirmation"
-msgstr ""
-
-msgid "Preferences"
-msgstr ""
-
-msgid "Theme"
-msgstr ""
-
-msgid "System"
-msgstr ""
-
-msgid "Light"
-msgstr ""
-
-msgid "Dark"
-msgstr ""
-
-msgid "Confirmation asked when automatic suspending disabling is active"
-msgstr ""
+msgid "About Stimulator"
+msgstr "Stimulaatori teave"
