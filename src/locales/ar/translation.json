@@ -22,5 +22,7 @@
     "General": "عام",
     "Open menu": "",
     "Quit": "خروج",
-    "About Stimulator": "معلومات حول المحفز"
+    "About Stimulator": "معلومات حول المحفز",
+    "Unsupported System": "",
+    "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit": ""
 }

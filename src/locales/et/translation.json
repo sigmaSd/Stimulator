@@ -22,5 +22,7 @@
     "General": "Üldine",
     "Open menu": "Ava menüü",
     "Quit": "Lõpeta",
-    "About Stimulator": "Stimulaatori teave"
+    "About Stimulator": "Stimulaatori teave",
+    "Unsupported System": "",
+    "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit": ""
 }

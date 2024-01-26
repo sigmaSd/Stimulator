@@ -72,7 +72,10 @@ function verifyAndFixPoFiles(poFilePath: string, compiled: any) {
   Object.values(EN_UI_LABELS).forEach((prop, index) => {
     // 0 is the msgid
     // 1 is the msgstr
-    if (compiledEntries[index][0] !== prop) {
+    if (index >= compiledEntries.length) {
+      compiledEntries.push([prop, ""]);
+      changes = true;
+    } else if (compiledEntries[index][0] !== prop) {
       compiledEntries[index][0] = prop;
       compiledEntries[index][1] = "";
       changes = true;

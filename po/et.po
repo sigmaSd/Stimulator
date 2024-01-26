@@ -73,3 +73,9 @@ msgstr "Lõpeta"
 
 msgid "About Stimulator"
 msgstr "Stimulaatori teave"
+
+msgid "Unsupported System"
+msgstr ""
+
+msgid "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit"
+msgstr ""

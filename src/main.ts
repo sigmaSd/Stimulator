@@ -262,12 +262,17 @@ class MainWindow {
         this.#toggleIdle(true);
       }
 
-      this.#cookies["suspend"] = this.#app.inhibit(
+      const result = this.#app.inhibit(
         this.#win,
         Gtk.ApplicationInhibitFlags.SUSPEND,
         // NOTE: the reason is needed for flatpak to work
         UI_LABELS.SimulatorActive,
       ).valueOf();
+
+      if (result !== 0) {
+        this.#platformUnsupportedExit();
+      }
+      this.#cookies["suspend"] = result;
     } else {
       this.#suspendRow.set_subtitle(UI_LABELS.SystemDefault);
       this.#mainIcon.set_from_icon_name(
@@ -367,6 +372,36 @@ class MainWindow {
 
     shortcutsWin.present();
   });
+
+  #platformUnsupportedExit() {
+    const dialog = Adw.MessageDialog(
+      new NamedArgument("transient_for", this.#app.get_active_window()),
+      new NamedArgument("heading", UI_LABELS.UnsupportedSystem),
+      new NamedArgument(
+        "body",
+        UI_LABELS.UnsupportedSystemBody,
+      ),
+    );
+
+    dialog.add_response("close", UI_LABELS.Close);
+    dialog.set_close_response("close");
+    dialog.set_default_response("close");
+    dialog.set_response_appearance(
+      "close",
+      Adw.ResponseAppearance.DESTRUCTIVE,
+    );
+    dialog.connect(
+      "response",
+      python.callback((_, __, id) => {
+        // make sure to turn off the buttons
+        this.#updateState({ "suspend": false, "idle": false });
+        if (id === "close") this.#app.quit();
+      }),
+    );
+
+    dialog.set_visible(true);
+    return true;
+  }
 }
 
 class App extends Adw.Application {

@@ -26,6 +26,9 @@ export const EN_UI_LABELS = {
   MainMenu: "Open menu",
   Quit: "Quit",
   About: "About Stimulator",
+  UnsupportedSystem: "Unsupported System",
+  UnsupportedSystemBody:
+    "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit",
 };
 
 export const UI_LABELS = {
@@ -53,8 +56,10 @@ export const UI_LABELS = {
   KeyboardShortcuts: t(EN_UI_LABELS.KeyboardShortcuts),
   General: t(EN_UI_LABELS.General),
   MainMenu: t(EN_UI_LABELS.MainMenu),
-  Quit: t(EN_UI_LABELS.Quit),  
-  About: t(EN_UI_LABELS.About),  
+  Quit: t(EN_UI_LABELS.Quit),
+  About: t(EN_UI_LABELS.About),
+  UnsupportedSystem: t(EN_UI_LABELS.UnsupportedSystem),
+  UnsupportedSystemBody: t(EN_UI_LABELS.UnsupportedSystemBody),
 };
 
 export const APP_ID = "io.github.sigmasd.stimulator";
