@@ -40,4 +40,6 @@ jobs:
           git config --local user.name "Translator Bot"
           git add .
           git commit -m "Compile translations"
+          
+          git config push.default upstream
           git push
