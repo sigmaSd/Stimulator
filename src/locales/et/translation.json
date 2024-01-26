@@ -19,8 +19,8 @@
     "Enable closing confirmation": "Luba sulgemise kinnitus",
     "Confirmation asked when automatic suspending disabling is active": "Kinnitust küsitakse, kui automaatse uinaku keelamine on aktiivne",
     "Keyboard Shortcuts": "Klaviatuuri otseteed",
-    "Quit": "Välju",
     "General": "Üldine",
-    "About Stimulator": "Stimulaatori teave",
-    "Main Menu": ""
+    "Open menu": "Ava menüü",
+    "Quit": "Lõpeta",
+    "About Stimulator": "Stimulaatori teave"
 }

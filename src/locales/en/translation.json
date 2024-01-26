@@ -19,8 +19,8 @@
     "Enable closing confirmation": "Enable closing confirmation",
     "Confirmation asked when automatic suspending disabling is active": "Confirmation asked when automatic suspending disabling is active",
     "Keyboard Shortcuts": "Keyboard Shortcuts",
-    "Quit": "Quit",
     "General": "General",
-    "About Stimulator": "About Stimulator",
-    "Main Menu": "Main Menu"
+    "Open menu": "Open menu",
+    "Quit": "Quit",
+    "About Stimulator": "About Stimulator"
 }

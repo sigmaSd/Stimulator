@@ -62,14 +62,14 @@ msgstr "Kinnitust küsitakse, kui automaatse uinaku keelamine on aktiivne"
 msgid "Keyboard Shortcuts"
 msgstr "Klaviatuuri otseteed"
 
-msgid "Quit"
-msgstr "Välju"
-
 msgid "General"
 msgstr "Üldine"
 
+msgid "Open menu"
+msgstr "Ava menüü"
+
+msgid "Quit"
+msgstr "Lõpeta"
+
 msgid "About Stimulator"
 msgstr "Stimulaatori teave"
-
-msgid "Main Menu"
-msgstr ""
