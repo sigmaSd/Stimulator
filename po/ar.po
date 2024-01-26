@@ -63,13 +63,13 @@ msgid "Keyboard Shortcuts"
 msgstr "اختصارات لوحة المفاتيح"
 
 msgid "General"
-msgstr ""
+msgstr "عام"
 
 msgid "Open menu"
 msgstr ""
 
 msgid "Quit"
-msgstr ""
+msgstr "خروج"
 
 msgid "About Stimulator"
-msgstr ""
+msgstr "معلومات حول المحفز"
