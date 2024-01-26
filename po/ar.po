@@ -62,14 +62,14 @@ msgstr ""
 msgid "Keyboard Shortcuts"
 msgstr "اختصارات لوحة المفاتيح"
 
-msgid "Quit"
-msgstr "خروج"
-
 msgid "General"
 msgstr "عام"
 
+msgid "Open menu"
+msgstr ""
+
+msgid "Quit"
+msgstr "خروج"
+
 msgid "About Stimulator"
 msgstr "معلومات حول المحفز"
-
-msgid "Main Menu"
-msgstr ""

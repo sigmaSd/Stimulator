@@ -62,14 +62,14 @@ msgstr "Confirmation asked when automatic suspending disabling is active"
 msgid "Keyboard Shortcuts"
 msgstr "Keyboard Shortcuts"
 
-msgid "Quit"
-msgstr "Quit"
-
 msgid "General"
 msgstr "General"
 
+msgid "Open menu"
+msgstr "Open menu"
+
+msgid "Quit"
+msgstr "Quit"
+
 msgid "About Stimulator"
 msgstr "About Stimulator"
-
-msgid "Main Menu"
-msgstr "Main Menu"

@@ -22,10 +22,10 @@ export const EN_UI_LABELS = {
   EnableExistConfirmationSubTitle:
     "Confirmation asked when automatic suspending disabling is active",
   KeyboardShortcuts: "Keyboard Shortcuts",
-  Quit: "Quit",
   General: "General",
+  MainMenu: "Open menu",
+  Quit: "Quit",
   About: "About Stimulator",
-  MainMenu: "Main Menu",
 };
 
 export const UI_LABELS = {
@@ -51,10 +51,10 @@ export const UI_LABELS = {
     EN_UI_LABELS.EnableExistConfirmationSubTitle,
   ),
   KeyboardShortcuts: t(EN_UI_LABELS.KeyboardShortcuts),
-  Quit: t(EN_UI_LABELS.Quit),
   General: t(EN_UI_LABELS.General),
-  About: t(EN_UI_LABELS.About),
   MainMenu: t(EN_UI_LABELS.MainMenu),
+  Quit: t(EN_UI_LABELS.Quit),  
+  About: t(EN_UI_LABELS.About),  
 };
 
 export const APP_ID = "io.github.sigmasd.stimulator";

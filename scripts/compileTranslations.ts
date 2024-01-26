@@ -25,16 +25,20 @@ async function genDesktopFile() {
   const names = [`Name=${EN_UI_LABELS.AppName}`];
   const comments = [`Comment=${EN_UI_LABELS.Comments}`];
   const keywords = [`Keywords=${EN_UI_LABELS.Keywords}`];
-  for await (const lang of Deno.readDir("./po")) {
-    const langName = lang.name.slice(0, -3);
-    if (langName === "en") continue;
-    await i18next.changeLanguage(langName);
-    const name = i18n(langName)(EN_UI_LABELS.AppName);
-    const comment = i18n(langName)(EN_UI_LABELS.Comments);
-    const keyword = i18n(langName)(EN_UI_LABELS.Keywords);
-    if (name) names.push(`Name[${langName}]=${name}`);
-    if (comment) comments.push(`Comment[${langName}]=${comment}`);
-    if (keyword) keywords.push(`Keywords[${langName}]=${keyword}`);
+  const langs = await Array.fromAsync(Deno.readDir("./po")).then((langs) =>
+    langs.map((lang) => lang.name.slice(0, -3))
+  );
+  // make sure the order is not random
+  langs.sort();
+  for (const lang of langs) {
+    if (lang === "en") continue;
+    await i18next.changeLanguage(lang);
+    const name = i18n(lang)(EN_UI_LABELS.AppName);
+    const comment = i18n(lang)(EN_UI_LABELS.Comments);
+    const keyword = i18n(lang)(EN_UI_LABELS.Keywords);
+    if (name) names.push(`Name[${lang}]=${name}`);
+    if (comment) comments.push(`Comment[${lang}]=${comment}`);
+    if (keyword) keywords.push(`Keywords[${lang}]=${keyword}`);
   }
 
   const desktopFile = `\

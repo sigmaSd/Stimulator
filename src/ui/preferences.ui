@@ -1,8 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Created with Cambalache 0.16.0 -->
 <interface>
+  <requires lib="gtk" version="4.6"/>
   <requires lib="libadwaita" version="1.4"/>
   <object class="AdwPreferencesWindow" id="preferencesWin">
+    <property name="default-height">220</property>
+    <property name="default-width">395</property>
     <child>
       <object class="AdwPreferencesPage">
         <child>
@@ -19,5 +22,6 @@
         </child>
       </object>
     </child>
+    <style/>
   </object>
 </interface>

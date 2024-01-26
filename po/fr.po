@@ -62,14 +62,14 @@ msgstr ""
 msgid "Keyboard Shortcuts"
 msgstr "Raccourcis clavier"
 
-msgid "Quit"
-msgstr "Quitter"
-
 msgid "General"
 msgstr "Général"
 
+msgid "Open menu"
+msgstr ""
+
+msgid "Quit"
+msgstr "Quitter"
+
 msgid "About Stimulator"
 msgstr "À Propos de Stimulator"
-
-msgid "Main Menu"
-msgstr ""
