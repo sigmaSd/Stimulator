@@ -156,6 +156,9 @@ class MainWindow {
         UI_LABELS.ThemeDark,
       ]),
     );
+    //NOTE: ADW bug, set_selected(0) doesn't set the item as selected initilally
+    // so trigger it with this, before the actual correct selection
+    themeRow.set_selected(1);
     themeRow.set_selected(this.#state["theme"] as number);
     themeRow.connect(
       "notify::selected",
