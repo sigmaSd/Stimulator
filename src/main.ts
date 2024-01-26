@@ -269,7 +269,7 @@ class MainWindow {
         UI_LABELS.SimulatorActive,
       ).valueOf();
 
-      if (result !== 0) {
+      if (result === 0) {
         this.#platformUnsupportedExit();
       }
       this.#cookies["suspend"] = result;
