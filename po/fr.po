@@ -9,13 +9,13 @@ msgid "Keep your computer awake"
 msgstr "Gardez votre ordinateur éveillé"
 
 msgid "caffeine;nosleep;awake;keepawake;keepon;"
-msgstr "caféine;pas de someil;éveillé;"
+msgstr "caféine;pas de sommeil;éveillé;"
 
 msgid "Disable Automatic Suspending"
 msgstr "Désactiver la suspension automatique"
 
 msgid "Disable Screen Blanking and Locking"
-msgstr ""
+msgstr "Désactiver le verrouillage de l'écran"
 
 msgid "Current state: System default"
 msgstr "État actuel: Paramètre par défaut du système"
@@ -24,13 +24,13 @@ msgid "Current state: Indefinitely"
 msgstr "État actuel: Indéfiniment"
 
 msgid "Stimulator is active"
-msgstr "Stimulator est active"
+msgstr "Stimulateur est actif"
 
 msgid "Confirm close?"
 msgstr "Confirmer la fermeture ?"
 
 msgid "Stimulator is active, do you want to close?"
-msgstr ""
+msgstr "Stimulateur est actif, voulez-vous fermer ?"
 
 msgid "Cancel"
 msgstr "Annuler"
@@ -39,25 +39,25 @@ msgid "Close"
 msgstr "Fermer"
 
 msgid "Preferences"
-msgstr ""
+msgstr "Préférences"
 
 msgid "Theme"
-msgstr ""
+msgstr "Thème"
 
 msgid "System theme"
-msgstr ""
+msgstr "Thème du système"
 
 msgid "Light"
-msgstr ""
+msgstr "Clair"
 
 msgid "Dark"
-msgstr ""
+msgstr "Sombre"
 
 msgid "Enable closing confirmation"
-msgstr ""
+msgstr "Activer la confirmation de fermeture"
 
 msgid "Confirmation asked when automatic suspending disabling is active"
-msgstr ""
+msgstr "Confirmation demandée lorsque la désactivation de la suspension automatique est active"
 
 msgid "Keyboard Shortcuts"
 msgstr "Raccourcis clavier"
@@ -66,7 +66,7 @@ msgid "General"
 msgstr "Général"
 
 msgid "Open menu"
-msgstr ""
+msgstr "Ouvrir le menu"
 
 msgid "Quit"
 msgstr "Quitter"
@@ -75,7 +75,7 @@ msgid "About Stimulator"
 msgstr "À Propos de Stimulator"
 
 msgid "Unsupported System"
-msgstr ""
+msgstr "Système non pris en charge"
 
 msgid "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit"
-msgstr ""
+msgstr "Votre environnement de bureau ne prend pas en charge le portail `org.freedesktop.portal.Inhibit`, cliquez sur Fermer pour quitter"
