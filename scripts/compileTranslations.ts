@@ -74,17 +74,18 @@ function verifyAndFixPoFiles(
   poFilePath: string,
   compiled: Record<string, string>,
 ) {
+  const is_english = poFilePath.endsWith("en.po")
   const compiledEntries = Object.entries(compiled);
   let changes = false;
   Object.values(EN_UI_LABELS).forEach((prop, index) => {
     // 0 is the msgid
     // 1 is the msgstr
     if (index >= compiledEntries.length) {
-      compiledEntries.push([prop, ""]);
+      compiledEntries.push([prop, is_english ? prop : ""]);
       changes = true;
     } else if (compiledEntries[index][0] !== prop) {
       compiledEntries[index][0] = prop;
-      compiledEntries[index][1] = "";
+      compiledEntries[index][1] = is_english ? prop : "";
       changes = true;
     }
   });

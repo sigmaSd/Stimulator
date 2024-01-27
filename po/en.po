@@ -75,7 +75,7 @@ msgid "About Stimulator"
 msgstr "About Stimulator"
 
 msgid "Unsupported System"
-msgstr ""
+msgstr "Unsupported System"
 
 msgid "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit"
-msgstr ""
+msgstr "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit"
