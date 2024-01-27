@@ -16,12 +16,88 @@ import { APP_ID, APP_NAME, UI_LABELS, VERSION } from "./consts.ts";
 
 type Flags = "logout" | "switch" | "suspend" | "idle";
 
+class PreferencesMenu {
+  #preferencesWin: Adw_.PreferencesWindow;
+  constructor(mainWindow: MainWindow) {
+    const builder = Gtk.Builder();
+    builder.add_from_file(
+      new URL(import.meta.resolve("./ui/preferences.ui")).pathname,
+    );
+    this.#preferencesWin = builder.get_object(
+      "preferencesWin",
+    ) as Adw_.PreferencesWindow;
+    this.#preferencesWin.set_hide_on_close(true);
+    this.#preferencesWin.set_transient_for(mainWindow.win);
+    this.#preferencesWin.set_modal(true);
+
+    const themeRow = builder.get_object(
+      "themeRow",
+    ) as Adw_.ComboRow;
+    themeRow.set_title(UI_LABELS.Theme);
+    themeRow.set_model(
+      Gtk.StringList.new([
+        UI_LABELS.ThemeSystem,
+        UI_LABELS.ThemeLight,
+        UI_LABELS.ThemeDark,
+      ]),
+    );
+    //NOTE: ADW bug, set_selected(0) doesn't set the item as selected initilally
+    // so trigger it with this, before the actual correct selection
+    themeRow.set_selected(1);
+    themeRow.set_selected(mainWindow.state["theme"] as number);
+    themeRow.connect(
+      "notify::selected",
+      python.callback(() => {
+        const themeNumber = themeRow.get_selected().valueOf();
+        //deno-fmt-ignore
+        Adw.StyleManager.get_default().set_color_scheme(
+            themeNumber === 0 ? Adw.ColorScheme.DEFAULT
+          : themeNumber === 1 ? Adw.ColorScheme.FORCE_LIGHT
+          : Adw.ColorScheme.FORCE_DARK,
+        );
+        mainWindow.updateState({ "theme": themeNumber });
+      }),
+    );
+
+    const confirmExitSwitchRow = builder.get_object(
+      "confirmExitSwitchRow",
+    ) as Adw_.SwitchRow;
+    confirmExitSwitchRow.set_title(UI_LABELS.EnableExistConfirmation);
+    confirmExitSwitchRow.set_subtitle(
+      UI_LABELS.EnableExistConfirmationSubTitle,
+    );
+    confirmExitSwitchRow.set_active(
+      mainWindow.state["confirmExitMenu"] as boolean,
+    );
+    confirmExitSwitchRow.connect(
+      "notify::active",
+      python.callback(() => {
+        mainWindow.updateState({
+          "confirmExitMenu": confirmExitSwitchRow.get_active().valueOf(),
+        });
+      }),
+    );
+  }
+
+  present() {
+    this.#preferencesWin.set_visible(true);
+  }
+}
+
 class MainWindow {
   #app: Adw_.Application;
   #win: Gtk_.ApplicationWindow;
   #mainIcon: Gtk_.Image;
   #suspendRow: Adw_.SwitchRow;
   #idleRow: Adw_.SwitchRow;
+  #preferencesMenu: PreferencesMenu;
+
+  get win() {
+    return this.#win;
+  }
+  get state() {
+    return this.#state;
+  }
 
   #state: {
     [key in Flags | "confirmExitMenu" | "theme"]:
@@ -75,6 +151,8 @@ class MainWindow {
         this.#toggleIdle(this.#idleRow.get_active().valueOf())
       ),
     );
+
+    this.#preferencesMenu = new PreferencesMenu(this);
 
     this.#app = app;
     this.#win.set_application(this.#app);
@@ -135,65 +213,7 @@ class MainWindow {
   }
 
   #showPreferences = () => {
-    const builder = Gtk.Builder();
-    builder.add_from_file(
-      new URL(import.meta.resolve("./ui/preferences.ui")).pathname,
-    );
-    const preferencesWin = builder.get_object(
-      "preferencesWin",
-    ) as Adw_.PreferencesWindow;
-    preferencesWin.set_transient_for(this.#win);
-    preferencesWin.set_modal(true);
-
-    const themeRow = builder.get_object(
-      "themeRow",
-    ) as Adw_.ComboRow;
-    themeRow.set_title(UI_LABELS.Theme);
-    themeRow.set_model(
-      Gtk.StringList.new([
-        UI_LABELS.ThemeSystem,
-        UI_LABELS.ThemeLight,
-        UI_LABELS.ThemeDark,
-      ]),
-    );
-    //NOTE: ADW bug, set_selected(0) doesn't set the item as selected initilally
-    // so trigger it with this, before the actual correct selection
-    themeRow.set_selected(1);
-    themeRow.set_selected(this.#state["theme"] as number);
-    themeRow.connect(
-      "notify::selected",
-      python.callback(() => {
-        const themeNumber = themeRow.get_selected().valueOf();
-        //deno-fmt-ignore
-        Adw.StyleManager.get_default().set_color_scheme(
-            themeNumber === 0 ? Adw.ColorScheme.DEFAULT
-          : themeNumber === 1 ? Adw.ColorScheme.FORCE_LIGHT
-          : Adw.ColorScheme.FORCE_DARK,
-        );
-        this.#updateState({ "theme": themeNumber });
-      }),
-    );
-
-    const confirmExitSwitchRow = builder.get_object(
-      "confirmExitSwitchRow",
-    ) as Adw_.SwitchRow;
-    confirmExitSwitchRow.set_title(UI_LABELS.EnableExistConfirmation);
-    confirmExitSwitchRow.set_subtitle(
-      UI_LABELS.EnableExistConfirmationSubTitle,
-    );
-    confirmExitSwitchRow.set_active(
-      this.#state["confirmExitMenu"] as boolean,
-    );
-    confirmExitSwitchRow.connect(
-      "notify::active",
-      python.callback(() => {
-        this.#updateState({
-          "confirmExitMenu": confirmExitSwitchRow.get_active().valueOf(),
-        });
-      }),
-    );
-
-    preferencesWin.set_visible(true);
+    this.#preferencesMenu.present();
   };
 
   #onCloseRequest = () => {
@@ -237,7 +257,7 @@ class MainWindow {
     if (shortcuts) this.#app.set_accels_for_action(`app.${name}`, shortcuts);
   };
 
-  #updateState(
+  updateState(
     state: {
       [key in Flags | "confirmExitMenu" | "theme"]?:
         | boolean
@@ -295,7 +315,7 @@ class MainWindow {
       }
     }
 
-    this.#updateState({ "suspend": yes });
+    this.updateState({ "suspend": yes });
   };
 
   #toggleIdle = (state: boolean | "active_disabled") => {
@@ -317,7 +337,7 @@ class MainWindow {
       }
     }
 
-    this.#updateState({ "idle": state });
+    this.updateState({ "idle": state });
   };
 
   #showAbout = python.callback(() => {
@@ -394,7 +414,7 @@ class MainWindow {
       "response",
       python.callback((_, __, id) => {
         // make sure to turn off the buttons
-        this.#updateState({ "suspend": false, "idle": false });
+        this.updateState({ "suspend": false, "idle": false });
         if (id === "close") this.#app.quit();
       }),
     );
