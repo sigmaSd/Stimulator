@@ -1,0 +1,1438 @@
+commit 0a3189f89f5ea62c03a4fbdb53217169a9fdc41c
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Jan 27 18:38:13 2024 +0100
+
+    refactor: extract preferences menu in its own class
+
+commit fcc95a3cd32ea02a6708882246abe6954b040ae0
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Jan 27 18:35:21 2024 +0100
+
+    fmt
+
+commit 5cd5c60526d2dbefc3e033251058fda025d00cfa
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Jan 27 18:33:57 2024 +0100
+
+    update deno gtk
+
+commit 344b99a3daff2348bc92b53a4407589aa57b6542
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Jan 27 18:08:28 2024 +0100
+
+    update french translations
+
+commit b2b628cd869cc5a8649bf8170776c5270021fafc
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Jan 27 18:05:17 2024 +0100
+
+    update arabic translations
+
+commit 0b32ff1cd1fbb5d04bae89b603a88f868bf19efb
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Jan 27 17:59:16 2024 +0100
+
+    fix english
+
+commit 65ee6d5bc7d91889cc4e4d0ed9689d3dd6cb00db
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Jan 27 17:30:00 2024 +0100
+
+    don't embed translations that are less then 70  complete
+
+commit 5773501468f3f474845d942021a6beb685617c47
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Jan 26 19:41:41 2024 +0100
+
+    remove bot for now
+
+commit b8874a806952b7446989bfdd792ae438077ac22c
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Jan 26 19:33:57 2024 +0100
+
+    fix condition
+
+commit c2f2f20a47da3b9f2cc7c193bcc43877150f8b07
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Jan 26 19:33:33 2024 +0100
+
+    show an error if used on an unsupported system
+
+commit 8c6a6db64743efe51d82f92d6e241c6b6e61c448
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Jan 26 17:58:11 2024 +0100
+
+    workaround adw bug
+
+commit 2731b1292af28b2df71eeb21b13a137241f90a90
+Author: Meybo Nõmme <meybo@meybo.ee>
+Date:   Fri Jan 26 05:58:03 2024 +0200
+
+    UI changes, translation file changes (#64)
+    
+    * ui improvement
+    
+    * UI changes, translation file changes
+    
+    * translation fixes
+    
+    * Update compileTranslations.yml
+    
+    * Update compileTranslations.yml
+    
+    * Update compileTranslations.yml
+    
+    * make sure the order of script gen is not random
+    
+    ---------
+    
+    Co-authored-by: sigmaSd <bedisnbiba@gmail.com>
+
+commit 4628a9e2f254414c0cb468b8d5a934ac5b895c84
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Fri Jan 26 04:40:33 2024 +0100
+
+    Update compileTranslations.yml
+
+commit 2ea5e48ad4d6cb0d9d30e3b8ee57019e1ee56216
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Fri Jan 26 04:28:56 2024 +0100
+
+    Update compileTranslations.yml
+
+commit c92bfa1da37c8517d35f27bdf68a2d71ba7f61bc
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Fri Jan 26 04:24:00 2024 +0100
+
+    Update compileTranslations.yml
+
+commit 17dd0b13b6181fcbc2b5e983dcd7d9adbe695275
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Thu Jan 25 18:30:21 2024 +0100
+
+    add permissions
+
+commit 2d59a10e317c4180466fbd7db3c4f502e951f831
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Thu Jan 25 18:28:42 2024 +0100
+
+    upgrade bot to ultra mode
+
+commit da190f7b550d8d94fb5c554d1e92c716cb02d481
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Thu Jan 25 16:51:42 2024 +0100
+
+    not a bug
+
+commit 6ffa061a5f63de0ac1af6bf498619a72aaf7da34
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Thu Jan 25 16:28:48 2024 +0100
+
+    Update compileTranslations.yml
+
+commit 2b3dfc6c349eb2fd67b045b4f8ab6557ee9108a5
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Thu Jan 25 16:08:58 2024 +0100
+
+    expose more shortcuts
+
+commit 4636ad30288cd703a15920c72c5e1a299d4a345c
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Thu Jan 25 15:55:07 2024 +0100
+
+    make menu a primary button
+
+commit c899f38b81a0e89015a3d936484965498d7c979b
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Thu Jan 25 15:54:52 2024 +0100
+
+    update deno gtk
+
+commit 2408a1ecafdb15a437b7951f8aa81455de8e4708
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Thu Jan 25 15:39:03 2024 +0100
+
+    change menu order
+
+commit 93c8c9c1e362ac3e1fa9454c9b61a8e85a334c92
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Thu Jan 25 15:20:52 2024 +0100
+
+    update translations
+
+commit 308e3d20ae2d494ee822cf71c6f13bfd9fd480d5
+Author: Meybo Nõmme <meybo@meybo.ee>
+Date:   Thu Jan 25 16:16:58 2024 +0200
+
+    update italien translations
+
+commit 6a6af4bfff23c48898db4fe4bcc10efd4948f07d
+Author: Meybo Nõmme <meybo@meybo.ee>
+Date:   Thu Jan 25 16:15:57 2024 +0200
+
+    update fr translations
+
+commit 6cca26592c25578e526777f2b702d95ffc4a0396
+Author: Meybo Nõmme <meybo@meybo.ee>
+Date:   Thu Jan 25 16:15:12 2024 +0200
+
+    Changed "System" to "System theme" for clarity (#58)
+
+commit 53bf6ff56272390fc89bf32fb568b97f2dec518c
+Author: Meybo Nõmme <meybo@meybo.ee>
+Date:   Thu Jan 25 16:13:56 2024 +0200
+
+    Translated missing strings, syncing order with en.po (#57)
+    
+    * Translated missing strings, syncing order with en.po
+    
+    * Order synced with en.po, changed translations removed
+
+commit 702038686b311f9d2a58e11054410a7f5308dd47
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Wed Jan 24 06:51:19 2024 +0100
+
+    update translations
+
+commit a4d79edc0da008f50ace40954fba4266f8d47821
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Wed Jan 24 06:51:05 2024 +0100
+
+    update translations
+
+commit 694caf4f0f4804ae9934d5bcb21ff2b778413991
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Wed Jan 24 06:49:59 2024 +0100
+
+    update translations
+
+commit 4129c22cdf365489c366a69bf8c8bb782d3dc30e
+Author: Meybo Nõmme <meybo@meybo.ee>
+Date:   Wed Jan 24 07:44:30 2024 +0200
+
+    Updated strings and more logical strings order (#56)
+
+commit 7d9955db4b58c92f42fb9c78ac7ce5f33bc4612b
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Tue Jan 23 20:09:12 2024 +0100
+
+    feat: add subtitle for confirmexit menu
+
+commit 4106406355f1ccba5ad92ec64712b42580701fe9
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Tue Jan 23 19:32:15 2024 +0100
+
+    fix: handle outdated state
+
+commit b74943ad2cdecbf1ed03debd48e8999ad672ffd1
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Tue Jan 23 19:04:42 2024 +0100
+
+    feat: add option to choose theme
+
+commit 3fcdeb4f4bdb49d4b2356ffd789b53586b6f1478
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Tue Jan 23 19:01:27 2024 +0100
+
+    update gtk dep
+
+commit 4dcc560072d0e178f82d71e1ee79d6ccd27b1bd3
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Tue Jan 23 16:43:38 2024 +0100
+
+    make exit confirmation configurable
+
+commit 6e43c07ce863871c09b279889f9387c04b502382
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Tue Jan 23 16:40:50 2024 +0100
+
+    update deno gtk
+
+commit 4c81ae2b74512e81e858aef68669564dc9030f26
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Jan 22 19:20:46 2024 +0100
+
+    update ar translations
+
+commit de0c221a91f8c745dffd0ee77771e2e339baa2f3
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Jan 22 18:43:06 2024 +0100
+
+    make shortcut window transient on the main window
+
+commit 6b96c65823689438dd8db9c7edebabf505eac59b
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Jan 22 18:42:48 2024 +0100
+
+    update deno gtk
+
+commit cb4abea81c0845b33ebcaed4f460bfef5bb1bd10
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Sun Jan 21 19:53:05 2024 +0100
+
+    fix translate bot
+
+commit c5c4e729fef10531bf72695621c8936e5485ad9a
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Sun Jan 21 19:42:19 2024 +0100
+
+    Update compileTranslations.yml
+
+commit e66866c19ec9670a85c98c7c7c39eb72d0ddd678
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Sun Jan 21 19:38:28 2024 +0100
+
+    try fix bot
+
+commit ff3f823227f428497451a8a92956d209536b8b49
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 21 19:32:49 2024 +0100
+
+    0.8.1
+
+commit cee2b2608ff4ae3976d6f5b0d1bd8bd0b652338a
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 21 19:32:39 2024 +0100
+
+    update translations
+
+commit 183e97ab5d8740399b943acdfcc1e72b046e1ac7
+Author: Meybo Nõmme <meybo@meybo.ee>
+Date:   Sun Jan 21 20:29:21 2024 +0200
+
+    Update et.po (#52)
+
+commit 9523cf8fa838cfd7f0efd5ea86106c51d92d7fab
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 21 19:11:35 2024 +0100
+
+    improve wording
+
+commit b178b395f5423025713dd57a505c898021fdcf6a
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Sun Jan 21 10:04:33 2024 +0100
+
+    try fix bot
+
+commit 93817a622fb926ece7e574767067ff796146ac2c
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Sun Jan 21 10:01:46 2024 +0100
+
+    try fix bot
+
+commit 33f0f578c78fdfee332f584cb0e47b001dad83e4
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 21 10:00:21 2024 +0100
+
+    clean
+
+commit 05c11c067e38a4a03aefb53513d6592b574489a9
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 21 10:00:05 2024 +0100
+
+    update ar translations
+
+commit 878d16d355880857e78554e52268fffa4bd57523
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 21 09:55:34 2024 +0100
+
+    update ar fr translations
+
+commit 1fe4d39aa6d08763c637479713953fbefa89705f
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 21 09:40:48 2024 +0100
+
+    add confirmation dialog on exit shortcuts as well
+
+commit a54db66c4e6b43ca72319e7ee4965f43ad8fdaad
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 21 09:29:58 2024 +0100
+
+    add confirmation dialog on exit if suspend is still active
+
+commit aeb8a63d3d18cc324c97b533db38da97bb4292fd
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 21 09:23:11 2024 +0100
+
+    update deno gtk
+
+commit d4371b15b90b61077c80153d0ed1f6eb3cb07987
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 21 08:39:11 2024 +0100
+
+    new punch line
+
+commit 5311b14359046bc5d9b83ff4f9b68620f2f648ad
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Jan 20 22:27:53 2024 +0100
+
+    use script type in flatapk instead of echo trick
+
+commit b237a96cdd1553d948ab7e8ac48f1623dc5d00ab
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Jan 20 22:08:38 2024 +0100
+
+    new punch line
+
+commit 64e0e0cf194eac52afafb71fd8760ebc3ee01faf
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Jan 20 21:33:22 2024 +0100
+
+    fix typing
+
+commit 36bcb08631f8e07cbe665f5c235654597035ddd8
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Jan 20 21:33:10 2024 +0100
+
+    update deno gtk
+
+commit 7f3f951641da750e8433fdb2c17b16bf9e01eda4
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Jan 20 21:24:40 2024 +0100
+
+    add keyboard shortcuts
+
+commit 1d8a78877094cfb88746d77f4dcbc728939e59d5
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Jan 20 20:46:44 2024 +0100
+
+    update deno gtk
+
+commit 3833bd77ef3886dde71677d6cf2ced9dd0a2ba07
+Author: Meybo Nõmme <meybo@meybo.ee>
+Date:   Sat Jan 20 17:42:59 2024 +0200
+
+    Using Flathub official badge (#48)
+
+commit eece3b34ff6c23ba46fd8b3a05f3aaac615edb56
+Author: Meybo Nõmme <meybo@meybo.ee>
+Date:   Sat Jan 20 11:41:21 2024 +0200
+
+    Demo images links updated (#47)
+    
+    * Demo images links updated
+    
+    * Update io.github.sigmasd.stimulator.metainfo.xml
+
+commit b832907493905902a365d117b2cab543c1fa8c1e
+Author: Meybo Nõmme <meybo@meybo.ee>
+Date:   Sat Jan 20 11:41:13 2024 +0200
+
+    Screenshots and links in readme updated (#45)
+    
+    * Screenshots and links in readme updated
+    
+    * Update README.md
+    
+    * Update README.md
+
+commit c2b1c5029a27176c170d6510f3a01859a4befbf8
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Fri Jan 19 21:56:01 2024 +0100
+
+    Autogenerate desktop file (#44)
+
+commit d8eb3557814e5d0c8fa58204097bd1f875ea9fdb
+Author: Meybo Nõmme <meybo@meybo.ee>
+Date:   Fri Jan 19 20:08:18 2024 +0200
+
+    Translation instructions added (#42)
+    
+    * Update README.md
+    
+    * Update README.md
+
+commit 4e33afd0a0154a52640a4f633650ef0205095406
+Author: Meybo Nõmme <meybo@meybo.ee>
+Date:   Fri Jan 19 20:07:32 2024 +0200
+
+    Update en.po (#43)
+    
+    * Update en.po
+    
+    * Update en.po
+
+commit b929435b69d5dd250ca390648caa6c805cf40497
+Author: Meybo Nõmme <meybo@meybo.ee>
+Date:   Fri Jan 19 18:16:37 2024 +0200
+
+    Create en.po (#40)
+
+commit e62ee81821dc172318b771e4b68298391fc2df77
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Thu Jan 18 19:55:43 2024 +0100
+
+    0.8.0
+
+commit bf5487a956cc235a20cf15c66041f5ac1463139e
+Author: Meybo Nõmme <meybo@meybo.ee>
+Date:   Thu Jan 18 20:54:35 2024 +0200
+
+    Version 0.8.0 changelog (#37)
+    
+    * Version 0.8.0 changelog
+    
+    * Update io.github.sigmasd.stimulator.metainfo.xml
+
+commit de891aeaad0141d181198c3d46aa7c17c5f9ad91
+Author: Meybo Nõmme <meybo@meybo.ee>
+Date:   Thu Jan 18 19:12:53 2024 +0200
+
+    Update io.github.sigmasd.stimulator.desktop (#35)
+
+commit 7878762c8b537e53622ff52cdaa631399e458a81
+Author: Meybo Nõmme <meybo@meybo.ee>
+Date:   Thu Jan 18 16:42:27 2024 +0200
+
+    Update et.po (#33)
+
+commit 99bc332f62ce69117e24a3dd81802767da3f3b26
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Thu Jan 18 12:11:01 2024 +0100
+
+    new punch line
+
+commit 9683a5c5198ed143ac8814e5ee2ba7215cab7625
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Thu Jan 18 05:46:31 2024 +0100
+
+    keep the state of screen button when toggling suspend
+
+commit 2c2414b75d49c96a877b81309014630f53d6d001
+Author: Meybo Nõmme <meybo@meybo.ee>
+Date:   Thu Jan 18 06:20:08 2024 +0200
+
+    UI and translations updates (#30)
+
+commit 6bd9ef9e7f5bc1c5ac892d6b9b4d5847d081d9a7
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Wed Jan 17 18:37:01 2024 +0100
+
+    make app name translatable
+
+commit 17385d4c16f427bd50a392ec75eb3c733f6478ff
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Wed Jan 17 18:36:25 2024 +0100
+
+    round translation percentage
+
+commit 5fcd046b318a9c636ce855077470bd0bf92e22d4
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Wed Jan 17 18:29:35 2024 +0100
+
+    make script not depend on randomness
+
+commit 4b4ee9f1aacef82a69e0850c551547520c55589f
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Wed Jan 17 18:26:33 2024 +0100
+
+    don't hardcode tarnslations number
+
+commit 9d89b0a2ebc241cabf6e5cc869f407c50c904b0c
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Wed Jan 17 18:16:45 2024 +0100
+
+    0.7.6
+
+commit 67afce18b0c7848f73ed0e89d7542f54196477d9
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Wed Jan 17 17:04:40 2024 +0100
+
+    try fix translation bot
+
+commit e1a779848c56aa2be131f802ebd9c5864dca2bfc
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Wed Jan 17 16:48:42 2024 +0100
+
+    0.7.5
+
+commit 37b096ea0447e066312f4f0ddbc287383df3993e
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Wed Jan 17 16:46:33 2024 +0100
+
+    move to stimulator id
+
+commit 85ee397f98ab078df2cd9ef0075a96e1ec9e5e71
+Author: Meybo Nõmme <meybo@meybo.ee>
+Date:   Wed Jan 17 17:40:49 2024 +0200
+
+    Add estonian translation (#25)
+
+commit 9e954e169d0643f877452456688ca2643ab562c8
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Jan 15 19:38:59 2024 +0100
+
+    0.7.4
+
+commit de407967a51f1c7e17e248e21b9e3341715cf950
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Jan 15 19:37:20 2024 +0100
+
+    minor ui tweaks
+
+commit f74f52e40fcf65412e8c66cb405116638cd0ef6e
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Jan 15 19:28:47 2024 +0100
+
+    0.7.3
+
+commit 9d03e447c33f936ee6af4c33535e3c6e7237ec8b
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Jan 15 19:00:41 2024 +0100
+
+    update demos
+
+commit abe7a2c598efcbb1087e1e546a85a0357b3339c9
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Jan 15 18:54:41 2024 +0100
+
+    add a new icon for active state
+
+commit 88d4a5a0502aad428e867cc2ed9c5c4f30f90812
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Jan 15 18:53:01 2024 +0100
+
+    update deno gtk
+
+commit 1e5c6a79321f338a1e4415d5c1b94348d3e2d249
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Sun Jan 14 17:10:22 2024 +0100
+
+    Update README.md
+
+commit 5a913affc839f334fdfdb1631e1530d82a19a17c
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 14 17:07:08 2024 +0100
+
+    0.7.2
+
+commit 25403e17ff2d06af52b8c64f1096357725c2957c
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 14 17:01:51 2024 +0100
+
+    keep ui state at exit
+
+commit d4027620ae3cad1f9162700b4e8d3669489161ae
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 14 13:32:34 2024 +0100
+
+    refactor
+
+commit 4c357801e8dfabf432105f72edc6c4c0afe94a06
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 14 13:28:27 2024 +0100
+
+    refactor
+
+commit 269c579326d15daf73c617520acb5b74d481d2a9
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 14 13:27:02 2024 +0100
+
+    refactor type
+
+commit 65495fbc6a859ad72c9b48752329344a5c9e0217
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 14 12:26:26 2024 +0100
+
+    update ignore
+
+commit 3853b54e1912d3d504b045d6b7bd3f3ef55df9a5
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 14 11:47:00 2024 +0100
+
+    0.7.1
+
+commit a038da8e35e3ea9d6d6e983c8d65cddb1f5e00e7
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 14 11:44:35 2024 +0100
+
+    add light demo to metainfo
+
+commit 15fbbcd55afe3a6636e03921cb123ab66182291a
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Sun Jan 14 11:42:43 2024 +0100
+
+    Update README.md
+
+commit 394dc40044bc4ea944f03eedc5bca0cf5f91ecd0
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Sun Jan 14 11:42:29 2024 +0100
+
+    Update README.md
+
+commit a6b0d47ecb319ef8242742c95ae6c6a7e464a1f6
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 14 11:37:51 2024 +0100
+
+    update demo
+
+commit ea7f95de4d829d8fdbece4e12d129e6a04d6e6c1
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 14 11:33:44 2024 +0100
+
+    add demo light
+
+commit a0e80999eb884738d2742717eee3a8c626dbf4ca
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 14 11:30:19 2024 +0100
+
+    add translation percentage to readme
+
+commit 8f51466fd22dfff51f0b4a24ce2c4a7a0bb96d39
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Sun Jan 14 10:46:09 2024 +0100
+
+    Create LICENSE
+
+commit 3313c11a6dde12d1f6e940dee562d0a96007ca46
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 14 10:40:15 2024 +0100
+
+    update translations
+
+commit 16ea532d1fa0b170d8c65ec5e144ef34a479bea0
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 14 10:39:16 2024 +0100
+
+    translte inhibit reason string
+
+commit 6aad84c061ad6f48addd7ac8700deb296ad30ae0
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 14 10:29:25 2024 +0100
+
+    add comment
+
+commit 6db27c6d05a6c4817cf02ac1119e34810f937182
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 14 10:28:05 2024 +0100
+
+    minor ui tweaks
+
+commit 0b49db19b527b2910efc716b49d7cc39bc9961f6
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 14 10:21:01 2024 +0100
+
+    0.7.0
+
+commit 502c747e5602deb4b11edb4a1b47adc2c8a6f791
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 14 10:17:44 2024 +0100
+
+    restore old id
+
+commit 65f6e8a4c7bec23054887f676e67bdd82514de70
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Jan 14 10:12:54 2024 +0100
+
+    restore old id
+
+commit 7133e415b2ebcc7b8b063b759ac5bf4a3685e877
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Sat Jan 13 20:52:03 2024 +0100
+
+    Update README.md
+
+commit c6c1ca66fdc72c2989f8f1b926b1aa92c4d680a3
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Jan 13 20:05:27 2024 +0100
+
+    add a local flatpak build for testing
+
+commit 61ad6b41604b5ac246b8f197ee586dca51a77582
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Jan 13 18:16:15 2024 +0100
+
+    0.6.1
+
+commit 4b1cc93ea71cbd8db25c6ab4b1468d6d07b39b56
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Jan 13 16:59:32 2024 +0100
+
+    0.6.0
+
+commit 6eed42da1961320dc9a28b82b43d22d6e7630183
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Jan 13 16:57:26 2024 +0100
+
+    switch to new id (stimulator)
+
+commit c3d0a76dba650026bf621e56f7a97670f17581b4
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Sat Jan 13 16:41:56 2024 +0100
+
+    Update compileTranslations.yml
+
+commit 01d66c15eadd15614649bccf6a62d3c3586cc69a
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Sat Jan 13 16:40:39 2024 +0100
+
+    Update compileTranslations.yml
+
+commit 9842c8ea82643eff06cab2050ebd86f165296b09
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Sat Jan 13 16:38:31 2024 +0100
+
+    Update compileTranslations.yml
+
+commit d3a7b5e7f59e392a00837611885747f093c83100
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Sat Jan 13 16:35:14 2024 +0100
+
+    Update compileTranslations.yml
+
+commit b4a351e7eb452a4631bfbf99b4cb2949dcba1d18
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Sat Jan 13 16:30:10 2024 +0100
+
+    Update compileTranslations.yml
+
+commit 48ee751c357cfa3f0b2ad7731b356e596dcf508d
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Sat Jan 13 16:27:39 2024 +0100
+
+    add translations bot
+
+commit 52338879c643b3fc0304ff5eddc884879493beab
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Jan 13 11:36:18 2024 +0100
+
+    0.5.4
+
+commit 9aa16c41b6906cc77afa2f82e8d91c839246d039
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Jan 13 11:34:55 2024 +0100
+
+    update compileTranslations script
+
+commit 20e0cec705eb964762df8017e5d295dcd7cf3020
+Author: albanobattistella <34811668+albanobattistella@users.noreply.github.com>
+Date:   Sat Jan 13 11:32:58 2024 +0100
+
+    Create it.po (#18)
+    
+    * Create it.po
+    
+    * compile it translations
+    
+    ---------
+    
+    Co-authored-by: Nbiba Bedis <bedisnbiba@gmail.com>
+
+commit 7cfd291a3c1e3a27bb1a49408b9c39b53370e07e
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Jan 12 21:38:08 2024 +0100
+
+    remove unused file
+
+commit f7454819947898834d2c9cb63fff0a91c6b0e736
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Jan 12 21:19:58 2024 +0100
+
+    0.5.3
+
+commit ddf11db9b52e1b3b45b8e9bd3761e260fe48f5b0
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Jan 12 21:16:50 2024 +0100
+
+    use an icon insted of picture for the main logo
+
+commit 8e785358fb57504fe845714489f322b4f3e98c13
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Jan 12 21:01:01 2024 +0100
+
+    specify inhibit reason (flatpak seems to want this)
+
+commit a989792717db53207f2af3a1f30738bac3a35949
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Jan 12 20:14:06 2024 +0100
+
+    keep the id as nosleep
+
+commit 4e0f4a106901567e0725e7ba4eef2df6f6112eb9
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Jan 12 20:09:04 2024 +0100
+
+    0.5.0
+
+commit f6a64cae7a46ced36cfb88c8996463ea6d7cddcd
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Jan 12 20:02:20 2024 +0100
+
+    update demo link
+
+commit f995aea2cacd71caa2b8542220d38b2fbc6b86c8
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Fri Jan 12 20:01:00 2024 +0100
+
+    Rebrand to Stimulator (#16)
+
+commit 904a116bc6c9d0a9ac7faaba5bf106243ae2b757
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Jan 12 16:22:23 2024 +0100
+
+    update deno gtk
+
+commit 09a8e89570c7c59fce776f3ba23c2249fc8fba28
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Jan 12 16:19:37 2024 +0100
+
+    update translations
+
+commit aaeff119168c1068bbee1c9851add5a15df2642b
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Jan 12 12:45:53 2024 +0100
+
+    add po files for translations
+
+commit 87f98f05414a42763c4c0ff5a37419035232f101
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Jan 12 12:45:02 2024 +0100
+
+    fmt
+
+commit 09ded957f0a22e4821baf184fa80a838e1ca5d42
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Jan 12 11:59:15 2024 +0100
+
+    refactor
+
+commit cc9a52dcf9cb0ec5fa225234baefbebc658f107d
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Jan 12 11:50:27 2024 +0100
+
+    actually disable idle when suspend is disabled
+
+commit a44000bb30e137effe423e685a18793e249a13cc
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Jan 12 11:49:01 2024 +0100
+
+    refactor
+
+commit 9f042477235a8d1a9a2886fe90762e8836c2b255
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Jan 12 11:34:48 2024 +0100
+
+    credit designer
+
+commit a31d61a57b03e02bcbae71ca07ec20b3c14964b1
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Fri Jan 12 11:33:04 2024 +0100
+
+    ui redesign
+
+commit c229619c40df99ca966a7ecaaf3a42575c7afd92
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Sun Jan 7 16:13:53 2024 +0100
+
+    add an option to keep the screen on/off (#13)
+    
+    * update deno gtk
+    
+    * add an option to keep the screen on/off
+
+commit cf1aa675dbd2deff7f5e6309557693ccc6e1b34a
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Fri Dec 22 18:23:11 2023 +0100
+
+    Hide translation instruction for now
+
+commit d8c887a9a68fd7e1c575049c84f44e044344b2d1
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Dec 22 16:38:15 2023 +0100
+
+    0.4.3
+
+commit 42ca87acbf202b269e62610b41b61ffc798d141b
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Dec 22 16:37:15 2023 +0100
+
+    use relative location of locales translation
+
+commit 7c252215d56f4749046ade8d559c065d26886f79
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Thu Dec 21 23:13:54 2023 +0100
+
+    0.4.2
+
+commit 2757f88be0fef29b3a8aebc9187e88603aa91d8b
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Thu Dec 21 23:09:53 2023 +0100
+
+    clean vendor folder
+
+commit 8ac5a49730a62cceecfc2a3319b54d98aaff3864
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Thu Dec 21 23:08:16 2023 +0100
+
+    Update README.md
+
+commit 7da26df798b144ab6a702b11274d912217eac9c4
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Thu Dec 21 23:04:41 2023 +0100
+
+    Add translations
+
+commit ba1a6f426a5735470f9cc43cc2120aa96a70c508
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Thu Dec 21 22:03:38 2023 +0100
+
+    0.4.1
+
+commit 04fa065b362dc5d1aef8ad2e068a029cb94e64a1
+Merge: 2d73824 db34b8d
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Thu Dec 21 22:01:02 2023 +0100
+
+    Merge pull request #9 from sigmaSd/pr1
+    
+    use Adw AboutDialog
+
+commit db34b8d18acba4246b2ad14c35b139a07d9b1765
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Thu Dec 21 06:28:22 2023 +0100
+
+    update deps
+
+commit 0ac9fef22a5b350efe944951dc80644311f7d934
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Thu Dec 21 06:26:53 2023 +0100
+
+    use adw about dialog
+
+commit 2d738247c993d9cca6b1b23f629e3024929ec34d
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Thu Dec 21 06:13:07 2023 +0100
+
+    update screenshots
+
+commit e95b3bafe3702c4bff5265a63530bb5b48c6ddd9
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Wed Dec 20 17:28:31 2023 +0100
+
+    0.4.0
+
+commit a80c66a4aa1e5da34cc20363d4722d9a9d198f7b
+Merge: 1c3ca6b c4b479f
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Wed Dec 20 17:25:35 2023 +0100
+
+    Merge pull request #6 from sigmaSd/sigmaSd-patch-1
+    
+    improve looks
+
+commit c4b479f970c24e65e3eedb8023e78d5ddeaea8f4
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Wed Dec 20 13:17:42 2023 +0100
+
+    improve looks
+
+commit 1c3ca6b0e1a5b4af8b45d0fb91b2d59b1bc86c74
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Dec 18 21:53:51 2023 +0100
+
+    0.3.7
+
+commit a2b40a59b2a7196682e2602e900eebdab3214ee2
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Dec 18 21:51:40 2023 +0100
+
+    update screenshot urls
+
+commit a0526e480f918782439dfc0f550752e5ff0498be
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Mon Dec 18 21:50:52 2023 +0100
+
+    Update README.md
+
+commit f7e14c92118e1a985f6d1592a518b06e1ee696f2
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Mon Dec 18 21:50:33 2023 +0100
+
+    Update README.md
+
+commit 3a142cbeba93b5577d907bc5797e2ee6665a9fed
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Mon Dec 18 21:50:16 2023 +0100
+
+    Update README.md
+
+commit 667864c8bcf9be06b281dfc953d4dae8d2ce42b7
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Mon Dec 18 21:48:09 2023 +0100
+
+    Update README.md
+
+commit 2e8b7a8e642e17ba9c50d8efad67d8b09be2eaf1
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Mon Dec 18 21:45:56 2023 +0100
+
+    Update README.md
+
+commit d3a965db7c5ab3ab758fc5327a53e02cdb413276
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Dec 18 21:43:12 2023 +0100
+
+    update demo
+
+commit 761c2be49dd1aa79818bc1d041de1b7e4218e4a2
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Dec 18 21:38:22 2023 +0100
+
+    use power button symbol
+
+commit fc3a17d956e2a9b7b065fda41ee9f5551cf3d4b1
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Dec 18 21:38:02 2023 +0100
+
+    update deno gtk
+
+commit 4a7e480de837deeda73431e55432ebec8e0d48ed
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Wed Dec 13 07:10:16 2023 +0100
+
+    minor cleanup
+
+commit 0ed19811e3fa4a9e0574ceeff8d95e62df1c29a7
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Wed Dec 13 07:02:24 2023 +0100
+
+    Update README.md
+
+commit 2995089d36ba778b6426a1cecc2e85f60363e701
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Tue Dec 12 18:45:35 2023 +0100
+
+    0.3.6
+
+commit 16825acc1eb77b0de64ba69e146de305a9af60f5
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Tue Dec 12 18:44:19 2023 +0100
+
+    vendor dependencies
+
+commit 18a9d5cb99232c0de6f45597a5209b7876c2a122
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Tue Dec 12 18:07:35 2023 +0100
+
+    0.3.5
+
+commit 0adac54cfe539d8639bec535d7827f2ca70acef2
+Merge: 21b75ed 91fbc4f
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Tue Dec 12 18:06:13 2023 +0100
+
+    Merge pull request #2 from sigmaSd/pr
+    
+    update description
+
+commit 91fbc4fcce340837abde3da434998f541c5ae2c0
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Tue Dec 12 17:55:41 2023 +0100
+
+    update description
+
+commit 21b75edac3c3ac8bb8b59faea6cf4d48ead99c75
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Dec 11 23:50:54 2023 +0100
+
+    0.3.4
+
+commit 30c7870d47e2fcb8b6262531233a2a632808c138
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Dec 11 23:50:14 2023 +0100
+
+    update metadata
+
+commit d1853c9ee32e3111f0d5436f05c6d904a85e43ad
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Dec 11 23:29:37 2023 +0100
+
+    0.3.3
+
+commit 378862e5721e8186cc45796a43d4aef22ed7d070
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Dec 11 23:28:31 2023 +0100
+
+    fix metadata
+
+commit 61ca23e96cf0bfccaec8033d60f755e420463f4b
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Mon Dec 11 23:05:16 2023 +0100
+
+    fix metadata
+
+commit 68a8599b8175619aa1db89fa73c0c63be101b065
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Dec 11 20:27:54 2023 +0100
+
+    0.3.1
+
+commit 856a00326e3d7c4e0acdf723e58fc2131b6d1776
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Dec 11 20:26:30 2023 +0100
+
+    update deps, handle ctrlc
+
+commit 696627419a29f52b3972cf72d602dea675820ba6
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Tue Dec 5 21:08:32 2023 +0100
+
+    small refactor
+
+commit 52440db66a24f082df35a9671857c2057637d3cc
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Tue Dec 5 21:06:46 2023 +0100
+
+    small refactor
+
+commit c49e4794b104e6392b09a1d6b8a74a4bddb862b7
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Tue Dec 5 21:00:30 2023 +0100
+
+    remove unneded permission
+
+commit f68fac87b1e1b976faba6cce24cb67e07ea21c2b
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Tue Dec 5 21:00:01 2023 +0100
+
+    refactor code
+
+commit 43fc5835653e595c6a7bbec62c79e1db90f9239a
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Tue Dec 5 19:24:30 2023 +0100
+
+    0.3.0
+
+commit 3fc05b320378ecabf235a4ce881b5a80a73ec911
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Tue Dec 5 19:23:09 2023 +0100
+
+    rename
+
+commit 8fc38fe52b3d79c33e1d8bb9b84437088cf7b6fd
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Tue Dec 5 19:12:22 2023 +0100
+
+    rm unused files
+
+commit e97ae315dc35aa650eb642a575f548748bb04f58
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Tue Dec 5 19:12:11 2023 +0100
+
+    use gtk inhibit
+
+commit 3eab55d125abdee76f2b10d2cd58baf80625896c
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Dec 4 18:02:01 2023 +0100
+
+    0.2.8
+
+commit 05efcbd494e752e6af2556ed2b5222007512d96b
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Dec 4 18:01:35 2023 +0100
+
+    Add an about dialog
+
+commit 33c8f73c2b5b10f15b97cbec5610364e60204123
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Wed Nov 29 17:22:20 2023 +0100
+
+    drop ldconfig, use hardcoded paths and fix as we go
+
+commit 2270a387d4a4da1d678020704846d71ec408191a
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Wed Nov 29 01:32:53 2023 +0100
+
+    fix id
+
+commit aab997ead35836026c71f1db2bb074291d05a3d4
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Wed Nov 29 00:49:02 2023 +0100
+
+    fix manifest
+
+commit 79f9742d4ced0ed905ce9874783bb56ababd0782
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Wed Nov 29 00:46:14 2023 +0100
+
+    fix manifest
+
+commit 5250e1617883fa69efb89b3817f9b75e8817f14b
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Wed Nov 29 00:42:24 2023 +0100
+
+    add screenshot
+
+commit 5fc642d3089ee0a67b8570d70dba0a17781a1ac9
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Wed Nov 29 00:39:15 2023 +0100
+
+    assets
+
+commit 24de3ad8973c79a78fd8e7f217c12a8d3975d9d2
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Wed Nov 29 00:38:03 2023 +0100
+
+    cleanup
+
+commit 7547b1cc3a06d181d468a09cb8f084df4ca303aa
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Wed Nov 29 00:27:48 2023 +0100
+
+    meta fixes
+
+commit 14ce81b7dc1524d3d1fe73efc851ea050bfae45e
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Wed Nov 29 00:26:44 2023 +0100
+
+    meta fixes
+
+commit 3c17487fabfb0920a19109e8ae03e8a9ecebcacf
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Wed Nov 29 00:21:21 2023 +0100
+
+    add metadata
+
+commit bdf350233d571ab323a8129d2562858804115be9
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Tue Nov 28 23:22:08 2023 +0100
+
+    use ldconfig to locate libgio2
+
+commit b1a0535d5c8a0722529e924e26006fd5894b8952
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Tue Nov 28 22:59:51 2023 +0100
+
+    update readme
+
+commit 2fcd1dae9b634affa7f9865cb8f890f122d42cbf
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Tue Nov 28 22:58:11 2023 +0100
+
+    use ffi bindings to libgio instead of shelling out
+
+commit 779be426be2117ff523a2b880f881cfc9bbc20c4
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Nov 26 17:36:15 2023 +0100
+
+    update deno-python
+
+commit 05ae9f6a7989224e12522be1291758200bf13e51
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Nov 13 20:33:15 2023 +0100
+
+    compile it
+
+commit 91076f46f330c8795e25619112c651f72697654f
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Mon Nov 13 20:21:37 2023 +0100
+
+    update deno-gtk
+
+commit 5adbe29e93d6d2b974d6122e207e4a00360adfb1
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sun Nov 12 12:20:26 2023 +0100
+
+    use release version
+
+commit 83e864ab78417aa47d049b690de7d64a1e1f2b06
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Nov 11 09:03:15 2023 +0100
+
+    disable resize
+
+commit dc6e7c01f05387468053788a2fb74282ee707617
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Sat Nov 11 08:56:39 2023 +0100
+
+    Update README.md
+
+commit 11e5e2b8596fe49c0a5d88dfb3d4355633366c08
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Sat Nov 11 08:55:37 2023 +0100
+
+    Update README.md
+
+commit f70e2b3ddae6a999c5d469da96379803497dff21
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Nov 11 08:54:24 2023 +0100
+
+    rework ui
+
+commit a3355a9718233b3bbb2a4043c869d430e7422f2c
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Nov 11 08:51:29 2023 +0100
+
+    cleanup
+
+commit 13b8309869bc7163f6c255df84c33497a8e11ca1
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Nov 11 08:50:39 2023 +0100
+
+    fix idle stop
+
+commit 73bef429086cf91afdc0a3cb502535571bc78a71
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Sat Nov 11 08:42:25 2023 +0100
+
+    refactor
+
+commit 7b31478202439a254ebc9345bd038499bfb747d7
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Nov 10 23:37:47 2023 +0100
+
+    update permissions
+
+commit 37d5b3e6a6e554e2c6ec6bb2255e3fd2c604180d
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Nov 10 23:35:36 2023 +0100
+
+    actual nosleep
+
+commit b039bd3b2cd0f4fc20848e7f6d7e9ea90ad23882
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Fri Nov 10 23:34:11 2023 +0100
+
+    Update io.sigmasd.nosleep.desktop
+
+commit e657e97b9f0af3ff61008aa1ec23f7a2ec74f055
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Nov 10 23:26:07 2023 +0100
+
+    update metadata
+
+commit b8e5f4520589aabe0018b2f7b0ff01c63cc7dfff
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Nov 10 23:25:59 2023 +0100
+
+    update metadata
+
+commit a3106b4a3babfee89653cebecd71203afa620b5f
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Nov 10 23:24:22 2023 +0100
+
+    update metadata
+
+commit a94ee28c123025fd0b32ffe87f9acf3ce515691b
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Nov 10 23:22:44 2023 +0100
+
+    update metadata
+
+commit 2f090917d05679de0a7122eec2b43bf83efd3d7f
+Author: sigmaSd <bedisnbiba@gmail.com>
+Date:   Fri Nov 10 22:55:19 2023 +0100
+
+    Create README.md
+
+commit 8f1dc331705625eb885fc7e2277aa27637dbb2b1
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Nov 10 22:51:08 2023 +0100
+
+    nosleep
+
+commit 8f63e90091e34e68676701d74e9947bac8296497
+Author: Nbiba Bedis <bedisnbiba@gmail.com>
+Date:   Fri Nov 10 22:21:12 2023 +0100
+
+    nosleep

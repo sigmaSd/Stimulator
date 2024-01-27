@@ -64,4 +64,4 @@ export const UI_LABELS = {
 
 export const APP_ID = "io.github.sigmasd.stimulator";
 export const APP_NAME = UI_LABELS.AppName;
-export const VERSION = "0.8.1";
+export const VERSION = "0.9.0";

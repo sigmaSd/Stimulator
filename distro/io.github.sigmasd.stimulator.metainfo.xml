@@ -44,6 +44,18 @@
   <content_rating type="oars-1.1" />
 
   <releases>
+    <release version="0.9.0" date="2024-01-27">
+      <description>
+        <ul>
+          <li>Show error if used on an unsupported system</li>
+          <li>Don't embed translations that are less then 70% complete</li>
+          <li>Add an option to choose the application theme</li>
+          <li>Add an option to show or not exit confirmation menu</li>
+          <li>Many UI improvements</li>
+          <li>Update translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.8.1" date="2024-01-21">
       <description>
         <ul>
