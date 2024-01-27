@@ -15,7 +15,7 @@ msgid "Disable Automatic Suspending"
 msgstr "تعطيل التعليق التلقائي"
 
 msgid "Disable Screen Blanking and Locking"
-msgstr ""
+msgstr "تعطيل إطفاء الشاشة"
 
 msgid "Current state: System default"
 msgstr "الحالة الحالية: الإعداد الاصلي للنظام"
@@ -30,7 +30,7 @@ msgid "Confirm close?"
 msgstr "تأكيد الإغلاق؟"
 
 msgid "Stimulator is active, do you want to close?"
-msgstr ""
+msgstr "المحفز في حالة تشغيل، هل تريد الإغلاق؟"
 
 msgid "Cancel"
 msgstr "إلغاء"
@@ -39,25 +39,25 @@ msgid "Close"
 msgstr "إغلاق"
 
 msgid "Preferences"
-msgstr ""
+msgstr "الإعدادات"
 
 msgid "Theme"
-msgstr ""
+msgstr "السمة"
 
 msgid "System theme"
-msgstr ""
+msgstr "سمة النظام"
 
 msgid "Light"
-msgstr ""
+msgstr "فاتح"
 
 msgid "Dark"
-msgstr ""
+msgstr "داكن"
 
 msgid "Enable closing confirmation"
-msgstr ""
+msgstr "تفعيل تأكيد الإغلاق"
 
 msgid "Confirmation asked when automatic suspending disabling is active"
-msgstr ""
+msgstr "يُطلب التأكيد عند تعطيل التعليق التلقائي"
 
 msgid "Keyboard Shortcuts"
 msgstr "اختصارات لوحة المفاتيح"
@@ -66,16 +66,16 @@ msgid "General"
 msgstr "عام"
 
 msgid "Open menu"
-msgstr ""
+msgstr "فتح القائمة"
 
 msgid "Quit"
 msgstr "خروج"
 
 msgid "About Stimulator"
-msgstr "معلومات حول المحفز"
+msgstr "حول المحفز"
 
 msgid "Unsupported System"
-msgstr ""
+msgstr "النظام غير مدعوم"
 
 msgid "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit"
-msgstr ""
+msgstr "بيئة سطح المكتب الخاصة بك لا تدعم بوابة `org.freedesktop.portal.Inhibit`، انقر على إغلاق للخروج"
