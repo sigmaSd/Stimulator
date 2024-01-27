@@ -74,7 +74,7 @@ function verifyAndFixPoFiles(
   poFilePath: string,
   compiled: Record<string, string>,
 ) {
-  const is_english = poFilePath.endsWith("en.po")
+  const is_english = poFilePath.endsWith("en.po");
   const compiledEntries = Object.entries(compiled);
   let changes = false;
   Object.values(EN_UI_LABELS).forEach((prop, index) => {
