@@ -11,6 +11,7 @@ export * as Adw_ from "./src/adw.ts";
 export * as Gdk_ from "./src/gdk.ts";
 export * as Gio_ from "./src/gio.ts";
 export * as GLib_ from "./src/glib.ts";
+export * as GObject_ from "./src/gobject.ts";
 
 const gi = python.import("gi");
 gi.require_version("Gtk", "4.0");

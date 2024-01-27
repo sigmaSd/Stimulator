@@ -3,6 +3,7 @@ import type {
   Callback,
   Gdk_,
   Gio_,
+  GObject_,
   NamedArgument,
   PythonConvertible,
 } from "../mod.ts";
@@ -71,6 +72,7 @@ export interface Window extends Widget {
   present: () => void;
   set_transient_for(parent: ApplicationWindow): void;
   set_modal(modal: boolean): void;
+  set_hide_on_close(yes: boolean): void;
 }
 // deno-lint-ignore no-empty-interface
 export interface ShortcutsWindow extends Window {
@@ -91,10 +93,11 @@ export interface ApplicationWindow extends Window {
   set_resizable(yes: boolean): void;
 }
 
-export interface Widget {
+export interface Widget extends GObject_.GObject {
   set_css_classes(classes: string[]): void;
   set_visible(visible: boolean): void;
 }
+
 export interface FileDialog extends Widget {
   set_default_filter(f: FileFilter): void;
   set_filters(filters: Gio_.ListStore): void;
