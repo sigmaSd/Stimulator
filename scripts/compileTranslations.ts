@@ -12,12 +12,17 @@ async function genTranslations() {
       await Deno.readTextFile(poFilePath),
     ).then((data: string) => JSON.parse(data));
     const verified = verifyAndFixPoFiles(poFilePath, compiled);
+
     const targetDir = "./src/locales/" + langName;
-    await Deno.mkdir(targetDir, { recursive: true });
-    await Deno.writeTextFile(
-      targetDir + "/translation.json",
-      JSON.stringify(verified),
-    );
+    if (fewTranslations(verified)) {
+      await Deno.remove(targetDir).catch(() => {});
+    } else {
+      await Deno.mkdir(targetDir, { recursive: true });
+      await Deno.writeTextFile(
+        targetDir + "/translation.json",
+        JSON.stringify(verified),
+      );
+    }
   }
 }
 
@@ -65,8 +70,10 @@ if (import.meta.main) {
   await denoFmt();
 }
 
-// deno-lint-ignore no-explicit-any
-function verifyAndFixPoFiles(poFilePath: string, compiled: any) {
+function verifyAndFixPoFiles(
+  poFilePath: string,
+  compiled: Record<string, string>,
+) {
   const compiledEntries = Object.entries(compiled);
   let changes = false;
   Object.values(EN_UI_LABELS).forEach((prop, index) => {
@@ -107,4 +114,15 @@ async function denoFmt() {
     args: ["fmt", "--indent-width", "4", "./src/locales/"],
   }).spawn()
     .status;
+}
+
+function fewTranslations(locales: Record<string, string>) {
+  const CUT_OFF = 70;
+  const total = Object.values(locales).length;
+  const empty = Object.values(locales).filter((value) => value === "").length;
+
+  const translatedPercentage = ((total - empty) / total) * 100;
+
+  if (translatedPercentage >= CUT_OFF) return false;
+  else return true;
 }

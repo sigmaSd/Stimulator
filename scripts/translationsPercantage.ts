@@ -34,6 +34,8 @@ ${mdHeader}
       }|\n`;
     });
   }
+  output += "- translations less then 70% are not embedded into the app"
+
   return output;
 }
 

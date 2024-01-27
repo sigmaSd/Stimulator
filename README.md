@@ -36,3 +36,5 @@ Uses `Gtk.Application.inhibit` which internally uses
 | Estonian | 92.31          |
 | French   | 53.85          |
 | Italian  | 15.38          |
+
+- translations less then 70% are not embedded into the app
