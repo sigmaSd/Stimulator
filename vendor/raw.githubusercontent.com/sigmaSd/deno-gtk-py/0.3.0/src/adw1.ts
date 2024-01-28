@@ -1,7 +1,7 @@
 import type {
   Callback,
-  Gio_,
-  Gtk_,
+  Gio2_,
+  Gtk4_,
   NamedArgument,
   PyObject,
   PythonConvertible,
@@ -50,9 +50,9 @@ export interface ApplicationConstructor {
 
 export interface Application extends PyObject {
   set_accels_for_action(detailedActionName: string, accels: [string]): void;
-  add_action(action: Gio_.SimpleAction): void;
+  add_action(action: Gio2_.SimpleAction): void;
   inhibit(
-    window: Gtk_.ApplicationWindow,
+    window: Gtk4_.ApplicationWindow,
     flags: number,
     reason?: string,
   ): number;
@@ -66,19 +66,19 @@ export interface Application extends PyObject {
   quit: () => void;
 }
 
-export interface PreferencesPage extends Gtk_.Widget {
+export interface PreferencesPage extends Gtk4_.Widget {
   add(group: PreferencesGroup): void;
 }
-export interface PreferencesWindow extends Gtk_.Window {
+export interface PreferencesWindow extends Gtk4_.Window {
   set_visible(yes: boolean): void;
   add(page: PreferencesPage): void;
 }
-export interface PreferencesGroup extends Gtk_.Widget {
+export interface PreferencesGroup extends Gtk4_.Widget {
   set_title(title: string): void;
-  add(child: Gtk_.Widget): void;
+  add(child: Gtk4_.Widget): void;
 }
 
-export interface PreferencesRow extends Gtk_.Widget {
+export interface PreferencesRow extends Gtk4_.Widget {
   set_title(title: string): void;
 }
 
@@ -93,11 +93,11 @@ export interface SwitchRow extends PreferencesRow {
 export interface ComboRow extends PreferencesRow {
   get_selected(): { valueOf(): number };
   set_selected(item: number): void;
-  set_model(model: Gio_.ListModel): void;
+  set_model(model: Gio2_.ListModel): void;
   connect(signal: "notify::selected", callback: Callback): void;
 }
 
-export interface MessageDialog extends Gtk_.Window {
+export interface MessageDialog extends Gtk4_.Window {
   add_response(id: string, label: string): void;
   set_response_appearance(id: string, apperance: ResponseAppearance): void;
   set_default_response(id: string): void;

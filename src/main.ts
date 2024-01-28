@@ -1,17 +1,17 @@
 #!/usr/bin/env -S  deno run --allow-read=./src/locales --allow-ffi --allow-env=DENO_PYTHON_PATH,CSS --unstable-ffi
 import {
-  Adw,
-  Adw_,
+  Adw1 as Adw,
+  Adw1_ as Adw_,
   Callback,
-  Gdk,
-  Gio,
-  GLib,
-  Gtk,
-  Gtk_,
+  Gdk4 as Gdk,
+  Gio2 as Gio,
+  GLib2 as GLib,
+  Gtk4 as Gtk,
+  Gtk4_ as Gtk_,
   kw,
   NamedArgument,
   python,
-} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.2.20/mod.ts";
+} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.3.0/mod.ts";
 import { APP_ID, APP_NAME, UI_LABELS, VERSION } from "./consts.ts";
 
 type Flags = "logout" | "switch" | "suspend" | "idle";

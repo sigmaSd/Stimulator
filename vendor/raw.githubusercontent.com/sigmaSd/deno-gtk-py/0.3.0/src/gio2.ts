@@ -1,4 +1,4 @@
-import type { Callback, Gtk_ } from "../mod.ts";
+import type { Callback, Gtk4_ } from "../mod.ts";
 
 export interface Gio {
   Menu: Menu;
@@ -21,7 +21,7 @@ export interface ListStore {
   // takes a type instead of a value
   // deno-lint-ignore no-explicit-any
   new: (filter: any) => ListStore;
-  append(f: Gtk_.FileFilter): void;
+  append(f: Gtk4_.FileFilter): void;
 }
 
 // deno-lint-ignore no-empty-interface

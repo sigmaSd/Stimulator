@@ -1,9 +1,9 @@
 import type {
-  Adw_,
+  Adw1_,
   Callback,
-  Gdk_,
-  Gio_,
-  GObject_,
+  Gdk4_,
+  Gio2_,
+  GObject2_,
   NamedArgument,
   PythonConvertible,
 } from "../mod.ts";
@@ -55,14 +55,14 @@ export interface FileFilter {
 
 export interface StyleContext {
   add_provider_for_display(
-    display: Gdk_.Display,
+    display: Gdk4_.Display,
     provider: CssProvider,
     proiority: number,
   ): void;
 }
 
 export interface CssProvider {
-  load_from_file(file: Gio_.File): void;
+  load_from_file(file: Gio2_.File): void;
   load_from_path(path: string): void;
 }
 export interface ApplicationWindowConstructor {
@@ -82,27 +82,27 @@ export interface ApplicationWindow extends Window {
     width: { valueOf(): number };
     height: { valueOf(): number };
   };
-  set_application(app: Adw_.Application): void;
+  set_application(app: Adw1_.Application): void;
   set_child: (widget: Widget) => void;
   set_default_size: (width: number, height: number) => void;
   set_title: (name: string) => void;
   set_titlebar: (header: HeaderBar) => void;
   close: () => void;
-  add_action(action: Gio_.SimpleAction): void;
+  add_action(action: Gio2_.SimpleAction): void;
   connect(signal: "close-request", callback: Callback): void;
   set_resizable(yes: boolean): void;
 }
 
-export interface Widget extends GObject_.GObject {
+export interface Widget extends GObject2_.Object {
   set_css_classes(classes: string[]): void;
   set_visible(visible: boolean): void;
 }
 
 export interface FileDialog extends Widget {
   set_default_filter(f: FileFilter): void;
-  set_filters(filters: Gio_.ListStore): void;
+  set_filters(filters: Gio2_.ListStore): void;
   // deno-lint-ignore no-explicit-any
-  open_finish(result: any): Gio_.File;
+  open_finish(result: any): Gio2_.File;
   open(
     window: ApplicationWindow,
     // deno-lint-ignore no-explicit-any
@@ -165,7 +165,7 @@ export interface Switch extends Widget {
 }
 
 export interface PopoverMenu extends Widget {
-  set_menu_model(menu: Gio_.Menu): void;
+  set_menu_model(menu: Gio2_.Menu): void;
 }
 export interface Scale extends Widget {
   connect(signal: "value-changed", callback: Callback): void;
@@ -215,7 +215,7 @@ export interface ShortcutsShortcut extends Widget {
 }
 
 // deno-lint-ignore no-empty-interface
-export interface StringList extends Gio_.ListModel {
+export interface StringList extends Gio2_.ListModel {
 }
 
 export enum ApplicationInhibitFlags {
