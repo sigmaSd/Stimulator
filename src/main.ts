@@ -13,6 +13,7 @@ import {
   python,
 } from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.3.1/mod.ts";
 import { APP_ID, APP_NAME, UI_LABELS, VERSION } from "./consts.ts";
+import { Indicator } from "./indicator/indicator_api.ts";
 
 type Flags = "logout" | "switch" | "suspend" | "idle";
 
@@ -91,6 +92,7 @@ class MainWindow {
   #suspendRow: Adw_.SwitchRow;
   #idleRow: Adw_.SwitchRow;
   #preferencesMenu: PreferencesMenu;
+  #indicator: Indicator;
 
   get win() {
     return this.#win;
@@ -123,6 +125,8 @@ class MainWindow {
       : this.#state["theme"] === 1 ? Adw.ColorScheme.FORCE_LIGHT
       : Adw.ColorScheme.FORCE_DARK;
     Adw.StyleManager.get_default().set_color_scheme(currentTheme);
+
+    this.#indicator = new Indicator();
 
     const builder = Gtk.Builder();
     builder.add_from_file(
@@ -217,6 +221,7 @@ class MainWindow {
   };
 
   #onCloseRequest = () => {
+    this.#indicator.close();
     // only run this if suspend button is active
     if (!this.#state["suspend"]) return false;
     // if confirm on exit is disabled return
@@ -272,6 +277,7 @@ class MainWindow {
   #toggleSuspend = (yes: boolean) => {
     const idleRowActive = this.#idleRow.get_active().valueOf();
     if (yes) {
+      this.#indicator.activate();
       this.#suspendRow.set_subtitle(UI_LABELS.Indefinitely);
       this.#mainIcon.set_from_icon_name(
         APP_ID,
@@ -294,6 +300,7 @@ class MainWindow {
       }
       this.#cookies["suspend"] = result;
     } else {
+      this.#indicator.deactivate();
       this.#suspendRow.set_subtitle(UI_LABELS.SystemDefault);
       this.#mainIcon.set_from_icon_name(
         APP_ID + "_inactive",
