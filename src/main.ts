@@ -94,13 +94,16 @@ class PreferencesMenu {
           "indicatorRow": newState,
         });
         if (newState) {
+          if (mainWindow.indicator === undefined) {
+            mainWindow.indicator = new Indicator();
+          }
           if (mainWindow.state["suspend"]) {
             mainWindow.indicator.activate();
           } else {
             mainWindow.indicator.deactivate();
           }
         } else {
-          mainWindow.indicator.hide();
+          mainWindow.indicator?.hide();
         }
       }),
     );
@@ -118,16 +121,19 @@ class MainWindow {
   #suspendRow: Adw_.SwitchRow;
   #idleRow: Adw_.SwitchRow;
   #preferencesMenu: PreferencesMenu;
-  #indicator: Indicator;
+  #indicator?: Indicator;
 
   get win() {
     return this.#win;
   }
+  get state() {
+    return this.#state;
+  }
   get indicator() {
     return this.#indicator;
   }
-  get state() {
-    return this.#state;
+  set indicator(value) {
+    this.#indicator = value;
   }
 
   #state: {
@@ -156,7 +162,9 @@ class MainWindow {
       : Adw.ColorScheme.FORCE_DARK;
     Adw.StyleManager.get_default().set_color_scheme(currentTheme);
 
-    this.#indicator = new Indicator();
+    if (this.state["indicatorRow"]) {
+      this.#indicator = new Indicator();
+    }
 
     const builder = Gtk.Builder();
     builder.add_from_file(
@@ -251,7 +259,7 @@ class MainWindow {
   };
 
   #onCloseRequest = () => {
-    this.#indicator.close();
+    this.#indicator?.close();
     // only run this if suspend button is active
     if (!this.#state["suspend"]) return false;
     // if confirm on exit is disabled return
@@ -307,7 +315,7 @@ class MainWindow {
   #toggleSuspend = (yes: boolean) => {
     const idleRowActive = this.#idleRow.get_active().valueOf();
     if (yes) {
-      if (this.state.indicatorRow) this.#indicator.activate();
+      if (this.state.indicatorRow) this.#indicator?.activate();
       this.#suspendRow.set_subtitle(UI_LABELS.Indefinitely);
       this.#mainIcon.set_from_icon_name(
         APP_ID,
@@ -330,7 +338,7 @@ class MainWindow {
       }
       this.#cookies["suspend"] = result;
     } else {
-      if (this.state.indicatorRow) this.#indicator.deactivate();
+      if (this.state.indicatorRow) this.#indicator?.deactivate();
       this.#suspendRow.set_subtitle(UI_LABELS.SystemDefault);
       this.#mainIcon.set_from_icon_name(
         APP_ID + "_inactive",
