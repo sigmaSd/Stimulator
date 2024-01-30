@@ -31,6 +31,12 @@ export class Indicator {
       this.#io_priority,
     );
   }
+  hide() {
+    this.#stdin.write_all_async(
+      Array.from(this.#encoder.encode("Hide")),
+      this.#io_priority,
+    );
+  }
   close() {
     this.#stdin.write_all_async(
       Array.from(this.#encoder.encode("Close")),

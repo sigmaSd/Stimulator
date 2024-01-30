@@ -20,7 +20,6 @@ if (import.meta.main) {
     import.meta.dirname,
   );
 
-  indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE);
   indicator.set_attention_icon("active");
 
   const menu = Gtk.Menu();
@@ -30,15 +29,15 @@ if (import.meta.main) {
   activateItem.connect(
     "activate",
     python.callback(() => {
-      console.log("Activate");
-      indicator.set_status(AppIndicator.IndicatorStatus.ATTENTION);
+      // console.log("Activate");
+      // indicator.set_status(AppIndicator.IndicatorStatus.ATTENTION);
     }),
   );
   deactivateItem.connect(
     "activate",
     python.callback(() => {
-      console.log("Deactivate");
-      indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE);
+      // console.log("Deactivate");
+      // indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE);
     }),
   );
   GLib.io_add_watch(
@@ -47,12 +46,14 @@ if (import.meta.main) {
     python.callback(() => {
       const buf = new Uint8Array(512);
       const n = Deno.stdin.readSync(buf);
-      if (!n) throw new Error("hello error");
+      if (!n) throw new Error("recieved an empty message");
       const msg = new TextDecoder().decode(buf.slice(0, n)).trim();
       if (msg === "Activate") {
         indicator.set_status(AppIndicator.IndicatorStatus.ATTENTION);
       } else if (msg === "Deactivate") {
         indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE);
+      } else if (msg == "Hide") {
+        indicator.set_status(AppIndicator.IndicatorStatus.PASSIVE);
       } else if (msg === "Close") {
         Gtk.main_quit();
       }
@@ -60,8 +61,8 @@ if (import.meta.main) {
     }),
   );
 
-  activateItem.show();
-  deactivateItem.show();
+  // activateItem.show();
+  // deactivateItem.show();
   menu.append(activateItem);
   menu.append(deactivateItem);
   indicator.set_menu(menu);

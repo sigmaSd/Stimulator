@@ -29,6 +29,7 @@ export const EN_UI_LABELS = {
   UnsupportedSystem: "Unsupported System",
   UnsupportedSystemBody:
     "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit",
+  EnableTrayIcon: "Enable tray icon",
 };
 
 export const UI_LABELS = {
@@ -60,6 +61,7 @@ export const UI_LABELS = {
   About: t(EN_UI_LABELS.About),
   UnsupportedSystem: t(EN_UI_LABELS.UnsupportedSystem),
   UnsupportedSystemBody: t(EN_UI_LABELS.UnsupportedSystemBody),
+  EnableTrayIcon: t(EN_UI_LABELS.EnableTrayIcon),
 };
 
 export const APP_ID = "io.github.sigmasd.stimulator";
