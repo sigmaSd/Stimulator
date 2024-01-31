@@ -259,6 +259,11 @@ class MainWindow {
   };
 
   #onCloseRequest = () => {
+    // if tray icon is active and suspend button is active, go to the background instead of exiting
+    if (this.state["indicatorRow"] && this.state["suspend"]) {
+      this.#win.hide();
+      return true;
+    }
     this.#indicator?.close();
     // only run this if suspend button is active
     if (!this.#state["suspend"]) return false;
@@ -341,7 +346,7 @@ class MainWindow {
       if (this.state.indicatorRow) this.#indicator?.deactivate();
       this.#suspendRow.set_subtitle(UI_LABELS.SystemDefault);
       this.#mainIcon.set_from_icon_name(
-        APP_ID + "_inactive",
+        APP_ID + "-inactive",
       );
 
       const suspendCookie = this.#cookies["suspend"];
@@ -476,7 +481,10 @@ class App extends Adw.Application {
     this.connect("activate", this.#onActivate);
   }
   #onActivate = python.callback((_kwarg, app: Adw_.Application) => {
-    this.#win = new MainWindow(app);
+    // NOTE: there could be already an active window
+    // if the app is restored after being hidden on exit
+    if (!this.#win) this.#win = new MainWindow(app);
+
     this.#win.present();
   });
 }

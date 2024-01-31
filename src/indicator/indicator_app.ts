@@ -13,14 +13,13 @@ const AppIndicator = python.import("gi.repository.AppIndicator3");
 const signal = python.import("signal");
 
 if (import.meta.main) {
-  const indicator = AppIndicator.Indicator.new_with_path(
+  const indicator = AppIndicator.Indicator.new(
     "io.github.sigmasd.stimulator",
-    "inactive",
+    "io.github.sigmasd.stimulator-tray-inactive",
     AppIndicator.IndicatorCategory.APPLICATION_STATUS,
-    import.meta.dirname,
   );
 
-  indicator.set_attention_icon("active");
+  indicator.set_attention_icon("io.github.sigmasd.stimulator-tray-active");
 
   const menu = Gtk.Menu();
 

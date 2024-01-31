@@ -29,7 +29,7 @@ export const EN_UI_LABELS = {
   UnsupportedSystem: "Unsupported System",
   UnsupportedSystemBody:
     "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit",
-  EnableTrayIcon: "Enable tray icon",
+  EnableTrayIcon: "Enable tray icon and backgrounding on exit",
 };
 
 export const UI_LABELS = {
