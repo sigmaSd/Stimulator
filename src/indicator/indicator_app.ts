@@ -1,8 +1,6 @@
-import {
-  NamedArgument,
-  python,
-} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.3.1/src/python.ts";
-import * as Gtk_ from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.3.1/src/gtk3.ts";
+// This is a standalone application for the tray
+// It have is own imports
+import { Gtk3_ as Gtk_, NamedArgument, python } from "deno-gtk-py";
 
 const gi = python.import("gi");
 gi.require_version("Gtk", "3.0");

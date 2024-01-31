@@ -1,4 +1,4 @@
-import { Gio2 as Gio } from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.3.1/mod.ts";
+import { Gio } from "../main.ts";
 
 export class Indicator {
   #encoder = new TextEncoder();

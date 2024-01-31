@@ -1,0 +1,19 @@
+{
+  "folders": {
+    "https://raw.githubusercontent.com/sigmaSd/": "raw.githubusercontent.com/#sigmasd_6a50d"
+  },
+  "modules": {
+    "https://deno.land/x/i18next@v23.7.11/EventEmitter.js": {},
+    "https://deno.land/x/i18next@v23.7.11/postProcessor.js": {},
+    "https://deno.land/x/i18next_fs_backend@v2.3.1/lib/fs.cjs": {},
+    "https://deno.land/x/i18next@v23.7.11/ResourceStore.js": {},
+    "https://deno.land/x/i18next@v23.7.11/PluralResolver.js": {},
+    "https://deno.land/x/i18next@v23.7.11/Translator.js": {},
+    "https://deno.land/x/i18next@v23.7.11/LanguageUtils.js": {},
+    "https://deno.land/x/i18next_fs_backend@v2.3.1/lib/readFile.js": {},
+    "https://deno.land/x/i18next@v23.7.11/BackendConnector.js": {},
+    "https://deno.land/x/i18next_fs_backend@v2.3.1/lib/writeFile.js": {},
+    "https://deno.land/x/i18next@v23.7.11/Interpolator.js": {},
+    "https://deno.land/x/i18next@v23.7.11/Formatter.js": {}
+  }
+}

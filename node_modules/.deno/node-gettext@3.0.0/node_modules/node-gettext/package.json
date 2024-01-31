@@ -1,0 +1,56 @@
+{
+  "name": "node-gettext",
+  "description": "A JavaScript implementation of gettext, a localization framework",
+  "version": "3.0.0",
+  "author": "Andris Reinman",
+  "maintainers": [
+    {
+      "name": "Alexander Wallin",
+      "email": "office@alexanderwallin.com"
+    }
+  ],
+  "homepage": "http://github.com/alexanderwallin/node-gettext",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/alexanderwallin/node-gettext.git"
+  },
+  "scripts": {
+    "test": "grunt",
+    "docs": "jsdoc2md -f lib/gettext.js -t docs/README.template.md --partial docs/templates/*.hbs --param-list-format list > README.md"
+  },
+  "main": "./lib/gettext.js",
+  "files": [
+    "lib",
+    "test"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/alexanderwallin/node-gettext/blob/master/LICENSE"
+    }
+  ],
+  "dependencies": {
+    "lodash.get": "^4.4.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-mocha-test": "^0.12.7",
+    "jsdoc-to-markdown": "^5.0.3",
+    "mocha": "^7.1.1",
+    "sinon": "^9.0.1"
+  },
+  "engine": {
+    "node": ">=10"
+  },
+  "keywords": [
+    "i18n",
+    "l10n",
+    "internationalization",
+    "localization",
+    "translation",
+    "gettext"
+  ]
+}

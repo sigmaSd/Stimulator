@@ -79,3 +79,6 @@ msgstr "Système non pris en charge"
 
 msgid "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit"
 msgstr "Votre environnement de bureau ne prend pas en charge le portail `org.freedesktop.portal.Inhibit`, cliquez sur Fermer pour quitter"
+
+msgid "Enable tray icon and backgrounding on exit"
+msgstr ""

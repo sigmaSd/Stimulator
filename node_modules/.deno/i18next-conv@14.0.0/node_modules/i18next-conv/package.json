@@ -1,0 +1,57 @@
+{
+  "author": "jamuhl",
+  "name": "i18next-conv",
+  "description": "converts .mo and .po files to i18next's json format and vice versa.",
+  "keywords": [
+    "i18next",
+    "gettext"
+  ],
+  "version": "14.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">= 16.0"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "i18next-conv": "bin/index.js"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/i18next/i18next-gettext-converter.git"
+  },
+  "license": "SEE LICENSE IN LICENSE.MD",
+  "scripts": {
+    "lint": "eslint --cache .",
+    "test": "mocha",
+    "cover": "c8 npm test"
+  },
+  "dependencies": {
+    "c8": "^7.14.0",
+    "colorette": "^2.0.20",
+    "commander": "^10.0.1",
+    "gettext-converter": "^1.2.3",
+    "gettext-parser": "^7.0.0",
+    "node-gettext": "^3.0.0",
+    "p-from-callback": "^1.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^8.41.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-mocha": "^10.1.0",
+    "eslint-plugin-n": "^16.0.0",
+    "eslint-plugin-unicorn": "^47.0.0",
+    "mocha": "^10.2.0"
+  }
+}

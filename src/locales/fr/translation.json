@@ -24,5 +24,6 @@
     "Quit": "Quitter",
     "About Stimulator": "À Propos de Stimulator",
     "Unsupported System": "Système non pris en charge",
-    "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit": "Votre environnement de bureau ne prend pas en charge le portail `org.freedesktop.portal.Inhibit`, cliquez sur Fermer pour quitter"
+    "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit": "Votre environnement de bureau ne prend pas en charge le portail `org.freedesktop.portal.Inhibit`, cliquez sur Fermer pour quitter",
+    "Enable tray icon and backgrounding on exit": ""
 }

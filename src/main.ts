@@ -1,19 +1,26 @@
 #!/usr/bin/env -S  deno run --allow-read=./src/locales --allow-ffi --allow-env=DENO_PYTHON_PATH,CSS --unstable-ffi
 import {
-  Adw1 as Adw,
   Adw1_ as Adw_,
   Callback,
-  Gdk4 as Gdk,
-  Gio2 as Gio,
-  GLib2 as GLib,
-  Gtk4 as Gtk,
+  Gdk4_ as Gdk_,
+  Gio2_ as Gio_,
+  GLib2_ as GLib_,
   Gtk4_ as Gtk_,
   kw,
   NamedArgument,
   python,
-} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.3.1/mod.ts";
+} from "deno-gtk-py";
 import { APP_ID, APP_NAME, UI_LABELS, VERSION } from "./consts.ts";
 import { Indicator } from "./indicator/indicator_api.ts";
+
+const gi = python.import("gi");
+gi.require_version("Gtk", "4.0");
+gi.require_version("Adw", "1");
+export const Gtk: Gtk_.Gtk = python.import("gi.repository.Gtk");
+export const Adw: Adw_.Adw = python.import("gi.repository.Adw");
+export const Gio: Gio_.Gio = python.import("gi.repository.Gio");
+export const Gdk: Gdk_.Gdk = python.import("gi.repository.Gdk");
+export const GLib: GLib_.GLib = python.import("gi.repository.GLib");
 
 type Flags = "logout" | "switch" | "suspend" | "idle";
 

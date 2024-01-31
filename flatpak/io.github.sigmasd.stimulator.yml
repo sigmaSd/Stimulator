@@ -25,7 +25,7 @@ modules:
       - mkdir -p /app/bin/runtime
       - cp deno /app/bin/deno
       - cp -r src /app/bin/runtime/src
-      - cp deno.json /app/bin/runtime/deno.json
+      - cp deno.jsonc /app/bin/runtime/deno.jsonc
       - cp -r vendor /app/bin/runtime/vendor
 
       - mv stimulator /app/bin/stimulator
