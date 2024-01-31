@@ -266,16 +266,27 @@ class MainWindow {
   };
 
   #onCloseRequest = () => {
+    // if we receive close request while the app is in the background, exit
+    if (!this.#win.is_visible().valueOf()) {
+      this.#indicator?.close();
+      return false;
+    }
     // if tray icon is active and suspend button is active, go to the background instead of exiting
     if (this.state["indicatorRow"] && this.state["suspend"]) {
-      this.#win.hide();
+      this.#win.set_visible(false);
       return true;
     }
-    this.#indicator?.close();
+
     // only run this if suspend button is active
-    if (!this.#state["suspend"]) return false;
+    if (!this.#state["suspend"]) {
+      this.#indicator?.close();
+      return false;
+    }
     // if confirm on exit is disabled return
-    if (!this.#state["confirmExitMenu"]) return false;
+    if (!this.#state["confirmExitMenu"]) {
+      this.#indicator?.close();
+      return false;
+    }
 
     const dialog = Adw.MessageDialog(
       new NamedArgument("transient_for", this.#app.get_active_window()),
@@ -297,7 +308,10 @@ class MainWindow {
     dialog.connect(
       "response",
       python.callback((_, __, id) => {
-        if (id === "close") this.#app.quit();
+        if (id === "close") {
+          this.#indicator?.close();
+          this.#app.quit();
+        }
       }),
     );
 
