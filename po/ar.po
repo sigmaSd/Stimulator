@@ -79,3 +79,6 @@ msgstr "النظام غير مدعوم"
 
 msgid "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit"
 msgstr "بيئة سطح المكتب الخاصة بك لا تدعم بوابة `org.freedesktop.portal.Inhibit`، انقر على إغلاق للخروج"
+
+msgid "Enable tray icon and backgrounding on exit"
+msgstr ""

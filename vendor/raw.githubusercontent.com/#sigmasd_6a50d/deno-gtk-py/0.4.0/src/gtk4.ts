@@ -69,6 +69,7 @@ export interface ApplicationWindowConstructor {
   new (kwArg: NamedArgument): ApplicationWindow;
 }
 export interface Window extends Widget {
+  hide: () => void;
   present: () => void;
   set_transient_for(parent: ApplicationWindow): void;
   set_modal(modal: boolean): void;

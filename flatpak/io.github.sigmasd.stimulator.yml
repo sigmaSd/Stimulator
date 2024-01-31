@@ -2,8 +2,7 @@ app-id: io.github.sigmasd.stimulator
 
 runtime: org.gnome.Platform
 runtime-version: '45'
-# Trick so I don't have to download gnome sdk
-sdk: org.gnome.Platform
+sdk: org.gnome.Sdk
 
 command: stimulator
 
@@ -14,22 +13,28 @@ finish-args:
   - --share=ipc
   # gtk4 wants to access gpu
   - --device=dri
+  # tray/status icon
+  - --talk-name=org.kde.StatusNotifierWatcher
 
 modules:
+  - shared-modules/libappindicator/libappindicator-gtk3-introspection-12.10.json
+
   - name: stimulator
     buildsystem: simple
     build-commands:
       - mkdir -p /app/bin/runtime
       - cp deno /app/bin/deno
       - cp -r src /app/bin/runtime/src
-      - cp deno.json /app/bin/runtime/deno.json
+      - cp deno.jsonc /app/bin/runtime/deno.jsonc
       - cp -r vendor /app/bin/runtime/vendor
 
       - mv stimulator /app/bin/stimulator
 
       - install -Dm644 distro/io.github.sigmasd.stimulator.desktop -t /app/share/applications/
       - install -Dm644 distro/io.github.sigmasd.stimulator.svg -t /app/share/icons/hicolor/scalable/apps/
-      - install -Dm644 distro/io.github.sigmasd.stimulator_inactive.svg -t /app/share/icons/hicolor/scalable/apps/
+      - install -Dm644 distro/io.github.sigmasd.stimulator-inactive.svg -t /app/share/icons/hicolor/scalable/apps/
+      - install -Dm644 distro/io.github.sigmasd.stimulator-tray-active.svg -t /app/share/icons/hicolor/scalable/apps/
+      - install -Dm644 distro/io.github.sigmasd.stimulator-tray-inactive.svg -t /app/share/icons/hicolor/scalable/apps/
       - install -Dm644 distro/io.github.sigmasd.stimulator.metainfo.xml -t /app/share/metainfo/
 
     sources:
@@ -39,8 +44,10 @@ modules:
           - DENO_PYTHON_PATH=/usr/lib/$(uname -m)-linux-gnu/libpython3.11.so.1.0 /app/bin/deno run --allow-read=/app/bin/runtime/src/locales --allow-env=DENO_PYTHON_PATH --allow-ffi --unstable-ffi /app/bin/runtime/src/main.ts
 
       - type: archive
-        url: https://github.com/denoland/deno/releases/download/v1.39.3/deno-x86_64-unknown-linux-gnu.zip
-        sha256: 744213c03b8e480b0709040ba5dde8a71d6594a5ad20dc5f62b88550489367da
+        url: https://github.com/denoland/deno/releases/download/v1.40.2/deno-x86_64-unknown-linux-gnu.zip
+        sha256: acaf4ed5568a9bd1b6f59f699218cd7d9844e777e570666d1ceb2740c1527ec3
       - type: dir
         path: ../
+      - type: file
+        path: /usr/lib64/girepository-1.0/AppIndicator3-0.1.typelib
 
