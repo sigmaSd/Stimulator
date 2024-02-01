@@ -1,13 +1,20 @@
 // This is a standalone application for the tray
 // It have is own imports
-import { Gtk3_ as Gtk_, NamedArgument, python } from "deno-gtk-py";
+import {
+  AppIndicator3,
+  Gtk3_ as Gtk_,
+  NamedArgument,
+  python,
+} from "deno-gtk-py";
 
 const gi = python.import("gi");
 gi.require_version("Gtk", "3.0");
 gi.require_version("AppIndicator3", "0.1");
 const Gtk: Gtk_.Gtk = python.import("gi.repository.Gtk");
 const GLib = python.import("gi.repository.GLib");
-const AppIndicator = python.import("gi.repository.AppIndicator3");
+const AppIndicator: AppIndicator3.AppIndicator = python.import(
+  "gi.repository.AppIndicator3",
+);
 const signal = python.import("signal");
 
 if (import.meta.main) {
