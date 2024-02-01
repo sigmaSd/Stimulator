@@ -33,19 +33,19 @@ if (import.meta.main) {
   activateItem.connect(
     "activate",
     python.callback(() => {
-      // console.log("Activate");
-      // indicator.set_status(AppIndicator.IndicatorStatus.ATTENTION);
+      console.log("Activate");
+      indicator.set_status(AppIndicator.IndicatorStatus.ATTENTION);
     }),
   );
   deactivateItem.connect(
     "activate",
     python.callback(() => {
-      // console.log("Deactivate");
-      // indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE);
+      console.log("Deactivate");
+      indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE);
     }),
   );
   GLib.io_add_watch(
-    0,
+    0, /*stdin*/
     GLib.IO_IN,
     python.callback(() => {
       const buf = new Uint8Array(512);
@@ -65,8 +65,8 @@ if (import.meta.main) {
     }),
   );
 
-  // activateItem.show();
-  // deactivateItem.show();
+  activateItem.show();
+  deactivateItem.show();
   menu.append(activateItem);
   menu.append(deactivateItem);
   indicator.set_menu(menu);

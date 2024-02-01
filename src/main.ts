@@ -102,7 +102,7 @@ class PreferencesMenu {
         });
         if (newState) {
           if (mainWindow.indicator === undefined) {
-            mainWindow.indicator = new Indicator();
+            mainWindow.indicator = new Indicator(mainWindow);
           }
           if (mainWindow.state["suspend"]) {
             mainWindow.indicator.activate();
@@ -121,7 +121,7 @@ class PreferencesMenu {
   }
 }
 
-class MainWindow {
+export class MainWindow {
   #app: Adw_.Application;
   #win: Gtk_.ApplicationWindow;
   #mainIcon: Gtk_.Image;
@@ -132,6 +132,9 @@ class MainWindow {
 
   get win() {
     return this.#win;
+  }
+  get suspendRow() {
+    return this.#suspendRow;
   }
   get state() {
     return this.#state;
@@ -170,7 +173,7 @@ class MainWindow {
     Adw.StyleManager.get_default().set_color_scheme(currentTheme);
 
     if (this.state["indicatorRow"]) {
-      this.#indicator = new Indicator();
+      this.#indicator = new Indicator(this);
     }
 
     const builder = Gtk.Builder();

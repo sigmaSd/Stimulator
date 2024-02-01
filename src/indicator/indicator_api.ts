@@ -1,10 +1,13 @@
-import { Gio } from "../main.ts";
+import { python } from "deno-gtk-py";
+import { Gio, GLib, MainWindow } from "../main.ts";
 
 export class Indicator {
   #encoder = new TextEncoder();
   #io_priority = 0;
   #stdin;
-  constructor() {
+  #mainWindow: MainWindow;
+  constructor(mainWindow: MainWindow) {
+    this.#mainWindow = mainWindow;
     const child = Gio.Subprocess.new(
       [
         "deno",
@@ -18,7 +21,9 @@ export class Indicator {
         .__or__(Gio.SubprocessFlags.STDOUT_PIPE),
     );
     this.#stdin = child.get_stdin_pipe();
+    this.#monitorStdout(child.get_stdout_pipe());
   }
+
   activate() {
     this.#stdin.write_all_async(
       Array.from(this.#encoder.encode("Activate")),
@@ -42,5 +47,32 @@ export class Indicator {
       Array.from(this.#encoder.encode("Close")),
       this.#io_priority,
     );
+  }
+
+  #monitorStdout(stdoutPipe: any) {
+    const readCallback = python.callback(() => {
+      stdoutPipe.read_bytes_async(
+        512, /*buffer size*/
+        GLib.PRIORITY_DEFAULT,
+        undefined,
+        python.callback((_, __, asyncResult) => {
+          const readData = stdoutPipe
+            .read_bytes_finish(asyncResult)
+            .get_data().decode("utf-8")
+            .valueOf()
+            .trim();
+
+          if (readData === "Activate") {
+            this.#mainWindow.suspendRow.set_active(true);
+          } else if (readData === "Deactivate") {
+            this.#mainWindow.suspendRow.set_active(false);
+          }
+
+          GLib.idle_add(readCallback);
+        }),
+      );
+      return false;
+    });
+    GLib.idle_add(readCallback);
   }
 }
