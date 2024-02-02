@@ -1,4 +1,4 @@
-import type { Callback, Gtk4_ } from "../mod.ts";
+import type { Callback, GLib2_, Gtk4_ } from "../mod.ts";
 
 export interface Gio {
   SubprocessFlags: {
@@ -41,6 +41,7 @@ export interface File {
 export interface Subprocess {
   new: (argv: string[], flags: SubprocessFlags) => Subprocess;
   get_stdin_pipe(): OutputStream;
+  get_stdout_pipe(): InputStream;
 }
 
 export interface SubprocessFlags {
@@ -59,3 +60,15 @@ export namespace SubprocessFlags {
 export interface OutputStream {
   write_all_async(buffer: number[], io_priority: number): void;
 }
+export interface InputStream {
+  read_bytes_async(
+    count: number,
+    ioPriority: number,
+    cancellable: undefined,
+    callback: Callback,
+  ): void;
+  read_bytes_finish(asyncResult: AsyncResult): GLib2_.Bytes;
+}
+
+// deno-lint-ignore no-empty-interface
+export interface AsyncResult {}

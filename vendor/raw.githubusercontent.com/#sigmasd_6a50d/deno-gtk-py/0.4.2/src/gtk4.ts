@@ -79,6 +79,7 @@ export interface Window extends Widget {
 export interface ShortcutsWindow extends Window {
 }
 export interface ApplicationWindow extends Window {
+  is_visible(): { valueOf(): boolean };
   get_default_size(): {
     width: { valueOf(): number };
     height: { valueOf(): number };
