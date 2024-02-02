@@ -6,6 +6,7 @@ import {
   NamedArgument,
   python,
 } from "deno-gtk-py";
+import { MESSAGES } from "./messages.ts";
 
 const gi = python.import("gi");
 gi.require_version("Gtk", "3.0");
@@ -33,14 +34,14 @@ if (import.meta.main) {
   activateItem.connect(
     "activate",
     python.callback(() => {
-      console.log("Activate");
+      console.log(MESSAGES.Activate);
       indicator.set_status(AppIndicator.IndicatorStatus.ATTENTION);
     }),
   );
   deactivateItem.connect(
     "activate",
     python.callback(() => {
-      console.log("Deactivate");
+      console.log(MESSAGES.Deactivate);
       indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE);
     }),
   );
@@ -51,16 +52,25 @@ if (import.meta.main) {
       const buf = new Uint8Array(512);
       const n = Deno.stdin.readSync(buf);
       if (!n) throw new Error("recieved an empty message");
+
       const msg = new TextDecoder().decode(buf.slice(0, n)).trim();
-      if (msg === "Activate") {
-        indicator.set_status(AppIndicator.IndicatorStatus.ATTENTION);
-      } else if (msg === "Deactivate") {
-        indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE);
-      } else if (msg == "Hide") {
-        indicator.set_status(AppIndicator.IndicatorStatus.PASSIVE);
-      } else if (msg === "Close") {
-        Gtk.main_quit();
+      switch (msg) {
+        case MESSAGES.Activate:
+          indicator.set_status(AppIndicator.IndicatorStatus.ATTENTION);
+          break;
+        case MESSAGES.Deactivate:
+          indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE);
+          break;
+        case MESSAGES.Hide:
+          indicator.set_status(AppIndicator.IndicatorStatus.PASSIVE);
+          break;
+        case MESSAGES.Close:
+          Gtk.main_quit();
+          break;
+        default:
+          throw new Error(`Unknown message: '${msg}'`);
       }
+
       return true;
     }),
   );

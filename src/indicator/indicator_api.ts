@@ -1,5 +1,6 @@
 import { Gio2_, python } from "deno-gtk-py";
 import { Gio, GLib, MainWindow } from "../main.ts";
+import { MESSAGES } from "./messages.ts";
 
 export class Indicator {
   #encoder = new TextEncoder();
@@ -25,26 +26,21 @@ export class Indicator {
   }
 
   activate() {
-    this.#stdin.write_all_async(
-      Array.from(this.#encoder.encode("Activate")),
-      this.#io_priority,
-    );
+    this.#writeToStdin(MESSAGES.Activate);
   }
   deactivate() {
-    this.#stdin.write_all_async(
-      Array.from(this.#encoder.encode("Deactivate")),
-      this.#io_priority,
-    );
+    this.#writeToStdin(MESSAGES.Deactivate);
   }
   hide() {
-    this.#stdin.write_all_async(
-      Array.from(this.#encoder.encode("Hide")),
-      this.#io_priority,
-    );
+    this.#writeToStdin(MESSAGES.Hide);
   }
   close() {
+    this.#writeToStdin(MESSAGES.Close);
+  }
+
+  #writeToStdin(message: string) {
     this.#stdin.write_all_async(
-      Array.from(this.#encoder.encode("Close")),
+      Array.from(this.#encoder.encode(message)),
       this.#io_priority,
     );
   }
@@ -62,9 +58,9 @@ export class Indicator {
             .valueOf()
             .trim();
 
-          if (readData === "Activate") {
+          if (readData === MESSAGES.Activate) {
             this.#mainWindow.suspendRow.set_active(true);
-          } else if (readData === "Deactivate") {
+          } else if (MESSAGES.Deactivate) {
             this.#mainWindow.suspendRow.set_active(false);
           }
 
