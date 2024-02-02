@@ -82,3 +82,6 @@ msgstr "Votre environnement de bureau ne prend pas en charge le portail `org.fre
 
 msgid "Enable tray icon and backgrounding on exit"
 msgstr ""
+
+msgid "Show"
+msgstr ""

@@ -36,10 +36,10 @@ if (import.meta.main) {
   const menu = Gtk.Menu();
 
   const showApp = Gtk.MenuItem(
-    new NamedArgument("label", "Show"),
+    new NamedArgument("label", UI_LABELS.Show),
   );
   const closeApp = Gtk.MenuItem(
-    new NamedArgument("label", "Close"),
+    new NamedArgument("label", UI_LABELS.Close),
   );
   showApp.connect(
     "activate",

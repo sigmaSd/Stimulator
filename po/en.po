@@ -82,3 +82,6 @@ msgstr "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit
 
 msgid "Enable tray icon and backgrounding on exit"
 msgstr "Enable tray icon and backgrounding on exit"
+
+msgid "Show"
+msgstr "Show"

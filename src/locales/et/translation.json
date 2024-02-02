@@ -25,5 +25,6 @@
     "About Stimulator": "Stimulaatori teave",
     "Unsupported System": "",
     "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit": "",
-    "Enable tray icon and backgrounding on exit": ""
+    "Enable tray icon and backgrounding on exit": "",
+    "Show": ""
 }
