@@ -18,6 +18,9 @@ const AppIndicator: AppIndicator3.AppIndicator = python.import(
 );
 const signal = python.import("signal");
 
+// since this app is used with ipc, this is a better name
+const sendMsg = console.log;
+
 if (import.meta.main) {
   const indicator = AppIndicator.Indicator.new(
     "io.github.sigmasd.stimulator",
@@ -34,14 +37,14 @@ if (import.meta.main) {
   activateItem.connect(
     "activate",
     python.callback(() => {
-      console.log(MESSAGES.Activate);
+      sendMsg(MESSAGES.Activate);
       indicator.set_status(AppIndicator.IndicatorStatus.ATTENTION);
     }),
   );
   deactivateItem.connect(
     "activate",
     python.callback(() => {
-      console.log(MESSAGES.Deactivate);
+      sendMsg(MESSAGES.Deactivate);
       indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE);
     }),
   );
