@@ -15,12 +15,15 @@ export interface Widget {
   connect(signal: string, callback: Callback): void;
 }
 
+// deno-lint-ignore no-empty-interface
 export interface MenuShell extends Widget {
-  append(a: MenuItem): unknown;
 }
 
-// deno-lint-ignore no-empty-interface
 export interface Menu extends MenuShell {
+  get_children(): Widget[];
+  prepend(item: MenuItem): void;
+  append(item: MenuItem): void;
+  remove(item: Widget): void;
 }
 
 // deno-lint-ignore no-empty-interface
