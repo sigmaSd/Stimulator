@@ -37,6 +37,12 @@ export class Indicator {
   close() {
     this.#writeToStdin(MESSAGES.Close);
   }
+  showShowButton() {
+    this.#writeToStdin(MESSAGES.showShowButton);
+  }
+  hideShowButton() {
+    this.#writeToStdin(MESSAGES.HideShowButton);
+  }
 
   #writeToStdin(message: string) {
     this.#stdin.write_all_async(
@@ -52,16 +58,21 @@ export class Indicator {
         GLib.PRIORITY_DEFAULT,
         undefined,
         python.callback((_, __, asyncResult) => {
-          const readData = stdoutPipe
+          const message = stdoutPipe
             .read_bytes_finish(asyncResult)
             .get_data().decode("utf-8")
             .valueOf()
             .trim();
 
-          if (readData === MESSAGES.Activate) {
-            this.#mainWindow.suspendRow.set_active(true);
-          } else if (MESSAGES.Deactivate) {
-            this.#mainWindow.suspendRow.set_active(false);
+          switch (message) {
+            case MESSAGES.Show:
+              this.#mainWindow.present();
+              break;
+            case MESSAGES.Close:
+              this.#mainWindow.app.quit();
+              break;
+            default:
+              throw new Error(`Incorrect message: '${message}'`);
           }
 
           GLib.idle_add(readCallback);

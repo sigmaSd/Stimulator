@@ -3,4 +3,7 @@ export const MESSAGES = {
   Deactivate: "Deactivate",
   Close: "Close",
   Hide: "Hide",
+  Show: "Show",
+  showShowButton: "showShowButton",
+  HideShowButton: "HideShowButton",
 };

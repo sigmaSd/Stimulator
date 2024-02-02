@@ -130,6 +130,9 @@ export class MainWindow {
   #preferencesMenu: PreferencesMenu;
   #indicator?: Indicator;
 
+  get app() {
+    return this.#app;
+  }
   get win() {
     return this.#win;
   }
@@ -277,6 +280,7 @@ export class MainWindow {
     // if tray icon is active and suspend button is active, go to the background instead of exiting
     if (this.state["indicatorRow"] && this.state["suspend"]) {
       this.#win.set_visible(false);
+      this.#indicator?.showShowButton();
       return true;
     }
 

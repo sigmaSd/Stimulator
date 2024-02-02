@@ -7,6 +7,7 @@ import {
   python,
 } from "deno-gtk-py";
 import { MESSAGES } from "./messages.ts";
+import { APP_ID, UI_LABELS } from "../consts.ts";
 
 const gi = python.import("gi");
 gi.require_version("Gtk", "3.0");
@@ -23,31 +24,38 @@ const sendMsg = console.log;
 
 if (import.meta.main) {
   const indicator = AppIndicator.Indicator.new(
-    "io.github.sigmasd.stimulator",
-    "io.github.sigmasd.stimulator-tray-inactive",
+    APP_ID + "-tray",
+    APP_ID + "-tray-inactive",
     AppIndicator.IndicatorCategory.APPLICATION_STATUS,
   );
 
-  indicator.set_attention_icon("io.github.sigmasd.stimulator-tray-active");
+  indicator.set_attention_icon(
+    APP_ID + "-tray-active",
+  );
 
   const menu = Gtk.Menu();
 
-  const activateItem = Gtk.MenuItem(new NamedArgument("label", "Activate"));
-  const deactivateItem = Gtk.MenuItem(new NamedArgument("label", "Deactivate"));
-  activateItem.connect(
+  const showApp = Gtk.MenuItem(
+    new NamedArgument("label", "Show"),
+  );
+  const closeApp = Gtk.MenuItem(
+    new NamedArgument("label", "Close"),
+  );
+  showApp.connect(
     "activate",
     python.callback(() => {
-      sendMsg(MESSAGES.Activate);
-      indicator.set_status(AppIndicator.IndicatorStatus.ATTENTION);
+      sendMsg(MESSAGES.Show);
+      menu.remove(menu.get_children()[0]);
     }),
   );
-  deactivateItem.connect(
+  closeApp.connect(
     "activate",
     python.callback(() => {
-      sendMsg(MESSAGES.Deactivate);
-      indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE);
+      sendMsg(MESSAGES.Close);
+      Gtk.main_quit();
     }),
   );
+
   GLib.io_add_watch(
     0, /*stdin*/
     GLib.IO_IN,
@@ -56,8 +64,10 @@ if (import.meta.main) {
       const n = Deno.stdin.readSync(buf);
       if (!n) throw new Error("recieved an empty message");
 
-      const msg = new TextDecoder().decode(buf.slice(0, n)).trim();
-      switch (msg) {
+      const message = new TextDecoder()
+        .decode(buf.slice(0, n))
+        .trim();
+      switch (message) {
         case MESSAGES.Activate:
           indicator.set_status(AppIndicator.IndicatorStatus.ATTENTION);
           break;
@@ -70,18 +80,23 @@ if (import.meta.main) {
         case MESSAGES.Close:
           Gtk.main_quit();
           break;
+        case MESSAGES.showShowButton:
+          showApp.show();
+          menu.prepend(showApp);
+          break;
+        case MESSAGES.HideShowButton:
+          // Unused for now
+          break;
         default:
-          throw new Error(`Unknown message: '${msg}'`);
+          throw new Error(`Incorrect message: '${message}'`);
       }
 
       return true;
     }),
   );
 
-  activateItem.show();
-  deactivateItem.show();
-  menu.append(activateItem);
-  menu.append(deactivateItem);
+  closeApp.show();
+  menu.append(closeApp);
   indicator.set_menu(menu);
 
   signal.signal(signal.SIGINT, python.callback(() => Gtk.main_quit()));
