@@ -85,7 +85,7 @@ if (import.meta.main) {
           menu.prepend(showApp);
           break;
         case MESSAGES.HideShowButton:
-          // Unused for now
+          menu.remove(menu.get_children()[0]);
           break;
         default:
           throw new Error(`Incorrect message: '${message}'`);

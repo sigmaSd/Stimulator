@@ -514,6 +514,7 @@ class App extends Adw.Application {
     if (!this.#win) this.#win = new MainWindow(app);
 
     this.#win.present();
+    this.#win.indicator?.hideShowButton();
   });
 }
 
