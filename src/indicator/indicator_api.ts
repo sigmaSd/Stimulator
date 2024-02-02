@@ -1,4 +1,4 @@
-import { python } from "deno-gtk-py";
+import { Gio2_, python } from "deno-gtk-py";
 import { Gio, GLib, MainWindow } from "../main.ts";
 
 export class Indicator {
@@ -49,7 +49,7 @@ export class Indicator {
     );
   }
 
-  #monitorStdout(stdoutPipe: any) {
+  #monitorStdout(stdoutPipe: Gio2_.InputStream) {
     const readCallback = python.callback(() => {
       stdoutPipe.read_bytes_async(
         512, /*buffer size*/
