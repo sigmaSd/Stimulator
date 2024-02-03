@@ -95,8 +95,8 @@ if (import.meta.main) {
     }),
   );
 
-  closeApp.show();
   menu.append(closeApp);
+  menu.show_all();
   indicator.set_menu(menu);
 
   signal.signal(signal.SIGINT, python.callback(() => Gtk.main_quit()));
