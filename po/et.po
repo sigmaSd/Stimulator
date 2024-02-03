@@ -75,13 +75,13 @@ msgid "About Stimulator"
 msgstr "Stimulaatori teave"
 
 msgid "Unsupported System"
-msgstr ""
+msgstr "Süsteem ei ole toetatud"
 
 msgid "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit"
-msgstr ""
+msgstr "Sinu töölauakeskkond ei toeta portaali "org.freedesktop.portal.Inhibit", väljumiseks klõpsa sulgemise nupul"
 
 msgid "Enable tray icon and backgrounding on exit"
 msgstr ""
 
 msgid "Show"
-msgstr ""
+msgstr "Näita"
