@@ -25,12 +25,8 @@ const sendMsg = console.log;
 if (import.meta.main) {
   const indicator = AppIndicator.Indicator.new(
     APP_ID + "-tray",
-    APP_ID + "-tray-inactive",
-    AppIndicator.IndicatorCategory.APPLICATION_STATUS,
-  );
-
-  indicator.set_attention_icon(
     APP_ID + "-tray-active",
+    AppIndicator.IndicatorCategory.APPLICATION_STATUS,
   );
 
   const menu = Gtk.Menu();
@@ -69,10 +65,10 @@ if (import.meta.main) {
         .trim();
       switch (message) {
         case MESSAGES.Activate:
-          indicator.set_status(AppIndicator.IndicatorStatus.ATTENTION);
+          indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE);
           break;
         case MESSAGES.Deactivate:
-          indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE);
+          indicator.set_status(AppIndicator.IndicatorStatus.PASSIVE);
           break;
         case MESSAGES.Hide:
           indicator.set_status(AppIndicator.IndicatorStatus.PASSIVE);
@@ -100,5 +96,6 @@ if (import.meta.main) {
   indicator.set_menu(menu);
 
   signal.signal(signal.SIGINT, python.callback(() => Gtk.main_quit()));
+
   Gtk.main();
 }
