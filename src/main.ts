@@ -77,14 +77,6 @@ class PreferencesMenu {
     confirmExitSwitchRow.set_active(
       mainWindow.state["confirmExitMenu"] as boolean,
     );
-    confirmExitSwitchRow.connect(
-      "notify::active",
-      python.callback(() => {
-        mainWindow.updateState({
-          "confirmExitMenu": confirmExitSwitchRow.get_active().valueOf(),
-        });
-      }),
-    );
 
     const indicatorRow = builder.get_object(
       "indicatorRow",
@@ -93,9 +85,36 @@ class PreferencesMenu {
     indicatorRow.set_active(
       mainWindow.state["indicatorRow"] as boolean,
     );
+
+    const syncConfirmAndIndicatorRowsState = () => {
+      if (
+        confirmExitSwitchRow.is_sensitive().valueOf()
+      ) {
+        indicatorRow.set_sensitive(
+          !confirmExitSwitchRow.get_active().valueOf(),
+        );
+      }
+      if (indicatorRow.is_sensitive().valueOf()) {
+        confirmExitSwitchRow.set_sensitive(
+          !indicatorRow.get_active().valueOf(),
+        );
+      }
+    };
+
+    syncConfirmAndIndicatorRowsState();
+    confirmExitSwitchRow.connect(
+      "notify::active",
+      python.callback(() => {
+        syncConfirmAndIndicatorRowsState();
+        mainWindow.updateState({
+          "confirmExitMenu": confirmExitSwitchRow.get_active().valueOf(),
+        });
+      }),
+    );
     indicatorRow.connect(
       "notify::active",
       python.callback(() => {
+        syncConfirmAndIndicatorRowsState();
         const newState = indicatorRow.get_active().valueOf();
         mainWindow.updateState({
           "indicatorRow": newState,
