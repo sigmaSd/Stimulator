@@ -79,3 +79,9 @@ msgstr "Unsupported System"
 
 msgid "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit"
 msgstr "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit"
+
+msgid "Enable tray icon and backgrounding on exit"
+msgstr "Enable tray icon and backgrounding on exit"
+
+msgid "Show"
+msgstr "Show"

@@ -83,6 +83,7 @@ export interface PreferencesRow extends Gtk4_.Widget {
 }
 
 export interface SwitchRow extends PreferencesRow {
+  is_sensitive(): { valueOf: () => boolean };
   get_active(): { valueOf: () => boolean };
   set_active(yes: boolean): void;
   set_subtitle(subTitle: string): void;

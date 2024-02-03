@@ -24,5 +24,7 @@
     "Quit": "Quit",
     "About Stimulator": "About Stimulator",
     "Unsupported System": "Unsupported System",
-    "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit": "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit"
+    "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit": "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit",
+    "Enable tray icon and backgrounding on exit": "Enable tray icon and backgrounding on exit",
+    "Show": "Show"
 }

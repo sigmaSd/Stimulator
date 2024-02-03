@@ -1,5 +1,5 @@
-import i18next from "https://deno.land/x/i18next/index.js";
-import Backend from "https://deno.land/x/i18next_fs_backend/index.js";
+import i18next from "i18next";
+import Backend from "i18next_fs";
 
 export const systemLocale = Intl.DateTimeFormat().resolvedOptions().locale;
 await i18next

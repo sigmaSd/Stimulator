@@ -1,18 +1,26 @@
 #!/usr/bin/env -S  deno run --allow-read=./src/locales --allow-ffi --allow-env=DENO_PYTHON_PATH,CSS --unstable-ffi
 import {
-  Adw1 as Adw,
   Adw1_ as Adw_,
   Callback,
-  Gdk4 as Gdk,
-  Gio2 as Gio,
-  GLib2 as GLib,
-  Gtk4 as Gtk,
+  Gdk4_ as Gdk_,
+  Gio2_ as Gio_,
+  GLib2_ as GLib_,
   Gtk4_ as Gtk_,
   kw,
   NamedArgument,
   python,
-} from "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.3.0/mod.ts";
+} from "deno-gtk-py";
 import { APP_ID, APP_NAME, UI_LABELS, VERSION } from "./consts.ts";
+import { Indicator } from "./indicator/indicator_api.ts";
+
+const gi = python.import("gi");
+gi.require_version("Gtk", "4.0");
+gi.require_version("Adw", "1");
+export const Gtk: Gtk_.Gtk = python.import("gi.repository.Gtk");
+export const Adw: Adw_.Adw = python.import("gi.repository.Adw");
+export const Gio: Gio_.Gio = python.import("gi.repository.Gio");
+export const Gdk: Gdk_.Gdk = python.import("gi.repository.Gdk");
+export const GLib: GLib_.GLib = python.import("gi.repository.GLib");
 
 type Flags = "logout" | "switch" | "suspend" | "idle";
 
@@ -69,12 +77,60 @@ class PreferencesMenu {
     confirmExitSwitchRow.set_active(
       mainWindow.state["confirmExitMenu"] as boolean,
     );
+
+    const indicatorRow = builder.get_object(
+      "indicatorRow",
+    ) as Adw_.SwitchRow;
+    indicatorRow.set_title(UI_LABELS.EnableTrayIcon);
+    indicatorRow.set_active(
+      mainWindow.state["indicatorRow"] as boolean,
+    );
+
+    const syncConfirmAndIndicatorRowsState = () => {
+      if (
+        confirmExitSwitchRow.is_sensitive().valueOf()
+      ) {
+        indicatorRow.set_sensitive(
+          !confirmExitSwitchRow.get_active().valueOf(),
+        );
+      }
+      if (indicatorRow.is_sensitive().valueOf()) {
+        confirmExitSwitchRow.set_sensitive(
+          !indicatorRow.get_active().valueOf(),
+        );
+      }
+    };
+
+    syncConfirmAndIndicatorRowsState();
     confirmExitSwitchRow.connect(
       "notify::active",
       python.callback(() => {
+        syncConfirmAndIndicatorRowsState();
         mainWindow.updateState({
           "confirmExitMenu": confirmExitSwitchRow.get_active().valueOf(),
         });
+      }),
+    );
+    indicatorRow.connect(
+      "notify::active",
+      python.callback(() => {
+        syncConfirmAndIndicatorRowsState();
+        const newState = indicatorRow.get_active().valueOf();
+        mainWindow.updateState({
+          "indicatorRow": newState,
+        });
+        if (newState) {
+          if (mainWindow.indicator === undefined) {
+            mainWindow.indicator = new Indicator(mainWindow);
+          }
+          if (mainWindow.state["suspend"]) {
+            mainWindow.indicator.activate();
+          } else {
+            mainWindow.indicator.deactivate();
+          }
+        } else {
+          mainWindow.indicator?.hide();
+        }
       }),
     );
   }
@@ -84,23 +140,36 @@ class PreferencesMenu {
   }
 }
 
-class MainWindow {
+export class MainWindow {
   #app: Adw_.Application;
   #win: Gtk_.ApplicationWindow;
   #mainIcon: Gtk_.Image;
   #suspendRow: Adw_.SwitchRow;
   #idleRow: Adw_.SwitchRow;
   #preferencesMenu: PreferencesMenu;
+  #indicator?: Indicator;
 
+  get app() {
+    return this.#app;
+  }
   get win() {
     return this.#win;
+  }
+  get suspendRow() {
+    return this.#suspendRow;
   }
   get state() {
     return this.#state;
   }
+  get indicator() {
+    return this.#indicator;
+  }
+  set indicator(value) {
+    this.#indicator = value;
+  }
 
   #state: {
-    [key in Flags | "confirmExitMenu" | "theme"]:
+    [key in Flags | "confirmExitMenu" | "theme" | "indicatorRow"]:
       | boolean
       | "active_disabled"
       | number;
@@ -111,6 +180,7 @@ class MainWindow {
     "idle": false,
     "confirmExitMenu": true,
     "theme": 0, /*System Theme*/
+    "indicatorRow": false,
   };
   #cookies: { [key in Flags]?: number } = {};
   constructor(app: Adw_.Application) {
@@ -123,6 +193,10 @@ class MainWindow {
       : this.#state["theme"] === 1 ? Adw.ColorScheme.FORCE_LIGHT
       : Adw.ColorScheme.FORCE_DARK;
     Adw.StyleManager.get_default().set_color_scheme(currentTheme);
+
+    if (this.state["indicatorRow"]) {
+      this.#indicator = new Indicator(this);
+    }
 
     const builder = Gtk.Builder();
     builder.add_from_file(
@@ -217,10 +291,28 @@ class MainWindow {
   };
 
   #onCloseRequest = () => {
+    // if we receive close request while the app is in the background, exit
+    if (!this.#win.is_visible().valueOf()) {
+      this.#indicator?.close();
+      return false;
+    }
+    // if tray icon is active and suspend button is active, go to the background instead of exiting
+    if (this.state["indicatorRow"] && this.state["suspend"]) {
+      this.#win.set_visible(false);
+      this.#indicator?.showShowButton();
+      return true;
+    }
+
     // only run this if suspend button is active
-    if (!this.#state["suspend"]) return false;
+    if (!this.#state["suspend"]) {
+      this.#indicator?.close();
+      return false;
+    }
     // if confirm on exit is disabled return
-    if (!this.#state["confirmExitMenu"]) return false;
+    if (!this.#state["confirmExitMenu"]) {
+      this.#indicator?.close();
+      return false;
+    }
 
     const dialog = Adw.MessageDialog(
       new NamedArgument("transient_for", this.#app.get_active_window()),
@@ -242,7 +334,10 @@ class MainWindow {
     dialog.connect(
       "response",
       python.callback((_, __, id) => {
-        if (id === "close") this.#app.quit();
+        if (id === "close") {
+          this.#indicator?.close();
+          this.#app.quit();
+        }
       }),
     );
 
@@ -259,7 +354,7 @@ class MainWindow {
 
   updateState(
     state: {
-      [key in Flags | "confirmExitMenu" | "theme"]?:
+      [key in Flags | "confirmExitMenu" | "theme" | "indicatorRow"]?:
         | boolean
         | "active_disabled"
         | number;
@@ -272,6 +367,7 @@ class MainWindow {
   #toggleSuspend = (yes: boolean) => {
     const idleRowActive = this.#idleRow.get_active().valueOf();
     if (yes) {
+      if (this.state.indicatorRow) this.#indicator?.activate();
       this.#suspendRow.set_subtitle(UI_LABELS.Indefinitely);
       this.#mainIcon.set_from_icon_name(
         APP_ID,
@@ -294,9 +390,10 @@ class MainWindow {
       }
       this.#cookies["suspend"] = result;
     } else {
+      if (this.state.indicatorRow) this.#indicator?.deactivate();
       this.#suspendRow.set_subtitle(UI_LABELS.SystemDefault);
       this.#mainIcon.set_from_icon_name(
-        APP_ID + "_inactive",
+        APP_ID + "-inactive",
       );
 
       const suspendCookie = this.#cookies["suspend"];
@@ -431,8 +528,12 @@ class App extends Adw.Application {
     this.connect("activate", this.#onActivate);
   }
   #onActivate = python.callback((_kwarg, app: Adw_.Application) => {
-    this.#win = new MainWindow(app);
+    // NOTE: there could be already an active window
+    // if the app is restored after being hidden on exit
+    if (!this.#win) this.#win = new MainWindow(app);
+
     this.#win.present();
+    this.#win.indicator?.hideShowButton();
   });
 }
 
