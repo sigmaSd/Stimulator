@@ -20,6 +20,7 @@ export interface MenuShell extends Widget {
 }
 
 export interface Menu extends MenuShell {
+  show_all(): void;
   get_children(): Widget[];
   prepend(item: MenuItem): void;
   append(item: MenuItem): void;
