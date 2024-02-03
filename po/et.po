@@ -78,7 +78,7 @@ msgid "Unsupported System"
 msgstr "Süsteem ei ole toetatud"
 
 msgid "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit"
-msgstr "Sinu töölauakeskkond ei toeta portaali "org.freedesktop.portal.Inhibit", väljumiseks klõpsa sulgemise nupul"
+msgstr "Sinu töölauakeskkond ei toeta portaali `org.freedesktop.portal.Inhibit`, väljumiseks klõpsa sulgemise nupul"
 
 msgid "Enable tray icon and backgrounding on exit"
 msgstr ""

@@ -23,8 +23,8 @@
     "Open menu": "Ava menüü",
     "Quit": "Lõpeta",
     "About Stimulator": "Stimulaatori teave",
-    "Unsupported System": "",
-    "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit": "",
+    "Unsupported System": "Süsteem ei ole toetatud",
+    "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit": "Sinu töölauakeskkond ei toeta portaali `org.freedesktop.portal.Inhibit`, väljumiseks klõpsa sulgemise nupul",
     "Enable tray icon and backgrounding on exit": "",
-    "Show": ""
+    "Show": "Näita"
 }

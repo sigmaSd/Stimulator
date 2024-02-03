@@ -33,7 +33,7 @@ Uses `Gtk.Application.inhibit` which internally uses
 | -------- | -------------- |
 | Arabic   | 92.86          |
 | English  | 100.00         |
-| Estonian | 85.71          |
+| Estonian | 96.43          |
 | French   | 92.86          |
 | Italian  | 14.29          |
 
