@@ -25,7 +25,7 @@ const sendMsg = console.log;
 if (import.meta.main) {
   const indicator = AppIndicator.Indicator.new(
     APP_ID + "-tray",
-    APP_ID + "-tray-active",
+    APP_ID + "-tray",
     AppIndicator.IndicatorCategory.APPLICATION_STATUS,
   );
 
