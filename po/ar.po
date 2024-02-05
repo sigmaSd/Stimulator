@@ -26,11 +26,11 @@ msgstr "الحالة الحالية: إلى أجل غير مسمى"
 msgid "Stimulator is active"
 msgstr "المحفز في حالة تشغيل"
 
-msgid "Confirm close?"
-msgstr "تأكيد الإغلاق؟"
+msgid "Close Stimulator?"
+msgstr ""
 
-msgid "Stimulator is active, do you want to close?"
-msgstr "المحفز في حالة تشغيل، هل تريد الإغلاق؟"
+msgid "Stimulator is active, do you want to close it?"
+msgstr ""
 
 msgid "Cancel"
 msgstr "إلغاء"
@@ -44,8 +44,8 @@ msgstr "الإعدادات"
 msgid "Theme"
 msgstr "السمة"
 
-msgid "System theme"
-msgstr "سمة النظام"
+msgid "System Theme"
+msgstr ""
 
 msgid "Light"
 msgstr "فاتح"
@@ -53,11 +53,11 @@ msgstr "فاتح"
 msgid "Dark"
 msgstr "داكن"
 
-msgid "Enable closing confirmation"
-msgstr "تفعيل تأكيد الإغلاق"
+msgid "Closing Confirmation"
+msgstr ""
 
-msgid "Confirmation asked when automatic suspending disabling is active"
-msgstr "يُطلب التأكيد عند تعطيل التعليق التلقائي"
+msgid "Ask for confirmation to close when Stimulator is active"
+msgstr ""
 
 msgid "Keyboard Shortcuts"
 msgstr "اختصارات لوحة المفاتيح"
@@ -65,8 +65,8 @@ msgstr "اختصارات لوحة المفاتيح"
 msgid "General"
 msgstr "عام"
 
-msgid "Open menu"
-msgstr "فتح القائمة"
+msgid "Open Menu"
+msgstr ""
 
 msgid "Quit"
 msgstr "خروج"
@@ -77,10 +77,10 @@ msgstr "حول المحفز"
 msgid "Unsupported System"
 msgstr "النظام غير مدعوم"
 
-msgid "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit"
-msgstr "بيئة سطح المكتب الخاصة بك لا تدعم بوابة `org.freedesktop.portal.Inhibit`، انقر على إغلاق للخروج"
+msgid "Your desktop environment doesn't support Stimulator, click close to quit"
+msgstr ""
 
-msgid "Enable tray icon and backgrounding on exit"
+msgid "Run in Background With Tray Icon"
 msgstr ""
 
 msgid "Show"
