@@ -26,11 +26,11 @@ msgstr "État actuel: Indéfiniment"
 msgid "Stimulator is active"
 msgstr "Stimulateur est actif"
 
-msgid "Confirm close?"
-msgstr "Confirmer la fermeture ?"
+msgid "Close Stimulator?"
+msgstr ""
 
-msgid "Stimulator is active, do you want to close?"
-msgstr "Stimulateur est actif, voulez-vous fermer ?"
+msgid "Stimulator is active, do you want to close it?"
+msgstr ""
 
 msgid "Cancel"
 msgstr "Annuler"
@@ -44,8 +44,8 @@ msgstr "Préférences"
 msgid "Theme"
 msgstr "Thème"
 
-msgid "System theme"
-msgstr "Thème du système"
+msgid "System Theme"
+msgstr ""
 
 msgid "Light"
 msgstr "Clair"
@@ -53,11 +53,11 @@ msgstr "Clair"
 msgid "Dark"
 msgstr "Sombre"
 
-msgid "Enable closing confirmation"
-msgstr "Activer la confirmation de fermeture"
+msgid "Closing Confirmation"
+msgstr ""
 
-msgid "Confirmation asked when automatic suspending disabling is active"
-msgstr "Confirmation demandée lorsque la désactivation de la suspension automatique est active"
+msgid "Ask for confirmation to close when Stimulator is active"
+msgstr ""
 
 msgid "Keyboard Shortcuts"
 msgstr "Raccourcis clavier"
@@ -65,8 +65,8 @@ msgstr "Raccourcis clavier"
 msgid "General"
 msgstr "Général"
 
-msgid "Open menu"
-msgstr "Ouvrir le menu"
+msgid "Open Menu"
+msgstr ""
 
 msgid "Quit"
 msgstr "Quitter"
@@ -77,10 +77,10 @@ msgstr "À Propos de Stimulator"
 msgid "Unsupported System"
 msgstr "Système non pris en charge"
 
-msgid "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit"
-msgstr "Votre environnement de bureau ne prend pas en charge le portail `org.freedesktop.portal.Inhibit`, cliquez sur Fermer pour quitter"
+msgid "Your desktop environment doesn't support Stimulator, click close to quit"
+msgstr ""
 
-msgid "Enable tray icon and backgrounding on exit"
+msgid "Run in Background With Tray Icon"
 msgstr ""
 
 msgid "Show"

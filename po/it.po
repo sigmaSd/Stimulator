@@ -26,10 +26,10 @@ msgstr "Stato attuale: a tempo indeterminato"
 msgid "Stimulator is active"
 msgstr "Stimulator est active"
 
-msgid "Confirm close?"
+msgid "Close Stimulator?"
 msgstr ""
 
-msgid "Stimulator is active, do you want to close?"
+msgid "Stimulator is active, do you want to close it?"
 msgstr ""
 
 msgid "Cancel"
@@ -44,7 +44,7 @@ msgstr ""
 msgid "Theme"
 msgstr ""
 
-msgid "System theme"
+msgid "System Theme"
 msgstr ""
 
 msgid "Light"
@@ -53,10 +53,10 @@ msgstr ""
 msgid "Dark"
 msgstr ""
 
-msgid "Enable closing confirmation"
+msgid "Closing Confirmation"
 msgstr ""
 
-msgid "Confirmation asked when automatic suspending disabling is active"
+msgid "Ask for confirmation to close when Stimulator is active"
 msgstr ""
 
 msgid "Keyboard Shortcuts"
@@ -65,7 +65,7 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-msgid "Open menu"
+msgid "Open Menu"
 msgstr ""
 
 msgid "Quit"
@@ -77,10 +77,10 @@ msgstr ""
 msgid "Unsupported System"
 msgstr ""
 
-msgid "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit"
+msgid "Your desktop environment doesn't support Stimulator, click close to quit"
 msgstr ""
 
-msgid "Enable tray icon and backgrounding on exit"
+msgid "Run in Background With Tray Icon"
 msgstr ""
 
 msgid "Show"

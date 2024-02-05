@@ -31,10 +31,10 @@ Uses `Gtk.Application.inhibit` which internally uses
 
 | Language | Translated (%) |
 | -------- | -------------- |
-| Arabic   | 92.86          |
+| Arabic   | 67.86          |
 | English  | 100.00         |
-| Estonian | 96.43          |
-| French   | 92.86          |
+| Estonian | 71.43          |
+| French   | 67.86          |
 | Italian  | 14.29          |
 
 - translations less then 70% are not embedded into the app

@@ -26,11 +26,11 @@ msgstr "Hetkeolek: Määramata ajaks"
 msgid "Stimulator is active"
 msgstr "Stimulaator on aktiivne"
 
-msgid "Confirm close?"
-msgstr "Kinnitad sulgemise?"
+msgid "Close Stimulator?"
+msgstr ""
 
-msgid "Stimulator is active, do you want to close?"
-msgstr "Stimulaator on aktiivne, kas soovid sulgeda?"
+msgid "Stimulator is active, do you want to close it?"
+msgstr ""
 
 msgid "Cancel"
 msgstr "Tühista"
@@ -44,8 +44,8 @@ msgstr "Eelistused"
 msgid "Theme"
 msgstr "Teema"
 
-msgid "System theme"
-msgstr "Süsteemi teema"
+msgid "System Theme"
+msgstr ""
 
 msgid "Light"
 msgstr "Hele"
@@ -53,11 +53,11 @@ msgstr "Hele"
 msgid "Dark"
 msgstr "Tume"
 
-msgid "Enable closing confirmation"
-msgstr "Luba sulgemise kinnitus"
+msgid "Closing Confirmation"
+msgstr ""
 
-msgid "Confirmation asked when automatic suspending disabling is active"
-msgstr "Kinnitust küsitakse, kui automaatse uinaku keelamine on aktiivne"
+msgid "Ask for confirmation to close when Stimulator is active"
+msgstr ""
 
 msgid "Keyboard Shortcuts"
 msgstr "Klaviatuuri otseteed"
@@ -65,8 +65,8 @@ msgstr "Klaviatuuri otseteed"
 msgid "General"
 msgstr "Üldine"
 
-msgid "Open menu"
-msgstr "Ava menüü"
+msgid "Open Menu"
+msgstr ""
 
 msgid "Quit"
 msgstr "Lõpeta"
@@ -77,10 +77,10 @@ msgstr "Stimulaatori teave"
 msgid "Unsupported System"
 msgstr "Süsteem ei ole toetatud"
 
-msgid "Your desktop enviorement doesn't support `org.freedesktop.portal.Inhibit` portal, click close to quit"
-msgstr "Sinu töölauakeskkond ei toeta portaali `org.freedesktop.portal.Inhibit`, väljumiseks klõpsa sulgemise nupul"
+msgid "Your desktop environment doesn't support Stimulator, click close to quit"
+msgstr ""
 
-msgid "Enable tray icon and backgrounding on exit"
+msgid "Run in Background With Tray Icon"
 msgstr ""
 
 msgid "Show"
