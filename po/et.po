@@ -27,10 +27,10 @@ msgid "Stimulator is active"
 msgstr "Stimulaator on aktiivne"
 
 msgid "Close Stimulator?"
-msgstr ""
+msgstr "Sulgen Stimulaatori?"
 
 msgid "Stimulator is active, do you want to close it?"
-msgstr ""
+msgstr "Stimulaator on aktiivne, kas soovid selle sulgeda?"
 
 msgid "Cancel"
 msgstr "Tühista"
@@ -45,7 +45,7 @@ msgid "Theme"
 msgstr "Teema"
 
 msgid "System Theme"
-msgstr ""
+msgstr "Süsteemi teema"
 
 msgid "Light"
 msgstr "Hele"
@@ -54,10 +54,10 @@ msgid "Dark"
 msgstr "Tume"
 
 msgid "Closing Confirmation"
-msgstr ""
+msgstr "Sulgemise kinnitus"
 
 msgid "Ask for confirmation to close when Stimulator is active"
-msgstr ""
+msgstr "Küsi sulgemise kinnitust, kui Stimulaator on aktiivne"
 
 msgid "Keyboard Shortcuts"
 msgstr "Klaviatuuri otseteed"
@@ -66,7 +66,7 @@ msgid "General"
 msgstr "Üldine"
 
 msgid "Open Menu"
-msgstr ""
+msgstr "Ava menüü"
 
 msgid "Quit"
 msgstr "Lõpeta"
@@ -78,10 +78,10 @@ msgid "Unsupported System"
 msgstr "Süsteem ei ole toetatud"
 
 msgid "Your desktop environment doesn't support Stimulator, click close to quit"
-msgstr ""
+msgstr "Sinu töölaua keskkkond ei toeta Stimulaatorit, väljumiseks klõpsa sulgemise nupul"
 
 msgid "Run in Background With Tray Icon"
-msgstr ""
+msgstr "Taustal töötamine koos süsteemisalve ikooniga"
 
 msgid "Show"
 msgstr "Näita"
