@@ -81,7 +81,7 @@ msgid "Your desktop environment doesn't support Stimulator, click close to quit"
 msgstr "Sinu töölaua keskkkond ei toeta Stimulaatorit, väljumiseks klõpsa sulgemise nupul"
 
 msgid "Run in Background"
-msgstr ""
+msgstr "Luba taustal töötamine"
 
 msgid "Show"
 msgstr "Näita"
