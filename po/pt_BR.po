@@ -2,6 +2,7 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 
+
 msgid "Stimulator"
 msgstr "Stimulator"
 
@@ -80,8 +81,8 @@ msgstr "Sistema Operacional Não Suportado"
 msgid "Your desktop environment doesn't support Stimulator, click close to quit"
 msgstr "Seu ambiente desktop não suporta Stimulator, pressione o botão de fechar para sair"
 
-msgid "Run in Background With Tray Icon"
-msgstr "Rodar em Segundo Plano com Ícone na Barra de Tárefas"
+msgid "Run in Background"
+msgstr "Rodar em Segundo Plano"
 
 msgid "Show"
 msgstr "Mostrar"
