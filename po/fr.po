@@ -80,7 +80,7 @@ msgstr "Système non pris en charge"
 msgid "Your desktop environment doesn't support Stimulator, click close to quit"
 msgstr ""
 
-msgid "Run in Background With Tray Icon"
+msgid "Run in Background"
 msgstr ""
 
 msgid "Show"

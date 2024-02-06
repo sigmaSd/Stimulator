@@ -80,8 +80,8 @@ msgstr "Unsupported System"
 msgid "Your desktop environment doesn't support Stimulator, click close to quit"
 msgstr "Your desktop environment doesn't support Stimulator, click close to quit"
 
-msgid "Run in Background With Tray Icon"
-msgstr "Run in Background With Tray Icon"
+msgid "Run in Background"
+msgstr "Run in Background"
 
 msgid "Show"
 msgstr "Show"
