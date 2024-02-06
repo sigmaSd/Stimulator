@@ -13,7 +13,9 @@ async function genTranslations() {
     ).then((data: string) => JSON.parse(data));
     const verified = verifyAndFixPoFiles(poFilePath, compiled);
 
-    const targetDir = "./src/locales/" + langName;
+    let targetDir = "./src/locales/" + langName;
+    // i18 expectes the translation folders to be aa-AA instead of aa_AA
+    targetDir = targetDir.replace("_", "-");
     if (fewTranslations(verified)) {
       await Deno.remove(targetDir, { recursive: true }).catch(() => {});
     } else {
@@ -35,8 +37,10 @@ async function genDesktopFile() {
   );
   // make sure the order is not random
   langs.sort();
-  for (const lang of langs) {
+  for (let lang of langs) {
     if (lang === "en") continue;
+    // i18 expectes the translation code to be aa-AA instead of aa_AA
+    lang = lang.replace("_", "-");
     await i18next.changeLanguage(lang);
     const name = i18n(lang)(EN_UI_LABELS.AppName);
     const comment = i18n(lang)(EN_UI_LABELS.Comments);

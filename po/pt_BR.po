@@ -1,0 +1,88 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+
+msgid "Stimulator"
+msgstr "Stimulator"
+
+msgid "Keep your computer awake"
+msgstr "Mantenha seu computador acordado"
+
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "cafeina;semdormir;acordado;mantaracordado;manterligado;"
+
+msgid "Disable Automatic Suspending"
+msgstr "Desabilitar Suspensão Automática"
+
+msgid "Disable Screen Blanking and Locking"
+msgstr "Desabilitar Bloqueio e Desligamento de Tela"
+
+msgid "Current state: System default"
+msgstr "Estado atual: Padrão do sistema"
+
+msgid "Current state: Indefinitely"
+msgstr "Estado atual: Indefinitivamente"
+
+msgid "Stimulator is active"
+msgstr "Stimulator está ativo"
+
+msgid "Close Stimulator?"
+msgstr "Fechar Stimulator?"
+
+msgid "Stimulator is active, do you want to close it?"
+msgstr "Stimulator está ativo, você deseja fechar ele?"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Close"
+msgstr "Fechar"
+
+msgid "Preferences"
+msgstr "Preferências"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "System Theme"
+msgstr "Tema do Sistema"
+
+msgid "Light"
+msgstr "Claro"
+
+msgid "Dark"
+msgstr "Escuro"
+
+msgid "Closing Confirmation"
+msgstr "Confirmação de fechamento"
+
+msgid "Ask for confirmation to close when Stimulator is active"
+msgstr "Pedir por confirmação para fechar quando Stimulator estiver ativo"
+
+msgid "Keyboard Shortcuts"
+msgstr "Atalhos de Teclado"
+
+msgid "General"
+msgstr "Geral"
+
+msgid "Open Menu"
+msgstr "Abrir Menu"
+
+msgid "Quit"
+msgstr "Sair"
+
+msgid "About Stimulator"
+msgstr "Sobre Stimulator"
+
+msgid "Unsupported System"
+msgstr "Sistema Operacional Não Suportado"
+
+msgid "Your desktop environment doesn't support Stimulator, click close to quit"
+msgstr "Seu ambiente desktop não suporta Stimulator, pressione o botão de fechar para sair"
+
+msgid "Run in Background"
+msgstr "Rodar em Segundo Plano"
+
+msgid "Show"
+msgstr "Mostrar"

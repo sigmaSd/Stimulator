@@ -27,7 +27,9 @@ ${mdHeader}
       const emptyMsgStr = [...data.matchAll(/msgstr ""/g)].length -
         1 /* first empty msgstr */;
 
-      const name = iso6391.getName(langPath.slice(0, -3));
+      const name = langPath.includes("_")
+        ? iso6391.getName(langPath.split("_")[0])
+        : iso6391.getName(langPath.slice(0, -3));
       output += `|${name}|${
         (((TOTAL_TRANSLATIONS - emptyMsgStr) / TOTAL_TRANSLATIONS) * 100)
           .toFixed(2)
