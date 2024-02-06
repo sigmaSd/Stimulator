@@ -2,7 +2,8 @@
 
 Keep your computer awake
 
-Discussion in Matrix room: [![Matrix Space](https://img.shields.io/matrix/stimulator:matrix.org)](https://matrix.to/#/#stimulator:matrix.org)
+Discussion in Matrix room:
+[![Matrix Space](https://img.shields.io/matrix/stimulator:matrix.org)](https://matrix.to/#/#stimulator:matrix.org)
 
 <div style="display:flex;">
 <img style="width:25em;" src="https://raw.githubusercontent.com/sigmaSd/Stimulator/master/distro/demo_light_active.png"/>
@@ -31,12 +32,13 @@ Uses `Gtk.Application.inhibit` which internally uses
 
 ## Translations
 
-| Language | Translated (%) |
-| -------- | -------------- |
-| Arabic   | 67.86          |
-| English  | 100.00         |
-| Estonian | 96.43          |
-| French   | 67.86          |
-| Italian  | 14.29          |
+| Language   | Translated (%) |
+| ---------- | -------------- |
+| Arabic     | 67.86          |
+| English    | 100.00         |
+| Estonian   | 96.43          |
+| French     | 67.86          |
+| Italian    | 14.29          |
+| Portuguese | 100.00         |
 
 - translations less then 70% are not embedded into the app
