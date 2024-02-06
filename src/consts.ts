@@ -29,7 +29,8 @@ export const EN_UI_LABELS = {
   UnsupportedSystem: "Unsupported System",
   UnsupportedSystemBody:
     "Your desktop environment doesn't support Stimulator, click close to quit",
-  EnableTrayIcon: "Run in Background With Tray Icon",
+  // we don't advertise tray icon support
+  EnableTrayIcon: "Run in Background",
   Show: "Show",
 };
 

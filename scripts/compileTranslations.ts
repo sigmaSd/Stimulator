@@ -15,7 +15,7 @@ async function genTranslations() {
 
     const targetDir = "./src/locales/" + langName;
     if (fewTranslations(verified)) {
-      await Deno.remove(targetDir).catch(() => {});
+      await Deno.remove(targetDir, { recursive: true }).catch(() => {});
     } else {
       await Deno.mkdir(targetDir, { recursive: true });
       await Deno.writeTextFile(

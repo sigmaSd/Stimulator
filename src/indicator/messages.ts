@@ -6,4 +6,5 @@ export const MESSAGES = {
   Show: "Show",
   showShowButton: "showShowButton",
   HideShowButton: "HideShowButton",
+  Empty: "",
 };

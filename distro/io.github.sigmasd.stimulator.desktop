@@ -1,18 +1,18 @@
 [Desktop Entry]
 Name=Stimulator
-Name[ar]=المحفز
+Name[ar]=Stimulator
 Name[et]=Stimulaator
-Name[fr]=Stimulateur
+Name[fr]=Stimulator
 Name[it]=Stimulator
 Comment=Keep your computer awake
-Comment[ar]=أبقِ جهاز الكمبيوتر مستيقظًا
+Comment[ar]=Keep your computer awake
 Comment[et]=Hoia oma arvuti ärkvel
-Comment[fr]=Gardez votre ordinateur éveillé
+Comment[fr]=Keep your computer awake
 Comment[it]=Keep your computer awake
 Keywords=caffeine;nosleep;awake;keepawake;keepon;
-Keywords[ar]=كافيين; بدون نوم; مستيقظ;
+Keywords[ar]=caffeine;nosleep;awake;keepawake;keepon;
 Keywords[et]=kofeiin;eiuinu;ärkvel;hoiaärkvel;jätka;
-Keywords[fr]=caféine;pas de sommeil;éveillé;
+Keywords[fr]=caffeine;nosleep;awake;keepawake;keepon;
 Keywords[it]=caffeine;nosleep;awake;keepawake;keepon;
 TryExec=stimulator
 Exec=stimulator %F
