@@ -53,6 +53,7 @@ if (import.meta.main) {
     }),
   );
 
+  let INDICATOR_TRYS = 3;
   GLib.io_add_watch(
     0, /*stdin*/
     GLib.IO_IN,
@@ -69,10 +70,15 @@ if (import.meta.main) {
           indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE);
           // NOTE: if thhe indicator is not connected after being set to active, this means the system doesn't support tray icons, so exit
           if (!indicator.props.connected.valueOf()) {
-            // The user will recive this error in the logs:
-            // `(.:11550): Gtk-CRITICAL **: 05:57:05.429: gtk_widget_get_scale_factor: assertion 'GTK_IS_WIDGET (widget)' failed`
-            // becuase they don't have tray icon support, its harmless though
-            Gtk.main_quit();
+            // The icon might take some time to be active (happens in kde)
+            if (INDICATOR_TRYS === 0) {
+              // The user will recive this error in the logs:
+              // `(.:11550): Gtk-CRITICAL **: 05:57:05.429: gtk_widget_get_scale_factor: assertion 'GTK_IS_WIDGET (widget)' failed`
+              // becuase they don't have tray icon support, its harmless though
+              Gtk.main_quit();
+            } else {
+              INDICATOR_TRYS--;
+            }
           }
           break;
         case MESSAGES.Deactivate:
