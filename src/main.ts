@@ -148,6 +148,7 @@ export class MainWindow {
   #idleRow: Adw_.SwitchRow;
   #preferencesMenu: PreferencesMenu;
   #indicator?: Indicator;
+  #screenSaverProxy;
 
   get app() {
     return this.#app;
@@ -182,7 +183,7 @@ export class MainWindow {
     "theme": 0, /*System Theme*/
     "indicatorRow": false,
   };
-  #cookies: { [key in Flags]?: number } = {};
+  #cookies: { [key in Flags | "screenSaverCookie"]?: number } = {};
   constructor(app: Adw_.Application) {
     const savedState = localStorage.getItem("state");
     // NOTE: If we update the state with new apis, the spreading will make sure that users who have old versions will get default values
@@ -197,6 +198,18 @@ export class MainWindow {
     if (this.state["indicatorRow"]) {
       this.#indicator = new Indicator(this);
     }
+
+    // NOTE: This is used for kde (and other DEs that behave the same, since its still using a freedesktop standard)
+    // gtk Application idle inhibit doens't stop the screen from dimming in kde
+    // kde require to use this dbus api instead
+    this.#screenSaverProxy = Gio.DBusProxy.new_for_bus_sync(
+      Gio.BusType.SESSION,
+      Gio.DBusProxyFlags.NONE,
+      undefined,
+      "org.freedesktop.ScreenSaver",
+      "/org/freedesktop/ScreenSaver",
+      "org.freedesktop.ScreenSaver",
+    );
 
     const builder = Gtk.Builder();
     builder.add_from_file(
@@ -419,18 +432,32 @@ export class MainWindow {
     const suspendRowActive = this.#suspendRow.get_active().valueOf();
     if (suspendRowActive && state === true) {
       this.#idleRow.set_subtitle(UI_LABELS.Indefinitely);
+
       this.#cookies["idle"] = this.#app.inhibit(
         this.#win,
         Gtk.ApplicationInhibitFlags.IDLE,
         // NOTE: the reason is needed for flatpak to work
         UI_LABELS.SimulatorActive,
       ).valueOf();
+
+      this.#cookies["screenSaverCookie"] = this.#screenSaverProxy.Inhibit(
+        "(ss)",
+        UI_LABELS.AppName,
+        UI_LABELS.SimulatorActive,
+      );
     } else {
       this.#idleRow.set_subtitle(UI_LABELS.SystemDefault);
       const idleCookie = this.#cookies["idle"];
       if (idleCookie) {
         this.#app.uninhibit(idleCookie);
         this.#cookies["idle"] = undefined;
+      }
+
+      const screenSaverCookie = this.#cookies["screenSaverCookie"];
+
+      if (screenSaverCookie) {
+        this.#screenSaverProxy.UnInhibit("(u)", screenSaverCookie);
+        this.#cookies["screenSaverCookie"] = undefined;
       }
     }
 
