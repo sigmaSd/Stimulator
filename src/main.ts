@@ -441,7 +441,7 @@ export class MainWindow {
         "(ss)",
         UI_LABELS.AppName,
         UI_LABELS.SimulatorActive,
-      );
+      )?.valueOf();
       if (!this.#cookies["screenSaverCookie"]) {
         this.#cookies["idle"] = this.#app.inhibit(
           this.#win,
