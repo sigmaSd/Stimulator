@@ -92,7 +92,7 @@ export interface DBusProxy {
     type: string,
     name: string,
     reason: string,
-  ): number | undefined;
+  ): { valueOf: () => number | undefined };
   UnInhibit(type: string, cookie: number): void;
 }
 

@@ -27,6 +27,9 @@ export interface Indicator {
   set_menu(menu: Menu): void;
   set_status(status: IndicatorStatus): void;
   set_attention_icon(icon: string): void;
+  props: {
+    connected: { valueOf: () => boolean };
+  };
 }
 
 export enum IndicatorCategory {
