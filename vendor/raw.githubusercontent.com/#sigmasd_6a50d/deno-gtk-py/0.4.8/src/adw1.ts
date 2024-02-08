@@ -49,6 +49,8 @@ export interface ApplicationConstructor {
 }
 
 export interface Application extends PyObject {
+  send_notification(id: string, notification: Gio2_.Notification): void;
+  withdraw_notification(id: string): void;
   set_accels_for_action(detailedActionName: string, accels: [string]): void;
   add_action(action: Gio2_.SimpleAction): void;
   inhibit(

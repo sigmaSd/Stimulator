@@ -1,6 +1,7 @@
 import type { Callback, GLib2_, Gtk4_ } from "../mod.ts";
 
 export interface Gio {
+  Notification: { new: (title: string) => Notification };
   DBusProxyFlags: {
     NONE: DBusProxyFlags.NONE;
   };
@@ -101,4 +102,8 @@ export enum BusType {
 }
 export enum DBusProxyFlags {
   NONE = 0,
+}
+
+export interface Notification {
+  set_body(body: string): void;
 }
