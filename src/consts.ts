@@ -6,11 +6,11 @@ export class EN_UI_LABELS {
   static Keywords = "caffeine;nosleep;awake;keepawake;keepon;";
   static SuspendTitle = "Disable Automatic Suspending";
   static IdleTitle = "Disable Screen Blanking and Locking";
-  static SystemDefault = "Current state= System default";
-  static Indefinitely = "Current state= Indefinitely";
+  static SystemDefault = "Current state: System default";
+  static Indefinitely = "Current state: Indefinitely";
   static SimulatorActive = "Stimulator is active";
   static ConfirmClose = "Close Stimulator?";
-  static ConfirmCloseBody = "Stimulator is active; do you want to close it?";
+  static ConfirmCloseBody = "Stimulator is active, do you want to close it?";
   static Cancel = "Cancel";
   static Close = "Close";
   static Preferences = "Preferences";
@@ -28,7 +28,7 @@ export class EN_UI_LABELS {
   static About = "About Stimulator";
   static UnsupportedSystem = "Unsupported System";
   static UnsupportedSystemBody =
-    "Your desktop environment doesn't support Stimulator; click close to quit";
+    "Your desktop environment doesn't support Stimulator, click close to quit";
   // we don't advertise tray icon support
   static EnableTrayIcon = "Run in Background";
   static Show = "Show";
