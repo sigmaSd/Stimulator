@@ -4,8 +4,8 @@
   // the npm dependencies are not needed since we only use them in scripts for now
   "lock":false,
   "imports": {
-    //"deno-gtk-py": "../deno-gtk-py/mod.ts",
-    "deno-gtk-py": "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.4.4/mod.ts",
+    // "deno-gtk-py": "../deno-gtk-py/mod.ts",
+    "deno-gtk-py": "https://raw.githubusercontent.com/sigmaSd/deno-gtk-py/0.4.5/mod.ts",
     "i18next": "https://deno.land/x/i18next@v23.7.11/index.js",
     "i18next_fs": "https://deno.land/x/i18next_fs_backend@v2.3.1/index.js",
 

@@ -1,6 +1,11 @@
 import type { Callback, GLib2_, Gtk4_ } from "../mod.ts";
 
 export interface Gio {
+  DBusProxyFlags: {
+    NONE: DBusProxyFlags.NONE;
+  };
+  BusType: { SESSION: BusType.SESSION };
+  DBusProxy: DBusProxy;
   SubprocessFlags: {
     STDIN_PIPE: SubprocessFlags.STDIN_PIPE;
     STDOUT_PIPE: SubprocessFlags.STDOUT_PIPE;
@@ -72,3 +77,28 @@ export interface InputStream {
 
 // deno-lint-ignore no-empty-interface
 export interface AsyncResult {}
+
+export interface DBusProxy {
+  new_for_bus_sync(
+    bus_type: BusType,
+    flags: DBusProxyFlags,
+    // deno-lint-ignore no-explicit-any
+    info: any,
+    name: string,
+    object_path: string,
+    interface_name: string,
+  ): DBusProxy;
+  Inhibit(
+    type: string,
+    name: string,
+    reason: string,
+  ): number | undefined;
+  UnInhibit(type: string, cookie: number): void;
+}
+
+export enum BusType {
+  SESSION = 2,
+}
+export enum DBusProxyFlags {
+  NONE = 0,
+}
