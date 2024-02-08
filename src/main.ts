@@ -433,18 +433,23 @@ export class MainWindow {
     if (suspendRowActive && state === true) {
       this.#idleRow.set_subtitle(UI_LABELS.Indefinitely);
 
-      this.#cookies["idle"] = this.#app.inhibit(
-        this.#win,
-        Gtk.ApplicationInhibitFlags.IDLE,
-        // NOTE: the reason is needed for flatpak to work
-        UI_LABELS.SimulatorActive,
-      ).valueOf();
-
+      // We try first using org.freedesktop.ScreenSaver.Inhibit
+      // If that doesn't work we fallback to Gtk Idle Inhibit method
+      // NOTE: kde freezes for 30 seconds if the app requests more then one (1) inhibitor
+      // This method workaround this
       this.#cookies["screenSaverCookie"] = this.#screenSaverProxy.Inhibit(
         "(ss)",
         UI_LABELS.AppName,
         UI_LABELS.SimulatorActive,
       );
+      if (!this.#cookies["screenSaverCookie"]) {
+        this.#cookies["idle"] = this.#app.inhibit(
+          this.#win,
+          Gtk.ApplicationInhibitFlags.IDLE,
+          // NOTE: the reason is needed for flatpak to work
+          UI_LABELS.SimulatorActive,
+        ).valueOf();
+      }
     } else {
       this.#idleRow.set_subtitle(UI_LABELS.SystemDefault);
       const idleCookie = this.#cookies["idle"];
