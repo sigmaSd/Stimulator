@@ -23,6 +23,7 @@ export interface AppIndicator {
 }
 
 export interface Indicator {
+  set_title(title: string): void;
   set_menu(menu: Menu): void;
   set_status(status: IndicatorStatus): void;
   set_attention_icon(icon: string): void;
