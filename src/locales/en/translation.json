@@ -26,5 +26,6 @@
     "Unsupported System": "Unsupported System",
     "Your desktop environment doesn't support Stimulator, click close to quit": "Your desktop environment doesn't support Stimulator, click close to quit",
     "Run in Background": "Run in Background",
-    "Show": "Show"
+    "Show": "Show",
+    "Stimulator is running in the backround": "Stimulator is running in the backround"
 }

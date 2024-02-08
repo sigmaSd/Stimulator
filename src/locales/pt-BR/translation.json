@@ -26,5 +26,6 @@
     "Unsupported System": "Sistema Operacional Não Suportado",
     "Your desktop environment doesn't support Stimulator, click close to quit": "Seu ambiente desktop não suporta Stimulator, pressione o botão de fechar para sair",
     "Run in Background": "Rodar em Segundo Plano",
-    "Show": "Mostrar"
+    "Show": "Mostrar",
+    "Stimulator is running in the backround": ""
 }

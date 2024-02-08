@@ -85,3 +85,6 @@ msgstr "Luba taustal töötamine"
 
 msgid "Show"
 msgstr "Näita"
+
+msgid "Stimulator is running in the backround"
+msgstr ""

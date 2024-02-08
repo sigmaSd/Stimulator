@@ -2,7 +2,6 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 
-
 msgid "Stimulator"
 msgstr "Stimulator"
 
@@ -86,3 +85,6 @@ msgstr "Rodar em Segundo Plano"
 
 msgid "Show"
 msgstr "Mostrar"
+
+msgid "Stimulator is running in the backround"
+msgstr ""

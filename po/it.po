@@ -85,3 +85,6 @@ msgstr ""
 
 msgid "Show"
 msgstr ""
+
+msgid "Stimulator is running in the backround"
+msgstr ""

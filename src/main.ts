@@ -307,12 +307,18 @@ export class MainWindow {
     // if we receive close request while the app is in the background, exit
     if (!this.#win.is_visible().valueOf()) {
       this.#indicator?.close();
+      // withdraw any active notification
+      this.#app.withdraw_notification(APP_ID);
       return false;
     }
     // if tray icon is active and suspend button is active, go to the background instead of exiting
     if (this.state["indicatorRow"] && this.state["suspend"]) {
       this.#win.set_visible(false);
       this.#indicator?.showShowButton();
+      // inform user via notification
+      const notification = Gio.Notification.new(UI_LABELS.AppName);
+      notification.set_body(UI_LABELS.StimulatorIsRunningInTheBackground);
+      this.#app.send_notification(APP_ID, notification);
       return true;
     }
 
@@ -566,6 +572,8 @@ class App extends Adw.Application {
 
     this.#win.present();
     this.#win.indicator?.hideShowButton();
+    // withdraw any active notification
+    this.withdraw_notification(APP_ID);
   });
 }
 
