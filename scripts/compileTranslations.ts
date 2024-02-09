@@ -29,9 +29,11 @@ async function genTranslations() {
 }
 
 async function genDesktopFile() {
-  const names = [`Name=${EN_UI_LABELS.AppName}`];
-  const comments = [`Comment=${EN_UI_LABELS.Comments}`];
-  const keywords = [`Keywords=${EN_UI_LABELS.Keywords}`];
+  const names = [`Name=${EN_UI_LABELS["Stimulator"]}`];
+  const comments = [`Comment=${EN_UI_LABELS["Keep your computer awake"]}`];
+  const keywords = [
+    `Keywords=${EN_UI_LABELS["caffeine;nosleep;awake;keepawake;keepon;"]}`,
+  ];
   const langs = await Array.fromAsync(Deno.readDir("./po")).then((langs) =>
     langs.map((lang) => lang.name.slice(0, -3))
   );
@@ -42,9 +44,11 @@ async function genDesktopFile() {
     // i18 expectes the translation code to be aa-AA instead of aa_AA
     lang = lang.replace("_", "-");
     await i18next.changeLanguage(lang);
-    const name = i18n(lang)(EN_UI_LABELS.AppName);
-    const comment = i18n(lang)(EN_UI_LABELS.Comments);
-    const keyword = i18n(lang)(EN_UI_LABELS.Keywords);
+    const name = i18n(lang)(EN_UI_LABELS["Stimulator"]);
+    const comment = i18n(lang)(EN_UI_LABELS["Keep your computer awake"]);
+    const keyword = i18n(lang)(
+      EN_UI_LABELS["caffeine;nosleep;awake;keepawake;keepon;"],
+    );
     if (name) names.push(`Name[${lang}]=${name}`);
     if (comment) comments.push(`Comment[${lang}]=${comment}`);
     if (keyword) keywords.push(`Keywords[${lang}]=${keyword}`);

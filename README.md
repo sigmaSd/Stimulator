@@ -19,7 +19,9 @@ Discussion in Matrix room:
 Uses `Gtk.Application.inhibit (Suspend)` which internally uses
 `org.freedesktop.portal.Inhibit` which should work across DEs that supports it.
 
-For disabling screen blanking/locking, it uses `org.freedesktop.ScreenSaver.Inhibit` and fallsback to `Gtk.Application.inhibit (Idle)` if its not supported.
+For disabling screen blanking/locking, it uses
+`org.freedesktop.ScreenSaver.Inhibit` and fallsback to
+`Gtk.Application.inhibit (Idle)` if its not supported.
 
 ## How to add translations
 

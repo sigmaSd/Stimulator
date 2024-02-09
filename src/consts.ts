@@ -1,53 +1,61 @@
 import { t } from "./i18n.ts";
 
+@genLabels
 export class EN_UI_LABELS {
-  static AppName = "Stimulator";
-  static Comments = "Keep your computer awake";
-  static Keywords = "caffeine;nosleep;awake;keepawake;keepon;";
-  static SuspendTitle = "Disable Automatic Suspending";
-  static IdleTitle = "Disable Screen Blanking and Locking";
-  static SystemDefault = "Current state: System default";
-  static Indefinitely = "Current state: Indefinitely";
-  static SimulatorActive = "Stimulator is active";
-  static ConfirmClose = "Close Stimulator?";
-  static ConfirmCloseBody = "Stimulator is active, do you want to close it?";
-  static Cancel = "Cancel";
-  static Close = "Close";
-  static Preferences = "Preferences";
-  static Theme = "Theme";
-  static ThemeSystem = "System Theme";
-  static ThemeLight = "Light";
-  static ThemeDark = "Dark";
-  static EnableExistConfirmation = "Closing Confirmation";
-  static EnableExistConfirmationSubTitle =
-    "Ask for confirmation to close when Stimulator is active";
-  static KeyboardShortcuts = "Keyboard Shortcuts";
-  static General = "General";
-  static MainMenu = "Open Menu";
-  static Quit = "Quit";
-  static About = "About Stimulator";
-  static UnsupportedSystem = "Unsupported System";
-  static UnsupportedSystemBody =
-    "Your desktop environment doesn't support Stimulator, click close to quit";
+  static "Stimulator": string;
+  static "Keep your computer awake": string;
+  static "caffeine;nosleep;awake;keepawake;keepon;": string;
+  static "Disable Automatic Suspending": string;
+  static "Disable Screen Blanking and Locking": string;
+  static "Current state: System default": string;
+  static "Current state: Indefinitely": string;
+  static "Stimulator is active": string;
+  static "Close Stimulator?": string;
+  static "Stimulator is active, do you want to close it?": string;
+  static "Cancel": string;
+  static "Close": string;
+  static "Preferences": string;
+  static "Theme": string;
+  static "System Theme": string;
+  static "Light": string;
+  static "Dark": string;
+  static "Closing Confirmation": string;
+  static "Ask for confirmation to close when Stimulator is active": string;
+  static "Keyboard Shortcuts": string;
+  static "General": string;
+  static "Open Menu": string;
+  static "Quit": string;
+  static "About Stimulator": string;
+  static "Unsupported System": string;
+  static "Your desktop environment doesn't support Stimulator, click close to quit":
+    string;
   // we don't advertise tray icon support
-  static EnableTrayIcon = "Run in Background";
-  static Show = "Show";
-  static StimulatorIsRunningInTheBackground =
-    "Stimulator is running in the backround";
+  static "Run in Background": string;
+  static "Show": string;
+  static "Stimulator is running in the backround": string;
 }
 
 @translate
 export class UI_LABELS extends EN_UI_LABELS {}
 
-// deno-lint-ignore no-explicit-any
-function translate<T extends { [key: string]: any }>(klass: T, _: any) {
+export const APP_ID = "io.github.sigmasd.stimulator";
+export const APP_NAME = UI_LABELS["Stimulator"];
+export const VERSION = "0.9.0";
+
+function genLabels<T>(klass: T, ctx: ClassDecoratorContext) {
+  ctx.addInitializer(function () {
+    for (const prop in this) {
+      // deno-lint-ignore no-explicit-any
+      (klass as any)[prop] = prop;
+    }
+  });
+  return klass;
+}
+
+function translate<T>(klass: T, _: ClassDecoratorContext) {
   for (const prop in klass) {
     // deno-lint-ignore no-explicit-any
     (klass as any)[prop] = t((klass as any)[prop]);
   }
   return klass;
 }
-
-export const APP_ID = "io.github.sigmasd.stimulator";
-export const APP_NAME = UI_LABELS.AppName;
-export const VERSION = "0.9.0";

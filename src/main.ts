@@ -44,9 +44,9 @@ class PreferencesMenu {
     themeRow.set_title(UI_LABELS.Theme);
     themeRow.set_model(
       Gtk.StringList.new([
-        UI_LABELS.ThemeSystem,
-        UI_LABELS.ThemeLight,
-        UI_LABELS.ThemeDark,
+        UI_LABELS["System Theme"],
+        UI_LABELS["Light"],
+        UI_LABELS["Dark"],
       ]),
     );
     //NOTE: ADW bug, set_selected(0) doesn't set the item as selected initilally
@@ -70,9 +70,9 @@ class PreferencesMenu {
     const confirmExitSwitchRow = builder.get_object(
       "confirmExitSwitchRow",
     ) as Adw_.SwitchRow;
-    confirmExitSwitchRow.set_title(UI_LABELS.EnableExistConfirmation);
+    confirmExitSwitchRow.set_title(UI_LABELS["Closing Confirmation"]);
     confirmExitSwitchRow.set_subtitle(
-      UI_LABELS.EnableExistConfirmationSubTitle,
+      UI_LABELS["Ask for confirmation to close when Stimulator is active"],
     );
     confirmExitSwitchRow.set_active(
       mainWindow.state["confirmExitMenu"] as boolean,
@@ -81,7 +81,7 @@ class PreferencesMenu {
     const indicatorRow = builder.get_object(
       "indicatorRow",
     ) as Adw_.SwitchRow;
-    indicatorRow.set_title(UI_LABELS.EnableTrayIcon);
+    indicatorRow.set_title(UI_LABELS["Run in Background"]);
     indicatorRow.set_active(
       mainWindow.state["indicatorRow"] as boolean,
     );
@@ -220,8 +220,8 @@ export class MainWindow {
     this.#win.connect("close-request", python.callback(this.#onCloseRequest));
     this.#mainIcon = builder.get_object("mainIcon");
     this.#suspendRow = builder.get_object("suspendRow");
-    this.#suspendRow.set_title(UI_LABELS.SuspendTitle);
-    this.#suspendRow.set_subtitle(UI_LABELS.SystemDefault);
+    this.#suspendRow.set_title(UI_LABELS["Disable Automatic Suspending"]);
+    this.#suspendRow.set_subtitle(UI_LABELS["Current state: System default"]);
     this.#suspendRow.connect(
       "notify::active",
       python.callback(() =>
@@ -229,8 +229,8 @@ export class MainWindow {
       ),
     );
     this.#idleRow = builder.get_object("idleRow");
-    this.#idleRow.set_title(UI_LABELS.IdleTitle);
-    this.#idleRow.set_subtitle(UI_LABELS.SystemDefault);
+    this.#idleRow.set_title(UI_LABELS["Disable Screen Blanking and Locking"]);
+    this.#idleRow.set_subtitle(UI_LABELS["Current state: System default"]);
     this.#idleRow.connect(
       "notify::active",
       // NOTE: works but for some reason it issues a warning the first time its called about invalid flags
@@ -263,9 +263,9 @@ export class MainWindow {
     );
     menu.append(UI_LABELS.Preferences, "app.preferences");
     this.#createAction("shortcuts", this.#showShortcuts, ["<primary>question"]);
-    menu.append(UI_LABELS.KeyboardShortcuts, "app.shortcuts");
+    menu.append(UI_LABELS["Keyboard Shortcuts"], "app.shortcuts");
     this.#createAction("about", this.#showAbout);
-    menu.append(UI_LABELS.About, "app.about");
+    menu.append(UI_LABELS["About Stimulator"], "app.about");
     this.#createAction(
       "quit",
       python.callback(() => {
@@ -316,8 +316,10 @@ export class MainWindow {
       this.#win.set_visible(false);
       this.#indicator?.showShowButton();
       // inform user via notification
-      const notification = Gio.Notification.new(UI_LABELS.AppName);
-      notification.set_body(UI_LABELS.StimulatorIsRunningInTheBackground);
+      const notification = Gio.Notification.new(UI_LABELS["Stimulator"]);
+      notification.set_body(
+        UI_LABELS["Stimulator is running in the backround"],
+      );
       this.#app.send_notification(APP_ID, notification);
       return true;
     }
@@ -335,15 +337,15 @@ export class MainWindow {
 
     const dialog = Adw.MessageDialog(
       new NamedArgument("transient_for", this.#app.get_active_window()),
-      new NamedArgument("heading", UI_LABELS.ConfirmClose),
+      new NamedArgument("heading", UI_LABELS["Close Stimulator?"]),
       new NamedArgument(
         "body",
-        UI_LABELS.ConfirmCloseBody,
+        UI_LABELS["Stimulator is active, do you want to close it?"],
       ),
     );
 
-    dialog.add_response("cancel", UI_LABELS.Cancel);
-    dialog.add_response("close", UI_LABELS.Close);
+    dialog.add_response("cancel", UI_LABELS["Cancel"]);
+    dialog.add_response("close", UI_LABELS["Close"]);
     dialog.set_close_response("cancel");
     dialog.set_default_response("cancel");
     dialog.set_response_appearance(
@@ -387,7 +389,7 @@ export class MainWindow {
     const idleRowActive = this.#idleRow.get_active().valueOf();
     if (yes) {
       if (this.state.indicatorRow) this.#indicator?.activate();
-      this.#suspendRow.set_subtitle(UI_LABELS.Indefinitely);
+      this.#suspendRow.set_subtitle(UI_LABELS["Current state: Indefinitely"]);
       this.#mainIcon.set_from_icon_name(
         APP_ID,
       );
@@ -401,7 +403,7 @@ export class MainWindow {
         this.#win,
         Gtk.ApplicationInhibitFlags.SUSPEND,
         // NOTE: the reason is needed for flatpak to work
-        UI_LABELS.SimulatorActive,
+        UI_LABELS["Stimulator is active"],
       ).valueOf();
 
       if (result === 0) {
@@ -410,7 +412,7 @@ export class MainWindow {
       this.#cookies["suspend"] = result;
     } else {
       if (this.state.indicatorRow) this.#indicator?.deactivate();
-      this.#suspendRow.set_subtitle(UI_LABELS.SystemDefault);
+      this.#suspendRow.set_subtitle(UI_LABELS["Current state: System default"]);
       this.#mainIcon.set_from_icon_name(
         APP_ID + "-inactive",
       );
@@ -437,7 +439,7 @@ export class MainWindow {
   #toggleIdle = (state: boolean | "active_disabled") => {
     const suspendRowActive = this.#suspendRow.get_active().valueOf();
     if (suspendRowActive && state === true) {
-      this.#idleRow.set_subtitle(UI_LABELS.Indefinitely);
+      this.#idleRow.set_subtitle(UI_LABELS["Current state: Indefinitely"]);
 
       // We try first using org.freedesktop.ScreenSaver.Inhibit
       // If that doesn't work we fallback to Gtk Idle Inhibit method
@@ -445,19 +447,19 @@ export class MainWindow {
       // This method workaround this
       this.#cookies["screenSaverCookie"] = this.#screenSaverProxy.Inhibit(
         "(ss)",
-        UI_LABELS.AppName,
-        UI_LABELS.SimulatorActive,
+        UI_LABELS["Stimulator"],
+        UI_LABELS["Stimulator is active"],
       )?.valueOf();
       if (!this.#cookies["screenSaverCookie"]) {
         this.#cookies["idle"] = this.#app.inhibit(
           this.#win,
           Gtk.ApplicationInhibitFlags.IDLE,
           // NOTE: the reason is needed for flatpak to work
-          UI_LABELS.SimulatorActive,
+          UI_LABELS["Stimulator is active"],
         ).valueOf();
       }
     } else {
-      this.#idleRow.set_subtitle(UI_LABELS.SystemDefault);
+      this.#idleRow.set_subtitle(UI_LABELS["Current state: System default"]);
       const idleCookie = this.#cookies["idle"];
       if (idleCookie) {
         this.#app.uninhibit(idleCookie);
@@ -484,7 +486,7 @@ export class MainWindow {
     dialog.set_developer_name("Bedis Nbiba");
     dialog.set_designers(["Meybo Nõmme"]);
     dialog.set_license_type(Gtk.License.MIT_X11);
-    dialog.set_comments(UI_LABELS.Comments);
+    dialog.set_comments(UI_LABELS["Keep your computer awake"]);
     dialog.set_website("https://github.com/sigmaSd/stimulator");
     dialog.set_issue_url(
       "https://github.com/sigmaSd/stimulator/issues",
@@ -515,11 +517,11 @@ export class MainWindow {
     const keyboardShortcutShortcut = builder.get_object(
       "keyboardShortcutShortcut",
     ) as Gtk_.ShortcutsShortcut;
-    keyboardShortcutShortcut.props.title = UI_LABELS.KeyboardShortcuts;
+    keyboardShortcutShortcut.props.title = UI_LABELS["Keyboard Shortcuts"];
     const mainMenuShortcut = builder.get_object(
       "mainMenuShortcut",
     ) as Gtk_.ShortcutsShortcut;
-    mainMenuShortcut.props.title = UI_LABELS.MainMenu;
+    mainMenuShortcut.props.title = UI_LABELS["Open Menu"];
     const quitShortcut = builder.get_object(
       "quitShortcut",
     ) as Gtk_.ShortcutsShortcut;
@@ -531,10 +533,12 @@ export class MainWindow {
   #platformUnsupportedExit() {
     const dialog = Adw.MessageDialog(
       new NamedArgument("transient_for", this.#app.get_active_window()),
-      new NamedArgument("heading", UI_LABELS.UnsupportedSystem),
+      new NamedArgument("heading", UI_LABELS["Unsupported System"]),
       new NamedArgument(
         "body",
-        UI_LABELS.UnsupportedSystemBody,
+        UI_LABELS[
+          "Your desktop environment doesn't support Stimulator, click close to quit"
+        ],
       ),
     );
 
