@@ -31,6 +31,7 @@ export class EN_UI_LABELS {
     string;
   // we don't advertise tray icon support
   static "Run in Background": string;
+  static "Running in background when Stimulator is active": string;
   static "Show": string;
   static "Stimulator is running in the backround": string;
 }

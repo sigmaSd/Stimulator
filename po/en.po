@@ -83,6 +83,9 @@ msgstr "Your desktop environment doesn't support Stimulator, click close to quit
 msgid "Run in Background"
 msgstr "Run in Background"
 
+msgid "Running in background when Stimulator is active"
+msgstr "Running in background when Stimulator is active"
+
 msgid "Show"
 msgstr "Show"
 
