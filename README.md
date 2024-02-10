@@ -54,4 +54,4 @@ For disabling screen blanking/locking, it uses
 | Italian    | 13.79          |
 | Portuguese | 96.55          |
 
-- translations less then 70% are not embedded into the app
+- Translations with less than 70% completion will not embedded to the app
