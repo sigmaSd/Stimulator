@@ -14,6 +14,15 @@ Discussion in Matrix room:
   <img width='240' alt='Download on Flathub' src='https://dl.flathub.org/assets/badges/flathub-badge-i-en.png'/>
 </a>
 
+## Features
+- Overrides system setting and disables automatic suspending
+- Overrides system setting and disables screen blanking and screen locking
+- Optional closing confirmation when active (enabled by default)
+- Optional running in background support instead of closing confirmation
+- Shows an error message at startup when desktop environment support is missing
+- Option to use system default, light or dark theme
+- Very optional and "hidden" AppIndicator support
+
 ## How it works
 
 Uses `Gtk.Application.inhibit (Suspend)` which internally uses
