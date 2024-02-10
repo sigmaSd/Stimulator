@@ -20,19 +20,19 @@
   <launchable type="desktop-id">io.github.sigmasd.stimulator.desktop</launchable>
 
   <screenshots>
-    <screenshot type="default">
+    <screenshot type="default" style="light">
       <caption>Stimulator light screenshot</caption>
       <image>https://raw.githubusercontent.com/sigmaSd/Stimulator/master/distro/demo_light_active.png</image>
     </screenshot>
-    <screenshot>
+    <screenshot style="dark">
       <caption>Stimulator dark screenshot</caption>
       <image>https://raw.githubusercontent.com/sigmaSd/Stimulator/master/distro/demo_dark_active.png</image>
     </screenshot>
-    <screenshot>
+    <screenshot style="light">
       <caption>Stimulator light screenshot</caption>
       <image>https://raw.githubusercontent.com/sigmaSd/Stimulator/master/distro/demo_light_inactive.png</image>
     </screenshot>
-    <screenshot>
+    <screenshot style="dark">
       <caption>Stimulator dark screenshot</caption>
       <image>https://raw.githubusercontent.com/sigmaSd/Stimulator/master/distro/demo_dark_inactive.png</image>
     </screenshot>
