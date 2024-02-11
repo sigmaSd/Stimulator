@@ -53,8 +53,8 @@ msgstr "Hele"
 msgid "Dark"
 msgstr "Tume"
 
-msgid "Closing Confirmation"
-msgstr "Sulgemise kinnitus"
+msgid "Confirm On Close"
+msgstr ""
 
 msgid "Ask for confirmation to close when Stimulator is active"
 msgstr "Küsi sulgemise kinnitust, kui Stimulaator on aktiivne"
@@ -91,3 +91,6 @@ msgstr "Näita"
 
 msgid "Stimulator is running in the backround"
 msgstr "Stimulaator töötab taustal"
+
+msgid "Behavior On Exit While Active"
+msgstr ""

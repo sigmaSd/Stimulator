@@ -53,7 +53,7 @@ msgstr "Clair"
 msgid "Dark"
 msgstr "Sombre"
 
-msgid "Closing Confirmation"
+msgid "Confirm On Close"
 msgstr ""
 
 msgid "Ask for confirmation to close when Stimulator is active"
@@ -90,4 +90,7 @@ msgid "Show"
 msgstr ""
 
 msgid "Stimulator is running in the backround"
+msgstr ""
+
+msgid "Behavior On Exit While Active"
 msgstr ""
