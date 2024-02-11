@@ -132,7 +132,11 @@ class PreferencesMenu {
             mainWindow.indicator.deactivate();
           }
         } else {
-          mainWindow.indicator?.hide();
+          // NOTE: run this after a bit of time, so messages don't get mixed up in the write buffer
+          GLib.timeout_add(
+            500,
+            python.callback(() => mainWindow.indicator?.hide()),
+          );
         }
       }),
     );
