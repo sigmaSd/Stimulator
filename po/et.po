@@ -56,9 +56,6 @@ msgstr "Tume"
 msgid "Confirm on Close"
 msgstr "Kinnitus sulgemisel"
 
-msgid "Ask for confirmation to close when Stimulator is active"
-msgstr "Küsi sulgemise kinnitust, kui Stimulaator on aktiivne"
-
 msgid "Keyboard Shortcuts"
 msgstr "Klaviatuuri otseteed"
 
@@ -82,9 +79,6 @@ msgstr "Sinu töölaua keskkkond ei toeta Stimulaatorit, väljumiseks klõpsa su
 
 msgid "Run in Background"
 msgstr "Töötab taustal"
-
-msgid "Run in the background when active instead of closing"
-msgstr "Aktiivsena jääb sulgumise asemel taustal töötama"
 
 msgid "Show"
 msgstr "Näita"
