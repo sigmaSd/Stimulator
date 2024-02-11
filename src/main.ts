@@ -67,62 +67,30 @@ class PreferencesMenu {
       }),
     );
 
-    const confirmExitSwitchRow = builder.get_object(
-      "confirmExitSwitchRow",
-    ) as Adw_.SwitchRow;
-    confirmExitSwitchRow.set_title(UI_LABELS["Closing Confirmation"]);
-    confirmExitSwitchRow.set_subtitle(
-      UI_LABELS["Ask for confirmation to close when Stimulator is active"],
+    const behaviorOnExitRow = builder.get_object(
+      "behaviorOnExitRow",
+    ) as Adw_.ComboRow;
+    behaviorOnExitRow.set_title(UI_LABELS["Behavior On Exit While Active"]);
+    const rowsLabels = [
+      UI_LABELS["Confirm On Close"],
+      UI_LABELS["Run in Background"],
+      UI_LABELS["Quit"],
+    ];
+    behaviorOnExitRow.set_model(
+      Gtk.StringList.new(rowsLabels),
     );
-    confirmExitSwitchRow.set_active(
-      mainWindow.state["confirmExitMenu"] as boolean,
-    );
+    //NOTE: ADW bug, set_selected(0) doesn't set the item as selected initilally
+    // so trigger it with this, before the actual correct selection
+    behaviorOnExitRow.set_selected(1);
+    behaviorOnExitRow.set_selected(mainWindow.state["exitBehavior"] as number);
 
-    const indicatorRow = builder.get_object(
-      "indicatorRow",
-    ) as Adw_.SwitchRow;
-    indicatorRow.set_title(UI_LABELS["Run in Background"]);
-    indicatorRow.set_subtitle(
-      UI_LABELS["Run in the background when active instead of closing"],
-    );
-    indicatorRow.set_active(
-      mainWindow.state["indicatorRow"] as boolean,
-    );
-
-    const syncConfirmAndIndicatorRowsState = () => {
-      if (
-        confirmExitSwitchRow.is_sensitive().valueOf()
-      ) {
-        indicatorRow.set_sensitive(
-          !confirmExitSwitchRow.get_active().valueOf(),
-        );
-      }
-      if (indicatorRow.is_sensitive().valueOf()) {
-        confirmExitSwitchRow.set_sensitive(
-          !indicatorRow.get_active().valueOf(),
-        );
-      }
-    };
-
-    syncConfirmAndIndicatorRowsState();
-    confirmExitSwitchRow.connect(
-      "notify::active",
+    behaviorOnExitRow.connect(
+      "notify::selected",
       python.callback(() => {
-        syncConfirmAndIndicatorRowsState();
-        mainWindow.updateState({
-          "confirmExitMenu": confirmExitSwitchRow.get_active().valueOf(),
-        });
-      }),
-    );
-    indicatorRow.connect(
-      "notify::active",
-      python.callback(() => {
-        syncConfirmAndIndicatorRowsState();
-        const newState = indicatorRow.get_active().valueOf();
-        mainWindow.updateState({
-          "indicatorRow": newState,
-        });
-        if (newState) {
+        const behaviorNumber = behaviorOnExitRow
+          .get_selected().valueOf();
+        // If the option is a `Run In Background` make sure to run the indicator
+        if (behaviorNumber === 1) {
           if (mainWindow.indicator === undefined) {
             mainWindow.indicator = new Indicator(mainWindow);
           }
@@ -138,6 +106,8 @@ class PreferencesMenu {
             python.callback(() => mainWindow.indicator?.hide()),
           );
         }
+
+        mainWindow.updateState({ "exitBehavior": behaviorNumber });
       }),
     );
   }
@@ -177,7 +147,7 @@ export class MainWindow {
   }
 
   #state: {
-    [key in Flags | "confirmExitMenu" | "theme" | "indicatorRow"]:
+    [key in Flags | "theme" | "exitBehavior"]:
       | boolean
       | "active_disabled"
       | number;
@@ -186,9 +156,8 @@ export class MainWindow {
     "switch": false,
     "suspend": false,
     "idle": false,
-    "confirmExitMenu": true,
     "theme": 0, /*System Theme*/
-    "indicatorRow": false,
+    "exitBehavior": 0, /*Confirm On Close*/
   };
   #cookies: { [key in Flags | "screenSaverCookie"]?: number } = {};
   constructor(app: Adw_.Application) {
@@ -202,7 +171,7 @@ export class MainWindow {
       : Adw.ColorScheme.FORCE_DARK;
     Adw.StyleManager.get_default().set_color_scheme(currentTheme);
 
-    if (this.state["indicatorRow"]) {
+    if (this.state["exitBehavior"] === 1 /*Run In Background*/) {
       this.#indicator = new Indicator(this);
     }
 
@@ -319,7 +288,10 @@ export class MainWindow {
       return false;
     }
     // if tray icon is active and suspend button is active, go to the background instead of exiting
-    if (this.state["indicatorRow"] && this.state["suspend"]) {
+    if (
+      this.state["exitBehavior"] === 1 /*"Run In Background"*/ &&
+      this.state["suspend"]
+    ) {
       this.#win.set_visible(false);
       this.#indicator?.showShowButton();
       // inform user via notification
@@ -337,7 +309,7 @@ export class MainWindow {
       return false;
     }
     // if confirm on exit is disabled return
-    if (!this.#state["confirmExitMenu"]) {
+    if (this.#state["exitBehavior"] !== 0 /*"Confirm On Close"*/) {
       this.#indicator?.close();
       return false;
     }
@@ -382,7 +354,7 @@ export class MainWindow {
 
   updateState(
     state: {
-      [key in Flags | "confirmExitMenu" | "theme" | "indicatorRow"]?:
+      [key in Flags | "theme" | "exitBehavior"]?:
         | boolean
         | "active_disabled"
         | number;
@@ -395,7 +367,9 @@ export class MainWindow {
   #toggleSuspend = (yes: boolean) => {
     const idleRowActive = this.#idleRow.get_active().valueOf();
     if (yes) {
-      if (this.state.indicatorRow) this.#indicator?.activate();
+      if (this.state["exitBehavior"] === 1 /*"Run In Background"*/) {
+        this.#indicator?.activate();
+      }
       this.#suspendRow.set_subtitle(UI_LABELS["Current state: Indefinitely"]);
       this.#mainIcon.set_from_icon_name(
         APP_ID,
@@ -418,7 +392,9 @@ export class MainWindow {
       }
       this.#cookies["suspend"] = result;
     } else {
-      if (this.state.indicatorRow) this.#indicator?.deactivate();
+      if (this.state["exitBehavior"] === 1 /*"Run In Background"*/) {
+        this.#indicator?.deactivate();
+      }
       this.#suspendRow.set_subtitle(UI_LABELS["Current state: System default"]);
       this.#mainIcon.set_from_icon_name(
         APP_ID + "-inactive",

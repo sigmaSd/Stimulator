@@ -19,7 +19,7 @@ export class EN_UI_LABELS {
   static "System Theme": string;
   static "Light": string;
   static "Dark": string;
-  static "Closing Confirmation": string;
+  static "Confirm On Close": string;
   static "Ask for confirmation to close when Stimulator is active": string;
   static "Keyboard Shortcuts": string;
   static "General": string;
@@ -34,6 +34,7 @@ export class EN_UI_LABELS {
   static "Run in the background when active instead of closing": string;
   static "Show": string;
   static "Stimulator is running in the backround": string;
+  static "Behavior On Exit While Active": string;
 }
 
 @translate
