@@ -1,4 +1,4 @@
-#!/usr/bin/env -S  deno run --allow-read=./src/locales --allow-ffi --allow-env=DENO_PYTHON_PATH,CSS --unstable-ffi
+#!/usr/bin/env -S  deno run --allow-read=./src/locales --allow-ffi --allow-env=DENO_PYTHON_PATH --unstable-ffi
 import {
   Adw1_ as Adw_,
   Callback,
