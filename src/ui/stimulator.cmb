@@ -43,8 +43,8 @@
 	(2,6,"GtkShortcutsShortcut","accelerator","&lt;primary&gt;question",None,None,None,None,None,None,None,None,None),
 	(2,7,"GtkShortcutsShortcut","accelerator","&lt;primary&gt;q",None,None,None,None,None,None,None,None,None),
 	(2,8,"GtkShortcutsShortcut","accelerator","F10",None,None,None,None,None,None,None,None,None),
-	(3,1,"GtkWindow","default-height","280",None,None,None,None,None,None,None,None,None),
-	(3,1,"GtkWindow","default-width","395",None,None,None,None,None,None,None,None,None),
+	(3,1,"GtkWindow","default-height","290",None,None,None,None,None,None,None,None,None),
+	(3,1,"GtkWindow","default-width","430",None,None,None,None,None,None,None,None,None),
 	(3,4,"AdwSwitchRow","active","True",None,None,None,None,None,None,None,None,None)
   </object_property>
   <object_data>

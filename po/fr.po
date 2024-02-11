@@ -83,6 +83,9 @@ msgstr ""
 msgid "Run in Background"
 msgstr ""
 
+msgid "Run in the background when active instead of closing"
+msgstr ""
+
 msgid "Show"
 msgstr ""
 

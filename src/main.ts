@@ -82,6 +82,9 @@ class PreferencesMenu {
       "indicatorRow",
     ) as Adw_.SwitchRow;
     indicatorRow.set_title(UI_LABELS["Run in Background"]);
+    indicatorRow.set_subtitle(
+      UI_LABELS["Run in the background when active instead of closing"],
+    );
     indicatorRow.set_active(
       mainWindow.state["indicatorRow"] as boolean,
     );
