@@ -16,8 +16,7 @@
     "System Theme": "Süsteemi teema",
     "Light": "Hele",
     "Dark": "Tume",
-    "Confirm on Close": "",
-    "Ask for confirmation to close when Stimulator is active": "Küsi sulgemise kinnitust, kui Stimulaator on aktiivne",
+    "Confirm on Close": "Kinnitus sulgemisel",
     "Keyboard Shortcuts": "Klaviatuuri otseteed",
     "General": "Üldine",
     "Open Menu": "Ava menüü",
@@ -25,9 +24,8 @@
     "About Stimulator": "Stimulaatori teave",
     "Unsupported System": "Süsteem ei ole toetatud",
     "Your desktop environment doesn't support Stimulator, click close to quit": "Sinu töölaua keskkkond ei toeta Stimulaatorit, väljumiseks klõpsa sulgemise nupul",
-    "Run in Background": "Luba taustal töötamine",
-    "Run in the background when active instead of closing": "Aktiivsena jääb sulgumise asemel taustal töötama",
+    "Run in Background": "Töötab taustal",
     "Show": "Näita",
     "Stimulator is running in the backround": "Stimulaator töötab taustal",
-    "Behavior on Closing When Active": ""
+    "Behavior on Closing When Active": "Käitumine sulgemisel aktiivses olekus"
 }

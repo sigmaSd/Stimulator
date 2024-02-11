@@ -17,7 +17,6 @@
     "Light": "Claro",
     "Dark": "Escuro",
     "Confirm on Close": "",
-    "Ask for confirmation to close when Stimulator is active": "Pedir por confirmação para fechar quando Stimulator estiver ativo",
     "Keyboard Shortcuts": "Atalhos de Teclado",
     "General": "Geral",
     "Open Menu": "Abrir Menu",
@@ -26,7 +25,6 @@
     "Unsupported System": "Sistema Operacional Não Suportado",
     "Your desktop environment doesn't support Stimulator, click close to quit": "Seu ambiente desktop não suporta Stimulator, pressione o botão de fechar para sair",
     "Run in Background": "Rodar em Segundo Plano",
-    "Run in the background when active instead of closing": "",
     "Show": "Mostrar",
     "Stimulator is running in the backround": "",
     "Behavior on Closing When Active": ""

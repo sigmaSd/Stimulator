@@ -42,8 +42,8 @@
 	(2,6,"GtkShortcutsShortcut","accelerator","&lt;primary&gt;question",None,None,None,None,None,None,None,None,None),
 	(2,7,"GtkShortcutsShortcut","accelerator","&lt;primary&gt;q",None,None,None,None,None,None,None,None,None),
 	(2,8,"GtkShortcutsShortcut","accelerator","F10",None,None,None,None,None,None,None,None,None),
-	(3,1,"GtkWindow","default-height","400",None,None,None,None,None,None,None,None,None),
-	(3,1,"GtkWindow","default-width","600",None,None,None,None,None,None,None,None,None)
+	(3,1,"GtkWindow","default-height","275",None,None,None,None,None,None,None,None,None),
+	(3,1,"GtkWindow","default-width","550",None,None,None,None,None,None,None,None,None)
   </object_property>
   <object_data>
 	(3,1,"GtkWidget",2,2,None,1,None,None,None,None),
