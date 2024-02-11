@@ -27,10 +27,10 @@ msgid "Stimulator is active"
 msgstr "المحفز في حالة تشغيل"
 
 msgid "Close Stimulator?"
-msgstr ""
+msgstr "هل تريد إغلاق المحفز؟"
 
 msgid "Stimulator is active, do you want to close it?"
-msgstr ""
+msgstr "المحفز في حالة تشغيل، هل ترغب في إغلاقه؟"
 
 msgid "Cancel"
 msgstr "إلغاء"
@@ -45,7 +45,7 @@ msgid "Theme"
 msgstr "السمة"
 
 msgid "System Theme"
-msgstr ""
+msgstr "سمة النظام"
 
 msgid "Light"
 msgstr "فاتح"
@@ -54,7 +54,7 @@ msgid "Dark"
 msgstr "داكن"
 
 msgid "Confirm on Close"
-msgstr ""
+msgstr "تأكيد عند الإغلاق"
 
 msgid "Keyboard Shortcuts"
 msgstr "اختصارات لوحة المفاتيح"
@@ -63,7 +63,7 @@ msgid "General"
 msgstr "عام"
 
 msgid "Open Menu"
-msgstr ""
+msgstr "فتح القائمة"
 
 msgid "Quit"
 msgstr "خروج"
@@ -75,16 +75,16 @@ msgid "Unsupported System"
 msgstr "النظام غير مدعوم"
 
 msgid "Your desktop environment doesn't support Stimulator, click close to quit"
-msgstr ""
+msgstr "بيئة سطح المكتب الخاصة بك لا تدعم المحفز، انقر فوق إغلاق للخروج"
 
 msgid "Run in Background"
-msgstr ""
+msgstr "تشغيل في الخلفية"
 
 msgid "Show"
-msgstr ""
-
-msgid "Stimulator is running in the backround"
-msgstr ""
+msgstr "عرض"
 
 msgid "Behavior on Closing When Active"
-msgstr ""
+msgstr "سلوك الإغلاق في حالة التشغيل"
+
+msgid "Stimulator is running in the backround"
+msgstr "المحفز يعمل في الخلفية"
