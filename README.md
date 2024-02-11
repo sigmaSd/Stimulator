@@ -15,6 +15,7 @@ Discussion in Matrix room:
 </a>
 
 ## Features
+
 - Overrides system setting and disables automatic suspending
 - Overrides system setting and disables screen blanking and screen locking
 - Option to use system default, light or dark theme
@@ -51,4 +52,4 @@ For disabling screen blanking/locking, it uses
 | Italian    | 12.90          |
 | Portuguese | 87.10          |
 
-- Translations with less than 70% completion will not embedded to the app
+- Translations with less than 70% completion will not be embedded into the app
