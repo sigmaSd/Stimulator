@@ -53,7 +53,7 @@ msgstr "فاتح"
 msgid "Dark"
 msgstr "داكن"
 
-msgid "Confirm On Close"
+msgid "Confirm on Close"
 msgstr ""
 
 msgid "Ask for confirmation to close when Stimulator is active"
@@ -92,5 +92,5 @@ msgstr ""
 msgid "Stimulator is running in the backround"
 msgstr ""
 
-msgid "Behavior On Exit While Active"
+msgid "Behavior on Closing When Active"
 msgstr ""
