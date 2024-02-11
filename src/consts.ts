@@ -20,7 +20,6 @@ export class EN_UI_LABELS {
   static "Light": string;
   static "Dark": string;
   static "Confirm on Close": string;
-  static "Ask for confirmation to close when Stimulator is active": string;
   static "Keyboard Shortcuts": string;
   static "General": string;
   static "Open Menu": string;
@@ -31,7 +30,6 @@ export class EN_UI_LABELS {
     string;
   // we don't advertise tray icon support
   static "Run in Background": string;
-  static "Run in the background when active instead of closing": string;
   static "Show": string;
   static "Stimulator is running in the backround": string;
   static "Behavior on Closing When Active": string;
