@@ -2,10 +2,10 @@
 <!-- Created with Cambalache 0.16.0 -->
 <interface>
   <requires lib="gtk" version="4.6"/>
-  <requires lib="libadwaita" version="1.4"/>
+  <requires lib="libadwaita" version="1.0"/>
   <object class="AdwPreferencesWindow" id="preferencesWin">
-    <property name="default-height">280</property>
-    <property name="default-width">395</property>
+    <property name="default-height">400</property>
+    <property name="default-width">600</property>
     <child>
       <object class="AdwPreferencesPage">
         <child>
@@ -14,12 +14,7 @@
               <object class="AdwComboRow" id="themeRow"/>
             </child>
             <child>
-              <object class="AdwSwitchRow" id="confirmExitSwitchRow">
-                <property name="active">True</property>
-              </object>
-            </child>
-            <child>
-              <object class="AdwSwitchRow" id="indicatorRow"/>
+              <object class="AdwComboRow" id="behaviorOnExitRow"/>
             </child>
           </object>
         </child>

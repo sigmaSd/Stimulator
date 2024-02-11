@@ -24,9 +24,8 @@
 	(3,1,"AdwPreferencesWindow","preferencesWin",None,None,None,None,-1,None),
 	(3,2,"AdwPreferencesPage",None,1,None,None,None,-1,None),
 	(3,3,"AdwPreferencesGroup",None,2,None,None,None,-1,None),
-	(3,4,"AdwSwitchRow","confirmExitSwitchRow",3,None,None,None,1,None),
 	(3,5,"AdwComboRow","themeRow",3,None,None,None,None,None),
-	(3,6,"AdwSwitchRow","indicatorRow",3,None,None,None,2,None)
+	(3,7,"AdwComboRow","behaviorOnExitRow",3,None,None,None,2,None)
   </object>
   <object_property>
 	(1,1,"GtkWindow","default-width","450",None,None,None,None,None,None,None,None,None),
@@ -43,9 +42,8 @@
 	(2,6,"GtkShortcutsShortcut","accelerator","&lt;primary&gt;question",None,None,None,None,None,None,None,None,None),
 	(2,7,"GtkShortcutsShortcut","accelerator","&lt;primary&gt;q",None,None,None,None,None,None,None,None,None),
 	(2,8,"GtkShortcutsShortcut","accelerator","F10",None,None,None,None,None,None,None,None,None),
-	(3,1,"GtkWindow","default-height","280",None,None,None,None,None,None,None,None,None),
-	(3,1,"GtkWindow","default-width","395",None,None,None,None,None,None,None,None,None),
-	(3,4,"AdwSwitchRow","active","True",None,None,None,None,None,None,None,None,None)
+	(3,1,"GtkWindow","default-height","400",None,None,None,None,None,None,None,None,None),
+	(3,1,"GtkWindow","default-width","600",None,None,None,None,None,None,None,None,None)
   </object_property>
   <object_data>
 	(3,1,"GtkWidget",2,2,None,1,None,None,None,None),

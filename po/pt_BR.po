@@ -53,8 +53,8 @@ msgstr "Claro"
 msgid "Dark"
 msgstr "Escuro"
 
-msgid "Closing Confirmation"
-msgstr "Confirmação de fechamento"
+msgid "Confirm on Close"
+msgstr ""
 
 msgid "Ask for confirmation to close when Stimulator is active"
 msgstr "Pedir por confirmação para fechar quando Stimulator estiver ativo"
@@ -83,8 +83,14 @@ msgstr "Seu ambiente desktop não suporta Stimulator, pressione o botão de fech
 msgid "Run in Background"
 msgstr "Rodar em Segundo Plano"
 
+msgid "Run in the background when active instead of closing"
+msgstr ""
+
 msgid "Show"
 msgstr "Mostrar"
 
 msgid "Stimulator is running in the backround"
+msgstr ""
+
+msgid "Behavior on Closing When Active"
 msgstr ""

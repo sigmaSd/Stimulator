@@ -28,7 +28,7 @@ if (import.meta.main) {
     APP_ID + "-tray",
     AppIndicator.IndicatorCategory.APPLICATION_STATUS,
   );
-  indicator.set_title(UI_LABELS.AppName);
+  indicator.set_title(UI_LABELS["Stimulator"]);
 
   const menu = Gtk.Menu();
 

@@ -53,8 +53,8 @@ msgstr "Hele"
 msgid "Dark"
 msgstr "Tume"
 
-msgid "Closing Confirmation"
-msgstr "Sulgemise kinnitus"
+msgid "Confirm on Close"
+msgstr ""
 
 msgid "Ask for confirmation to close when Stimulator is active"
 msgstr "Küsi sulgemise kinnitust, kui Stimulaator on aktiivne"
@@ -83,8 +83,14 @@ msgstr "Sinu töölaua keskkkond ei toeta Stimulaatorit, väljumiseks klõpsa su
 msgid "Run in Background"
 msgstr "Luba taustal töötamine"
 
+msgid "Run in the background when active instead of closing"
+msgstr "Aktiivsena jääb sulgumise asemel taustal töötama"
+
 msgid "Show"
 msgstr "Näita"
 
 msgid "Stimulator is running in the backround"
+msgstr "Stimulaator töötab taustal"
+
+msgid "Behavior on Closing When Active"
 msgstr ""

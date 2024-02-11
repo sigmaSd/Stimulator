@@ -16,7 +16,7 @@
     "System Theme": "System Theme",
     "Light": "Light",
     "Dark": "Dark",
-    "Closing Confirmation": "Closing Confirmation",
+    "Confirm on Close": "Confirm on Close",
     "Ask for confirmation to close when Stimulator is active": "Ask for confirmation to close when Stimulator is active",
     "Keyboard Shortcuts": "Keyboard Shortcuts",
     "General": "General",
@@ -26,6 +26,8 @@
     "Unsupported System": "Unsupported System",
     "Your desktop environment doesn't support Stimulator, click close to quit": "Your desktop environment doesn't support Stimulator, click close to quit",
     "Run in Background": "Run in Background",
+    "Run in the background when active instead of closing": "Run in the background when active instead of closing",
     "Show": "Show",
-    "Stimulator is running in the backround": "Stimulator is running in the backround"
+    "Stimulator is running in the backround": "Stimulator is running in the backround",
+    "Behavior on Closing When Active": "Behavior on Closing When Active"
 }
