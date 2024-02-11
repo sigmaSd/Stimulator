@@ -83,8 +83,8 @@ msgstr "Sinu töölaua keskkkond ei toeta Stimulaatorit, väljumiseks klõpsa su
 msgid "Run in Background"
 msgstr "Luba taustal töötamine"
 
-msgid "Running in background when Stimulator is active"
-msgstr "Töötab taustal, kui Stimulaator on aktiivne"
+msgid "Run in the background when active instead of closing"
+msgstr "Aktiivsena jääb sulgumise asemel taustal töötama"
 
 msgid "Show"
 msgstr "Näita"

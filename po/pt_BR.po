@@ -83,7 +83,7 @@ msgstr "Seu ambiente desktop não suporta Stimulator, pressione o botão de fech
 msgid "Run in Background"
 msgstr "Rodar em Segundo Plano"
 
-msgid "Running in background when Stimulator is active"
+msgid "Run in the background when active instead of closing"
 msgstr ""
 
 msgid "Show"

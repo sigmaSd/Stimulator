@@ -83,7 +83,7 @@ msgstr ""
 msgid "Run in Background"
 msgstr ""
 
-msgid "Running in background when Stimulator is active"
+msgid "Run in the background when active instead of closing"
 msgstr ""
 
 msgid "Show"
