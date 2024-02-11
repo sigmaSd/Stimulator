@@ -27,10 +27,10 @@ msgid "Stimulator is active"
 msgstr "Stimulateur est actif"
 
 msgid "Close Stimulator?"
-msgstr ""
+msgstr "Fermer Stimulateur ?"
 
 msgid "Stimulator is active, do you want to close it?"
-msgstr ""
+msgstr "Stimulateur est actif, voulez-vous le fermer ?"
 
 msgid "Cancel"
 msgstr "Annuler"
@@ -45,7 +45,7 @@ msgid "Theme"
 msgstr "Thème"
 
 msgid "System Theme"
-msgstr ""
+msgstr "Thème du système"
 
 msgid "Light"
 msgstr "Clair"
@@ -54,7 +54,7 @@ msgid "Dark"
 msgstr "Sombre"
 
 msgid "Confirm on Close"
-msgstr ""
+msgstr "Confirmer à la fermeture"
 
 msgid "Keyboard Shortcuts"
 msgstr "Raccourcis clavier"
@@ -63,28 +63,28 @@ msgid "General"
 msgstr "Général"
 
 msgid "Open Menu"
-msgstr ""
+msgstr "Ouvrir le menu"
 
 msgid "Quit"
 msgstr "Quitter"
 
 msgid "About Stimulator"
-msgstr "À Propos de Stimulator"
+msgstr "À propos de Stimulateur"
 
 msgid "Unsupported System"
 msgstr "Système non pris en charge"
 
 msgid "Your desktop environment doesn't support Stimulator, click close to quit"
-msgstr ""
+msgstr "Votre environnement de bureau ne prend pas en charge Stimulateur, cliquez sur Fermer pour quitter"
 
 msgid "Run in Background"
-msgstr ""
+msgstr "Exécuter en arrière-plan"
 
 msgid "Show"
-msgstr ""
+msgstr "Afficher"
 
 msgid "Stimulator is running in the backround"
-msgstr ""
+msgstr "Le Stimulateur s'exécute en arrière-plan"
 
 msgid "Behavior on Closing When Active"
-msgstr ""
+msgstr "Comportement à la fermeture en cas d'activité"
