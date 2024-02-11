@@ -80,23 +80,25 @@ if (import.meta.main) {
 
 function verifyAndFixPoFiles(
   poFilePath: string,
-  compiled: Record<string, string>,
+  TranslateRecord: Record<string, string>,
 ) {
+  const updatedTranslateRecord = { ...TranslateRecord };
+
   const is_english = poFilePath.endsWith("en.po");
-  const compiledEntries = Object.entries(compiled);
   let changes = false;
-  Object.values(EN_UI_LABELS).forEach((prop, index) => {
-    // 0 is the msgid
-    // 1 is the msgstr
-    if (index >= compiledEntries.length) {
-      compiledEntries.push([prop, is_english ? prop : ""]);
-      changes = true;
-    } else if (compiledEntries[index][0] !== prop) {
-      compiledEntries[index][0] = prop;
-      compiledEntries[index][1] = is_english ? prop : "";
+  Object.values(EN_UI_LABELS).forEach((prop) => {
+    if (!(prop in updatedTranslateRecord)) {
+      updatedTranslateRecord[prop] = is_english ? prop : "";
       changes = true;
     }
   });
+  Object.keys(updatedTranslateRecord).forEach((prop) => {
+    if (!(prop in EN_UI_LABELS)) {
+      delete updatedTranslateRecord[prop];
+      changes = true;
+    }
+  });
+
   if (changes) {
     Deno.writeTextFileSync(
       poFilePath,
@@ -106,7 +108,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\\n"
 
 ${
-        compiledEntries.map(([msgid, msgstr]) =>
+        Object.entries(updatedTranslateRecord).map(([msgid, msgstr]) =>
           `\
 msgid "${msgid}"
 msgstr "${msgstr}"
@@ -115,7 +117,7 @@ msgstr "${msgstr}"
       }`,
     );
   }
-  return Object.fromEntries(compiledEntries);
+  return updatedTranslateRecord;
 }
 
 async function denoFmt() {
