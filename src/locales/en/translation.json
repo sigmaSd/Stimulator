@@ -16,7 +16,6 @@
     "System Theme": "System Theme",
     "Light": "Light",
     "Dark": "Dark",
-    "Confirm on Close": "Confirm on Close",
     "Keyboard Shortcuts": "Keyboard Shortcuts",
     "General": "General",
     "Open Menu": "Open Menu",
@@ -27,5 +26,7 @@
     "Run in Background": "Run in Background",
     "Show": "Show",
     "Stimulator is running in the backround": "Stimulator is running in the backround",
-    "Behavior on Closing When Active": "Behavior on Closing When Active"
+    "Ask Confirmation": "Ask Confirmation",
+    "Behavior on Closing": "Behavior on Closing",
+    "Applies only while active": "Applies only while active"
 }

@@ -53,9 +53,6 @@ msgstr "فاتح"
 msgid "Dark"
 msgstr "داكن"
 
-msgid "Confirm on Close"
-msgstr "تأكيد عند الإغلاق"
-
 msgid "Keyboard Shortcuts"
 msgstr "اختصارات لوحة المفاتيح"
 
@@ -83,8 +80,14 @@ msgstr "تشغيل في الخلفية"
 msgid "Show"
 msgstr "عرض"
 
-msgid "Behavior on Closing When Active"
-msgstr "سلوك الإغلاق في حالة التشغيل"
-
 msgid "Stimulator is running in the backround"
 msgstr "المحفز يعمل في الخلفية"
+
+msgid "Ask Confirmation"
+msgstr ""
+
+msgid "Behavior on Closing"
+msgstr ""
+
+msgid "Applies only while active"
+msgstr ""

@@ -70,9 +70,10 @@ class PreferencesMenu {
     const behaviorOnExitRow = builder.get_object(
       "behaviorOnExitRow",
     ) as Adw_.ComboRow;
-    behaviorOnExitRow.set_title(UI_LABELS["Behavior on Closing When Active"]);
+    behaviorOnExitRow.set_title(UI_LABELS["Behavior on Closing"]);
+    behaviorOnExitRow.set_subtitle(UI_LABELS["Applies only while active"]);
     const rowsLabels = [
-      UI_LABELS["Confirm on Close"],
+      UI_LABELS["Ask Confirmation"],
       UI_LABELS["Run in Background"],
       UI_LABELS["Quit"],
     ];

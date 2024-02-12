@@ -53,9 +53,6 @@ msgstr "Hele"
 msgid "Dark"
 msgstr "Tume"
 
-msgid "Confirm on Close"
-msgstr "Kinnitus sulgemisel"
-
 msgid "Keyboard Shortcuts"
 msgstr "Klaviatuuri otseteed"
 
@@ -86,5 +83,11 @@ msgstr "Näita"
 msgid "Stimulator is running in the backround"
 msgstr "Stimulaator töötab taustal"
 
-msgid "Behavior on Closing When Active"
-msgstr "Käitumine sulgemisel aktiivses olekus"
+msgid "Ask Confirmation"
+msgstr ""
+
+msgid "Behavior on Closing"
+msgstr ""
+
+msgid "Applies only while active"
+msgstr ""

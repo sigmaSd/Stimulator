@@ -45,11 +45,11 @@ For disabling screen blanking/locking, it uses
 
 | Language   | Translated (%) |
 | ---------- | -------------- |
-| Arabic     | 100.00         |
+| Arabic     | 90.00          |
 | English    | 100.00         |
-| Estonian   | 100.00         |
-| French     | 100.00         |
-| Italian    | 13.79          |
-| Portuguese | 89.66          |
+| Estonian   | 90.00          |
+| French     | 90.00          |
+| Italian    | 13.33          |
+| Portuguese | 86.67          |
 
 - Translations with less than 70% completion will not be embedded into the app

@@ -16,7 +16,6 @@
     "System Theme": "Thème du système",
     "Light": "Clair",
     "Dark": "Sombre",
-    "Confirm on Close": "Confirmer à la fermeture",
     "Keyboard Shortcuts": "Raccourcis clavier",
     "General": "Général",
     "Open Menu": "Ouvrir le menu",
@@ -27,5 +26,7 @@
     "Run in Background": "Exécuter en arrière-plan",
     "Show": "Afficher",
     "Stimulator is running in the backround": "Le Stimulateur s'exécute en arrière-plan",
-    "Behavior on Closing When Active": "Comportement à la fermeture en cas d'activité"
+    "Ask Confirmation": "",
+    "Behavior on Closing": "",
+    "Applies only while active": ""
 }

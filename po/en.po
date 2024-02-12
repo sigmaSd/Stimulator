@@ -53,9 +53,6 @@ msgstr "Light"
 msgid "Dark"
 msgstr "Dark"
 
-msgid "Confirm on Close"
-msgstr "Confirm on Close"
-
 msgid "Keyboard Shortcuts"
 msgstr "Keyboard Shortcuts"
 
@@ -86,5 +83,11 @@ msgstr "Show"
 msgid "Stimulator is running in the backround"
 msgstr "Stimulator is running in the backround"
 
-msgid "Behavior on Closing When Active"
-msgstr "Behavior on Closing When Active"
+msgid "Ask Confirmation"
+msgstr "Ask Confirmation"
+
+msgid "Behavior on Closing"
+msgstr "Behavior on Closing"
+
+msgid "Applies only while active"
+msgstr "Applies only while active"

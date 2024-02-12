@@ -16,7 +16,6 @@
     "System Theme": "Süsteemi teema",
     "Light": "Hele",
     "Dark": "Tume",
-    "Confirm on Close": "Kinnitus sulgemisel",
     "Keyboard Shortcuts": "Klaviatuuri otseteed",
     "General": "Üldine",
     "Open Menu": "Ava menüü",
@@ -27,5 +26,7 @@
     "Run in Background": "Töötab taustal",
     "Show": "Näita",
     "Stimulator is running in the backround": "Stimulaator töötab taustal",
-    "Behavior on Closing When Active": "Käitumine sulgemisel aktiivses olekus"
+    "Ask Confirmation": "",
+    "Behavior on Closing": "",
+    "Applies only while active": ""
 }

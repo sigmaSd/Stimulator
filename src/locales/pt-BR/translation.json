@@ -16,7 +16,6 @@
     "System Theme": "Tema do Sistema",
     "Light": "Claro",
     "Dark": "Escuro",
-    "Confirm on Close": "",
     "Keyboard Shortcuts": "Atalhos de Teclado",
     "General": "Geral",
     "Open Menu": "Abrir Menu",
@@ -27,5 +26,7 @@
     "Run in Background": "Rodar em Segundo Plano",
     "Show": "Mostrar",
     "Stimulator is running in the backround": "",
-    "Behavior on Closing When Active": ""
+    "Ask Confirmation": "",
+    "Behavior on Closing": "",
+    "Applies only while active": ""
 }

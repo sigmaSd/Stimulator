@@ -16,7 +16,6 @@
     "System Theme": "سمة النظام",
     "Light": "فاتح",
     "Dark": "داكن",
-    "Confirm on Close": "تأكيد عند الإغلاق",
     "Keyboard Shortcuts": "اختصارات لوحة المفاتيح",
     "General": "عام",
     "Open Menu": "فتح القائمة",
@@ -26,6 +25,8 @@
     "Your desktop environment doesn't support Stimulator, click close to quit": "بيئة سطح المكتب الخاصة بك لا تدعم المحفز، انقر فوق إغلاق للخروج",
     "Run in Background": "تشغيل في الخلفية",
     "Show": "عرض",
-    "Behavior on Closing When Active": "سلوك الإغلاق في حالة التشغيل",
-    "Stimulator is running in the backround": "المحفز يعمل في الخلفية"
+    "Stimulator is running in the backround": "المحفز يعمل في الخلفية",
+    "Ask Confirmation": "",
+    "Behavior on Closing": "",
+    "Applies only while active": ""
 }
