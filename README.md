@@ -48,7 +48,7 @@ For disabling screen blanking/locking, it uses
 | Arabic     | 90.00          |
 | English    | 100.00         |
 | Estonian   | 90.00          |
-| French     | 90.00          |
+| French     | 100.00         |
 | Italian    | 13.33          |
 | Portuguese | 86.67          |
 
