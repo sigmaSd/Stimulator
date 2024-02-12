@@ -19,21 +19,22 @@ export class EN_UI_LABELS {
   static "System Theme": string;
   static "Light": string;
   static "Dark": string;
+  static "Behavior on Closing": string;
+  static "Applies only while active": string;
   static "Ask Confirmation": string;
+  static "Run in Background": string;
+  static "Quit": string;  
   static "Keyboard Shortcuts": string;
   static "General": string;
   static "Open Menu": string;
-  static "Quit": string;
   static "About Stimulator": string;
   static "Unsupported System": string;
   static "Your desktop environment doesn't support Stimulator, click close to quit":
     string;
   // we don't advertise tray icon support
-  static "Run in Background": string;
   static "Show": string;
   static "Stimulator is running in the backround": string;
-  static "Behavior on Closing": string;
-  static "Applies only while active": string;
+
 }
 
 @translate

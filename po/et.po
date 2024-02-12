@@ -84,10 +84,10 @@ msgid "Stimulator is running in the backround"
 msgstr "Stimulaator töötab taustal"
 
 msgid "Ask Confirmation"
-msgstr ""
+msgstr "Küsi kinnitust"
 
 msgid "Behavior on Closing"
-msgstr ""
+msgstr "Käitumine sulgemisel"
 
 msgid "Applies only while active"
-msgstr ""
+msgstr "Rakendub ainult aktiivses olekus"
