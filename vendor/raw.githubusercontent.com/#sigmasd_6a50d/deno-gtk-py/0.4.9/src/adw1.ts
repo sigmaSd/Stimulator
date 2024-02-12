@@ -84,6 +84,10 @@ export interface PreferencesRow extends Gtk4_.Widget {
   set_title(title: string): void;
 }
 
+export interface ActionRow extends PreferencesRow {
+  set_subtitle(subtitle: string): void;
+}
+
 export interface SwitchRow extends PreferencesRow {
   is_sensitive(): { valueOf: () => boolean };
   get_active(): { valueOf: () => boolean };
@@ -93,7 +97,7 @@ export interface SwitchRow extends PreferencesRow {
   connect(event: "state-set" | "notify::active", callback: Callback): void;
 }
 
-export interface ComboRow extends PreferencesRow {
+export interface ComboRow extends ActionRow {
   get_selected(): { valueOf(): number };
   set_selected(item: number): void;
   set_model(model: Gio2_.ListModel): void;
