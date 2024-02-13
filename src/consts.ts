@@ -23,7 +23,7 @@ export class EN_UI_LABELS {
   static "Applies only while active": string;
   static "Ask Confirmation": string;
   static "Run in Background": string;
-  static "Quit": string;  
+  static "Quit": string;
   static "Keyboard Shortcuts": string;
   static "General": string;
   static "Open Menu": string;
@@ -41,7 +41,7 @@ export class UI_LABELS extends EN_UI_LABELS {}
 
 export const APP_ID = "io.github.sigmasd.stimulator";
 export const APP_NAME = UI_LABELS["Stimulator"];
-export const VERSION = "0.9.0";
+export const VERSION = "1.0";
 
 function genLabels<T>(klass: T, ctx: ClassDecoratorContext) {
   ctx.addInitializer(function () {

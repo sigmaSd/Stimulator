@@ -44,6 +44,17 @@
   <content_rating type="oars-1.1" />
 
   <releases>
+     <release version="1.0" date="2024-02-13">
+      <description>
+        <ul>
+          <li>Support running in the background</li>
+          <li>AppIndicator support</li>
+          <li>Use org.freedesktop.ScreenSaver portal for stopping screen dimming (needed for KDE)</li>
+          <li>More UI improvements</li>
+          <li>More translations added</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.9.0" date="2024-01-27">
       <description>
         <ul>
