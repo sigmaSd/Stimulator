@@ -26,7 +26,7 @@
     "Run in Background": "Töötab taustal",
     "Show": "Näita",
     "Stimulator is running in the backround": "Stimulaator töötab taustal",
-    "Ask Confirmation": "",
-    "Behavior on Closing": "",
-    "Applies only while active": ""
+    "Ask Confirmation": "Küsi kinnitust",
+    "Behavior on Closing": "Käitumine sulgemisel",
+    "Applies only while active": "Rakendub ainult aktiivses olekus"
 }
