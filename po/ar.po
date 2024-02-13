@@ -84,10 +84,10 @@ msgid "Stimulator is running in the backround"
 msgstr "المحفز يعمل في الخلفية"
 
 msgid "Ask Confirmation"
-msgstr ""
+msgstr "طلب تأكيد"
 
 msgid "Behavior on Closing"
-msgstr ""
+msgstr "السلوك عند الإغلاق"
 
 msgid "Applies only while active"
-msgstr ""
+msgstr "ينطبق فقط أثناء التشغيل"
