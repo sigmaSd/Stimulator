@@ -6,7 +6,7 @@ msgid "Stimulator"
 msgstr ""
 
 msgid "Keep your computer awake"
-msgstr ""
+msgstr "Mantieni il computer attivo"
 
 msgid "caffeine;nosleep;awake;keepawake;keepon;"
 msgstr ""
@@ -15,7 +15,7 @@ msgid "Disable Automatic Suspending"
 msgstr "Disattiva la sospensione automatica"
 
 msgid "Disable Screen Blanking and Locking"
-msgstr ""
+msgstr "Disattiva l'oscuramento e il blocco dello schermo"
 
 msgid "Current state: System default"
 msgstr "Stato corrente: impostazione predefinita del sistema"
@@ -27,67 +27,67 @@ msgid "Stimulator is active"
 msgstr "Stimulator est active"
 
 msgid "Close Stimulator?"
-msgstr ""
+msgstr "Chiudere lo stimulator?"
 
 msgid "Stimulator is active, do you want to close it?"
-msgstr ""
+msgstr "Stimulator è attivo, vuoi chiuderlo?"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 msgid "Close"
-msgstr ""
+msgstr "Chiudi"
 
 msgid "Preferences"
-msgstr ""
+msgstr "Preferenze"
 
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 msgid "System Theme"
-msgstr ""
+msgstr "Tema del sistema"
 
 msgid "Light"
-msgstr ""
+msgstr "Chiaro"
 
 msgid "Dark"
-msgstr ""
+msgstr "Scuro"
 
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Scorciatoie da tastiera"
 
 msgid "General"
-msgstr ""
+msgstr "Generale"
 
 msgid "Open Menu"
-msgstr ""
+msgstr "Apri il menù"
 
 msgid "Quit"
-msgstr ""
+msgstr "Esci"
 
 msgid "About Stimulator"
-msgstr ""
+msgstr "Informazioni su Stimulator"
 
 msgid "Unsupported System"
-msgstr ""
+msgstr "Sistema non supportato"
 
 msgid "Your desktop environment doesn't support Stimulator, click close to quit"
-msgstr ""
+msgstr "Il tuo ambiente desktop non supporta Stimulator, fai clic su Chiudi per uscire"
 
 msgid "Run in Background"
-msgstr ""
+msgstr "Esegui in background"
 
 msgid "Show"
-msgstr ""
+msgstr "Mostra"
 
 msgid "Stimulator is running in the backround"
-msgstr ""
+msgstr "Stimulator è in esecuzione in background"
 
 msgid "Ask Confirmation"
-msgstr ""
+msgstr "Chiedi conferma"
 
 msgid "Behavior on Closing"
-msgstr ""
+msgstr "Comportamento alla chiusura"
 
 msgid "Applies only while active"
-msgstr ""
+msgstr "Si applica solo mentre è attivo"
