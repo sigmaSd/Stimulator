@@ -13,6 +13,7 @@ export class Indicator {
       [
         "deno",
         "run",
+        "--allow-read=./src/locales",
         "--allow-env=DENO_PYTHON_PATH",
         "--allow-ffi",
         "--unstable-ffi",
