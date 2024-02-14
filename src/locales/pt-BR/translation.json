@@ -21,12 +21,12 @@
     "Open Menu": "Abrir Menu",
     "Quit": "Sair",
     "About Stimulator": "Sobre Stimulator",
-    "Unsupported System": "Sistema Operacional Não Suportado",
+    "Unsupported System": "Sistema Não Suportado",
     "Your desktop environment doesn't support Stimulator, click close to quit": "Seu ambiente desktop não suporta Stimulator, pressione o botão de fechar para sair",
     "Run in Background": "Rodar em Segundo Plano",
     "Show": "Mostrar",
-    "Stimulator is running in the backround": "",
-    "Ask Confirmation": "",
-    "Behavior on Closing": "",
-    "Applies only while active": ""
+    "Stimulator is running in the backround": "Stimulator está rodando em segundo plano",
+    "Ask Confirmation": "Pedir Confirmação",
+    "Behavior on Closing": "Comportamento Durante Fechamento",
+    "Applies only while active": "Aplica-se apenas enquanto ativo"
 }
