@@ -3,13 +3,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 
 msgid "Stimulator"
-msgstr ""
+msgstr "Stimolatore"
 
 msgid "Keep your computer awake"
 msgstr "Mantieni il computer attivo"
 
 msgid "caffeine;nosleep;awake;keepawake;keepon;"
-msgstr ""
+msgstr "caffeina;non dormire;sveglio;mantieniti sveglio;"
 
 msgid "Disable Automatic Suspending"
 msgstr "Disattiva la sospensione automatica"
