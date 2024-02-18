@@ -12,9 +12,16 @@
 
   <description>
     <p>
-      This is a simple app that prevents the desktop environment (DE) from sleeping while its on.
+      Prevents the desktop environment (DE) from sleeping.
       It should work regardless of the used DE thanks to the Inhibit portal.
     </p>
+    <p>Features:</p>
+    <ul>
+      <li>Overrides system setting and disables automatic suspending</li>
+      <li>Overrides system setting and disables screen blanking and screen locking</li>
+      <li>Option to use system default, light or dark theme</li>
+      <li>AppIndicator support</li>
+    </ul>
   </description>
 
   <launchable type="desktop-id">io.github.sigmasd.stimulator.desktop</launchable>
