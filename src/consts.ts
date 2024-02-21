@@ -14,6 +14,7 @@ export class EN_UI_LABELS {
   static "Stimulator is active, do you want to close it?": string;
   static "Cancel": string;
   static "Close": string;
+  static "Main Menu": string;
   static "Preferences": string;
   static "Theme": string;
   static "System Theme": string;

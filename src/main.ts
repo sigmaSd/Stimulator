@@ -231,6 +231,7 @@ export class MainWindow {
     hamburger.set_primary(true);
     hamburger.set_popover(popover);
     hamburger.set_icon_name("open-menu-symbolic");
+    hamburger.set_tooltip_text(UI_LABELS["Main Menu"]);
     header.pack_start(hamburger);
 
     this.#createAction(
