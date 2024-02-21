@@ -38,6 +38,9 @@ msgstr "Tühista"
 msgid "Close"
 msgstr "Sulge"
 
+msgid "Main Menu"
+msgstr "Peamenüü"
+
 msgid "Preferences"
 msgstr "Eelistused"
 

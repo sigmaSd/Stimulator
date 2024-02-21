@@ -91,3 +91,6 @@ msgstr "Behavior on Closing"
 
 msgid "Applies only while active"
 msgstr "Applies only while active"
+
+msgid "Main Menu"
+msgstr "Main Menu"
