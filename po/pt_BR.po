@@ -91,3 +91,6 @@ msgstr "Comportamento Durante Fechamento"
 
 msgid "Applies only while active"
 msgstr "Aplica-se apenas enquanto ativo"
+
+msgid "Main Menu"
+msgstr ""
