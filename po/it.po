@@ -93,4 +93,4 @@ msgid "Applies only while active"
 msgstr "Si applica solo mentre è attivo"
 
 msgid "Main Menu"
-msgstr ""
+msgstr "Menù principale"
