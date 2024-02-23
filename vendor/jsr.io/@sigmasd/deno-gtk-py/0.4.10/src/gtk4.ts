@@ -6,7 +6,7 @@ import type {
   GObject2_,
   NamedArgument,
   PythonConvertible,
-} from "../mod.ts";
+} from "./../mod.ts";
 
 export interface Gtk {
   Builder(): Builder;

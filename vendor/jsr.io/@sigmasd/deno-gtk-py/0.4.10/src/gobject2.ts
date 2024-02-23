@@ -1,4 +1,4 @@
-import { Callback } from "../mod.ts";
+import { Callback } from "./../mod.ts";
 
 export interface Object {
   connect(signal: string, callback: Callback): void;

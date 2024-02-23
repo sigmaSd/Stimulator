@@ -1,4 +1,4 @@
-export * from "https://deno.land/x/python@0.4.3/mod.ts";
+export * from "jsr:@denosaurs/python@0.4.3";
 
 export * as Gtk4_ from "./src/gtk4.ts";
 export * as Gtk3_ from "./src/gtk3.ts";

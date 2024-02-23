@@ -1,4 +1,4 @@
-import type { Callback, GLib2_, Gtk4_ } from "../mod.ts";
+import type { Callback, GLib2_, Gtk4_ } from "./../mod.ts";
 
 export interface Gio {
   Notification: { new: (title: string) => Notification };

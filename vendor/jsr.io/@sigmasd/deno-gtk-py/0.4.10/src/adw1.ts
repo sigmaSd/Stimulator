@@ -5,7 +5,7 @@ import type {
   NamedArgument,
   PyObject,
   PythonConvertible,
-} from "../mod.ts";
+} from "./../mod.ts";
 
 export interface Adw {
   ResponseAppearance: {

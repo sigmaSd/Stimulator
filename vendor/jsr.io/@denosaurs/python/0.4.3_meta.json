@@ -1,0 +1,320 @@
+{
+  "manifest": {
+    "/test/bench.ts": {
+      "size": 229,
+      "checksum": "sha256-c6927abfd3562a120535e9496773bac6eef9e7be9e4e22ad354cd3bd41656248"
+    },
+    "/examples/run_code.ts": {
+      "size": 160,
+      "checksum": "sha256-1e2ea28186a6c6ca2d62656bbd3b5675980c0eae2476fffa7eaded5b2960f09d"
+    },
+    "/.gitignore": {
+      "size": 76,
+      "checksum": "sha256-d665f1a133ae53d4177433bca686c81716233c38ce27a523aab97b741c22cd30"
+    },
+    "/test/bun.test.js": {
+      "size": 77,
+      "checksum": "sha256-a25054994dc0596b9022ecf58a3e41a0511c406321081927d6eb6664f906bcb7"
+    },
+    "/examples/pip_import.ts": {
+      "size": 252,
+      "checksum": "sha256-7650fc02f93c0244a5f21dfb4c0352d41575fb425bd002d5eda4ff44fa8b4791"
+    },
+    "/test/test.ts": {
+      "size": 8032,
+      "checksum": "sha256-5f509c6970e9cee361b663ea2ad72b01133a87e54432ff2d4e837d162f903d77"
+    },
+    "/src/symbols.ts": {
+      "size": 4248,
+      "checksum": "sha256-10947b73f1c79ffa87d55074f47b3952e5983a4af02e3c36c404567dfa7bd980"
+    },
+    "/examples/test.py": {
+      "size": 30,
+      "checksum": "sha256-f58b2f308ba0109a06d5f5c27ea4443c886ca7262bf5ed5d0673ff5a454e2fce"
+    },
+    "/test/bun_compat.js": {
+      "size": 376,
+      "checksum": "sha256-0277e4f3ba98e732ed88f411f93162c52bcffaaf5e32142f75653eb56853c823"
+    },
+    "/ext/pip.ts": {
+      "size": 4376,
+      "checksum": "sha256-e889a0bea7bef7f68909819d46a7fe931c395a1e177773f645d1c060b98040e4"
+    },
+    "/package.json": {
+      "size": 501,
+      "checksum": "sha256-995551e7dcf325a6416fe7163aed04ed845d1a69395f35c4e0bf957cafa83f2e"
+    },
+    "/test/asserts.ts": {
+      "size": 715,
+      "checksum": "sha256-a30d9e6334d9a7d1d82af90a6d7eafcf9d6b946f142a508a82113fd2680426c2"
+    },
+    "/examples/hello_python.ts": {
+      "size": 192,
+      "checksum": "sha256-7ee9f06baa4b2afc8a573a211f5b3a0d2acfed866363bdb6e1b9d5a2f15b5ea0"
+    },
+    "/examples/tensorflow.ts": {
+      "size": 159,
+      "checksum": "sha256-183b25866df437f10ad8530215409d6dccba0a053f64b74133c1495bee9b3148"
+    },
+    "/.github/workflows/checks.yml": {
+      "size": 1605,
+      "checksum": "sha256-d7e9315ce00f3612c2461a76ae52f69096b6d6f9e5991f7a187a7ef1dd079d33"
+    },
+    "/src/util.ts": {
+      "size": 1658,
+      "checksum": "sha256-8abfee48a2f3870401db000c66d3bb66bcc4e9a9ca947eafc0600822a5369aba"
+    },
+    "/README.md": {
+      "size": 5524,
+      "checksum": "sha256-23aa51a701577ae6d9c76294c9519d3445d6055d2ba7db780d5b35614ea8916a"
+    },
+    "/src/python.ts": {
+      "size": 28383,
+      "checksum": "sha256-f6e54bd7a62a0a3589fe27bc626cfbcfa9f15787482640b18134b3c8009fdd72"
+    },
+    "/test/package.json": {
+      "size": 266,
+      "checksum": "sha256-62346796d1af6f0bad82d15dae7974fdd17275a32022ae29d1b4c404b1721033"
+    },
+    "/ipy.ts": {
+      "size": 462,
+      "checksum": "sha256-36670c7ae0814449c75d85f8b2b2430c43abb053e5757982462ab6d2fb710fa2"
+    },
+    "/tools/type.ts": {
+      "size": 951,
+      "checksum": "sha256-b12230fcb27f4a4d4c5cf4158d2da4300bcbe7a57e34f77497239d0b9cf99716"
+    },
+    "/plugin.ts": {
+      "size": 1243,
+      "checksum": "sha256-28a7aae2c890967b731d1bb229090125160d86da20f11a05e3484b6068b9ebaf"
+    },
+    "/.github/FUNDING.yml": {
+      "size": 61,
+      "checksum": "sha256-e4a15e7a0c339a169452f1b5b3036fa026ba4a6dc47d11cdb1751e56fda37194"
+    },
+    "/src/bun_compat.js": {
+      "size": 2411,
+      "checksum": "sha256-f42420292443442da85fb754d4d6aebb3eaa820d744d20e66abf46860bf814da"
+    },
+    "/mod.ts": {
+      "size": 86,
+      "checksum": "sha256-36292020f3a7e8c9774d5de7fe32e261b3b5ddfbb6689a78bb499014d40baa82"
+    },
+    "/LICENSE": {
+      "size": 1107,
+      "checksum": "sha256-c1fc3496381e36ae2a0d8cdd27855c39ae10ac64143ade645f354772c17ba44a"
+    },
+    "/deno.json": {
+      "size": 773,
+      "checksum": "sha256-31ce04c9c3c7533acaa619c3c32a1e9df88243cb91c64879cb8235173c2d2a6a"
+    },
+    "/examples/import.js": {
+      "size": 193,
+      "checksum": "sha256-2b339127ea85a72977c6307e3ab409133a61e2404dc0898f3be41132c0b0cef0"
+    },
+    "/src/ffi.ts": {
+      "size": 2220,
+      "checksum": "sha256-9e96f50eda08a2a37adb2b51cac9db3cf71dae5ec4e6e8045af39359eff1ea97"
+    },
+    "/mod.bun.ts": {
+      "size": 107,
+      "checksum": "sha256-ac8f45445f9b3ca212e59f675a7ffb30314bbbbb0f14526875cd66bf35b7f560"
+    },
+    "/examples/matplotlib.ts": {
+      "size": 231,
+      "checksum": "sha256-988eeef119374413385c0ecba76c2828b33a31521d554c4027b56499db91de12"
+    },
+    "/deno.lock": {
+      "size": 29538,
+      "checksum": "sha256-6266c4bdc15058a5c5d2f01fad30033b2a39a5642508dfc1cddd0c9933051cee"
+    },
+    "/bunfig.toml": {
+      "size": 26,
+      "checksum": "sha256-6ce3aeb6fb14115a58f6eea54ebd0a89f5a6b5d89447c5ca685ca4fc8f8d5d7b"
+    }
+  },
+  "moduleGraph1": {
+    "/mod.ts": {
+      "dependencies": [
+        {
+          "type": "static",
+          "kind": "export",
+          "range": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              32
+            ]
+          ],
+          "specifier": "./src/python.ts",
+          "specifierRange": [
+            [
+              0,
+              14
+            ],
+            [
+              0,
+              31
+            ]
+          ]
+        },
+        {
+          "type": "static",
+          "kind": "export",
+          "range": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              52
+            ]
+          ],
+          "specifier": "./src/python.ts",
+          "specifierRange": [
+            [
+              1,
+              34
+            ],
+            [
+              1,
+              51
+            ]
+          ]
+        }
+      ]
+    },
+    "/src/python.ts": {
+      "dependencies": [
+        {
+          "type": "static",
+          "kind": "import",
+          "leadingComments": [
+            {
+              "text": " deno-lint-ignore-file no-explicit-any no-fallthrough",
+              "range": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  55
+                ]
+              ]
+            }
+          ],
+          "range": [
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              30
+            ]
+          ],
+          "specifier": "./ffi.ts",
+          "specifierRange": [
+            [
+              2,
+              19
+            ],
+            [
+              2,
+              29
+            ]
+          ]
+        },
+        {
+          "type": "static",
+          "kind": "import",
+          "range": [
+            [
+              3,
+              0
+            ],
+            [
+              3,
+              50
+            ]
+          ],
+          "specifier": "./util.ts",
+          "specifierRange": [
+            [
+              3,
+              38
+            ],
+            [
+              3,
+              49
+            ]
+          ]
+        }
+      ]
+    },
+    "/src/util.ts": {},
+    "/src/ffi.ts": {
+      "dependencies": [
+        {
+          "type": "static",
+          "kind": "import",
+          "range": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              39
+            ]
+          ],
+          "specifier": "./symbols.ts",
+          "specifierRange": [
+            [
+              0,
+              24
+            ],
+            [
+              0,
+              38
+            ]
+          ]
+        },
+        {
+          "type": "static",
+          "kind": "import",
+          "range": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              38
+            ]
+          ],
+          "specifier": "./util.ts",
+          "specifierRange": [
+            [
+              1,
+              26
+            ],
+            [
+              1,
+              37
+            ]
+          ]
+        }
+      ]
+    },
+    "/src/symbols.ts": {}
+  },
+  "exports": {
+    ".": "./mod.ts"
+  }
+}

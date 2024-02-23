@@ -1,7 +1,4 @@
-import {
-  Callback,
-  NamedArgument,
-} from "https://deno.land/x/python@0.4.3/src/python.ts";
+import { Callback, NamedArgument } from "jsr:@denosaurs/python@0.4.3";
 
 export interface Gtk {
   MenuItem(kwArg: NamedArgument): MenuItem;

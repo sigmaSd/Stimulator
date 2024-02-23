@@ -1,7 +1,4 @@
 {
-  "folders": {
-    "https://raw.githubusercontent.com/sigmaSd/": "raw.githubusercontent.com/#sigmasd_6a50d"
-  },
   "modules": {
     "https://deno.land/x/i18next@v23.7.11/EventEmitter.js": {},
     "https://deno.land/x/i18next@v23.7.11/ResourceStore.js": {},
