@@ -97,6 +97,7 @@ export interface ApplicationWindow extends Window {
 
 export interface Widget extends GObject2_.Object {
   set_css_classes(classes: string[]): void;
+  set_tooltip_text(text: string): void;
   set_visible(visible: boolean): void;
 }
 
