@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
+"Language-Team: \n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+msgid "Stimulator"
+msgstr "Stimulator"
+
+msgid "Keep your computer awake"
+msgstr "Bilgisayarınızı uyanık tutun"
+
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "caffeine;uykusuz;uyanık;uyanık kal;devam et;"
+
+msgid "Disable Automatic Suspending"
+msgstr "Kendiliğinden Askıya Almayı Devre Dışı Bırak"
+
+msgid "Disable Screen Blanking and Locking"
+msgstr "Ekran Karartma ve Kilitlemeyi Devre Dışı Bırak"
+
+msgid "Current state: System default"
+msgstr "Geçerli durum: Sistem öntanımlısı"
+
+msgid "Current state: Indefinitely"
+msgstr "Geçerli durum: Süresiz"
+
+msgid "Stimulator is active"
+msgstr "Stimulator etkin"
+
+msgid "Close Stimulator?"
+msgstr "Stimulator Kapatılsın Mı?"
+
+msgid "Stimulator is active, do you want to close it?"
+msgstr "Stimulator etkin, kapatmak istiyor musunuz?"
+
+msgid "Cancel"
+msgstr "İptal"
+
+msgid "Close"
+msgstr "Kapat"
+
+msgid "Preferences"
+msgstr "Tercihler"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "System Theme"
+msgstr "Sistem teması"
+
+msgid "Light"
+msgstr "Açık"
+
+msgid "Dark"
+msgstr "Koyu"
+
+msgid "Keyboard Shortcuts"
+msgstr "Klavye Kısayolları"
+
+msgid "General"
+msgstr "Genel"
+
+msgid "Open Menu"
+msgstr "Menüyü Aç"
+
+msgid "Quit"
+msgstr "Çık"
+
+msgid "About Stimulator"
+msgstr "Stimulator Hakkında"
+
+msgid "Unsupported System"
+msgstr "Desteklenmeyen Sistem"
+
+msgid "Your desktop environment doesn't support Stimulator, click close to quit"
+msgstr "Masaüstünüz Stimulator uygulamasını desteklemiyor, çıkmak için kapat'a tıklayın"
+
+msgid "Run in Background"
+msgstr "Arka Planda Çalış"
+
+msgid "Show"
+msgstr "Göster"
+
+msgid "Stimulator is running in the backround"
+msgstr "Stimulator arka planda çalışıyor"
+
+msgid "Ask Confirmation"
+msgstr "Onay İste"
+
+msgid "Behavior on Closing"
+msgstr "Kapatma Davranışı"
+
+msgid "Applies only while active"
+msgstr "Yalnızca etkinken geçerlidir"
+
+msgid "Main Menu"
+msgstr "Ana Menü"
