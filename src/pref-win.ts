@@ -4,6 +4,7 @@ import { Indicator } from "./indicator/indicator_api.ts";
 import { Adw, GLib, Gtk, MainWindow } from "./main.ts";
 
 export type Theme = "System Theme" | "Light" | "Dark";
+export type Behavior = "Ask Confirmation" | "Run in Background" | "Quit";
 
 export class PreferencesMenu {
   #preferencesWin: Adw_.PreferencesWindow;
@@ -21,6 +22,22 @@ export class PreferencesMenu {
     },
     toId(theme: Theme): number {
       return this.themes.indexOf(theme);
+    },
+  };
+  #behaviorOnExitItems = {
+    items: ["Ask Confirmation", "Run in Background", "Quit"] as Behavior[],
+
+    get itemsTranslated() {
+      return this.items.map((item) => UI_LABELS[item]);
+    },
+    fromId(id: number): Behavior {
+      if (id < 0 || id >= this.items.length) {
+        throw new Error(`Invalid item ID: ${id}`);
+      }
+      return this.items[id];
+    },
+    toId(item: Behavior): number {
+      return this.items.indexOf(item);
     },
   };
 
@@ -66,26 +83,25 @@ export class PreferencesMenu {
     ) as Adw_.ComboRow;
     behaviorOnExitRow.set_title(UI_LABELS["Behavior on Closing"]);
     behaviorOnExitRow.set_subtitle(UI_LABELS["Applies only while active"]);
-    const rowsLabels = [
-      UI_LABELS["Ask Confirmation"],
-      UI_LABELS["Run in Background"],
-      UI_LABELS["Quit"],
-    ];
     behaviorOnExitRow.set_model(
-      Gtk.StringList.new(rowsLabels),
+      Gtk.StringList.new(this.#behaviorOnExitItems.itemsTranslated),
     );
     //NOTE: ADW bug, set_selected(0) doesn't set the item as selected initilally
     // so trigger it with this, before the actual correct selection
     behaviorOnExitRow.set_selected(1);
-    behaviorOnExitRow.set_selected(mainWindow.state["exitBehavior"] as number);
+    behaviorOnExitRow.set_selected(
+      this.#behaviorOnExitItems.toId(mainWindow.state["exitBehaviorV2"]),
+    );
 
     behaviorOnExitRow.connect(
       "notify::selected",
       python.callback(() => {
-        const behaviorNumber = behaviorOnExitRow
-          .get_selected().valueOf();
+        const behavior = this.#behaviorOnExitItems.fromId(
+          behaviorOnExitRow
+            .get_selected().valueOf(),
+        );
         // If the option is a `Run In Background` make sure to run the indicator
-        if (behaviorNumber === 1) {
+        if (behavior === "Run in Background") {
           if (mainWindow.indicator === undefined) {
             mainWindow.indicator = new Indicator(mainWindow);
           }
@@ -102,7 +118,7 @@ export class PreferencesMenu {
           );
         }
 
-        mainWindow.updateState({ "exitBehavior": behaviorNumber });
+        mainWindow.updateState({ "exitBehaviorV2": behavior });
       }),
     );
   }

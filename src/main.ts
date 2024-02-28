@@ -14,6 +14,7 @@ import {
 import { APP_ID, APP_NAME, UI_LABELS, VERSION } from "./consts.ts";
 import { Indicator } from "./indicator/indicator_api.ts";
 import { PreferencesMenu, Theme } from "./pref-win.ts";
+import { Behavior } from "./pref-win.ts";
 
 const gi = python.import("gi");
 gi.require_version("Gtk", "4.0");
@@ -31,8 +32,8 @@ interface State {
   "switch": boolean;
   "suspend": boolean;
   "idle": boolean | "active_disabled";
-  "exitBehavior": number;
   "themeV2": Theme;
+  "exitBehaviorV2": Behavior;
 }
 
 export class MainWindow {
@@ -69,8 +70,8 @@ export class MainWindow {
     "switch": false,
     "suspend": false,
     "idle": false,
-    "themeV2": "System Theme", /*System Theme*/
-    "exitBehavior": 0, /*Confirm On Close*/
+    "themeV2": "System Theme",
+    "exitBehaviorV2": "Ask Confirmation",
   };
   #cookies: { [key in Flags | "screenSaverCookie"]?: number } = {};
   constructor(app: Adw_.Application) {
@@ -84,7 +85,7 @@ export class MainWindow {
       : Adw.ColorScheme.FORCE_DARK;
     Adw.StyleManager.get_default().set_color_scheme(currentTheme);
 
-    if (this.state["exitBehavior"] === 1 /*Run In Background*/) {
+    if (this.state["exitBehaviorV2"] === "Run in Background") {
       this.#indicator = new Indicator(this);
     }
 
@@ -203,7 +204,7 @@ export class MainWindow {
     }
     // if tray icon is active and suspend button is active, go to the background instead of exiting
     if (
-      this.state["exitBehavior"] === 1 /*"Run In Background"*/ &&
+      this.state["exitBehaviorV2"] === "Run in Background" &&
       this.state["suspend"]
     ) {
       this.#win.set_visible(false);
@@ -223,7 +224,10 @@ export class MainWindow {
       return false;
     }
     // if confirm on exit is disabled return
-    if (this.#state["exitBehavior"] !== 0 /*"Confirm On Close"*/) {
+    if (
+      this.#state["exitBehaviorV2"] !==
+        "Ask Confirmation"
+    ) {
       this.#indicator?.close();
       return false;
     }
@@ -274,7 +278,7 @@ export class MainWindow {
   #toggleSuspend = (yes: boolean) => {
     const idleRowActive = this.#idleRow.get_active().valueOf();
     if (yes) {
-      if (this.state["exitBehavior"] === 1 /*"Run In Background"*/) {
+      if (this.state["exitBehaviorV2"] === "Run in Background") {
         this.#indicator?.activate();
       }
       this.#suspendRow.set_subtitle(UI_LABELS["Current state: Indefinitely"]);
@@ -299,7 +303,7 @@ export class MainWindow {
       }
       this.#cookies["suspend"] = result;
     } else {
-      if (this.state["exitBehavior"] === 1 /*"Run In Background"*/) {
+      if (this.state["exitBehaviorV2"] === "Run in Background") {
         this.#indicator?.deactivate();
       }
       this.#suspendRow.set_subtitle(UI_LABELS["Current state: System default"]);
