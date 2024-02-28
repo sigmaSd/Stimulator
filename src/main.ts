@@ -24,13 +24,52 @@ export const GLib: GLib_.GLib = python.import("gi.repository.GLib");
 
 type Flags = "logout" | "switch" | "suspend" | "idle";
 
+type Theme = "System Theme" | "Dark" | "Light";
+
+type ThemeItems =
+  & {
+    [key in Theme]: number;
+  }
+  & {
+    fromId(id: number): Theme | undefined;
+    toId(theme: Theme): number;
+    label(item: Theme): string;
+  };
+
+interface State {
+  "logout": boolean;
+  "switch": boolean;
+  "suspend": boolean;
+  "idle": boolean | "active_disabled";
+  "exitBehavior": number;
+  "themeV2": Theme;
+}
+
 class PreferencesMenu {
   #preferencesWin: Adw_.PreferencesWindow;
+  #themeItems: ThemeItems = {
+    "System Theme": 0, // -> ["s","l","d"]
+    "Light": 1,
+    "Dark": 2,
+
+    fromId(id: number): Theme {
+      return Object.keys(this)
+        .find((key) => this[key as Theme] === id) as Theme;
+    },
+    toId(theme: Theme): number {
+      return this[theme];
+    },
+    label: (item: Theme) => {
+      return UI_LABELS[item as keyof UI_LABELS];
+    },
+  };
+
   constructor(mainWindow: MainWindow) {
     const builder = Gtk.Builder();
     builder.add_from_file(
       new URL(import.meta.resolve("./ui/preferences.ui")).pathname,
     );
+
     this.#preferencesWin = builder.get_object(
       "preferencesWin",
     ) as Adw_.PreferencesWindow;
@@ -41,29 +80,32 @@ class PreferencesMenu {
     const themeRow = builder.get_object(
       "themeRow",
     ) as Adw_.ComboRow;
+
     themeRow.set_title(UI_LABELS.Theme);
     themeRow.set_model(
       Gtk.StringList.new([
-        UI_LABELS["System Theme"],
-        UI_LABELS["Light"],
-        UI_LABELS["Dark"],
+        this.#themeItems.label("System Theme"),
+        this.#themeItems.label("Light"),
+        this.#themeItems.label("Dark"),
       ]),
     );
     //NOTE: ADW bug, set_selected(0) doesn't set the item as selected initilally
     // so trigger it with this, before the actual correct selection
     themeRow.set_selected(1);
-    themeRow.set_selected(mainWindow.state["theme"] as number);
+    themeRow.set_selected(this.#themeItems.toId(mainWindow.state["themeV2"]));
     themeRow.connect(
       "notify::selected",
       python.callback(() => {
-        const themeNumber = themeRow.get_selected().valueOf();
+        const theme = this.#themeItems.fromId(
+          themeRow.get_selected().valueOf(),
+        );
         //deno-fmt-ignore
         Adw.StyleManager.get_default().set_color_scheme(
-            themeNumber === 0 ? Adw.ColorScheme.DEFAULT
-          : themeNumber === 1 ? Adw.ColorScheme.FORCE_LIGHT
+            theme === "System Theme" ? Adw.ColorScheme.DEFAULT
+          : theme === "Light" ? Adw.ColorScheme.FORCE_LIGHT
           : Adw.ColorScheme.FORCE_DARK,
         );
-        mainWindow.updateState({ "theme": themeNumber });
+        mainWindow.updateState({ "themeV2": theme });
       }),
     );
 
@@ -147,17 +189,12 @@ export class MainWindow {
     this.#indicator = value;
   }
 
-  #state: {
-    [key in Flags | "theme" | "exitBehavior"]:
-      | boolean
-      | "active_disabled"
-      | number;
-  } = {
+  #state: State = {
     "logout": false,
     "switch": false,
     "suspend": false,
     "idle": false,
-    "theme": 0, /*System Theme*/
+    "themeV2": "System Theme", /*System Theme*/
     "exitBehavior": 0, /*Confirm On Close*/
   };
   #cookies: { [key in Flags | "screenSaverCookie"]?: number } = {};
@@ -167,8 +204,8 @@ export class MainWindow {
     if (savedState) this.#state = { ...this.#state, ...JSON.parse(savedState) };
     // deno-fmt-ignore
     const currentTheme =
-        this.#state["theme"] === 0 ? Adw.ColorScheme.DEFAULT
-      : this.#state["theme"] === 1 ? Adw.ColorScheme.FORCE_LIGHT
+        this.#state["themeV2"] === "System Theme" ? Adw.ColorScheme.DEFAULT
+      : this.#state["themeV2"] === "Light"  ? Adw.ColorScheme.FORCE_LIGHT
       : Adw.ColorScheme.FORCE_DARK;
     Adw.StyleManager.get_default().set_color_scheme(currentTheme);
 
@@ -354,14 +391,7 @@ export class MainWindow {
     if (shortcuts) this.#app.set_accels_for_action(`app.${name}`, shortcuts);
   };
 
-  updateState(
-    state: {
-      [key in Flags | "theme" | "exitBehavior"]?:
-        | boolean
-        | "active_disabled"
-        | number;
-    },
-  ) {
+  updateState(state: Partial<State>) {
     this.#state = { ...this.#state, ...state };
     localStorage.setItem("state", JSON.stringify(this.#state));
   }
