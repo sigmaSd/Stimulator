@@ -3,34 +3,24 @@ import { UI_LABELS } from "./consts.ts";
 import { Indicator } from "./indicator/indicator_api.ts";
 import { Adw, GLib, Gtk, MainWindow } from "./main.ts";
 
-export type Theme = "System Theme" | "Dark" | "Light";
-
-type ThemeItems =
-  & {
-    [key in Theme]: number;
-  }
-  & {
-    fromId(id: number): Theme | undefined;
-    toId(theme: Theme): number;
-    label(item: Theme): string;
-  };
+export type Theme = "System Theme" | "Light" | "Dark";
 
 export class PreferencesMenu {
   #preferencesWin: Adw_.PreferencesWindow;
-  #themeItems: ThemeItems = {
-    "System Theme": 0, // -> ["s","l","d"]
-    "Light": 1,
-    "Dark": 2,
+  #themeItems = {
+    themes: ["System Theme", "Light", "Dark"] as Theme[],
 
+    get themesTranslated() {
+      return this.themes.map((theme) => UI_LABELS[theme]);
+    },
     fromId(id: number): Theme {
-      return Object.keys(this)
-        .find((key) => this[key as Theme] === id) as Theme;
+      if (id < 0 || id >= this.themes.length) {
+        throw new Error(`Invalid theme ID: ${id}`);
+      }
+      return this.themes[id];
     },
     toId(theme: Theme): number {
-      return this[theme];
-    },
-    label: (item: Theme) => {
-      return UI_LABELS[item as keyof UI_LABELS];
+      return this.themes.indexOf(theme);
     },
   };
 
@@ -53,11 +43,7 @@ export class PreferencesMenu {
 
     themeRow.set_title(UI_LABELS.Theme);
     themeRow.set_model(
-      Gtk.StringList.new([
-        this.#themeItems.label("System Theme"),
-        this.#themeItems.label("Light"),
-        this.#themeItems.label("Dark"),
-      ]),
+      Gtk.StringList.new(this.#themeItems.themesTranslated),
     );
     //NOTE: ADW bug, set_selected(0) doesn't set the item as selected initilally
     // so trigger it with this, before the actual correct selection
