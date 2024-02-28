@@ -10,8 +10,11 @@ import {
   NamedArgument,
   python,
 } from "deno-gtk-py";
+
 import { APP_ID, APP_NAME, UI_LABELS, VERSION } from "./consts.ts";
 import { Indicator } from "./indicator/indicator_api.ts";
+import { PreferencesMenu, Theme } from "./pref-win.ts";
+import { Behavior } from "./pref-win.ts";
 
 const gi = python.import("gi");
 gi.require_version("Gtk", "4.0");
@@ -24,98 +27,13 @@ export const GLib: GLib_.GLib = python.import("gi.repository.GLib");
 
 type Flags = "logout" | "switch" | "suspend" | "idle";
 
-class PreferencesMenu {
-  #preferencesWin: Adw_.PreferencesWindow;
-  constructor(mainWindow: MainWindow) {
-    const builder = Gtk.Builder();
-    builder.add_from_file(
-      new URL(import.meta.resolve("./ui/preferences.ui")).pathname,
-    );
-    this.#preferencesWin = builder.get_object(
-      "preferencesWin",
-    ) as Adw_.PreferencesWindow;
-    this.#preferencesWin.set_hide_on_close(true);
-    this.#preferencesWin.set_transient_for(mainWindow.win);
-    this.#preferencesWin.set_modal(true);
-
-    const themeRow = builder.get_object(
-      "themeRow",
-    ) as Adw_.ComboRow;
-    themeRow.set_title(UI_LABELS.Theme);
-    themeRow.set_model(
-      Gtk.StringList.new([
-        UI_LABELS["System Theme"],
-        UI_LABELS["Light"],
-        UI_LABELS["Dark"],
-      ]),
-    );
-    //NOTE: ADW bug, set_selected(0) doesn't set the item as selected initilally
-    // so trigger it with this, before the actual correct selection
-    themeRow.set_selected(1);
-    themeRow.set_selected(mainWindow.state["theme"] as number);
-    themeRow.connect(
-      "notify::selected",
-      python.callback(() => {
-        const themeNumber = themeRow.get_selected().valueOf();
-        //deno-fmt-ignore
-        Adw.StyleManager.get_default().set_color_scheme(
-            themeNumber === 0 ? Adw.ColorScheme.DEFAULT
-          : themeNumber === 1 ? Adw.ColorScheme.FORCE_LIGHT
-          : Adw.ColorScheme.FORCE_DARK,
-        );
-        mainWindow.updateState({ "theme": themeNumber });
-      }),
-    );
-
-    const behaviorOnExitRow = builder.get_object(
-      "behaviorOnExitRow",
-    ) as Adw_.ComboRow;
-    behaviorOnExitRow.set_title(UI_LABELS["Behavior on Closing"]);
-    behaviorOnExitRow.set_subtitle(UI_LABELS["Applies only while active"]);
-    const rowsLabels = [
-      UI_LABELS["Ask Confirmation"],
-      UI_LABELS["Run in Background"],
-      UI_LABELS["Quit"],
-    ];
-    behaviorOnExitRow.set_model(
-      Gtk.StringList.new(rowsLabels),
-    );
-    //NOTE: ADW bug, set_selected(0) doesn't set the item as selected initilally
-    // so trigger it with this, before the actual correct selection
-    behaviorOnExitRow.set_selected(1);
-    behaviorOnExitRow.set_selected(mainWindow.state["exitBehavior"] as number);
-
-    behaviorOnExitRow.connect(
-      "notify::selected",
-      python.callback(() => {
-        const behaviorNumber = behaviorOnExitRow
-          .get_selected().valueOf();
-        // If the option is a `Run In Background` make sure to run the indicator
-        if (behaviorNumber === 1) {
-          if (mainWindow.indicator === undefined) {
-            mainWindow.indicator = new Indicator(mainWindow);
-          }
-          if (mainWindow.state["suspend"]) {
-            mainWindow.indicator.activate();
-          } else {
-            mainWindow.indicator.deactivate();
-          }
-        } else {
-          // NOTE: run this after a bit of time, so messages don't get mixed up in the write buffer
-          GLib.timeout_add(
-            500,
-            python.callback(() => mainWindow.indicator?.hide()),
-          );
-        }
-
-        mainWindow.updateState({ "exitBehavior": behaviorNumber });
-      }),
-    );
-  }
-
-  present() {
-    this.#preferencesWin.set_visible(true);
-  }
+interface State {
+  "logout": boolean;
+  "switch": boolean;
+  "suspend": boolean;
+  "idle": boolean | "active_disabled";
+  "themeV2": Theme;
+  "exitBehaviorV2": Behavior;
 }
 
 export class MainWindow {
@@ -128,15 +46,6 @@ export class MainWindow {
   #indicator?: Indicator;
   #screenSaverProxy;
 
-  get app() {
-    return this.#app;
-  }
-  get win() {
-    return this.#win;
-  }
-  get suspendRow() {
-    return this.#suspendRow;
-  }
   get state() {
     return this.#state;
   }
@@ -147,18 +56,13 @@ export class MainWindow {
     this.#indicator = value;
   }
 
-  #state: {
-    [key in Flags | "theme" | "exitBehavior"]:
-      | boolean
-      | "active_disabled"
-      | number;
-  } = {
+  #state: State = {
     "logout": false,
     "switch": false,
     "suspend": false,
     "idle": false,
-    "theme": 0, /*System Theme*/
-    "exitBehavior": 0, /*Confirm On Close*/
+    "themeV2": "System Theme",
+    "exitBehaviorV2": "Ask Confirmation",
   };
   #cookies: { [key in Flags | "screenSaverCookie"]?: number } = {};
   constructor(app: Adw_.Application) {
@@ -167,12 +71,12 @@ export class MainWindow {
     if (savedState) this.#state = { ...this.#state, ...JSON.parse(savedState) };
     // deno-fmt-ignore
     const currentTheme =
-        this.#state["theme"] === 0 ? Adw.ColorScheme.DEFAULT
-      : this.#state["theme"] === 1 ? Adw.ColorScheme.FORCE_LIGHT
+        this.#state["themeV2"] === "System Theme" ? Adw.ColorScheme.DEFAULT
+      : this.#state["themeV2"] === "Light"  ? Adw.ColorScheme.FORCE_LIGHT
       : Adw.ColorScheme.FORCE_DARK;
     Adw.StyleManager.get_default().set_color_scheme(currentTheme);
 
-    if (this.state["exitBehavior"] === 1 /*Run In Background*/) {
+    if (this.#state["exitBehaviorV2"] === "Run in Background") {
       this.#indicator = new Indicator(this);
     }
 
@@ -217,6 +121,7 @@ export class MainWindow {
     );
 
     this.#preferencesMenu = new PreferencesMenu(this);
+    this.#preferencesMenu.set_transient_for(this.#win);
 
     this.#app = app;
     this.#win.set_application(this.#app);
@@ -265,11 +170,11 @@ export class MainWindow {
     if (this.#state["idle"] === "active_disabled") {
       this.#idleRow.set_active(true);
     } else {
-      this.#idleRow.set_active(this.#state["idle"] as boolean);
+      this.#idleRow.set_active(this.#state["idle"]);
     }
     if (!this.#state["idle"]) this.#toggleIdle(false);
 
-    this.#suspendRow.set_active(this.#state["suspend"] as boolean); // we don't disable suspend
+    this.#suspendRow.set_active(this.#state["suspend"]);
     if (!this.#state["suspend"]) this.#toggleSuspend(false);
   }
 
@@ -291,8 +196,8 @@ export class MainWindow {
     }
     // if tray icon is active and suspend button is active, go to the background instead of exiting
     if (
-      this.state["exitBehavior"] === 1 /*"Run In Background"*/ &&
-      this.state["suspend"]
+      this.#state["exitBehaviorV2"] === "Run in Background" &&
+      this.#state["suspend"]
     ) {
       this.#win.set_visible(false);
       this.#indicator?.showShowButton();
@@ -311,7 +216,10 @@ export class MainWindow {
       return false;
     }
     // if confirm on exit is disabled return
-    if (this.#state["exitBehavior"] !== 0 /*"Confirm On Close"*/) {
+    if (
+      this.#state["exitBehaviorV2"] !==
+        "Ask Confirmation"
+    ) {
       this.#indicator?.close();
       return false;
     }
@@ -354,14 +262,7 @@ export class MainWindow {
     if (shortcuts) this.#app.set_accels_for_action(`app.${name}`, shortcuts);
   };
 
-  updateState(
-    state: {
-      [key in Flags | "theme" | "exitBehavior"]?:
-        | boolean
-        | "active_disabled"
-        | number;
-    },
-  ) {
+  updateState(state: Partial<State>) {
     this.#state = { ...this.#state, ...state };
     localStorage.setItem("state", JSON.stringify(this.#state));
   }
@@ -369,7 +270,7 @@ export class MainWindow {
   #toggleSuspend = (yes: boolean) => {
     const idleRowActive = this.#idleRow.get_active().valueOf();
     if (yes) {
-      if (this.state["exitBehavior"] === 1 /*"Run In Background"*/) {
+      if (this.#state["exitBehaviorV2"] === "Run in Background") {
         this.#indicator?.activate();
       }
       this.#suspendRow.set_subtitle(UI_LABELS["Current state: Indefinitely"]);
@@ -394,7 +295,7 @@ export class MainWindow {
       }
       this.#cookies["suspend"] = result;
     } else {
-      if (this.state["exitBehavior"] === 1 /*"Run In Background"*/) {
+      if (this.#state["exitBehaviorV2"] === "Run in Background") {
         this.#indicator?.deactivate();
       }
       this.#suspendRow.set_subtitle(UI_LABELS["Current state: System default"]);
