@@ -37,14 +37,10 @@ export class PreferencesMenu {
     this.#preferencesWin.set_transient_for(mainWindow.win);
     this.#preferencesWin.set_modal(true);
 
-    const themeRow = builder.get_object(
-      "themeRow",
-    ) as Adw_.ComboRow;
+    const themeRow = builder.get_object<Adw_.ComboRow>("themeRow");
 
     themeRow.set_title(UI_LABELS.Theme);
-    themeRow.set_model(
-      Gtk.StringList.new(this.#themeItems.themesTranslated),
-    );
+    themeRow.set_model(Gtk.StringList.new(this.#themeItems.themesTranslated));
     //NOTE: ADW bug, set_selected(0) doesn't set the item as selected initilally
     // so trigger it with this, before the actual correct selection
     themeRow.set_selected(1);
