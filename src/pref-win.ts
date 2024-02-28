@@ -2,49 +2,15 @@ import { Adw1_ as Adw_, python } from "deno-gtk-py";
 import { UI_LABELS } from "./consts.ts";
 import { Indicator } from "./indicator/indicator_api.ts";
 import { Adw, GLib, Gtk, MainWindow } from "./main.ts";
-
-class ItemManager<T> {
-  items: T[];
-
-  constructor(items: T[]) {
-    this.items = items;
-  }
-
-  get itemsTranslated(): string[] {
-    return this.items.map((item) => UI_LABELS[item as keyof UI_LABELS]);
-  }
-
-  fromId(id: number): T {
-    if (id < 0 || id >= this.items.length) {
-      throw new Error(`Invalid item ID: ${id}`);
-    }
-    return this.items[id];
-  }
-
-  toId(item: T): number {
-    return this.items.indexOf(item);
-  }
-}
+import { ComboItemManager } from "./utils.ts";
 
 export type Theme = "System Theme" | "Light" | "Dark";
 export type Behavior = "Ask Confirmation" | "Run in Background" | "Quit";
 
-class ThemeManager extends ItemManager<Theme> {
-  constructor(themes: Theme[]) {
-    super(themes);
-  }
-}
-
-class BehaviorManager extends ItemManager<Behavior> {
-  constructor(behaviors: Behavior[]) {
-    super(behaviors);
-  }
-}
-
 export class PreferencesMenu {
   #preferencesWin: Adw_.PreferencesWindow;
-  #themeItems = new ThemeManager(["System Theme", "Light", "Dark"]);
-  #behaviorOnExitItems = new BehaviorManager([
+  #themeItems = new ComboItemManager<Theme>(["System Theme", "Light", "Dark"]);
+  #behaviorOnExitItems = new ComboItemManager<Behavior>([
     "Ask Confirmation",
     "Run in Background",
     "Quit",
