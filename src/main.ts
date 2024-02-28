@@ -170,11 +170,11 @@ export class MainWindow {
     if (this.#state["idle"] === "active_disabled") {
       this.#idleRow.set_active(true);
     } else {
-      this.#idleRow.set_active(this.#state["idle"] as boolean);
+      this.#idleRow.set_active(this.#state["idle"]);
     }
     if (!this.#state["idle"]) this.#toggleIdle(false);
 
-    this.#suspendRow.set_active(this.#state["suspend"] as boolean); // we don't disable suspend
+    this.#suspendRow.set_active(this.#state["suspend"]);
     if (!this.#state["suspend"]) this.#toggleSuspend(false);
   }
 
