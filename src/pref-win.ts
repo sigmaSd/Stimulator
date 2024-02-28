@@ -1,4 +1,4 @@
-import { Adw1_ as Adw_, python } from "deno-gtk-py";
+import { Adw1_ as Adw_, Gtk4_ as Gtk_, python } from "deno-gtk-py";
 import { UI_LABELS } from "./consts.ts";
 import { Indicator } from "./indicator/indicator_api.ts";
 import { Adw, GLib, Gtk, MainWindow } from "./main.ts";
@@ -26,7 +26,6 @@ export class PreferencesMenu {
       "preferencesWin",
     ) as Adw_.PreferencesWindow;
     this.#preferencesWin.set_hide_on_close(true);
-    this.#preferencesWin.set_transient_for(mainWindow.win);
     this.#preferencesWin.set_modal(true);
 
     const themeRow = builder.get_object<Adw_.ComboRow>("themeRow");
@@ -98,6 +97,9 @@ export class PreferencesMenu {
     );
   }
 
+  set_transient_for(window: Gtk_.ApplicationWindow) {
+    this.#preferencesWin.set_transient_for(window);
+  }
   present() {
     this.#preferencesWin.set_visible(true);
   }

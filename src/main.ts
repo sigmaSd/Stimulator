@@ -46,15 +46,6 @@ export class MainWindow {
   #indicator?: Indicator;
   #screenSaverProxy;
 
-  get app() {
-    return this.#app;
-  }
-  get win() {
-    return this.#win;
-  }
-  get suspendRow() {
-    return this.#suspendRow;
-  }
   get state() {
     return this.#state;
   }
@@ -85,7 +76,7 @@ export class MainWindow {
       : Adw.ColorScheme.FORCE_DARK;
     Adw.StyleManager.get_default().set_color_scheme(currentTheme);
 
-    if (this.state["exitBehaviorV2"] === "Run in Background") {
+    if (this.#state["exitBehaviorV2"] === "Run in Background") {
       this.#indicator = new Indicator(this);
     }
 
@@ -130,6 +121,7 @@ export class MainWindow {
     );
 
     this.#preferencesMenu = new PreferencesMenu(this);
+    this.#preferencesMenu.set_transient_for(this.#win);
 
     this.#app = app;
     this.#win.set_application(this.#app);
@@ -204,8 +196,8 @@ export class MainWindow {
     }
     // if tray icon is active and suspend button is active, go to the background instead of exiting
     if (
-      this.state["exitBehaviorV2"] === "Run in Background" &&
-      this.state["suspend"]
+      this.#state["exitBehaviorV2"] === "Run in Background" &&
+      this.#state["suspend"]
     ) {
       this.#win.set_visible(false);
       this.#indicator?.showShowButton();
@@ -278,7 +270,7 @@ export class MainWindow {
   #toggleSuspend = (yes: boolean) => {
     const idleRowActive = this.#idleRow.get_active().valueOf();
     if (yes) {
-      if (this.state["exitBehaviorV2"] === "Run in Background") {
+      if (this.#state["exitBehaviorV2"] === "Run in Background") {
         this.#indicator?.activate();
       }
       this.#suspendRow.set_subtitle(UI_LABELS["Current state: Indefinitely"]);
@@ -303,7 +295,7 @@ export class MainWindow {
       }
       this.#cookies["suspend"] = result;
     } else {
-      if (this.state["exitBehaviorV2"] === "Run in Background") {
+      if (this.#state["exitBehaviorV2"] === "Run in Background") {
         this.#indicator?.deactivate();
       }
       this.#suspendRow.set_subtitle(UI_LABELS["Current state: System default"]);
