@@ -3,43 +3,52 @@ import { UI_LABELS } from "./consts.ts";
 import { Indicator } from "./indicator/indicator_api.ts";
 import { Adw, GLib, Gtk, MainWindow } from "./main.ts";
 
+class ItemManager<T> {
+  items: T[];
+
+  constructor(items: T[]) {
+    this.items = items;
+  }
+
+  get itemsTranslated(): string[] {
+    return this.items.map((item) => UI_LABELS[item as keyof UI_LABELS]);
+  }
+
+  fromId(id: number): T {
+    if (id < 0 || id >= this.items.length) {
+      throw new Error(`Invalid item ID: ${id}`);
+    }
+    return this.items[id];
+  }
+
+  toId(item: T): number {
+    return this.items.indexOf(item);
+  }
+}
+
 export type Theme = "System Theme" | "Light" | "Dark";
 export type Behavior = "Ask Confirmation" | "Run in Background" | "Quit";
 
+class ThemeManager extends ItemManager<Theme> {
+  constructor(themes: Theme[]) {
+    super(themes);
+  }
+}
+
+class BehaviorManager extends ItemManager<Behavior> {
+  constructor(behaviors: Behavior[]) {
+    super(behaviors);
+  }
+}
+
 export class PreferencesMenu {
   #preferencesWin: Adw_.PreferencesWindow;
-  #themeItems = {
-    themes: ["System Theme", "Light", "Dark"] as Theme[],
-
-    get themesTranslated() {
-      return this.themes.map((theme) => UI_LABELS[theme]);
-    },
-    fromId(id: number): Theme {
-      if (id < 0 || id >= this.themes.length) {
-        throw new Error(`Invalid theme ID: ${id}`);
-      }
-      return this.themes[id];
-    },
-    toId(theme: Theme): number {
-      return this.themes.indexOf(theme);
-    },
-  };
-  #behaviorOnExitItems = {
-    items: ["Ask Confirmation", "Run in Background", "Quit"] as Behavior[],
-
-    get itemsTranslated() {
-      return this.items.map((item) => UI_LABELS[item]);
-    },
-    fromId(id: number): Behavior {
-      if (id < 0 || id >= this.items.length) {
-        throw new Error(`Invalid item ID: ${id}`);
-      }
-      return this.items[id];
-    },
-    toId(item: Behavior): number {
-      return this.items.indexOf(item);
-    },
-  };
+  #themeItems = new ThemeManager(["System Theme", "Light", "Dark"]);
+  #behaviorOnExitItems = new BehaviorManager([
+    "Ask Confirmation",
+    "Run in Background",
+    "Quit",
+  ]);
 
   constructor(mainWindow: MainWindow) {
     const builder = Gtk.Builder();
@@ -57,7 +66,7 @@ export class PreferencesMenu {
     const themeRow = builder.get_object<Adw_.ComboRow>("themeRow");
 
     themeRow.set_title(UI_LABELS.Theme);
-    themeRow.set_model(Gtk.StringList.new(this.#themeItems.themesTranslated));
+    themeRow.set_model(Gtk.StringList.new(this.#themeItems.itemsTranslated));
     //NOTE: ADW bug, set_selected(0) doesn't set the item as selected initilally
     // so trigger it with this, before the actual correct selection
     themeRow.set_selected(1);
