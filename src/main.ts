@@ -65,6 +65,7 @@ export class MainWindow {
     "exitBehaviorV2": "Ask Confirmation",
   };
   #cookies: { [key in Flags | "screenSaverCookie"]?: number } = {};
+
   constructor(app: Adw_.Application) {
     const savedState = localStorage.getItem("state");
     // NOTE: If we update the state with new apis, the spreading will make sure that users who have old versions will get default values
@@ -182,6 +183,11 @@ export class MainWindow {
     this.#win.present();
   }
 
+  updateState(state: Partial<State>) {
+    this.#state = { ...this.#state, ...state };
+    localStorage.setItem("state", JSON.stringify(this.#state));
+  }
+
   #showPreferences = () => {
     this.#preferencesMenu.present();
   };
@@ -261,11 +267,6 @@ export class MainWindow {
     this.#app.add_action(action);
     if (shortcuts) this.#app.set_accels_for_action(`app.${name}`, shortcuts);
   };
-
-  updateState(state: Partial<State>) {
-    this.#state = { ...this.#state, ...state };
-    localStorage.setItem("state", JSON.stringify(this.#state));
-  }
 
   #toggleSuspend = (yes: boolean) => {
     const idleRowActive = this.#idleRow.get_active().valueOf();
