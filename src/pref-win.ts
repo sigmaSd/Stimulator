@@ -9,13 +9,6 @@ export type Behavior = "Ask Confirmation" | "Run in Background" | "Quit";
 export class PreferencesMenu {
   #preferencesWin: Adw_.PreferencesWindow;
 
-  #themeItems = ["System Theme", "Light", "Dark"] as Theme[];
-  #behaviorOnExitItems = [
-    "Ask Confirmation",
-    "Run in Background",
-    "Quit",
-  ] as Behavior[];
-
   constructor(mainWindow: MainWindow) {
     const builder = Gtk.Builder();
     builder.add_from_file(
@@ -29,23 +22,24 @@ export class PreferencesMenu {
     this.#preferencesWin.set_modal(true);
 
     const themeRow = builder.get_object<Adw_.ComboRow>("themeRow");
+    const themeItems = ["System Theme", "Light", "Dark"] as Theme[];
 
     themeRow.set_title(UI_LABELS.Theme);
     themeRow.set_model(
       Gtk.StringList.new(
-        this.#themeItems.map((item) => UI_LABELS[item as keyof UI_LABELS]),
+        themeItems.map((item) => UI_LABELS[item as keyof UI_LABELS]),
       ),
     );
     //NOTE: ADW bug, set_selected(0) doesn't set the item as selected initilally
     // so trigger it with this, before the actual correct selection
     themeRow.set_selected(1);
     themeRow.set_selected(
-      this.#themeItems.indexOf(mainWindow.state["themeV2"]),
+      themeItems.indexOf(mainWindow.state["themeV2"]),
     );
     themeRow.connect(
       "notify::selected",
       python.callback(() => {
-        const theme = this.#themeItems[themeRow.get_selected().valueOf()];
+        const theme = themeItems[themeRow.get_selected().valueOf()];
         //deno-fmt-ignore
         Adw.StyleManager.get_default().set_color_scheme(
             theme === "System Theme" ? Adw.ColorScheme.DEFAULT
@@ -59,26 +53,29 @@ export class PreferencesMenu {
     const behaviorOnExitRow = builder.get_object(
       "behaviorOnExitRow",
     ) as Adw_.ComboRow;
+    const behaviorOnExitItems = [
+      "Ask Confirmation",
+      "Run in Background",
+      "Quit",
+    ] as Behavior[];
     behaviorOnExitRow.set_title(UI_LABELS["Behavior on Closing"]);
     behaviorOnExitRow.set_subtitle(UI_LABELS["Applies only while active"]);
     behaviorOnExitRow.set_model(
       Gtk.StringList.new(
-        this.#behaviorOnExitItems.map((item) =>
-          UI_LABELS[item as keyof UI_LABELS]
-        ),
+        behaviorOnExitItems.map((item) => UI_LABELS[item as keyof UI_LABELS]),
       ),
     );
     //NOTE: ADW bug, set_selected(0) doesn't set the item as selected initilally
     // so trigger it with this, before the actual correct selection
     behaviorOnExitRow.set_selected(1);
     behaviorOnExitRow.set_selected(
-      this.#behaviorOnExitItems.indexOf(mainWindow.state["exitBehaviorV2"]),
+      behaviorOnExitItems.indexOf(mainWindow.state["exitBehaviorV2"]),
     );
 
     behaviorOnExitRow.connect(
       "notify::selected",
       python.callback(() => {
-        const behavior = this.#behaviorOnExitItems[
+        const behavior = behaviorOnExitItems[
           behaviorOnExitRow
             .get_selected().valueOf()
         ];
