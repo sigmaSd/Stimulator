@@ -8,12 +8,13 @@ export type Behavior = "Ask Confirmation" | "Run in Background" | "Quit";
 
 export class PreferencesMenu {
   #preferencesWin: Adw_.PreferencesWindow;
-  #themeItems = ["System Theme", "Light", "Dark"] as const;
+
+  #themeItems = ["System Theme", "Light", "Dark"] as Theme[];
   #behaviorOnExitItems = [
     "Ask Confirmation",
     "Run in Background",
     "Quit",
-  ] as const;
+  ] as Behavior[];
 
   constructor(mainWindow: MainWindow) {
     const builder = Gtk.Builder();
