@@ -2,19 +2,18 @@ import { Adw1_ as Adw_, Gtk4_ as Gtk_, python } from "deno-gtk-py";
 import { UI_LABELS } from "./consts.ts";
 import { Indicator } from "./indicator/indicator_api.ts";
 import { Adw, GLib, Gtk, MainWindow } from "./main.ts";
-import { ComboItemManager } from "./utils.ts";
 
 export type Theme = "System Theme" | "Light" | "Dark";
 export type Behavior = "Ask Confirmation" | "Run in Background" | "Quit";
 
 export class PreferencesMenu {
   #preferencesWin: Adw_.PreferencesWindow;
-  #themeItems = new ComboItemManager<Theme>(["System Theme", "Light", "Dark"]);
-  #behaviorOnExitItems = new ComboItemManager<Behavior>([
+  #themeItems = ["System Theme", "Light", "Dark"] as const;
+  #behaviorOnExitItems = [
     "Ask Confirmation",
     "Run in Background",
     "Quit",
-  ]);
+  ] as const;
 
   constructor(mainWindow: MainWindow) {
     const builder = Gtk.Builder();
@@ -31,17 +30,21 @@ export class PreferencesMenu {
     const themeRow = builder.get_object<Adw_.ComboRow>("themeRow");
 
     themeRow.set_title(UI_LABELS.Theme);
-    themeRow.set_model(Gtk.StringList.new(this.#themeItems.itemsTranslated));
+    themeRow.set_model(
+      Gtk.StringList.new(
+        this.#themeItems.map((item) => UI_LABELS[item as keyof UI_LABELS]),
+      ),
+    );
     //NOTE: ADW bug, set_selected(0) doesn't set the item as selected initilally
     // so trigger it with this, before the actual correct selection
     themeRow.set_selected(1);
-    themeRow.set_selected(this.#themeItems.toId(mainWindow.state["themeV2"]));
+    themeRow.set_selected(
+      this.#themeItems.indexOf(mainWindow.state["themeV2"]),
+    );
     themeRow.connect(
       "notify::selected",
       python.callback(() => {
-        const theme = this.#themeItems.fromId(
-          themeRow.get_selected().valueOf(),
-        );
+        const theme = this.#themeItems[themeRow.get_selected().valueOf()];
         //deno-fmt-ignore
         Adw.StyleManager.get_default().set_color_scheme(
             theme === "System Theme" ? Adw.ColorScheme.DEFAULT
@@ -58,22 +61,26 @@ export class PreferencesMenu {
     behaviorOnExitRow.set_title(UI_LABELS["Behavior on Closing"]);
     behaviorOnExitRow.set_subtitle(UI_LABELS["Applies only while active"]);
     behaviorOnExitRow.set_model(
-      Gtk.StringList.new(this.#behaviorOnExitItems.itemsTranslated),
+      Gtk.StringList.new(
+        this.#behaviorOnExitItems.map((item) =>
+          UI_LABELS[item as keyof UI_LABELS]
+        ),
+      ),
     );
     //NOTE: ADW bug, set_selected(0) doesn't set the item as selected initilally
     // so trigger it with this, before the actual correct selection
     behaviorOnExitRow.set_selected(1);
     behaviorOnExitRow.set_selected(
-      this.#behaviorOnExitItems.toId(mainWindow.state["exitBehaviorV2"]),
+      this.#behaviorOnExitItems.indexOf(mainWindow.state["exitBehaviorV2"]),
     );
 
     behaviorOnExitRow.connect(
       "notify::selected",
       python.callback(() => {
-        const behavior = this.#behaviorOnExitItems.fromId(
+        const behavior = this.#behaviorOnExitItems[
           behaviorOnExitRow
-            .get_selected().valueOf(),
-        );
+            .get_selected().valueOf()
+        ];
         // If the option is a `Run In Background` make sure to run the indicator
         if (behavior === "Run in Background") {
           if (mainWindow.indicator === undefined) {
