@@ -70,7 +70,7 @@ export class Indicator {
               this.#mainWindow.present();
               break;
             case MESSAGES.Close:
-              this.#mainWindow.app.quit();
+              this.#mainWindow.quit();
               break;
             case MESSAGES.Empty:
               // NOTE: the indicator have exited

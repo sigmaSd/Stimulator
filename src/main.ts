@@ -188,6 +188,10 @@ export class MainWindow {
     localStorage.setItem("state", JSON.stringify(this.#state));
   }
 
+  quit() {
+    this.#app.quit();
+  }
+
   #showPreferences = () => {
     this.#preferencesMenu.present();
   };
