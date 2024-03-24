@@ -1,4 +1,4 @@
-#!/usr/bin/env -S deno run --allow-read=./po,./src/locales --allow-write=./src/locales,./distro/,./po --allow-run=deno
+#!/usr/bin/env -S deno run --allow-env --allow-read=./po,./src/locales --allow-write=./src/locales,./distro/,./po --allow-run=deno
 import { gettextToI18next } from "npm:i18next-conv@14.0.0";
 import { APP_ID, EN_UI_LABELS } from "../src/consts.ts";
 import i18n, { i18next } from "../src/i18n.ts";
@@ -6,14 +6,14 @@ import i18n, { i18next } from "../src/i18n.ts";
 async function genTranslations() {
   for await (const lang of Deno.readDir("./po")) {
     const langName = lang.name.slice(0, -3);
-    const poFilePath = "./po/" + lang.name;
+    const poFilePath = `./po/${lang.name}`;
     const compiled = await gettextToI18next(
       langName,
       await Deno.readTextFile(poFilePath),
     ).then((data: string) => JSON.parse(data));
     const verified = verifyAndFixPoFiles(poFilePath, compiled);
 
-    let targetDir = "./src/locales/" + langName;
+    let targetDir = `./src/locales/${langName}`;
     // i18 expectes the translation folders to be aa-AA instead of aa_AA
     targetDir = targetDir.replace("_", "-");
     if (fewTranslations(verified)) {
@@ -21,7 +21,7 @@ async function genTranslations() {
     } else {
       await Deno.mkdir(targetDir, { recursive: true });
       await Deno.writeTextFile(
-        targetDir + "/translation.json",
+        `${targetDir}/translation.json`,
         JSON.stringify(verified),
       );
     }
@@ -29,7 +29,7 @@ async function genTranslations() {
 }
 
 async function genDesktopFile() {
-  const names = [`Name=${EN_UI_LABELS["Stimulator"]}`];
+  const names = [`Name=${EN_UI_LABELS.Stimulator}`];
   const comments = [`Comment=${EN_UI_LABELS["Keep your computer awake"]}`];
   const keywords = [
     `Keywords=${EN_UI_LABELS["caffeine;nosleep;awake;keepawake;keepon;"]}`,
@@ -44,7 +44,7 @@ async function genDesktopFile() {
     // i18 expectes the translation code to be aa-AA instead of aa_AA
     lang = lang.replace("_", "-");
     await i18next.changeLanguage(lang);
-    const name = i18n(lang)(EN_UI_LABELS["Stimulator"]);
+    const name = i18n(lang)(EN_UI_LABELS.Stimulator);
     const comment = i18n(lang)(EN_UI_LABELS["Keep your computer awake"]);
     const keyword = i18n(lang)(
       EN_UI_LABELS["caffeine;nosleep;awake;keepawake;keepon;"],
@@ -86,18 +86,18 @@ function verifyAndFixPoFiles(
 
   const is_english = poFilePath.endsWith("en.po");
   let changes = false;
-  Object.values(EN_UI_LABELS).forEach((prop) => {
+  for (const prop of Object.values(EN_UI_LABELS)) {
     if (!(prop in updatedTranslateRecord)) {
       updatedTranslateRecord[prop] = is_english ? prop : "";
       changes = true;
     }
-  });
-  Object.keys(updatedTranslateRecord).forEach((prop) => {
+  }
+  for (const prop of Object.keys(updatedTranslateRecord)) {
     if (!(prop in EN_UI_LABELS)) {
       delete updatedTranslateRecord[prop];
       changes = true;
     }
-  });
+  }
 
   if (changes) {
     Deno.writeTextFileSync(
@@ -135,5 +135,5 @@ function fewTranslations(locales: Record<string, string>) {
   const translatedPercentage = ((total - empty) / total) * 100;
 
   if (translatedPercentage >= CUT_OFF) return false;
-  else return true;
+  return true;
 }

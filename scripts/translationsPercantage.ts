@@ -19,7 +19,7 @@ ${mdHeader}
   langs.sort();
 
   for (const langPath of langs) {
-    await Deno.readTextFile("./po/" + langPath).then((data) => {
+    await Deno.readTextFile(`./po/${langPath}`).then((data) => {
       const msgIdNum = [...data.matchAll(/msgid/g)].length;
       if (msgIdNum !== TOTAL_TRANSLATIONS + 1 /*first empty string*/) {
         throw new Error(`po file: ${langPath} is missing some entries`);
