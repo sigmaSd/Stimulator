@@ -1,4 +1,4 @@
-import type { Callback } from "./../mod.ts";
+import type { Callback } from "../mod.ts";
 
 export interface GLib {
   PRIORITY_HIGH: number;

@@ -1,0 +1,366 @@
+{
+  "manifest": {
+    "/src/gobject2.ts": {
+      "size": 125,
+      "checksum": "sha256-8d28fc3faae9439283b061f9540020602541ca2cfe17b256555aecf8ed6547ad"
+    },
+    "/examples/builder/main.ts": {
+      "size": 1284,
+      "checksum": "sha256-4e557407990008a5fab439017e04831371755cb29b4f69a268334a9451980c30"
+    },
+    "/src/adw1.ts": {
+      "size": 3895,
+      "checksum": "sha256-9f15785244d57474c724ebb5e81818d9ab002b1d00e86c061aa1764381a57107"
+    },
+    "/README.md": {
+      "size": 2249,
+      "checksum": "sha256-dd3d50f7745a15233de873ce71cc2859cfbdabc23aaf278cf009e438e45695b8"
+    },
+    "/LICENSE": {
+      "size": 1064,
+      "checksum": "sha256-be4b818e4d843278f422cfc2dd04670e4862c99acbdfd6565af672724b2b3e50"
+    },
+    "/src/glib2.ts": {
+      "size": 462,
+      "checksum": "sha256-ab82566a3e96a49b45f607e9e2e02a60c191c4e8b87db1448feef20330f4e200"
+    },
+    "/src/appindicator3.ts": {
+      "size": 1078,
+      "checksum": "sha256-123faa6890e2fb7a8ea875212677b253d22f5fab894843e0039b7e6c2f01142b"
+    },
+    "/deno.json": {
+      "size": 399,
+      "checksum": "sha256-d1c7b52655e1071138b132d9988107a410c9e678ec12a0689b0d37c0717cc7e2"
+    },
+    "/src/gtk4.ts": {
+      "size": 6609,
+      "checksum": "sha256-55c5bc2adbf90e44767e7bac4e1528f155c779667585c1f34a81f334fa832a2e"
+    },
+    "/mod.ts": {
+      "size": 2649,
+      "checksum": "sha256-b6c9a8181fbcdb2fa877a132d4181374901d6fd70cfdc32009527e24e2f0ac33"
+    },
+    "/src/gdk4.ts": {
+      "size": 100,
+      "checksum": "sha256-15686024e22b8c0ad2a2db0d35d69363ba2280aaeede415f65455e0c6d72aabd"
+    },
+    "/biome.json": {
+      "size": 160,
+      "checksum": "sha256-b3510f7734e537be5adaa6d10db00b0f1589489e202ada041d218e770af904fd"
+    },
+    "/src/gio2.ts": {
+      "size": 2627,
+      "checksum": "sha256-eb0afdfea26ac6f72a6f9676b4917416afc9d4d6502b878e21990bd0c8038f68"
+    },
+    "/src/gtk3.ts": {
+      "size": 656,
+      "checksum": "sha256-49d24ebe3c0669a74675f314e789828456c6b52a3b8489fae2d3d3bbaec2fe28"
+    },
+    "/examples/smoke/style.css": {
+      "size": 87,
+      "checksum": "sha256-152d6e9519d9d4434cfe137fabdabe85cd1279dcd25a984b7488ec21378d4cdb"
+    },
+    "/examples/builder/ui.xml": {
+      "size": 1127,
+      "checksum": "sha256-e72670cf6061649d44b33cf6022eef1f9ca9170c1a1f974f685aa9a48e0de635"
+    },
+    "/.github/workflows/publish-jsr.yml": {
+      "size": 267,
+      "checksum": "sha256-dbedb4bc0736138a0daed7f029e0fb758c5ac22bb8be0c8f0518c5fd46243104"
+    },
+    "/scripts/update_apis.ts": {
+      "size": 1239,
+      "checksum": "sha256-862c64f40a236e02b45834a2dd9ab2b7c5deca30c0b695a80a76b4d41b09e87c"
+    },
+    "/deno.lock": {
+      "size": 388,
+      "checksum": "sha256-e79a2558ec5c4a06129073464a4a96dd62690db0a3f171f6fcbb2fb66efd52c4"
+    },
+    "/examples/smoke/main.ts": {
+      "size": 11531,
+      "checksum": "sha256-fe3be3d0f2a33bb5ecfac7cb0e5b28385c4bb6d330db3ed44a2d8a5ff9bbe89c"
+    },
+    "/examples/simple/main.ts": {
+      "size": 1307,
+      "checksum": "sha256-e68ec1ec5c9b2dd91299d1771c691f1df3dcf538d371c97e79b682d74a428ea4"
+    }
+  },
+  "moduleGraph1": {
+    "/src/gio2.ts": {
+      "dependencies": [
+        {
+          "type": "static",
+          "kind": "importType",
+          "specifier": "../mod.ts",
+          "specifierRange": [
+            [
+              0,
+              45
+            ],
+            [
+              0,
+              56
+            ]
+          ]
+        }
+      ]
+    },
+    "/src/glib2.ts": {
+      "dependencies": [
+        {
+          "type": "static",
+          "kind": "importType",
+          "specifier": "../mod.ts",
+          "specifierRange": [
+            [
+              0,
+              30
+            ],
+            [
+              0,
+              41
+            ]
+          ]
+        }
+      ]
+    },
+    "/src/gtk3.ts": {
+      "dependencies": [
+        {
+          "type": "static",
+          "kind": "importType",
+          "specifier": "jsr:@denosaurs/python@0.4.3",
+          "specifierRange": [
+            [
+              0,
+              45
+            ],
+            [
+              0,
+              74
+            ]
+          ]
+        }
+      ]
+    },
+    "/src/gdk4.ts": {},
+    "/src/appindicator3.ts": {
+      "dependencies": [
+        {
+          "type": "static",
+          "kind": "importType",
+          "specifier": "./gtk3.ts",
+          "specifierRange": [
+            [
+              0,
+              26
+            ],
+            [
+              0,
+              37
+            ]
+          ]
+        }
+      ]
+    },
+    "/src/gobject2.ts": {
+      "dependencies": [
+        {
+          "type": "static",
+          "kind": "importType",
+          "specifier": "../mod.ts",
+          "specifierRange": [
+            [
+              0,
+              30
+            ],
+            [
+              0,
+              41
+            ]
+          ]
+        }
+      ]
+    },
+    "/src/gtk4.ts": {
+      "dependencies": [
+        {
+          "type": "static",
+          "kind": "importType",
+          "specifier": "../mod.ts",
+          "specifierRange": [
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              18
+            ]
+          ]
+        }
+      ]
+    },
+    "/mod.ts": {
+      "dependencies": [
+        {
+          "type": "static",
+          "kind": "export",
+          "specifier": "jsr:@denosaurs/python@0.4.3",
+          "specifierRange": [
+            [
+              87,
+              14
+            ],
+            [
+              87,
+              43
+            ]
+          ]
+        },
+        {
+          "type": "static",
+          "kind": "export",
+          "specifier": "./src/gtk4.ts",
+          "specifierRange": [
+            [
+              89,
+              23
+            ],
+            [
+              89,
+              38
+            ]
+          ]
+        },
+        {
+          "type": "static",
+          "kind": "export",
+          "specifier": "./src/gtk3.ts",
+          "specifierRange": [
+            [
+              90,
+              23
+            ],
+            [
+              90,
+              38
+            ]
+          ]
+        },
+        {
+          "type": "static",
+          "kind": "export",
+          "specifier": "./src/adw1.ts",
+          "specifierRange": [
+            [
+              91,
+              23
+            ],
+            [
+              91,
+              38
+            ]
+          ]
+        },
+        {
+          "type": "static",
+          "kind": "export",
+          "specifier": "./src/gdk4.ts",
+          "specifierRange": [
+            [
+              92,
+              23
+            ],
+            [
+              92,
+              38
+            ]
+          ]
+        },
+        {
+          "type": "static",
+          "kind": "export",
+          "specifier": "./src/gio2.ts",
+          "specifierRange": [
+            [
+              93,
+              23
+            ],
+            [
+              93,
+              38
+            ]
+          ]
+        },
+        {
+          "type": "static",
+          "kind": "export",
+          "specifier": "./src/glib2.ts",
+          "specifierRange": [
+            [
+              94,
+              24
+            ],
+            [
+              94,
+              40
+            ]
+          ]
+        },
+        {
+          "type": "static",
+          "kind": "export",
+          "specifier": "./src/gobject2.ts",
+          "specifierRange": [
+            [
+              95,
+              27
+            ],
+            [
+              95,
+              46
+            ]
+          ]
+        },
+        {
+          "type": "static",
+          "kind": "export",
+          "specifier": "./src/appindicator3.ts",
+          "specifierRange": [
+            [
+              96,
+              31
+            ],
+            [
+              96,
+              55
+            ]
+          ]
+        }
+      ]
+    },
+    "/src/adw1.ts": {
+      "dependencies": [
+        {
+          "type": "static",
+          "kind": "importType",
+          "specifier": "../mod.ts",
+          "specifierRange": [
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              18
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "exports": {
+    ".": "./mod.ts"
+  }
+}

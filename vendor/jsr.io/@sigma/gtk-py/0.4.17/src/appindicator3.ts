@@ -1,4 +1,4 @@
-import { Menu } from "./gtk3.ts";
+import type { Menu } from "./gtk3.ts";
 
 export interface AppIndicator {
   Indicator: {
