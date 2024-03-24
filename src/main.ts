@@ -1,11 +1,11 @@
 #!/usr/bin/env -S  deno run --allow-read=./src/locales --allow-ffi --allow-env=DENO_PYTHON_PATH --unstable-ffi
 import {
-  Adw1_ as Adw_,
-  Callback,
-  Gdk4_ as Gdk_,
-  Gio2_ as Gio_,
-  GLib2_ as GLib_,
-  Gtk4_ as Gtk_,
+  type Adw1_ as Adw_,
+  type Callback,
+  type Gdk4_ as Gdk_,
+  type Gio2_ as Gio_,
+  type GLib2_ as GLib_,
+  type Gtk4_ as Gtk_,
   kw,
   NamedArgument,
   python,
@@ -13,8 +13,8 @@ import {
 
 import { APP_ID, APP_NAME, UI_LABELS, VERSION } from "./consts.ts";
 import { Indicator } from "./indicator/indicator_api.ts";
-import { PreferencesMenu, Theme } from "./pref-win.ts";
-import { Behavior } from "./pref-win.ts";
+import { PreferencesMenu, type Theme } from "./pref-win.ts";
+import type { Behavior } from "./pref-win.ts";
 
 const gi = python.import("gi");
 gi.require_version("Gtk", "4.0");
@@ -28,12 +28,12 @@ export const GLib: GLib_.GLib = python.import("gi.repository.GLib");
 type Flags = "logout" | "switch" | "suspend" | "idle";
 
 interface State {
-  "logout": boolean;
-  "switch": boolean;
-  "suspend": boolean;
-  "idle": boolean | "active_disabled";
-  "themeV2": Theme;
-  "exitBehaviorV2": Behavior;
+  logout: boolean;
+  switch: boolean;
+  suspend: boolean;
+  idle: boolean | "active_disabled";
+  themeV2: Theme;
+  exitBehaviorV2: Behavior;
 }
 
 export class MainWindow {
@@ -57,12 +57,12 @@ export class MainWindow {
   }
 
   #state: State = {
-    "logout": false,
-    "switch": false,
-    "suspend": false,
-    "idle": false,
-    "themeV2": "System Theme",
-    "exitBehaviorV2": "Ask Confirmation",
+    logout: false,
+    switch: false,
+    suspend: false,
+    idle: false,
+    themeV2: "System Theme",
+    exitBehaviorV2: "Ask Confirmation",
   };
   #cookies: { [key in Flags | "screenSaverCookie"]?: number } = {};
 
@@ -72,12 +72,12 @@ export class MainWindow {
     if (savedState) this.#state = { ...this.#state, ...JSON.parse(savedState) };
     // deno-fmt-ignore
     const currentTheme =
-        this.#state["themeV2"] === "System Theme" ? Adw.ColorScheme.DEFAULT
-      : this.#state["themeV2"] === "Light"  ? Adw.ColorScheme.FORCE_LIGHT
+        this.#state.themeV2 === "System Theme" ? Adw.ColorScheme.DEFAULT
+      : this.#state.themeV2 === "Light"  ? Adw.ColorScheme.FORCE_LIGHT
       : Adw.ColorScheme.FORCE_DARK;
     Adw.StyleManager.get_default().set_color_scheme(currentTheme);
 
-    if (this.#state["exitBehaviorV2"] === "Run in Background") {
+    if (this.#state.exitBehaviorV2 === "Run in Background") {
       this.#indicator = new Indicator(this);
     }
 
@@ -168,15 +168,15 @@ export class MainWindow {
     // ui modifications needs to be done last
     // this will update the state to the last saved one
     // NOTE: set_active(false) doesn't trigger the button callback because the button starts in inactive state
-    if (this.#state["idle"] === "active_disabled") {
+    if (this.#state.idle === "active_disabled") {
       this.#idleRow.set_active(true);
     } else {
-      this.#idleRow.set_active(this.#state["idle"]);
+      this.#idleRow.set_active(this.#state.idle);
     }
-    if (!this.#state["idle"]) this.#toggleIdle(false);
+    if (!this.#state.idle) this.#toggleIdle(false);
 
-    this.#suspendRow.set_active(this.#state["suspend"]);
-    if (!this.#state["suspend"]) this.#toggleSuspend(false);
+    this.#suspendRow.set_active(this.#state.suspend);
+    if (!this.#state.suspend) this.#toggleSuspend(false);
   }
 
   present() {
@@ -206,13 +206,13 @@ export class MainWindow {
     }
     // if tray icon is active and suspend button is active, go to the background instead of exiting
     if (
-      this.#state["exitBehaviorV2"] === "Run in Background" &&
-      this.#state["suspend"]
+      this.#state.exitBehaviorV2 === "Run in Background" &&
+      this.#state.suspend
     ) {
       this.#win.set_visible(false);
       this.#indicator?.showShowButton();
       // inform user via notification
-      const notification = Gio.Notification.new(UI_LABELS["Stimulator"]);
+      const notification = Gio.Notification.new(UI_LABELS.Stimulator);
       notification.set_body(
         UI_LABELS["Stimulator is running in the backround"],
       );
@@ -221,13 +221,13 @@ export class MainWindow {
     }
 
     // only run this if suspend button is active
-    if (!this.#state["suspend"]) {
+    if (!this.#state.suspend) {
       this.#indicator?.close();
       return false;
     }
     // if confirm on exit is disabled return
     if (
-      this.#state["exitBehaviorV2"] !==
+      this.#state.exitBehaviorV2 !==
         "Ask Confirmation"
     ) {
       this.#indicator?.close();
@@ -243,8 +243,8 @@ export class MainWindow {
       ),
     );
 
-    dialog.add_response("cancel", UI_LABELS["Cancel"]);
-    dialog.add_response("close", UI_LABELS["Close"]);
+    dialog.add_response("cancel", UI_LABELS.Cancel);
+    dialog.add_response("close", UI_LABELS.Close);
     dialog.set_close_response("cancel");
     dialog.set_default_response("cancel");
     dialog.set_response_appearance(
@@ -275,7 +275,7 @@ export class MainWindow {
   #toggleSuspend = (yes: boolean) => {
     const idleRowActive = this.#idleRow.get_active().valueOf();
     if (yes) {
-      if (this.#state["exitBehaviorV2"] === "Run in Background") {
+      if (this.#state.exitBehaviorV2 === "Run in Background") {
         this.#indicator?.activate();
       }
       this.#suspendRow.set_subtitle(UI_LABELS["Current state: Indefinitely"]);
@@ -298,20 +298,20 @@ export class MainWindow {
       if (result === 0) {
         this.#platformUnsupportedExit();
       }
-      this.#cookies["suspend"] = result;
+      this.#cookies.suspend = result;
     } else {
-      if (this.#state["exitBehaviorV2"] === "Run in Background") {
+      if (this.#state.exitBehaviorV2 === "Run in Background") {
         this.#indicator?.deactivate();
       }
       this.#suspendRow.set_subtitle(UI_LABELS["Current state: System default"]);
       this.#mainIcon.set_from_icon_name(
-        APP_ID + "-inactive",
+        `${APP_ID}-inactive`,
       );
 
-      const suspendCookie = this.#cookies["suspend"];
+      const suspendCookie = this.#cookies.suspend;
       if (suspendCookie) {
         this.#app.uninhibit(suspendCookie);
-        this.#cookies["suspend"] = undefined;
+        this.#cookies.suspend = undefined;
       }
 
       // if suspend is desactivated, disallow setting idle
@@ -324,7 +324,7 @@ export class MainWindow {
       }
     }
 
-    this.updateState({ "suspend": yes });
+    this.updateState({ suspend: yes });
   };
 
   #toggleIdle = (state: boolean | "active_disabled") => {
@@ -336,13 +336,13 @@ export class MainWindow {
       // If that doesn't work we fallback to Gtk Idle Inhibit method
       // NOTE: kde freezes for 30 seconds if the app requests more then one (1) inhibitor
       // This method workaround this
-      this.#cookies["screenSaverCookie"] = this.#screenSaverProxy.Inhibit(
+      this.#cookies.screenSaverCookie = this.#screenSaverProxy.Inhibit(
         "(ss)",
-        UI_LABELS["Stimulator"],
+        UI_LABELS.Stimulator,
         UI_LABELS["Stimulator is active"],
       )?.valueOf();
-      if (!this.#cookies["screenSaverCookie"]) {
-        this.#cookies["idle"] = this.#app.inhibit(
+      if (!this.#cookies.screenSaverCookie) {
+        this.#cookies.idle = this.#app.inhibit(
           this.#win,
           Gtk.ApplicationInhibitFlags.IDLE,
           // NOTE: the reason is needed for flatpak to work
@@ -351,21 +351,21 @@ export class MainWindow {
       }
     } else {
       this.#idleRow.set_subtitle(UI_LABELS["Current state: System default"]);
-      const idleCookie = this.#cookies["idle"];
+      const idleCookie = this.#cookies.idle;
       if (idleCookie) {
         this.#app.uninhibit(idleCookie);
-        this.#cookies["idle"] = undefined;
+        this.#cookies.idle = undefined;
       }
 
-      const screenSaverCookie = this.#cookies["screenSaverCookie"];
+      const screenSaverCookie = this.#cookies.screenSaverCookie;
 
       if (screenSaverCookie) {
         this.#screenSaverProxy.UnInhibit("(u)", screenSaverCookie);
-        this.#cookies["screenSaverCookie"] = undefined;
+        this.#cookies.screenSaverCookie = undefined;
       }
     }
 
-    this.updateState({ "idle": state });
+    this.updateState({ idle: state });
   };
 
   #showAbout = python.callback(() => {
@@ -444,7 +444,7 @@ export class MainWindow {
       "response",
       python.callback((_, __, id) => {
         // make sure to turn off the buttons
-        this.updateState({ "suspend": false, "idle": false });
+        this.updateState({ suspend: false, idle: false });
         if (id === "close") this.#app.quit();
       }),
     );

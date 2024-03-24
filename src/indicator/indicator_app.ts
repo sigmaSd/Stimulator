@@ -1,8 +1,8 @@
 // This is a standalone application for the tray
 // It have is own imports
 import {
-  AppIndicator3,
-  Gtk3_ as Gtk_,
+  type AppIndicator3,
+  type Gtk3_ as Gtk_,
   NamedArgument,
   python,
 } from "deno-gtk-py";
@@ -24,11 +24,11 @@ const sendMsg = console.log;
 
 if (import.meta.main) {
   const indicator = AppIndicator.Indicator.new(
-    APP_ID + "-tray",
-    APP_ID + "-tray",
+    `${APP_ID}-tray`,
+    `${APP_ID}-tray`,
     AppIndicator.IndicatorCategory.APPLICATION_STATUS,
   );
-  indicator.set_title(UI_LABELS["Stimulator"]);
+  indicator.set_title(UI_LABELS.Stimulator);
 
   const menu = Gtk.Menu();
 

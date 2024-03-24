@@ -1,7 +1,7 @@
-import { Adw1_ as Adw_, Gtk4_ as Gtk_, python } from "deno-gtk-py";
+import { type Adw1_ as Adw_, type Gtk4_ as Gtk_, python } from "deno-gtk-py";
 import { UI_LABELS } from "./consts.ts";
 import { Indicator } from "./indicator/indicator_api.ts";
-import { Adw, GLib, Gtk, MainWindow } from "./main.ts";
+import { Adw, GLib, Gtk, type MainWindow } from "./main.ts";
 
 export type Theme = "System Theme" | "Light" | "Dark";
 export type Behavior = "Ask Confirmation" | "Run in Background" | "Quit";
@@ -34,7 +34,7 @@ export class PreferencesMenu {
     // so trigger it with this, before the actual correct selection
     themeRow.set_selected(1);
     themeRow.set_selected(
-      themeItems.indexOf(mainWindow.state["themeV2"]),
+      themeItems.indexOf(mainWindow.state.themeV2),
     );
     themeRow.connect(
       "notify::selected",
@@ -46,7 +46,7 @@ export class PreferencesMenu {
           : theme === "Light" ? Adw.ColorScheme.FORCE_LIGHT
           : Adw.ColorScheme.FORCE_DARK,
         );
-        mainWindow.updateState({ "themeV2": theme });
+        mainWindow.updateState({ themeV2: theme });
       }),
     );
 
@@ -69,7 +69,7 @@ export class PreferencesMenu {
     // so trigger it with this, before the actual correct selection
     behaviorOnExitRow.set_selected(1);
     behaviorOnExitRow.set_selected(
-      behaviorOnExitItems.indexOf(mainWindow.state["exitBehaviorV2"]),
+      behaviorOnExitItems.indexOf(mainWindow.state.exitBehaviorV2),
     );
 
     behaviorOnExitRow.connect(
@@ -84,7 +84,7 @@ export class PreferencesMenu {
           if (mainWindow.indicator === undefined) {
             mainWindow.indicator = new Indicator(mainWindow);
           }
-          if (mainWindow.state["suspend"]) {
+          if (mainWindow.state.suspend) {
             mainWindow.indicator.activate();
           } else {
             mainWindow.indicator.deactivate();
@@ -97,7 +97,7 @@ export class PreferencesMenu {
           );
         }
 
-        mainWindow.updateState({ "exitBehaviorV2": behavior });
+        mainWindow.updateState({ exitBehaviorV2: behavior });
       }),
     );
   }

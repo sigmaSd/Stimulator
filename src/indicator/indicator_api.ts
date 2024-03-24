@@ -1,5 +1,5 @@
-import { Gio2_, python } from "deno-gtk-py";
-import { Gio, GLib, MainWindow } from "../main.ts";
+import { type Gio2_, python } from "deno-gtk-py";
+import { Gio, GLib, type MainWindow } from "../main.ts";
 import { MESSAGES } from "./messages.ts";
 
 export class Indicator {
