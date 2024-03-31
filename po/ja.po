@@ -1,0 +1,96 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Stimulator"
+msgstr "スティミュレータ"
+
+msgid "Keep your computer awake"
+msgstr "コンピュータを起動したままにしておく"
+
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "カフェイン;スリープ;起動;起動しておく;"
+
+msgid "Disable Automatic Suspending"
+msgstr "自動スリープを無効にする"
+
+msgid "Disable Screen Blanking and Locking"
+msgstr "画面消灯とロックを無効にする"
+
+msgid "Current state: System default"
+msgstr "現在の状態：システムデフォルト"
+
+msgid "Current state: Indefinitely"
+msgstr "現在の状態：無期限"
+
+msgid "Stimulator is active"
+msgstr "スティミュレータが作動しています"
+
+msgid "Close Stimulator?"
+msgstr "スティミュレータを閉じますか？"
+
+msgid "Stimulator is active, do you want to close it?"
+msgstr "スティミュレータが作動しています、閉じますか？"
+
+msgid "Cancel"
+msgstr "キャンセル"
+
+msgid "Close"
+msgstr "閉じる"
+
+msgid "Preferences"
+msgstr "設定"
+
+msgid "Theme"
+msgstr "テーマ"
+
+msgid "System Theme"
+msgstr "システムテーマ"
+
+msgid "Light"
+msgstr "ライト"
+
+msgid "Dark"
+msgstr "ダーク"
+
+msgid "Keyboard Shortcuts"
+msgstr "キーボードのショートカット"
+
+msgid "General"
+msgstr "一般"
+
+msgid "Open Menu"
+msgstr "メニューを開く"
+
+msgid "Quit"
+msgstr "終了"
+
+msgid "About Stimulator"
+msgstr "スティミュレータについて"
+
+msgid "Unsupported System"
+msgstr "サポートされていないシステム"
+
+msgid "Your desktop environment doesn't support Stimulator, click close to quit"
+msgstr "デスクトップ環境はスティミュレータをサポートしていません。終了するには閉じるをクリックしてください。"
+
+msgid "Run in Background"
+msgstr "バックグラウンドで実行"
+
+msgid "Show"
+msgstr "表示"
+
+msgid "Stimulator is running in the backround"
+msgstr "スティミュレータがバックグラウンドで実行されています"
+
+msgid "Ask Confirmation"
+msgstr "確認する"
+
+msgid "Behavior on Closing"
+msgstr "終了する際の設定"
+
+msgid "Applies only while active"
+msgstr "作動中のみ適用されます"
+
+msgid "Main Menu"
+msgstr "メインメニュー"
