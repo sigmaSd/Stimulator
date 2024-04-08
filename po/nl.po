@@ -1,0 +1,106 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+msgid "Stimulator"
+msgstr "Stimulator"
+
+msgid "Keep your computer awake"
+msgstr "Houd uw computer actief"
+
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "caffeine;nietslapen;actief;ontwaakt;ingeschakeld;aan;"
+
+msgid "Disable Automatic Suspending"
+msgstr "Automatische pauzestand uitschakelen"
+
+msgid "Disable Screen Blanking and Locking"
+msgstr "Scherm uit en vergrendelen uitschakelen"
+
+msgid "Current state: System default"
+msgstr "Huidige status: systeemvoorkeuren volgen"
+
+msgid "Current state: Indefinitely"
+msgstr "Huidige status: onbeperkt"
+
+msgid "Stimulator is active"
+msgstr "Stimulator is actief"
+
+msgid "Close Stimulator?"
+msgstr "Stimulator afsluiten?"
+
+msgid "Stimulator is active, do you want to close it?"
+msgstr "Stimulator is actief. Wilt u de toepassing afsluiten?"
+
+msgid "Cancel"
+msgstr "Annuleren"
+
+msgid "Close"
+msgstr "Sluiten"
+
+msgid "Preferences"
+msgstr "Voorkeuren"
+
+msgid "Theme"
+msgstr "Thema"
+
+msgid "System Theme"
+msgstr "Systeemthema"
+
+msgid "Light"
+msgstr "Licht thema"
+
+msgid "Dark"
+msgstr "Donker thema"
+
+msgid "Keyboard Shortcuts"
+msgstr "Sneltoetsen"
+
+msgid "General"
+msgstr "Algemeen"
+
+msgid "Open Menu"
+msgstr "Menu openen"
+
+msgid "Quit"
+msgstr "Afsluiten"
+
+msgid "About Stimulator"
+msgstr "Over Stimulator"
+
+msgid "Unsupported System"
+msgstr "Niet-ondersteund systeem"
+
+msgid "Your desktop environment doesn't support Stimulator, click close to quit"
+msgstr "Uw werkomgeving wordt niet ondersteund. Klik op sluiten om af te sluiten."
+
+msgid "Run in Background"
+msgstr "Uitvoeren op achtergrond"
+
+msgid "Show"
+msgstr "Tonen"
+
+msgid "Stimulator is running in the backround"
+msgstr "Stimulator wordt uitgevoerd op de achtergrond"
+
+msgid "Ask Confirmation"
+msgstr "Om bevestiging vragen"
+
+msgid "Behavior on Closing"
+msgstr "Actie na afsluiten"
+
+msgid "Applies only while active"
+msgstr "Alleen indien actief"
+
+msgid "Main Menu"
+msgstr "Hoofdmenu"
