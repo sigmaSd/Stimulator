@@ -324,4 +324,9 @@
   <provides>
     <binary>stimulator</binary>
   </provides>
+
+  <branding>
+    <color type="primary" scheme_preference="light">#26a269</color>
+    <color type="primary" scheme_preference="dark">#1b744b</color>
+  </branding>
 </component>
