@@ -42,7 +42,7 @@ export class UI_LABELS extends EN_UI_LABELS {}
 
 export const APP_ID = "io.github.sigmasd.stimulator";
 export const APP_NAME = UI_LABELS.Stimulator;
-export const VERSION = "1.5";
+export const VERSION = "1.6";
 
 function genLabels<T>(klass: T, ctx: ClassDecoratorContext) {
   ctx.addInitializer(function () {

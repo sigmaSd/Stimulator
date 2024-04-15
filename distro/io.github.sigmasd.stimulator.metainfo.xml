@@ -51,7 +51,16 @@
   <content_rating type="oars-1.1" />
 
   <releases>
-     <release version="1.5" date="2024-03-02">
+     <release version="1.6" date="2024-04-15">
+      <description>
+        <ul>
+          <li>Add Japenese + Dutch translations</li>
+          <li>Add branding colors</li>
+          <li>Internal codebase refactor</li>
+        </ul>
+      </description>
+    </release>
+  <release version="1.5" date="2024-03-02">
       <description>
         <ul>
           <li>Update translations</li>
