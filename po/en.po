@@ -94,3 +94,6 @@ msgstr "Applies only while active"
 
 msgid "Main Menu"
 msgstr "Main Menu"
+
+msgid "translator-credits"
+msgstr "translator-credits"

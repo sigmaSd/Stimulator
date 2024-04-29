@@ -35,6 +35,7 @@ export class EN_UI_LABELS {
   // we don't advertise tray icon support
   static Show: string;
   static "Stimulator is running in the backround": string;
+  static "translator-credits": string;
 }
 
 @translate

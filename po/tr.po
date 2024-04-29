@@ -103,3 +103,6 @@ msgstr "Yalnızca etkinken geçerlidir"
 
 msgid "Main Menu"
 msgstr "Ana Menü"
+
+msgid "translator-credits"
+msgstr ""

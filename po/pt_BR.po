@@ -103,3 +103,6 @@ msgstr "Aplica-se apenas enquanto ativo"
 
 msgid "Main Menu"
 msgstr "Menu Principal"
+
+msgid "translator-credits"
+msgstr "Luiz-Fernandes https://github.com/Luiz-C-Lima"

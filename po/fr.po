@@ -94,3 +94,6 @@ msgstr "S'applique uniquement lorsqu'actif"
 
 msgid "Main Menu"
 msgstr "Menu Principal"
+
+msgid "translator-credits"
+msgstr "Bedis Nbiba https://github.com/sigmaSd"

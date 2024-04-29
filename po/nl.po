@@ -104,3 +104,6 @@ msgstr "Alleen indien actief"
 
 msgid "Main Menu"
 msgstr "Hoofdmenu"
+
+msgid "translator-credits"
+msgstr "Heimen Stoffels https://github.com/Vistaus"

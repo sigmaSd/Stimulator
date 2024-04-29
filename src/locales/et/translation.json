@@ -29,5 +29,6 @@
     "Stimulator is running in the backround": "Stimulaator töötab taustal",
     "Ask Confirmation": "Küsi kinnitust",
     "Behavior on Closing": "Käitumine sulgemisel",
-    "Applies only while active": "Rakendub ainult aktiivses olekus"
+    "Applies only while active": "Rakendub ainult aktiivses olekus",
+    "translator-credits": "Meybo Nõmme https://github.com/meybonomme"
 }

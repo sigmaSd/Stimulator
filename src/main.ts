@@ -377,6 +377,7 @@ export class MainWindow {
     dialog.set_developer_name("Bedis Nbiba");
     dialog.set_developers(["Bedis Nbiba <bedisnbiba@gmail.com>"]);
     dialog.set_designers(["Meybo Nõmme <meybo@meybo.ee>"]);
+    dialog.set_translator_credits(UI_LABELS["translator-credits"]);
     dialog.set_license_type(Gtk.License.MIT_X11);
     dialog.set_website("https://github.com/sigmaSd/stimulator");
     dialog.set_issue_url(

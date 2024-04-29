@@ -94,3 +94,6 @@ msgstr "ينطبق فقط أثناء التشغيل"
 
 msgid "Main Menu"
 msgstr "القائمة الرئيسية"
+
+msgid "translator-credits"
+msgstr "Bedis Nbiba https://github.com/sigmaSd"
