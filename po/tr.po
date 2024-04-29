@@ -105,4 +105,4 @@ msgid "Main Menu"
 msgstr "Ana Menü"
 
 msgid "translator-credits"
-msgstr ""
+msgstr "Sabri Ünal"
