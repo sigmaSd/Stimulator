@@ -94,3 +94,6 @@ msgstr "Käitumine sulgemisel"
 
 msgid "Applies only while active"
 msgstr "Rakendub ainult aktiivses olekus"
+
+msgid "translator-credits"
+msgstr "Meybo Nõmme https://github.com/meybonomme"

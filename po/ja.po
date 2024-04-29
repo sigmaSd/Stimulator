@@ -94,3 +94,6 @@ msgstr "作動中のみ適用されます"
 
 msgid "Main Menu"
 msgstr "メインメニュー"
+
+msgid "translator-credits"
+msgstr "Nicholas La Roux https://github.com/larouxn"
