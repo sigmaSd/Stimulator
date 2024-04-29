@@ -96,4 +96,4 @@ msgid "Main Menu"
 msgstr "メインメニュー"
 
 msgid "translator-credits"
-msgstr "Nicholas La Roux https://github.com/laroux"
+msgstr "Nicholas La Roux https://github.com/larouxn"
