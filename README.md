@@ -38,6 +38,10 @@ For disabling screen blanking/locking, it uses
   <a href="https://github.com/sigmaSd/Stimulator/tree/master/po" target="_blank">here</a>
   with "Add file" -> "Create new file" button
 - Paste content of `en.po` and translate strings
+- Supported formats for "translator-credits" field:\
+  `msgstr "Your Name"`\
+  `msgstr "Your Name <your@email.com>"`\
+  `msgstr "Your Name https://yourwebsite.com"`
 - Name created file as `yourlanguagecode.po`, commit changes and submit pull
   request
 
