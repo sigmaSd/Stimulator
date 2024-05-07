@@ -86,7 +86,7 @@ msgstr "असमर्थित सिस्टम"
 msgid ""
 "Your desktop environment doesn't support Stimulator, click close to quit"
 msgstr ""
-"आपका डेस्कटॉप वातावरण Stimulator का समर्थन नहीं करता है, छोड़ने के लिए \"बंद करें\" पर "
+"आपका डेस्कटॉप वातावरण Stimulator का समर्थन नहीं करता है, छोड़ने के लिए बंद करें पर "
 "क्लिक करें"
 
 msgid "Run in Background"
