@@ -1,0 +1,114 @@
+#
+# Scrambled777 <weblate.scrambled777@simplelogin.com>, 2024.
+#
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"MIME-Version: 1.0\n"
+"Project-Id-Version: stimulator\n"
+"Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
+"Language-Team: Hindi\n"
+"Language: hi\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"PO-Revision-Date: 2024-05-06 18:41+0530\n"
+"X-Generator: Gtranslator 46.1\n"
+
+msgid "Stimulator"
+msgstr "Stimulator"
+
+msgid "Keep your computer awake"
+msgstr "अपने कंप्यूटर को सक्रिय रखें"
+
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "caffeine;nosleep;awake;keepawake;keepon;"
+
+msgid "Disable Automatic Suspending"
+msgstr "स्वचालित निलंबन अक्षम करें"
+
+msgid "Disable Screen Blanking and Locking"
+msgstr "स्क्रीन रिक्ति और लॉक अक्षम करें"
+
+msgid "Current state: System default"
+msgstr "वर्तमान स्थिति: सिस्टम तयशुदा"
+
+msgid "Current state: Indefinitely"
+msgstr "वर्तमान स्थिति: अनिश्चितकाल तक"
+
+msgid "Stimulator is active"
+msgstr "Stimulator सक्रिय है"
+
+msgid "Close Stimulator?"
+msgstr "Stimulator बंद करें?"
+
+msgid "Stimulator is active, do you want to close it?"
+msgstr "Stimulator सक्रिय है, क्या आप इसे बंद करना चाहते हैं?"
+
+msgid "Cancel"
+msgstr "रद्द करें"
+
+msgid "Close"
+msgstr "बंद करें"
+
+msgid "Preferences"
+msgstr "प्राथमिकताएं"
+
+msgid "Theme"
+msgstr "थीम"
+
+msgid "System Theme"
+msgstr "सिस्टम थीम"
+
+msgid "Light"
+msgstr "हल्की"
+
+msgid "Dark"
+msgstr "गहरी"
+
+msgid "Keyboard Shortcuts"
+msgstr "कीबोर्ड शॉर्टकट"
+
+msgid "General"
+msgstr "सामान्य"
+
+msgid "Open Menu"
+msgstr "मेनू खोलें"
+
+msgid "Quit"
+msgstr "बंद करें"
+
+msgid "About Stimulator"
+msgstr "Stimulator के बारे में"
+
+msgid "Unsupported System"
+msgstr "असमर्थित सिस्टम"
+
+msgid ""
+"Your desktop environment doesn't support Stimulator, click close to quit"
+msgstr ""
+"आपका डेस्कटॉप वातावरण Stimulator का समर्थन नहीं करता है, छोड़ने के लिए बंद करें पर "
+"क्लिक करें"
+
+msgid "Run in Background"
+msgstr "पृष्ठभूमि में चलाएं"
+
+msgid "Show"
+msgstr "दिखाएं"
+
+msgid "Stimulator is running in the backround"
+msgstr "Stimulator पृष्ठभूमि में चल रहा है"
+
+msgid "Ask Confirmation"
+msgstr "पुष्टिकरण पूछें"
+
+msgid "Behavior on Closing"
+msgstr "समापन पर व्यवहार"
+
+msgid "Applies only while active"
+msgstr "केवल सक्रिय रहते हुए ही लागू होता है"
+
+msgid "Main Menu"
+msgstr "मुख्य मेनू"
+
+msgid "translator-credits"
+msgstr "Scrambled777 <weblate.scrambled777@simplelogin.com>"
