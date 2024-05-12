@@ -51,6 +51,15 @@
   <content_rating type="oars-1.1" />
 
   <releases>
+     <release version="1.7" date="2024-05-12">
+      <description>
+        <ul>
+          <li>Display tanslator credits in the About dilaog</li>
+          <li>Update runtime version</li>
+          <li>Add hindi translation</li>
+        </ul>
+      </description>
+    </release>
      <release version="1.6" date="2024-04-15">
       <description>
         <ul>
