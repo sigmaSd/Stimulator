@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Stimulator
 Name[ar]=المحفز
+Name[de]=Stimulator
 Name[et]=Stimulaator
 Name[fr]=Stimulateur
 Name[hi]=Stimulator
@@ -11,6 +12,7 @@ Name[pt-BR]=Stimulator
 Name[tr]=Stimulator
 Comment=Keep your computer awake
 Comment[ar]=أبقِ جهاز الكمبيوتر مستيقظًا
+Comment[de]=Verhindere Bereitschaft
 Comment[et]=Hoia oma arvuti ärkvel
 Comment[fr]=Gardez votre ordinateur éveillé
 Comment[hi]=अपने कंप्यूटर को सक्रिय रखें
@@ -21,6 +23,7 @@ Comment[pt-BR]=Mantenha seu computador acordado
 Comment[tr]=Bilgisayarınızı uyanık tutun
 Keywords=caffeine;nosleep;awake;keepawake;keepon;
 Keywords[ar]=كافيين; بدون نوم; مستيقظ;
+Keywords[de]=caffeine;nosleep;awake;keepawake;keepon;
 Keywords[et]=kofeiin;eiuinu;ärkvel;hoiaärkvel;jätka;
 Keywords[fr]=caféine;pas de sommeil;éveillé;
 Keywords[hi]=caffeine;nosleep;awake;keepawake;keepon;

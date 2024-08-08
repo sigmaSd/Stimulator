@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Stimulator"
+msgstr "Stimulator"
+
+msgid "Keep your computer awake"
+msgstr "Verhindere Bereitschaft"
+
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "caffeine;nosleep;awake;keepawake;keepon;"
+
+msgid "Disable Automatic Suspending"
+msgstr "Deaktiviere automatsiche Bereitschaft"
+
+msgid "Disable Screen Blanking and Locking"
+msgstr "Deaktivere Bildschirm ausschalten und Sperren"
+
+msgid "Current state: System default"
+msgstr "Aktueller Zustand: Systemstandard"
+
+msgid "Current state: Indefinitely"
+msgstr "Aktueller Zustand: Unbeschränkt"
+
+msgid "Stimulator is active"
+msgstr "Stimulator ist aktiv"
+
+msgid "Close Stimulator?"
+msgstr "Stimulator schließen?"
+
+msgid "Stimulator is active, do you want to close it?"
+msgstr "Stimulator is aktiv, willst du es schließen?"
+
+msgid "Cancel"
+msgstr "Abbrechend"
+
+msgid "Close"
+msgstr "Schließen"
+
+msgid "Preferences"
+msgstr "Einstellungen"
+
+msgid "Theme"
+msgstr "Theme"
+
+msgid "System Theme"
+msgstr "System-Theme"
+
+msgid "Light"
+msgstr "Hell"
+
+msgid "Dark"
+msgstr "Dunkel"
+
+msgid "Keyboard Shortcuts"
+msgstr "Tastenkombinationen"
+
+msgid "General"
+msgstr "Allgemein"
+
+msgid "Open Menu"
+msgstr "Menu öffnen"
+
+msgid "Quit"
+msgstr "Beenden"
+
+msgid "About Stimulator"
+msgstr "Über Stimulator"
+
+msgid "Unsupported System"
+msgstr "Nicht unterstütztes System"
+
+msgid "Your desktop environment doesn't support Stimulator, click close to quit"
+msgstr "Deine Desktopumgebung unterstützt Stimulator nicht, zum Beenden auf Schließen klicken"
+
+msgid "Run in Background"
+msgstr "Im Hintergrund laufen"
+
+msgid "Show"
+msgstr "Anzeigen"
+
+msgid "Stimulator is running in the backround"
+msgstr "Stimulator läuft im Hintergrund"
+
+msgid "Ask Confirmation"
+msgstr "Bestätigung erfragen"
+
+msgid "Behavior on Closing"
+msgstr "Verhalten beim Schließen"
+
+msgid "Applies only while active"
+msgstr "Anwendung nur wenn aktiv"
+
+msgid "Main Menu"
+msgstr "Hauptmenü"
+
+msgid "translator-credits"
+msgstr "translator-credits"
