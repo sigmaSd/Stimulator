@@ -51,6 +51,14 @@
   <content_rating type="oars-1.1" />
 
   <releases>
+    <release version="1.8" date="2024-09-26">
+      <description>
+          <ul>
+              <li>Add german translation</li>
+              <li>Add ukrainian translation</li>
+          </ul>
+      </description>
+    </release>
      <release version="1.7" date="2024-05-12">
       <description>
         <ul>
@@ -338,7 +346,7 @@
   <categories>
     <category>Utility</category>
   </categories>
-  
+
   <provides>
     <binary>stimulator</binary>
   </provides>
