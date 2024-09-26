@@ -6,7 +6,7 @@
   "imports": {
     // "deno-gtk-py": "../deno-gtk-py/mod.ts",
     "deno-gtk-py": "jsr:@sigma/gtk-py@0.4.17",
-    "i18next": "https://deno.land/x/i18next@v23.7.11/index.js",
-    "i18next_fs": "https://deno.land/x/i18next_fs_backend@v2.3.1/index.js"
+    "i18next": "npm:i18next@23.15.1",
+    "i18next_fs": "npm:i18next-fs-backend@2.3.2"
   }
 }

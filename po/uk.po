@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Stimulator"
+msgstr "Стимулятор"
+
+msgid "Keep your computer awake"
+msgstr "Утримує ваш комп'ютер від сну"
+
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "caffeine;nosleep;awake;keepawake;keepon;"
+
+msgid "Disable Automatic Suspending"
+msgstr "Вимкнути автоматичну призупинку"
+
+msgid "Disable Screen Blanking and Locking"
+msgstr "Вимкнути притлумлення і блокування екрану"
+
+msgid "Current state: System default"
+msgstr "Поточний стан: системний типовий"
+
+msgid "Current state: Indefinitely"
+msgstr "Поточний стан: не визначено"
+
+msgid "Stimulator is active"
+msgstr "Стимулятор активний"
+
+msgid "Close Stimulator?"
+msgstr "Закрити Стимулятор?"
+
+msgid "Stimulator is active, do you want to close it?"
+msgstr "Стимулятор активний, справді бажаєте закрити?"
+
+msgid "Cancel"
+msgstr "Скасувати"
+
+msgid "Close"
+msgstr "Закрити"
+
+msgid "Preferences"
+msgstr "Налаштування"
+
+msgid "Theme"
+msgstr "Тема"
+
+msgid "System Theme"
+msgstr "Системна тема"
+
+msgid "Light"
+msgstr "Світла"
+
+msgid "Dark"
+msgstr "Темна"
+
+msgid "Keyboard Shortcuts"
+msgstr "Клавіатурні скорочення"
+
+msgid "General"
+msgstr "Загальні"
+
+msgid "Open Menu"
+msgstr "Відкрити меню"
+
+msgid "Quit"
+msgstr "Вихід"
+
+msgid "About Stimulator"
+msgstr "Про Стимулятор"
+
+msgid "Unsupported System"
+msgstr "Система не підтримується"
+
+msgid "Your desktop environment doesn't support Stimulator, click close to quit"
+msgstr "Ваше середовище стільниці не підтримує Стимулятор, натисніть Закрити для виходу"
+
+msgid "Run in Background"
+msgstr "Працювати у фоні"
+
+msgid "Show"
+msgstr "Показати"
+
+msgid "Stimulator is running in the backround"
+msgstr "Стимулятор працює у фоні"
+
+msgid "Ask Confirmation"
+msgstr "Запитувати підтвердження"
+
+msgid "Behavior on Closing"
+msgstr "Поведінка при виході"
+
+msgid "Applies only while active"
+msgstr "Застосовується коли Стимулятор активний"
+
+msgid "Main Menu"
+msgstr "Головне меню"
+
+msgid "translator-credits"
+msgstr "Oleksii Shumitsky"
