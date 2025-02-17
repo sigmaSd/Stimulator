@@ -1,12 +1,9 @@
 {
   "vendor": true,
-  // disable the lock file because otherwise deno will fail because we're not caching the npm dependencies
-  // the npm dependencies are not needed since we only use them in scripts for now
-  "lock": false,
   "imports": {
     // "deno-gtk-py": "../deno-gtk-py/mod.ts",
-    "deno-gtk-py": "jsr:@sigma/gtk-py@0.4.17",
-    "i18next": "https://deno.land/x/i18next@v23.7.11/index.js",
-    "i18next_fs": "https://deno.land/x/i18next_fs_backend@v2.3.1/index.js"
+    "deno-gtk-py": "jsr:@sigma/gtk-py@0.4.28",
+    "i18next": "npm:i18next@24.2.2",
+    "i18next_fs": "npm:i18next-fs-backend@2.6.0"
   }
 }

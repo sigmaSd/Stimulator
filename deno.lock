@@ -1,0 +1,47 @@
+{
+  "version": "4",
+  "specifiers": {
+    "jsr:@denosaurs/python@0.4.4": "0.4.4",
+    "jsr:@sigma/gtk-py@0.4.28": "0.4.28",
+    "npm:i18next-fs-backend@2.6.0": "2.6.0",
+    "npm:i18next@24.2.2": "24.2.2"
+  },
+  "jsr": {
+    "@denosaurs/python@0.4.4": {
+      "integrity": "0eca587ac3a60ed5bce73ac9612126de39d7c26b0a98c03044838fd94aba812f"
+    },
+    "@sigma/gtk-py@0.4.28": {
+      "integrity": "dcdeb3c77f62a681cd97b0d8aaba1876bfc9549c2da98110fbca5186b9dab588",
+      "dependencies": [
+        "jsr:@denosaurs/python"
+      ]
+    }
+  },
+  "npm": {
+    "@babel/runtime@7.26.0": {
+      "integrity": "sha512-FDSOghenHTiToteC/QRlv2q3DhPZ/oOXTBoirfWNx1Cx3TMVcGWQtMMmQcSvb/JjpNeGzx8Pq/b4fKEJuWm1sw==",
+      "dependencies": [
+        "regenerator-runtime"
+      ]
+    },
+    "i18next-fs-backend@2.6.0": {
+      "integrity": "sha512-3ZlhNoF9yxnM8pa8bWp5120/Ob6t4lVl1l/tbLmkml/ei3ud8IWySCHt2lrY5xWRlSU5D9IV2sm5bEbGuTqwTw=="
+    },
+    "i18next@24.2.2": {
+      "integrity": "sha512-NE6i86lBCKRYZa5TaUDkU5S4HFgLIEJRLr3Whf2psgaxBleQ2LC1YW1Vc+SCgkAW7VEzndT6al6+CzegSUHcTQ==",
+      "dependencies": [
+        "@babel/runtime"
+      ]
+    },
+    "regenerator-runtime@0.14.1": {
+      "integrity": "sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw=="
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@sigma/gtk-py@0.4.28",
+      "npm:i18next-fs-backend@2.6.0",
+      "npm:i18next@24.2.2"
+    ]
+  }
+}

@@ -1,12 +1,9 @@
 {
   "scope": "denosaurs",
   "name": "python",
+  "latest": "0.4.4",
   "versions": {
-    "0.4.3": {
-      "yanked": false,
-      "exports": {
-        ".": "./mod.ts"
-      }
-    }
+    "0.4.3": {},
+    "0.4.4": {}
   }
 }
