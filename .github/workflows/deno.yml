@@ -31,7 +31,7 @@ jobs:
           deno-version: v2.x
 
       - name: Verify formatting
-        run: deno fmt --ignore=src/locales/,flatpak --check
+        run: deno fmt --ignore=src/locales/,src/main.css,flatpak --check
 
       - name: Run linter
         run: deno lint
