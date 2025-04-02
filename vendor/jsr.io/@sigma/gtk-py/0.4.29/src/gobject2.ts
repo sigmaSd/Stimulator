@@ -5,5 +5,6 @@ export interface Object {
   TYPE_NONE: GType;
 }
 
+// deno-lint-ignore no-empty-enum
 export enum GType {
 }

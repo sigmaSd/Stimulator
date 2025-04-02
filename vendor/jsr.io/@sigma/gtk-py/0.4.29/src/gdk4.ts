@@ -31,16 +31,20 @@ export enum DragAction {
 }
 
 export interface Clipboard {
+  // deno-lint-ignore no-explicit-any
   read_text_async: (cancellable: any, callback: Callback) => void;
   read_text_finish: (result: Gio.AsyncResult) => { valueOf: () => string };
   read_async: (
     mimeTypes: string[],
     io_priority: number,
+    // deno-lint-ignore no-explicit-any
     cancellable: any,
     callback: Callback,
   ) => void;
+  // deno-lint-ignore no-explicit-any
   read_finish: (result: Gio.AsyncResult) => [any, { valueOf: () => string }];
   read_texture_async: (
+    // deno-lint-ignore no-explicit-any
     cancellable: any,
     callback: Callback,
   ) => void;

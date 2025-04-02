@@ -42,6 +42,8 @@ export interface ListModel {
 export interface File {
   new_for_uri(uri: string): File;
   get_path(): { valueOf: () => string };
+  // deno-lint-ignore no-explicit-any
+  load_contents(): [{ valueOf: () => boolean }, any];
 }
 
 export interface Subprocess {
@@ -55,10 +57,8 @@ export interface SubprocessFlags {
 }
 // deno-lint-ignore no-namespace
 export namespace SubprocessFlags {
-  // deno-lint-ignore no-empty-interface
   export interface STDIN_PIPE extends SubprocessFlags {
   }
-  // deno-lint-ignore no-empty-interface
   export interface STDOUT_PIPE extends SubprocessFlags {
   }
 }

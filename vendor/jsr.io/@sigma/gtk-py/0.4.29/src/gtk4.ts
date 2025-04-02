@@ -9,6 +9,7 @@ import type {
 } from "../mod.ts";
 
 export interface Gtk {
+  Picture(): Picture;
   Builder(): Builder;
   GestureClick: GestureClick;
   DrawingArea(): DrawingArea;
@@ -41,9 +42,29 @@ export interface Gtk {
   STYLE_PROVIDER_PRIORITY_APPLICATION: number;
   StyleContext: StyleContext;
   CssProvider(): CssProvider;
-  ApplicationWindow: ApplicationWindowConstructor;
+  ApplicationWindow: {
+    new (kwArg: NamedArgument): ApplicationWindow;
+  };
   FileDialog: FileDialog;
   StringList: { new: (strings: string[]) => StringList };
+  DropTarget: {
+    new: (
+      type: GObject2_.GType | Gio2_.File,
+      actions: Gdk4_.DragAction,
+    ) => DropTarget;
+  };
+  EventControllerKey: {
+    new: () => EventControllerKey;
+  };
+  Align: {
+    FILL: Align;
+    START: Align;
+    END: Align;
+    CENTER: Align;
+    BASELINE: Align;
+    BASELINE_FILL: Align;
+    BASELINE_CENTER: Align;
+  };
 }
 
 export type Application = PythonConvertible;
@@ -59,14 +80,13 @@ export interface StyleContext {
     provider: CssProvider,
     proiority: number,
   ): void;
+  add_class(class_name: string): void;
 }
 
 export interface CssProvider {
   load_from_file(file: Gio2_.File): void;
   load_from_path(path: string): void;
-}
-export interface ApplicationWindowConstructor {
-  new (kwArg: NamedArgument): ApplicationWindow;
+  load_from_data(data: string): void;
 }
 export interface Window extends Widget {
   hide: () => void;
@@ -75,7 +95,6 @@ export interface Window extends Widget {
   set_modal(modal: boolean): void;
   set_hide_on_close(yes: boolean): void;
 }
-// deno-lint-ignore no-empty-interface
 export interface ShortcutsWindow extends Window {
 }
 export interface ApplicationWindow extends Window {
@@ -99,6 +118,10 @@ export interface Widget extends GObject2_.Object {
   set_css_classes(classes: string[]): void;
   set_tooltip_text(text: string): void;
   set_visible(visible: boolean): void;
+  set_size_request(width: number, height: number): void;
+  set_halign(align: Align): void;
+  add_controller(controller: EventController): void;
+  get_style_context(): StyleContext;
 }
 
 export interface FileDialog extends Widget {
@@ -119,7 +142,7 @@ export interface Builder {
   get_object<T>(object: string): T;
   add_from_file(file: string): void;
 }
-export interface GestureClick {
+export interface GestureClick extends EventController {
   connect(arg0: string, dw_click: Callback): void;
   new: () => GestureClick;
 }
@@ -182,6 +205,7 @@ export interface Scale extends Widget {
 export interface Label extends Widget {
   get_label(): { valueOf: () => string };
   set_label(label: string): void;
+  set_text(label: string): void;
 }
 
 export interface ToggleButton extends Button {
@@ -199,13 +223,13 @@ export interface CheckButton extends Widget {
 }
 export interface DrawingArea extends Widget {
   queue_draw(): void;
-  add_controller(evk: GestureClick): void;
   set_draw_func(callback: Callback): void;
   set_vexpand(arg0: boolean): void;
   set_hexpand(arg0: boolean): void;
 }
 export interface Picture extends Widget {
   set_filename(filename: string): void;
+  set_keep_aspect_ratio(keep_aspect_ratio: boolean): void;
 }
 export interface Image extends Widget {
   set_from_icon_name(iconName: string): void;
@@ -217,8 +241,16 @@ export interface ShortcutsShortcut extends Widget {
   props: { title: string };
 }
 
-// deno-lint-ignore no-empty-interface
 export interface StringList extends Gio2_.ListModel {
+}
+
+export interface EventController extends GObject2_.Object {
+}
+
+export interface DropTarget extends EventController {
+}
+
+export interface EventControllerKey extends GObject2_.Object {
 }
 
 export enum ApplicationInhibitFlags {
@@ -226,4 +258,13 @@ export enum ApplicationInhibitFlags {
   SWITCH = 2,
   SUSPEND = 4,
   IDLE = 8,
+}
+export enum Align {
+  FILL = 0,
+  START = 1,
+  END = 2,
+  CENTER = 3,
+  BASELINE = 4,
+  BASELINE_FILL = 4,
+  BASELINE_CENTER = 5,
 }

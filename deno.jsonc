@@ -2,7 +2,7 @@
   "vendor": true,
   "imports": {
     // "deno-gtk-py": "../deno-gtk-py/mod.ts",
-    "deno-gtk-py": "jsr:@sigma/gtk-py@0.4.28",
+    "deno-gtk-py": "jsr:@sigma/gtk-py@0.4.29",
     "i18next": "npm:i18next@24.2.2",
     "i18next_fs": "npm:i18next-fs-backend@2.6.0"
   }
