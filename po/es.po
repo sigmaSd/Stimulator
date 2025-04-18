@@ -21,8 +21,7 @@ msgid "Keep your computer awake"
 msgstr "Mantenga su ordenador despierto"
 
 msgid "caffeine;nosleep;awake;keepawake;keepon;"
-msgstr ""
-"cafeína;sin dormir;despierto;mantenerse despierto;mantenerse encendido;"
+msgstr "cafeína;sin dormir;despierto;mantenerse despierto;mantenerse encendido;"
 
 msgid "Disable Automatic Suspending"
 msgstr "Deshabilita la suspensión automática"
@@ -84,8 +83,7 @@ msgstr "Acerca de Stimulator"
 msgid "Unsupported System"
 msgstr "Sistema no soportado"
 
-msgid ""
-"Your desktop environment doesn't support Stimulator, click close to quit"
+msgid "Your desktop environment doesn't support Stimulator, click close to quit"
 msgstr "Su entorno de escritorio no soporta Stimulator, haga click para salir"
 
 msgid "Run in Background"
