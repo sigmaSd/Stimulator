@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Stimulator"
+msgstr "Stimulator"
+
+msgid "Keep your computer awake"
+msgstr "Keep your computer awake"
+
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "caffeine;nosleep;awake;keepawake;keepon;"
+
+msgid "Disable Automatic Suspending"
+msgstr "Disable Automatic Suspending"
+
+msgid "Disable Screen Blanking and Locking"
+msgstr "Disable Screen Blanking and Locking"
+
+msgid "Current state: System default"
+msgstr "Current state: System default"
+
+msgid "Current state: Indefinitely"
+msgstr "Current state: Indefinitely"
+
+msgid "Stimulator is active"
+msgstr "Stimulator is active"
+
+msgid "Close Stimulator?"
+msgstr "Close Stimulator?"
+
+msgid "Stimulator is active, do you want to close it?"
+msgstr "Stimulator is active, do you want to close it?"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Close"
+msgstr "Close"
+
+msgid "Preferences"
+msgstr "Preferences"
+
+msgid "Theme"
+msgstr "Theme"
+
+msgid "System Theme"
+msgstr "System Theme"
+
+msgid "Light"
+msgstr "Light"
+
+msgid "Dark"
+msgstr "Dark"
+
+msgid "Keyboard Shortcuts"
+msgstr "Keyboard Shortcuts"
+
+msgid "General"
+msgstr "General"
+
+msgid "Open Menu"
+msgstr "Open Menu"
+
+msgid "Quit"
+msgstr "Quit"
+
+msgid "About Stimulator"
+msgstr "About Stimulator"
+
+msgid "Unsupported System"
+msgstr "Unsupported System"
+
+msgid "Your desktop environment doesn't support Stimulator, click close to quit"
+msgstr "Your desktop environment doesn't support Stimulator, click close to quit"
+
+msgid "Run in Background"
+msgstr "Run in Background"
+
+msgid "Show"
+msgstr "Show"
+
+msgid "Stimulator is running in the backround"
+msgstr "Stimulator is running in the backround"
+
+msgid "Ask Confirmation"
+msgstr "Ask Confirmation"
+
+msgid "Behavior on Closing"
+msgstr "Behavior on Closing"
+
+msgid "Applies only while active"
+msgstr "Applies only while active"
+
+msgid "Main Menu"
+msgstr "Main Menu"
+
+msgid "translator-credits"
+msgstr "translator-credits"
