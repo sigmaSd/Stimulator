@@ -1,0 +1,21 @@
+{
+  "modules": {
+    "https://deno.land/x/i18next@v25.0.0/BackendConnector.js": {},
+    "https://deno.land/x/i18next@v25.0.0/EventEmitter.js": {},
+    "https://deno.land/x/i18next@v25.0.0/Formatter.js": {},
+    "https://deno.land/x/i18next@v25.0.0/Interpolator.js": {},
+    "https://deno.land/x/i18next@v25.0.0/LanguageUtils.js": {},
+    "https://deno.land/x/i18next@v25.0.0/PluralResolver.js": {},
+    "https://deno.land/x/i18next@v25.0.0/ResourceStore.js": {},
+    "https://deno.land/x/i18next@v25.0.0/Translator.js": {},
+    "https://deno.land/x/i18next@v25.0.0/postProcessor.js": {},
+    "https://deno.land/x/i18next_fs_backend/index.js": {
+      "headers": {
+        "location": "/x/i18next_fs_backend@v2.6.0/index.js",
+        "x-deno-warning": "Implicitly using latest version (v2.6.0) for https://deno.land/x/i18next_fs_backend/index.js"
+      }
+    },
+    "https://deno.land/x/i18next_fs_backend@v2.6.0/lib/readFile.js": {},
+    "https://deno.land/x/i18next_fs_backend@v2.6.0/lib/writeFile.js": {}
+  }
+}
