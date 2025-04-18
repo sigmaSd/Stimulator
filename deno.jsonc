@@ -1,5 +1,6 @@
 {
   "vendor": true,
+  "lock": false,
   "imports": {
     // "deno-gtk-py": "../deno-gtk-py/mod.ts",
     "deno-gtk-py": "jsr:@sigma/gtk-py@0.4.29",
