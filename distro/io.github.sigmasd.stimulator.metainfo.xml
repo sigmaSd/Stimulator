@@ -51,6 +51,15 @@
   <content_rating type="oars-1.1" />
 
   <releases>
+    <release version="1.9.0" date="2025-04-18">
+      <description>
+          <ul>
+              <li>Add spanish translation</li>
+              <li>Use Deno v2</li>
+              <li>Update deps</li>
+          </ul>
+      </description>
+    </release>
     <release version="1.8.1" date="2024-09-27">
       <description>
           <ul>
