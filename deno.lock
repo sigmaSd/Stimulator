@@ -1,0 +1,48 @@
+{
+  "version": "5",
+  "specifiers": {
+    "jsr:@denosaurs/python@0.4.4": "0.4.4",
+    "jsr:@sigma/gtk-py@0.4.29": "0.4.29"
+  },
+  "jsr": {
+    "@denosaurs/python@0.4.4": {
+      "integrity": "0eca587ac3a60ed5bce73ac9612126de39d7c26b0a98c03044838fd94aba812f"
+    },
+    "@sigma/gtk-py@0.4.29": {
+      "integrity": "6756de606065749d48a4a0b9546b94c1ac04af5c66ab126e9db9e408a0ac83f1",
+      "dependencies": [
+        "jsr:@denosaurs/python"
+      ]
+    }
+  },
+  "remote": {
+    "https://deno.land/x/i18next@v25.0.0/BackendConnector.js": "0ac56337bae9aa8cf72985f79db7973cec6dfeef1424458af651ad4936251242",
+    "https://deno.land/x/i18next@v25.0.0/EventEmitter.js": "0269fdda12ebd2eeb6dbeececdf9f72595e99b27a35e983c72d2b8b65fa6446c",
+    "https://deno.land/x/i18next@v25.0.0/Formatter.js": "656680552ed6cd7c7e721525e436102e2f279626c9d2c8c44778c84e4b10b533",
+    "https://deno.land/x/i18next@v25.0.0/Interpolator.js": "6f08d7e275d0044298a7cb93cf56304dae6f27eda4e749a4002b4e22aecf6fd3",
+    "https://deno.land/x/i18next@v25.0.0/LanguageUtils.js": "9ec1510e9dccec41704c9e8d2d8f0168ffcb7f4bdd39b12f974c71a29ef93dcc",
+    "https://deno.land/x/i18next@v25.0.0/PluralResolver.js": "1daca441838cb4c315472e24ab7c883ea66dcd18567b51bad5de898d2dfa8001",
+    "https://deno.land/x/i18next@v25.0.0/ResourceStore.js": "2b47489ad61920a89d3bbb453668422b81cbfe900490a943d821e77a24d3397e",
+    "https://deno.land/x/i18next@v25.0.0/Translator.js": "f22a3d3cd711172cb41a5d3f930a32a57c7abfcbac687c8749d635c0255c3142",
+    "https://deno.land/x/i18next@v25.0.0/defaults.js": "5cf91c2ad53e8e8ad019c6d7614bacb4ebe247bdaa623a0f579f9f11a7b54758",
+    "https://deno.land/x/i18next@v25.0.0/i18next.js": "67338966caa2ea3079bc07a0099f03fc4c0aa3ec64260faab2ef8172b6439793",
+    "https://deno.land/x/i18next@v25.0.0/index.js": "2b3174388a937f60c0ad24442585a747886eb0deacc0cbaddf18609d2032b0c4",
+    "https://deno.land/x/i18next@v25.0.0/logger.js": "46388d2892a929595c260723d02e2d92ddc606f51ff6da668f77fbe6a66270ed",
+    "https://deno.land/x/i18next@v25.0.0/postProcessor.js": "1088032122e4f8df94b04edb3030a2e5d646110db3d0251d420198d25a73a1fe",
+    "https://deno.land/x/i18next@v25.0.0/utils.js": "4955553c0e58af50bceb23ae1cb03eb23e23bcd2f26a0b06c2227e98db7566c4",
+    "https://deno.land/x/i18next_fs_backend@v2.6.0/index.js": "1ce6e93286dca41447634fc6249b10b86399a9bfc42009a2965092e2c28ecfdc",
+    "https://deno.land/x/i18next_fs_backend@v2.6.0/lib/extname.js": "81019e3460fab66bdcc4f5ef1fb91005c8039b78b747e699105587500e0587d7",
+    "https://deno.land/x/i18next_fs_backend@v2.6.0/lib/formats/json5.js": "12db0fd3eac76597c0f5aaef2e013d8267a235c773589effc36b1a8a80a1314d",
+    "https://deno.land/x/i18next_fs_backend@v2.6.0/lib/formats/jsonc.js": "9a22be8709da869c3efce19e2f88c8fb984e010d382a3d6c01c953d82ba510d5",
+    "https://deno.land/x/i18next_fs_backend@v2.6.0/lib/formats/yaml.js": "16f210b939b359b6ec8dde581eb62c157185711dc7b719b33779c43db5c31a91",
+    "https://deno.land/x/i18next_fs_backend@v2.6.0/lib/index.js": "cd129fef25ce1c346056a9056d0f44430c9816fe205e89ff71a55cf203f60ade",
+    "https://deno.land/x/i18next_fs_backend@v2.6.0/lib/readFile.js": "904df7d39e05c96729cbe7f350fb59d46714ccb167dec9482c9035498912b175",
+    "https://deno.land/x/i18next_fs_backend@v2.6.0/lib/utils.js": "6b73c19f17c122b4d2bb705f27994e7a82716d2b062e1f3036a65d0399869bc0",
+    "https://deno.land/x/i18next_fs_backend@v2.6.0/lib/writeFile.js": "c253c9b26b82807af171d67cb03f13d8f7b42c99a0f709aa76d209b8303d7afd"
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@sigma/gtk-py@0.4.29"
+    ]
+  }
+}
