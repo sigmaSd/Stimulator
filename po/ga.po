@@ -1,0 +1,109 @@
+msgid ""
+msgstr ""
+
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@gmail.com>\n"
+"Language-Team: \n"
+"Language: ga\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+msgid "Stimulator"
+msgstr "Stimulator"
+
+msgid "Keep your computer awake"
+msgstr "Coinnigh do ríomhaire ina dhúiseacht"
+
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "caiféin; gan chodladh; dúiseacht; coinnigh i do dhúiseacht; coinnigh ar aghaidh;"
+
+msgid "Disable Automatic Suspending"
+msgstr "Díchumasaigh Fionraí Uathoibríoch"
+
+msgid "Disable Screen Blanking and Locking"
+msgstr "Díchumasaigh Glanadh agus Glasáil Scáileáin"
+
+msgid "Current state: System default"
+msgstr "Staid reatha: Réamhshocrú córais"
+
+msgid "Current state: Indefinitely"
+msgstr "Staid reatha: Go deo"
+
+msgid "Stimulator is active"
+msgstr "Tá an stimulator gníomhach"
+
+msgid "Close Stimulator?"
+msgstr "Dún Stimulator?"
+
+msgid "Stimulator is active, do you want to close it?"
+msgstr "Tá an Stimulator gníomhach, ar mhaith leat é a dhúnadh?"
+
+msgid "Cancel"
+msgstr "Cealaigh"
+
+msgid "Close"
+msgstr "Dún"
+
+msgid "Preferences"
+msgstr "Roghanna"
+
+msgid "Theme"
+msgstr "Téama"
+
+msgid "System Theme"
+msgstr "Téama an Chórais"
+
+msgid "Light"
+msgstr "Solas"
+
+msgid "Dark"
+msgstr "Dorcha"
+
+msgid "Keyboard Shortcuts"
+msgstr "Aicearraí Méarchláir"
+
+msgid "General"
+msgstr "Ginearálta"
+
+msgid "Open Menu"
+msgstr "Oscail an Roghchlár"
+
+msgid "Quit"
+msgstr "Scoir"
+
+msgid "About Stimulator"
+msgstr "Maidir leis an Spreagthóir"
+
+msgid "Unsupported System"
+msgstr "Córas Gan Tacaíocht"
+
+msgid "Your desktop environment doesn't support Stimulator, click close to quit"
+msgstr "Ní thacaíonn do thimpeallacht deisce le Stimulator, cliceáil dún chun scor"
+
+msgid "Run in Background"
+msgstr "Rith sa Chúlra"
+
+msgid "Show"
+msgstr "Taispeáin"
+
+msgid "Stimulator is running in the backround"
+msgstr "Tá an stimulator ag rith sa chúlra"
+
+msgid "Ask Confirmation"
+msgstr "Iarr deimhniú"
+
+msgid "Behavior on Closing"
+msgstr "Iompar ar Dhúnadh"
+
+msgid "Applies only while active"
+msgstr "Ní bhaineann sé ach le linn a ghníomhartha"
+
+msgid "Main Menu"
+msgstr "Príomh-Roghchlár"
+
+msgid "translator-credits"
+msgstr "creidmheasanna-aistritheora"
