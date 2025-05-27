@@ -3,4 +3,5 @@ flatpak/build-dir
 flatpak/.flatpak-builder
 .helix
 .vscode
+.zed
 node_modules
