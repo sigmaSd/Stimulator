@@ -1,4 +1,4 @@
-#!/usr/bin/env -S deno run --allow-env --allow-read=./po,./src/locales --allow-write=./src/locales,./distro/,./po --allow-run=deno
+#!/usr/bin/env -S deno run -A --no-lock
 import { gettextToI18next } from "npm:i18next-conv@14.0.0";
 import { APP_ID, EN_UI_LABELS } from "../src/consts.ts";
 import i18n, { i18next } from "../src/i18n.ts";
@@ -122,7 +122,7 @@ msgstr "${msgstr}"
 
 async function denoFmt() {
   await new Deno.Command("deno", {
-    args: ["fmt", "--indent-width", "4", "./src/locales/"],
+    args: ["fmt"],
   }).spawn()
     .status;
 }

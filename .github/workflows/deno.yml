@@ -31,10 +31,10 @@ jobs:
           deno-version: v2.x
 
       - name: Verify formatting
-        run: deno fmt --ignore=src/locales/,src/main.css,flatpak --check
+        run: deno fmt --check
 
       - name: Run linter
         run: deno lint
 
       - name: Run check
-        run: deno check .
+        run: deno check --no-lock

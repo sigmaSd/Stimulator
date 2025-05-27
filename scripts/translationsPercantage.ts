@@ -1,4 +1,4 @@
-#!/usr/bin/env -S deno run --allow-read=./po,README.md,./src/locales --allow-write=README.md --allow-run=deno
+#!/usr/bin/env -S deno run -A --no-lock
 import iso6391 from "npm:iso-639-1@3.1.0";
 import { EN_UI_LABELS } from "../src/consts.ts";
 
