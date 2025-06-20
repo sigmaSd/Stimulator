@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Stimulator"
+msgstr "Stimulator"
+
+msgid "Keep your computer awake"
+msgstr "保持电脑唤醒"
+
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "咖啡因;禁止休眠;唤醒;保持唤醒;保持开启;"
+
+msgid "Disable Automatic Suspending"
+msgstr "禁用系统自动休眠"
+
+msgid "Disable Screen Blanking and Locking"
+msgstr "禁用屏幕熄灭和锁定"
+
+msgid "Current state: System default"
+msgstr "当前状态：系统默认"
+
+msgid "Current state: Indefinitely"
+msgstr "目前状态：无限期"
+
+msgid "Stimulator is active"
+msgstr "Stimulator 已激活"
+
+msgid "Close Stimulator?"
+msgstr "关闭 Stimulator?"
+
+msgid "Stimulator is active, do you want to close it?"
+msgstr "Stimulator 已经激活, 你想要关闭它吗？"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Close"
+msgstr "关闭"
+
+msgid "Preferences"
+msgstr "设置"
+
+msgid "Theme"
+msgstr "主题"
+
+msgid "System Theme"
+msgstr "系统主题"
+
+msgid "Light"
+msgstr "亮"
+
+msgid "Dark"
+msgstr "暗"
+
+msgid "Keyboard Shortcuts"
+msgstr "键盘快捷键"
+
+msgid "General"
+msgstr "通用"
+
+msgid "Open Menu"
+msgstr "打开菜单"
+
+msgid "Quit"
+msgstr "退出"
+
+msgid "About Stimulator"
+msgstr "关于 Stimulator"
+
+msgid "Unsupported System"
+msgstr "不支持的系统"
+
+msgid "Your desktop environment doesn't support Stimulator, click close to quit"
+msgstr "您的桌面环境不支持 Stimulator，请单击“关闭”退出"
+
+msgid "Run in Background"
+msgstr "后台运行"
+
+msgid "Show"
+msgstr "展示"
+
+msgid "Stimulator is running in the backround"
+msgstr "Stimulator 正在后台运行"
+
+msgid "Ask Confirmation"
+msgstr "每次询问"
+
+msgid "Behavior on Closing"
+msgstr "关闭行为"
+
+msgid "Applies only while active"
+msgstr "仅在激活时适用"
+
+msgid "Main Menu"
+msgstr "主菜单"
+
+msgid "translator-credits"
+msgstr "thjxs https://github.com/thjxs"
