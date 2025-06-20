@@ -63,5 +63,6 @@ For disabling screen blanking/locking, it uses
 | Portuguese | 100.00         |
 | Turkish    | 100.00         |
 | Ukrainian  | 100.00         |
+| Chinese    | 100.00         |
 
 - Translations with less than 70% completion will not be embedded into the app
