@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Stimulator"
+msgstr "Stimulator"
+
+msgid "Keep your computer awake"
+msgstr "Hold din computer vågen"
+
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "koffein;ingensøvn;vågen;holdevågen;holdetændt;"
+
+msgid "Disable Automatic Suspending"
+msgstr "Deaktiver Automatisk Suspendering"
+
+msgid "Disable Screen Blanking and Locking"
+msgstr "Deaktiver skærmblankering og låsning"
+
+msgid "Current state: System default"
+msgstr "Nuværende tilstand: System standard"
+
+msgid "Current state: Indefinitely"
+msgstr "Nuværende tilstand: Ubegrænset"
+
+msgid "Stimulator is active"
+msgstr "Stimulator er aktiv"
+
+msgid "Close Stimulator?"
+msgstr "Luk Stimulator?"
+
+msgid "Stimulator is active, do you want to close it?"
+msgstr "Stimulator er aktiv, vil du lukke den?"
+
+msgid "Cancel"
+msgstr "Annuller"
+
+msgid "Close"
+msgstr "Luk"
+
+msgid "Preferences"
+msgstr "Præferencer"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "System Theme"
+msgstr "System Tema"
+
+msgid "Light"
+msgstr "Lys"
+
+msgid "Dark"
+msgstr "Mørk"
+
+msgid "Keyboard Shortcuts"
+msgstr "Tastaturgenveje"
+
+msgid "General"
+msgstr "Generel"
+
+msgid "Open Menu"
+msgstr "Åbn Menu"
+
+msgid "Quit"
+msgstr "Forlade"
+
+msgid "About Stimulator"
+msgstr "Om Stimulator"
+
+msgid "Unsupported System"
+msgstr "System Ikke Understøtted"
+
+msgid "Your desktop environment doesn't support Stimulator, click close to quit"
+msgstr "Dit skrivebordsmiljø understøtter ikke Stimulator. Klik på Luk for at afslutte."
+
+msgid "Run in Background"
+msgstr "Kør i baggrunden"
+
+msgid "Show"
+msgstr "Vise"
+
+msgid "Stimulator is running in the backround"
+msgstr "Stimulator kører i baggrunden"
+
+msgid "Ask Confirmation"
+msgstr "Spørg Bekræftelse"
+
+msgid "Behavior on Closing"
+msgstr "Adfærd ved lukning"
+
+msgid "Applies only while active"
+msgstr "Gælder kun, når den er aktiv"
+
+msgid "Main Menu"
+msgstr "Hovedmenu"
+
+msgid "translator-credits"
+msgstr "Hans-Christian Andersen https://github.com/idebugthusiexist"
