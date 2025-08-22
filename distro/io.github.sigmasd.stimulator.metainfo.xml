@@ -51,6 +51,13 @@
   <content_rating type="oars-1.1" />
 
   <releases>
+    <release version="1.9.6" date="2025-08-22">
+        <description>
+            <ul>
+                <li>add danish translation</li>
+            </ul>
+        </description>
+    </release>
     <release version="1.9.5" date="2025-06-20">
         <description>
             <ul>
