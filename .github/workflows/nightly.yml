@@ -30,7 +30,7 @@ jobs:
 
       - name: Compile for Linux x86_64
         run: |
-          deno compile -A src/main.ts
+          deno compile --output stimulator-linux-x86_64 --include src/ui/ --include src/main.css --include src/indicator/indicator_app.ts  -A src/main.ts
 
       - name: Get current date and time
         id: date
