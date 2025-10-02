@@ -71,6 +71,7 @@ jobs:
           1. Download `stimulator-linux-aarch64`
           2. Make it executable: `chmod +x stimulator-linux-aarch64`
           3. Run: `./stimulator-linux-aarch64`
+          EOF
 
 
           gh release create "$TAG_NAME" \
