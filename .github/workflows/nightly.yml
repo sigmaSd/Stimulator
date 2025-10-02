@@ -46,9 +46,9 @@ jobs:
         run: |
           TAG_NAME="nightly-${{ steps.sha.outputs.sha }}"
 
-          gh release create "$TAG_NAME" \
-            --title "Nightly Build - ${{ steps.sha.outputs.sha }} (${{ steps.date.outputs.datetime }})" \
-            --notes "Automated nightly build from commit ${{ steps.sha.outputs.sha }}
+          cat > release_notes.md << 'EOF'
+          Automated nightly build from commit ${{ steps.sha.outputs.sha }}
+
 
           Built: ${{ steps.date.outputs.datetime }}
           Commit: ${{ github.sha }}
@@ -58,5 +58,15 @@ jobs:
 
           ## Installation
           1. Download the binary
-          2. Make it executable: \`chmod +x stimulator-linux-x86_64\`
-          3. Run: \`./stimulator-linux-x86_64\`
+          2. Make it executable: `chmod +x stimulator-linux-x86_64`
+          3. Run: `./stimulator-linux-x86_64`
+
+          ## Bisecting
+          To bisect issues, you can download builds from different commits and test them.
+          EOF
+
+          gh release create "$TAG_NAME" \
+            --title "Nightly Build - ${{ steps.sha.outputs.sha }} (${{ steps.date.outputs.datetime }})" \
+            --notes-file release_notes.md \
+            --prerelease \
+            stimulator-linux-x86_64
