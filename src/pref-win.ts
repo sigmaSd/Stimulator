@@ -1,7 +1,7 @@
 import { type Adw1_ as Adw_, type Gtk4_ as Gtk_, python } from "deno-gtk-py";
 import { UI_LABELS } from "./consts.ts";
 import { Indicator } from "./indicator/indicator_api.ts";
-import { Adw, GLib, Gtk, type MainWindow } from "./main.ts";
+import { Adw, GLib, Gtk, type MainWindow, type TimerDuration } from "./main.ts";
 
 export type Theme = "System Theme" | "Light" | "Dark";
 export type Behavior = "Ask Confirmation" | "Run in Background" | "Quit";
@@ -98,6 +98,65 @@ export class PreferencesMenu {
         }
 
         mainWindow.updateState({ exitBehaviorV2: behavior });
+      }),
+    );
+
+    const suspendTimer = builder.get_object<Adw_.ComboRow>("suspendTimer");
+    const timerOptions = [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "8",
+      "10",
+      "12",
+      "15",
+      "Never",
+    ] as TimerDuration[];
+    const timerLabels = [
+      "1 minute",
+      "2 minutes",
+      "3 minutes",
+      "4 minutes",
+      "5 minutes",
+      "8 minutes",
+      "10 minutes",
+      "12 minutes",
+      "15 minutes",
+      "Never",
+    ];
+
+    suspendTimer.set_title("Suspend Timer");
+    suspendTimer.set_subtitle("Auto-disable after selected time");
+    suspendTimer.set_model(Gtk.StringList.new(timerLabels));
+    //NOTE: ADW bug workaround
+    suspendTimer.set_selected(1);
+    suspendTimer.set_selected(
+      timerOptions.indexOf(mainWindow.state.suspendTimer),
+    );
+    suspendTimer.connect(
+      "notify::selected",
+      python.callback(() => {
+        const duration = timerOptions[suspendTimer.get_selected().valueOf()];
+        mainWindow.updateState({ suspendTimer: duration });
+      }),
+    );
+
+    const idleTimer = builder.get_object<Adw_.ComboRow>("idleTimer");
+    idleTimer.set_title("Idle Timer");
+    idleTimer.set_subtitle("Auto-disable after selected time");
+    idleTimer.set_model(Gtk.StringList.new(timerLabels));
+    //NOTE: ADW bug workaround
+    idleTimer.set_selected(1);
+    idleTimer.set_selected(
+      timerOptions.indexOf(mainWindow.state.idleTimer),
+    );
+    idleTimer.connect(
+      "notify::selected",
+      python.callback(() => {
+        const duration = timerOptions[idleTimer.get_selected().valueOf()];
+        mainWindow.updateState({ idleTimer: duration });
       }),
     );
   }

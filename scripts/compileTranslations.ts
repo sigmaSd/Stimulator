@@ -1,4 +1,5 @@
 #!/usr/bin/env -S deno run -A --no-lock
+// deno-lint-ignore-file no-import-prefix
 import { gettextToI18next } from "npm:i18next-conv@14.0.0";
 import { APP_ID, EN_UI_LABELS } from "../src/consts.ts";
 import i18n, { i18next } from "../src/i18n.ts";

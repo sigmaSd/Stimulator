@@ -1,4 +1,5 @@
 #!/usr/bin/env -S deno run -A --no-lock
+// deno-lint-ignore-file no-import-prefix
 import iso6391 from "npm:iso-639-1@3.1.0";
 import { EN_UI_LABELS } from "../src/consts.ts";
 

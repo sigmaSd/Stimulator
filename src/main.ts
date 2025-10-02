@@ -26,6 +26,17 @@ export const Gdk: Gdk_.Gdk = python.import("gi.repository.Gdk");
 export const GLib: GLib_.GLib = python.import("gi.repository.GLib");
 
 type Flags = "logout" | "switch" | "suspend" | "idle";
+export type TimerDuration =
+  | "1"
+  | "2"
+  | "3"
+  | "4"
+  | "5"
+  | "8"
+  | "10"
+  | "12"
+  | "15"
+  | "Never";
 
 interface State {
   logout: boolean;
@@ -34,6 +45,8 @@ interface State {
   idle: boolean | "active_disabled";
   themeV2: Theme;
   exitBehaviorV2: Behavior;
+  suspendTimer: TimerDuration;
+  idleTimer: TimerDuration;
 }
 
 export class MainWindow {
@@ -45,6 +58,10 @@ export class MainWindow {
   #preferencesMenu: PreferencesMenu;
   #indicator?: Indicator;
   #screenSaverProxy;
+  #suspendTimerId?: number;
+  #idleTimerId?: number;
+  #suspendRemainingMinutes?: number;
+  #idleRemainingMinutes?: number;
 
   get state() {
     return this.#state;
@@ -63,6 +80,8 @@ export class MainWindow {
     idle: false,
     themeV2: "System Theme",
     exitBehaviorV2: "Ask Confirmation",
+    suspendTimer: "Never",
+    idleTimer: "Never",
   };
   #cookies: { [key in Flags | "screenSaverCookie"]?: number } = {};
 
@@ -186,6 +205,17 @@ export class MainWindow {
   updateState(state: Partial<State>) {
     this.#state = { ...this.#state, ...state };
     localStorage.setItem("state", JSON.stringify(this.#state));
+
+    // If timer duration changed while active, restart the timer
+    if (
+      state.suspendTimer !== undefined &&
+      this.#suspendRow.get_active().valueOf()
+    ) {
+      this.#restartSuspendTimer();
+    }
+    if (state.idleTimer !== undefined && this.#idleRow.get_active().valueOf()) {
+      this.#restartIdleTimer();
+    }
   }
 
   quit() {
@@ -278,7 +308,38 @@ export class MainWindow {
       if (this.#state.exitBehaviorV2 === "Run in Background") {
         this.#indicator?.activate();
       }
-      this.#suspendRow.set_subtitle(UI_LABELS["Current state: Indefinitely"]);
+
+      // Clear any existing timer
+      if (this.#suspendTimerId) {
+        GLib.source_remove(this.#suspendTimerId);
+        this.#suspendTimerId = undefined;
+      }
+
+      // Set up timer if duration is not "Never"
+      if (this.#state.suspendTimer !== "Never") {
+        const minutes = parseInt(this.#state.suspendTimer);
+        this.#suspendRemainingMinutes = minutes;
+        this.#updateSuspendSubtitle();
+
+        // Update every minute
+        this.#suspendTimerId = GLib.timeout_add_seconds(
+          60,
+          python.callback(() => {
+            if (this.#suspendRemainingMinutes !== undefined) {
+              this.#suspendRemainingMinutes--;
+              if (this.#suspendRemainingMinutes <= 0) {
+                this.#suspendRow.set_active(false);
+                return false;
+              }
+              this.#updateSuspendSubtitle();
+            }
+            return true;
+          }),
+        ).valueOf();
+      } else {
+        this.#suspendRow.set_subtitle(UI_LABELS["Current state: Indefinitely"]);
+      }
+
       this.#mainIcon.set_from_icon_name(
         APP_ID,
       );
@@ -303,6 +364,14 @@ export class MainWindow {
       if (this.#state.exitBehaviorV2 === "Run in Background") {
         this.#indicator?.deactivate();
       }
+
+      // Clear timer
+      if (this.#suspendTimerId) {
+        GLib.source_remove(this.#suspendTimerId);
+        this.#suspendTimerId = undefined;
+        this.#suspendRemainingMinutes = undefined;
+      }
+
       this.#suspendRow.set_subtitle(UI_LABELS["Current state: System default"]);
       this.#mainIcon.set_from_icon_name(
         `${APP_ID}-inactive`,
@@ -327,10 +396,80 @@ export class MainWindow {
     this.updateState({ suspend: yes });
   };
 
+  #updateSuspendSubtitle = () => {
+    if (this.#suspendRemainingMinutes !== undefined) {
+      const mins = this.#suspendRemainingMinutes;
+      const timeText = mins === 1 ? "1 minute" : `${mins} minutes`;
+      this.#suspendRow.set_subtitle(`Current state: ${timeText}`);
+    }
+  };
+
+  #restartSuspendTimer = () => {
+    // Clear existing timer
+    if (this.#suspendTimerId) {
+      GLib.source_remove(this.#suspendTimerId);
+      this.#suspendTimerId = undefined;
+    }
+
+    // Set up new timer if duration is not "Never"
+    if (this.#state.suspendTimer !== "Never") {
+      const minutes = parseInt(this.#state.suspendTimer);
+      this.#suspendRemainingMinutes = minutes;
+      this.#updateSuspendSubtitle();
+
+      // Update every minute
+      this.#suspendTimerId = GLib.timeout_add_seconds(
+        60,
+        python.callback(() => {
+          if (this.#suspendRemainingMinutes !== undefined) {
+            this.#suspendRemainingMinutes--;
+            if (this.#suspendRemainingMinutes <= 0) {
+              this.#suspendRow.set_active(false);
+              return false;
+            }
+            this.#updateSuspendSubtitle();
+          }
+          return true;
+        }),
+      ).valueOf();
+    } else {
+      this.#suspendRow.set_subtitle(UI_LABELS["Current state: Indefinitely"]);
+    }
+  };
+
   #toggleIdle = (state: boolean | "active_disabled") => {
     const suspendRowActive = this.#suspendRow.get_active().valueOf();
     if (suspendRowActive && state === true) {
-      this.#idleRow.set_subtitle(UI_LABELS["Current state: Indefinitely"]);
+      // Clear any existing timer
+      if (this.#idleTimerId) {
+        GLib.source_remove(this.#idleTimerId);
+        this.#idleTimerId = undefined;
+      }
+
+      // Set up timer if duration is not "Never"
+      if (this.#state.idleTimer !== "Never") {
+        const minutes = parseInt(this.#state.idleTimer);
+        this.#idleRemainingMinutes = minutes;
+        this.#updateIdleSubtitle();
+
+        // Update every minute
+        this.#idleTimerId = GLib.timeout_add_seconds(
+          60,
+          python.callback(() => {
+            if (this.#idleRemainingMinutes !== undefined) {
+              this.#idleRemainingMinutes--;
+              if (this.#idleRemainingMinutes <= 0) {
+                this.#idleRow.set_active(false);
+                return false;
+              }
+              this.#updateIdleSubtitle();
+            }
+            return true;
+          }),
+        ).valueOf();
+      } else {
+        this.#idleRow.set_subtitle(UI_LABELS["Current state: Indefinitely"]);
+      }
 
       // We try first using org.freedesktop.ScreenSaver.Inhibit
       // If that doesn't work we fallback to Gtk Idle Inhibit method
@@ -350,6 +489,13 @@ export class MainWindow {
         ).valueOf();
       }
     } else {
+      // Clear timer
+      if (this.#idleTimerId) {
+        GLib.source_remove(this.#idleTimerId);
+        this.#idleTimerId = undefined;
+        this.#idleRemainingMinutes = undefined;
+      }
+
       this.#idleRow.set_subtitle(UI_LABELS["Current state: System default"]);
       const idleCookie = this.#cookies.idle;
       if (idleCookie) {
@@ -366,6 +512,47 @@ export class MainWindow {
     }
 
     this.updateState({ idle: state });
+  };
+
+  #updateIdleSubtitle = () => {
+    if (this.#idleRemainingMinutes !== undefined) {
+      const mins = this.#idleRemainingMinutes;
+      const timeText = mins === 1 ? "1 minute" : `${mins} minutes`;
+      this.#idleRow.set_subtitle(`Current state: ${timeText}`);
+    }
+  };
+
+  #restartIdleTimer = () => {
+    // Clear existing timer
+    if (this.#idleTimerId) {
+      GLib.source_remove(this.#idleTimerId);
+      this.#idleTimerId = undefined;
+    }
+
+    // Set up new timer if duration is not "Never"
+    if (this.#state.idleTimer !== "Never") {
+      const minutes = parseInt(this.#state.idleTimer);
+      this.#idleRemainingMinutes = minutes;
+      this.#updateIdleSubtitle();
+
+      // Update every minute
+      this.#idleTimerId = GLib.timeout_add_seconds(
+        60,
+        python.callback(() => {
+          if (this.#idleRemainingMinutes !== undefined) {
+            this.#idleRemainingMinutes--;
+            if (this.#idleRemainingMinutes <= 0) {
+              this.#idleRow.set_active(false);
+              return false;
+            }
+            this.#updateIdleSubtitle();
+          }
+          return true;
+        }),
+      ).valueOf();
+    } else {
+      this.#idleRow.set_subtitle(UI_LABELS["Current state: Indefinitely"]);
+    }
   };
 
   #showAbout = python.callback(() => {
