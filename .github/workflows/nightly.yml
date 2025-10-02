@@ -48,7 +48,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          TAG_NAME="nightly-${{ steps.sha.outputs.sha }}"
+          TAG_NAME="nightly-${{ steps.date.outputs.datetime }}-${{ steps.sha.outputs.sha }}"
 
           cat > release_notes.md << 'EOF'
           Automated nightly build from commit ${{ steps.sha.outputs.sha }}
@@ -78,5 +78,6 @@ jobs:
             --title "Nightly Build - ${{ steps.sha.outputs.sha }} (${{ steps.date.outputs.datetime }})" \
             --notes-file release_notes.md \
             --prerelease \
+            --latest \
             stimulator-linux-x86_64 \
             stimulator-linux-aarch64
