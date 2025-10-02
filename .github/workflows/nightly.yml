@@ -78,6 +78,5 @@ jobs:
             --title "Nightly Build - ${{ steps.sha.outputs.sha }} (${{ steps.date.outputs.datetime }})" \
             --notes-file release_notes.md \
             --prerelease \
-            --latest \
             stimulator-linux-x86_64 \
             stimulator-linux-aarch64
