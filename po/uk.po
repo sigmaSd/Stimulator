@@ -97,3 +97,48 @@ msgstr "Головне меню"
 
 msgid "translator-credits"
 msgstr "Oleksii Shumitsky"
+
+msgid "Suspend Timer"
+msgstr ""
+
+msgid "Idle Timer"
+msgstr ""
+
+msgid "Auto-disable after selected time"
+msgstr ""
+
+msgid "1 minute"
+msgstr ""
+
+msgid "2 minutes"
+msgstr ""
+
+msgid "3 minutes"
+msgstr ""
+
+msgid "4 minutes"
+msgstr ""
+
+msgid "5 minutes"
+msgstr ""
+
+msgid "8 minutes"
+msgstr ""
+
+msgid "10 minutes"
+msgstr ""
+
+msgid "12 minutes"
+msgstr ""
+
+msgid "15 minutes"
+msgstr ""
+
+msgid "Never"
+msgstr ""
+
+msgid "Current state"
+msgstr ""
+
+msgid "minutes"
+msgstr ""

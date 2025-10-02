@@ -30,5 +30,20 @@
   "Behavior on Closing": "Actie na afsluiten",
   "Applies only while active": "Alleen indien actief",
   "Main Menu": "Hoofdmenu",
-  "translator-credits": "Heimen Stoffels https://github.com/Vistaus"
+  "translator-credits": "Heimen Stoffels https://github.com/Vistaus",
+  "Suspend Timer": "",
+  "Idle Timer": "",
+  "Auto-disable after selected time": "",
+  "1 minute": "",
+  "2 minutes": "",
+  "3 minutes": "",
+  "4 minutes": "",
+  "5 minutes": "",
+  "8 minutes": "",
+  "10 minutes": "",
+  "12 minutes": "",
+  "15 minutes": "",
+  "Never": "",
+  "Current state": "",
+  "minutes": ""
 }

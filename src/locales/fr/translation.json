@@ -30,5 +30,20 @@
   "Behavior on Closing": "Comportement à la fermeture",
   "Applies only while active": "S'applique uniquement lorsqu'actif",
   "Main Menu": "Menu Principal",
-  "translator-credits": "Bedis Nbiba https://github.com/sigmaSd"
+  "translator-credits": "Bedis Nbiba https://github.com/sigmaSd",
+  "Suspend Timer": "Minuterie de suspension",
+  "Idle Timer": "Minuterie d'inactivité",
+  "Auto-disable after selected time": "Désactivation automatique après le temps sélectionné",
+  "1 minute": "1 minute",
+  "2 minutes": "2 minutes",
+  "3 minutes": "3 minutes",
+  "4 minutes": "4 minutes",
+  "5 minutes": "5 minutes",
+  "8 minutes": "8 minutes",
+  "10 minutes": "10 minutes",
+  "12 minutes": "12 minutes",
+  "15 minutes": "15 minutes",
+  "Never": "Jamais",
+  "Current state": "État actuel",
+  "minutes": "minutes"
 }

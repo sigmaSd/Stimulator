@@ -30,5 +30,20 @@
   "Behavior on Closing": "Comportamiento al cerrar",
   "Applies only while active": "Se aplica únicamente cuando está activo",
   "Main Menu": "Menú principal",
-  "translator-credits": "Miguel Ángel Nieo https://miguelangelnieto.net"
+  "translator-credits": "Miguel Ángel Nieo https://miguelangelnieto.net",
+  "Suspend Timer": "",
+  "Idle Timer": "",
+  "Auto-disable after selected time": "",
+  "1 minute": "",
+  "2 minutes": "",
+  "3 minutes": "",
+  "4 minutes": "",
+  "5 minutes": "",
+  "8 minutes": "",
+  "10 minutes": "",
+  "12 minutes": "",
+  "15 minutes": "",
+  "Never": "",
+  "Current state": "",
+  "minutes": ""
 }

@@ -30,5 +30,20 @@
   "Behavior on Closing": "Comportamento Durante Fechamento",
   "Applies only while active": "Aplica-se apenas enquanto ativo",
   "Main Menu": "Menu Principal",
-  "translator-credits": "Luiz-Fernandes https://github.com/Luiz-C-Lima"
+  "translator-credits": "Luiz-Fernandes https://github.com/Luiz-C-Lima",
+  "Suspend Timer": "",
+  "Idle Timer": "",
+  "Auto-disable after selected time": "",
+  "1 minute": "",
+  "2 minutes": "",
+  "3 minutes": "",
+  "4 minutes": "",
+  "5 minutes": "",
+  "8 minutes": "",
+  "10 minutes": "",
+  "12 minutes": "",
+  "15 minutes": "",
+  "Never": "",
+  "Current state": "",
+  "minutes": ""
 }

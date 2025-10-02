@@ -399,8 +399,12 @@ export class MainWindow {
   #updateSuspendSubtitle = () => {
     if (this.#suspendRemainingMinutes !== undefined) {
       const mins = this.#suspendRemainingMinutes;
-      const timeText = mins === 1 ? "1 minute" : `${mins} minutes`;
-      this.#suspendRow.set_subtitle(`Current state: ${timeText}`);
+      const timeText = mins === 1
+        ? UI_LABELS["1 minute"]
+        : `${mins} ${UI_LABELS["minutes"]}`;
+      this.#suspendRow.set_subtitle(
+        `${UI_LABELS["Current state"]}: ${timeText}`,
+      );
     }
   };
 
@@ -517,8 +521,10 @@ export class MainWindow {
   #updateIdleSubtitle = () => {
     if (this.#idleRemainingMinutes !== undefined) {
       const mins = this.#idleRemainingMinutes;
-      const timeText = mins === 1 ? "1 minute" : `${mins} minutes`;
-      this.#idleRow.set_subtitle(`Current state: ${timeText}`);
+      const timeText = mins === 1
+        ? UI_LABELS["1 minute"]
+        : `${mins} ${UI_LABELS["minutes"]}`;
+      this.#idleRow.set_subtitle(`${UI_LABELS["Current state"]}: ${timeText}`);
     }
   };
 

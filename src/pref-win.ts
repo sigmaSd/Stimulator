@@ -115,20 +115,20 @@ export class PreferencesMenu {
       "Never",
     ] as TimerDuration[];
     const timerLabels = [
-      "1 minute",
-      "2 minutes",
-      "3 minutes",
-      "4 minutes",
-      "5 minutes",
-      "8 minutes",
-      "10 minutes",
-      "12 minutes",
-      "15 minutes",
-      "Never",
+      UI_LABELS["1 minute"],
+      UI_LABELS["2 minutes"],
+      UI_LABELS["3 minutes"],
+      UI_LABELS["4 minutes"],
+      UI_LABELS["5 minutes"],
+      UI_LABELS["8 minutes"],
+      UI_LABELS["10 minutes"],
+      UI_LABELS["12 minutes"],
+      UI_LABELS["15 minutes"],
+      UI_LABELS.Never,
     ];
 
-    suspendTimer.set_title("Suspend Timer");
-    suspendTimer.set_subtitle("Auto-disable after selected time");
+    suspendTimer.set_title(UI_LABELS["Suspend Timer"]);
+    suspendTimer.set_subtitle(UI_LABELS["Auto-disable after selected time"]);
     suspendTimer.set_model(Gtk.StringList.new(timerLabels));
     //NOTE: ADW bug workaround
     suspendTimer.set_selected(1);
@@ -144,8 +144,8 @@ export class PreferencesMenu {
     );
 
     const idleTimer = builder.get_object<Adw_.ComboRow>("idleTimer");
-    idleTimer.set_title("Idle Timer");
-    idleTimer.set_subtitle("Auto-disable after selected time");
+    idleTimer.set_title(UI_LABELS["Idle Timer"]);
+    idleTimer.set_subtitle(UI_LABELS["Auto-disable after selected time"]);
     idleTimer.set_model(Gtk.StringList.new(timerLabels));
     //NOTE: ADW bug workaround
     idleTimer.set_selected(1);

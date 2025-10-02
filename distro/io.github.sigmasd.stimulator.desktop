@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Stimulator
 Name[ar]=المحفز
+Name[da]=Stimulator
 Name[de]=Stimulator
 Name[es]=Stimulator
 Name[et]=Stimulaator
@@ -16,6 +17,7 @@ Name[uk]=Стимулятор
 Name[zh-CN]=Stimulator
 Comment=Keep your computer awake
 Comment[ar]=أبقِ جهاز الكمبيوتر مستيقظًا
+Comment[da]=Hold din computer vågen
 Comment[de]=Verhindere Bereitschaft
 Comment[es]=Mantenga su ordenador despierto
 Comment[et]=Hoia oma arvuti ärkvel
@@ -31,6 +33,7 @@ Comment[uk]=Утримує ваш комп'ютер від сну
 Comment[zh-CN]=保持电脑唤醒
 Keywords=caffeine;nosleep;awake;keepawake;keepon;
 Keywords[ar]=كافيين; بدون نوم; مستيقظ;
+Keywords[da]=koffein;ingensøvn;vågen;holdevågen;holdetændt;
 Keywords[de]=caffeine;nosleep;awake;keepawake;keepon;
 Keywords[es]=cafeína;sin dormir;despierto;mantenerse despierto;mantenerse encendido;
 Keywords[et]=kofeiin;eiuinu;ärkvel;hoiaärkvel;jätka;

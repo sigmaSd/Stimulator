@@ -30,5 +30,20 @@
   "Behavior on Closing": "Behavior on Closing",
   "Applies only while active": "Applies only while active",
   "Main Menu": "Main Menu",
-  "translator-credits": "translator-credits"
+  "translator-credits": "translator-credits",
+  "Suspend Timer": "Suspend Timer",
+  "Idle Timer": "Idle Timer",
+  "Auto-disable after selected time": "Auto-disable after selected time",
+  "1 minute": "1 minute",
+  "2 minutes": "2 minutes",
+  "3 minutes": "3 minutes",
+  "4 minutes": "4 minutes",
+  "5 minutes": "5 minutes",
+  "8 minutes": "8 minutes",
+  "10 minutes": "10 minutes",
+  "12 minutes": "12 minutes",
+  "15 minutes": "15 minutes",
+  "Never": "Never",
+  "Current state": "Current state",
+  "minutes": "minutes"
 }

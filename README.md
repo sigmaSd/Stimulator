@@ -50,20 +50,20 @@ For disabling screen blanking/locking, it uses
 | Language   | Translated (%) |
 | ---------- | -------------- |
 | Arabic     | 100.00         |
-| Danish     | 100.00         |
-| German     | 100.00         |
+| Danish     | 68.09          |
+| German     | 68.09          |
 | English    | 100.00         |
-| Spanish    | 100.00         |
-| Estonian   | 100.00         |
+| Spanish    | 68.09          |
+| Estonian   | 68.09          |
 | French     | 100.00         |
-| Irish      | 100.00         |
-| Hindi      | 96.88          |
-| Italian    | 100.00         |
-| Japanese   | 100.00         |
-| Dutch      | 100.00         |
-| Portuguese | 100.00         |
-| Turkish    | 100.00         |
-| Ukrainian  | 100.00         |
-| Chinese    | 100.00         |
+| Irish      | 68.09          |
+| Hindi      | 68.09          |
+| Italian    | 68.09          |
+| Japanese   | 68.09          |
+| Dutch      | 68.09          |
+| Portuguese | 68.09          |
+| Turkish    | 68.09          |
+| Ukrainian  | 68.09          |
+| Chinese    | 68.09          |
 
 - Translations with less than 70% completion will not be embedded into the app

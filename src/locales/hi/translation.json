@@ -30,5 +30,20 @@
   "Behavior on Closing": "समापन पर व्यवहार",
   "Applies only while active": "केवल सक्रिय रहते हुए ही लागू होता है",
   "Main Menu": "मुख्य मेनू",
-  "translator-credits": "Scrambled777 <weblate.scrambled777@simplelogin.com>"
+  "translator-credits": "Scrambled777 <weblate.scrambled777@simplelogin.com>",
+  "Suspend Timer": "",
+  "Idle Timer": "",
+  "Auto-disable after selected time": "",
+  "1 minute": "",
+  "2 minutes": "",
+  "3 minutes": "",
+  "4 minutes": "",
+  "5 minutes": "",
+  "8 minutes": "",
+  "10 minutes": "",
+  "12 minutes": "",
+  "15 minutes": "",
+  "Never": "",
+  "Current state": "",
+  "minutes": ""
 }

@@ -36,6 +36,21 @@ export class EN_UI_LABELS {
   static Show: string;
   static "Stimulator is running in the backround": string;
   static "translator-credits": string;
+  static "Suspend Timer": string;
+  static "Idle Timer": string;
+  static "Auto-disable after selected time": string;
+  static "1 minute": string;
+  static "2 minutes": string;
+  static "3 minutes": string;
+  static "4 minutes": string;
+  static "5 minutes": string;
+  static "8 minutes": string;
+  static "10 minutes": string;
+  static "12 minutes": string;
+  static "15 minutes": string;
+  static Never: string;
+  static "Current state": string;
+  static minutes: string;
 }
 
 @translate

@@ -129,7 +129,7 @@ async function denoFmt() {
 }
 
 function fewTranslations(locales: Record<string, string>) {
-  const CUT_OFF = 70;
+  const CUT_OFF = 60;
   const total = Object.values(locales).length;
   const empty = Object.values(locales).filter((value) => value === "").length;
 

@@ -30,5 +30,20 @@
   "Behavior on Closing": "关闭行为",
   "Applies only while active": "仅在激活时适用",
   "Main Menu": "主菜单",
-  "translator-credits": "thjxs https://github.com/thjxs"
+  "translator-credits": "thjxs https://github.com/thjxs",
+  "Suspend Timer": "",
+  "Idle Timer": "",
+  "Auto-disable after selected time": "",
+  "1 minute": "",
+  "2 minutes": "",
+  "3 minutes": "",
+  "4 minutes": "",
+  "5 minutes": "",
+  "8 minutes": "",
+  "10 minutes": "",
+  "12 minutes": "",
+  "15 minutes": "",
+  "Never": "",
+  "Current state": "",
+  "minutes": ""
 }

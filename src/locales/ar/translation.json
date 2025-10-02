@@ -30,5 +30,20 @@
   "Behavior on Closing": "السلوك عند الإغلاق",
   "Applies only while active": "ينطبق فقط أثناء التشغيل",
   "Main Menu": "القائمة الرئيسية",
-  "translator-credits": "Bedis Nbiba https://github.com/sigmaSd"
+  "translator-credits": "Bedis Nbiba https://github.com/sigmaSd",
+  "Suspend Timer": "مؤقت التعليق",
+  "Idle Timer": "مؤقت الخمول",
+  "Auto-disable after selected time": "التعطيل التلقائي بعد الوقت المحدد",
+  "1 minute": "دقيقة واحدة",
+  "2 minutes": "دقيقتان",
+  "3 minutes": "٣ دقائق",
+  "4 minutes": "٤ دقائق",
+  "5 minutes": "٥ دقائق",
+  "8 minutes": "٨ دقائق",
+  "10 minutes": "١٠ دقائق",
+  "12 minutes": "١٢ دقيقة",
+  "15 minutes": "١٥ دقيقة",
+  "Never": "أبدًا",
+  "Current state": "الحالة الحالية",
+  "minutes": "دقائق"
 }

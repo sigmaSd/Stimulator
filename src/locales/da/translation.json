@@ -30,5 +30,20 @@
   "Behavior on Closing": "Adfærd ved lukning",
   "Applies only while active": "Gælder kun, når den er aktiv",
   "Main Menu": "Hovedmenu",
-  "translator-credits": "Hans-Christian Andersen https://github.com/idebugthusiexist"
+  "translator-credits": "Hans-Christian Andersen https://github.com/idebugthusiexist",
+  "Suspend Timer": "",
+  "Idle Timer": "",
+  "Auto-disable after selected time": "",
+  "1 minute": "",
+  "2 minutes": "",
+  "3 minutes": "",
+  "4 minutes": "",
+  "5 minutes": "",
+  "8 minutes": "",
+  "10 minutes": "",
+  "12 minutes": "",
+  "15 minutes": "",
+  "Never": "",
+  "Current state": "",
+  "minutes": ""
 }

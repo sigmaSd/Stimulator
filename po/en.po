@@ -97,3 +97,48 @@ msgstr "Main Menu"
 
 msgid "translator-credits"
 msgstr "translator-credits"
+
+msgid "Suspend Timer"
+msgstr "Suspend Timer"
+
+msgid "Idle Timer"
+msgstr "Idle Timer"
+
+msgid "Auto-disable after selected time"
+msgstr "Auto-disable after selected time"
+
+msgid "1 minute"
+msgstr "1 minute"
+
+msgid "2 minutes"
+msgstr "2 minutes"
+
+msgid "3 minutes"
+msgstr "3 minutes"
+
+msgid "4 minutes"
+msgstr "4 minutes"
+
+msgid "5 minutes"
+msgstr "5 minutes"
+
+msgid "8 minutes"
+msgstr "8 minutes"
+
+msgid "10 minutes"
+msgstr "10 minutes"
+
+msgid "12 minutes"
+msgstr "12 minutes"
+
+msgid "15 minutes"
+msgstr "15 minutes"
+
+msgid "Never"
+msgstr "Never"
+
+msgid "Current state"
+msgstr "Current state"
+
+msgid "minutes"
+msgstr "minutes"
