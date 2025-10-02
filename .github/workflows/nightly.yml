@@ -30,11 +30,11 @@ jobs:
 
       - name: Compile for Linux x86_64
         run: |
-          deno compile --output stimulator-linux-x86_64 --include src/ui/ --include src/main.css --include src/indicator/indicator_app.ts  -A src/main.ts
+          deno compile --unstable-raw-imports --output stimulator-linux-x86_64 -A src/main.ts
 
       - name: Compile for Linux aarch64
         run: |
-          deno compile --target aarch64-unknown-linux-gnu --output stimulator-linux-aarch64 --include src/ui/ --include src/main.css --include src/indicator/indicator_app.ts  -A src/main.ts
+          deno compile --unstable-raw-imports --target aarch64-unknown-linux-gnu --output stimulator-linux-aarch64 -A src/main.ts
 
       - name: Get current date and time
         id: date

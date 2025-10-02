@@ -3,6 +3,8 @@ import { UI_LABELS } from "./consts.ts";
 import { Indicator } from "./indicator/indicator_api.ts";
 import { Adw, GLib, Gtk, type MainWindow, type TimerDuration } from "./main.ts";
 
+import preferencesUi from "./ui/preferences.ui" with { type: "text" };
+
 export type Theme = "System Theme" | "Light" | "Dark";
 export type Behavior = "Ask Confirmation" | "Run in Background" | "Quit";
 
@@ -11,11 +13,7 @@ export class PreferencesMenu {
 
   constructor(mainWindow: MainWindow) {
     const builder = Gtk.Builder();
-    builder.add_from_string(
-      Deno.readTextFileSync(
-        new URL(import.meta.resolve("./ui/preferences.ui")).pathname,
-      ),
-    );
+    builder.add_from_string(preferencesUi);
 
     this.#preferencesWin = builder.get_object(
       "preferencesWin",

@@ -15,6 +15,10 @@ import { APP_ID, APP_NAME, UI_LABELS, VERSION } from "./consts.ts";
 import { Indicator } from "./indicator/indicator_api.ts";
 import { PreferencesMenu, type Theme } from "./pref-win.ts";
 import type { Behavior } from "./pref-win.ts";
+//import "jsr:@sigma/deno-compile-extra/localStoragePolyfill";
+
+import stimulatorUi from "./ui/stimulator.ui" with { type: "text" };
+import mainCss from "./main.css" with { type: "text" };
 
 const gi = python.import("gi");
 gi.require_version("Gtk", "4.0");
@@ -118,11 +122,7 @@ export class MainWindow {
     );
 
     const builder = Gtk.Builder();
-    builder.add_from_string(
-      Deno.readTextFileSync(
-        new URL(import.meta.resolve("./ui/stimulator.ui")).pathname,
-      ),
-    );
+    builder.add_from_string(stimulatorUi);
     this.#win = builder.get_object("mainWindow");
     this.#win.set_title(APP_NAME);
     this.#win.connect("close-request", python.callback(this.#onCloseRequest));
@@ -709,11 +709,7 @@ class App extends Adw.Application {
 
 if (import.meta.main) {
   const css_provider = Gtk.CssProvider();
-  css_provider.load_from_data(
-    Deno.readTextFileSync(
-      new URL(import.meta.resolve("./main.css")).pathname,
-    ),
-  );
+  css_provider.load_from_data(mainCss);
   Gtk.StyleContext.add_provider_for_display(
     Gdk.Display.get_default(),
     css_provider,
