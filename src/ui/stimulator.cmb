@@ -1,52 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <!DOCTYPE cambalache-project SYSTEM "cambalache-project.dtd">
-<cambalache-project version="0.13.1" target_tk="gtk-4.0">
-  <ui>
-	(1,None,"stimulator.ui","stimulator.ui",None,None,None,None,None,None,None),
-	(2,None,None,"shortcuts.ui",None,None,None,None,None,None,None),
-	(3,None,None,"preferences.ui",None,None,None,None,None,None,None)
-  </ui>
-  <object>
-	(1,1,"GtkApplicationWindow","mainWindow",None,None,None,None,-1,None),
-	(1,7,"GtkBox",None,1,None,None,None,-1,None),
-	(1,9,"AdwPreferencesPage",None,7,None,None,None,2,None),
-	(1,10,"AdwPreferencesGroup",None,9,None,None,None,None,None),
-	(1,11,"AdwSwitchRow","suspendRow",10,None,None,None,None,None),
-	(1,12,"AdwSwitchRow","idleRow",10,None,None,None,1,None),
-	(1,14,"GtkImage","mainIcon",7,None,None,None,1,None),
-	(2,1,"GtkShortcutsWindow","shortcutsWin",None,None,None,None,-1,None),
-	(2,2,"GtkShortcutsSection",None,1,None,None,None,-1,None),
-	(2,3,"GtkShortcutsGroup","shortcutsGroup",2,None,None,None,-1,None),
-	(2,4,"GtkShortcutsShortcut","preferencesShortcut",3,None,None,None,None,None),
-	(2,6,"GtkShortcutsShortcut","keyboardShortcutShortcut",3,None,None,None,1,None),
-	(2,7,"GtkShortcutsShortcut","quitShortcut",3,None,None,None,3,None),
-	(2,8,"GtkShortcutsShortcut","mainMenuShortcut",3,None,None,None,2,None),
-	(3,1,"AdwPreferencesWindow","preferencesWin",None,None,None,None,-1,None),
-	(3,2,"AdwPreferencesPage",None,1,None,None,None,-1,None),
-	(3,3,"AdwPreferencesGroup",None,2,None,None,None,-1,None),
-	(3,5,"AdwComboRow","themeRow",3,None,None,None,None,None),
-	(3,7,"AdwComboRow","behaviorOnExitRow",3,None,None,None,2,None)
-  </object>
-  <object_property>
-	(1,1,"GtkWindow","default-width","450",None,None,None,None,None,None,None,None,None),
-	(1,1,"GtkWindow","resizable","False",None,None,None,None,None,None,None,None,None),
-	(1,7,"GtkOrientable","orientation","vertical",None,None,None,None,None,None,None,None,None),
-	(1,11,"AdwActionRow","subtitle","Current state: System default",None,None,None,None,None,None,None,None,None),
-	(1,12,"AdwActionRow","subtitle","Current state: System default",None,None,None,None,None,None,None,None,None),
-	(1,12,"GtkWidget","sensitive","False",None,None,None,None,None,None,None,None,None),
-	(1,14,"GtkImage","icon-name","io.github.sigmasd.stimulator_inactive",None,None,None,None,None,None,None,None,None),
-	(1,14,"GtkImage","pixel-size","96",None,None,None,None,None,None,None,None,None),
-	(1,14,"GtkWidget","margin-bottom","5",None,None,None,None,None,None,None,None,None),
-	(1,14,"GtkWidget","margin-top","10",None,None,None,None,None,None,None,None,None),
-	(2,4,"GtkShortcutsShortcut","accelerator","&lt;primary&gt;comma",None,None,None,None,None,None,None,None,None),
-	(2,6,"GtkShortcutsShortcut","accelerator","&lt;primary&gt;question",None,None,None,None,None,None,None,None,None),
-	(2,7,"GtkShortcutsShortcut","accelerator","&lt;primary&gt;q",None,None,None,None,None,None,None,None,None),
-	(2,8,"GtkShortcutsShortcut","accelerator","F10",None,None,None,None,None,None,None,None,None),
-	(3,1,"GtkWindow","default-height","275",None,None,None,None,None,None,None,None,None),
-	(3,1,"GtkWindow","default-width","550",None,None,None,None,None,None,None,None,None)
-  </object_property>
-  <object_data>
-	(3,1,"GtkWidget",2,2,None,1,None,None,None,None),
-	(3,1,"GtkWidget",1,3,None,None,None,None,None,None)
-  </object_data>
+<!-- Created with Cambalache 0.96.1 -->
+<cambalache-project version="0.96.0" target_tk="gtk-4.0">
+  <ui filename="stimulator.ui" sha256="e08988815a668ee9647397715dfad676aaab156f05df2d79c1a7639392c5fe45"/>
+  <ui filename="shortcuts.ui" sha256="af2853ee9c8ee59f9e4d3127397320ff04d5dba39dc5e909060a1b8758ce445b"/>
+  <ui filename="preferences.ui" sha256="1ec2331dda0f84fa9748d9bd6795cd2bcadef63d7879b523d1d8beb20317d6c5"/>
 </cambalache-project>
