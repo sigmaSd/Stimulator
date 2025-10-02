@@ -75,7 +75,7 @@ jobs:
 
 
           gh release create "$TAG_NAME" \
-            --title "Nightly Build - ${{ steps.sha.outputs.sha }} (${{ steps.date.outputs.datetime }})" \
+            --title "Nightly Build - (${{ steps.date.outputs.datetime }}) ${{ steps.sha.outputs.sha }}" \
             --notes-file release_notes.md \
             --prerelease \
             stimulator-linux-x86_64 \
