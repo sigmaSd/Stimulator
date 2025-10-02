@@ -32,6 +32,10 @@ jobs:
         run: |
           deno compile --output stimulator-linux-x86_64 --include src/ui/ --include src/main.css --include src/indicator/indicator_app.ts  -A src/main.ts
 
+      - name: Compile for Linux aarch64
+        run: |
+          deno compile --target aarch64-unknown-linux-gnu --output stimulator-linux-aarch64 --include src/ui/ --include src/main.css --include src/indicator/indicator_app.ts  -A src/main.ts
+
       - name: Get current date and time
         id: date
         run: echo "datetime=$(date +'%Y-%m-%d-%H%M%S')" >> $GITHUB_OUTPUT
@@ -57,16 +61,21 @@ jobs:
           ${{ github.event.head_commit.message }}
 
           ## Installation
-          1. Download the binary
+
+          ### x86_64 (Intel/AMD)
+          1. Download `stimulator-linux-x86_64`
           2. Make it executable: `chmod +x stimulator-linux-x86_64`
           3. Run: `./stimulator-linux-x86_64`
 
-          ## Bisecting
-          To bisect issues, you can download builds from different commits and test them.
-          EOF
+          ### aarch64 (ARM64)
+          1. Download `stimulator-linux-aarch64`
+          2. Make it executable: `chmod +x stimulator-linux-aarch64`
+          3. Run: `./stimulator-linux-aarch64`
+
 
           gh release create "$TAG_NAME" \
             --title "Nightly Build - ${{ steps.sha.outputs.sha }} (${{ steps.date.outputs.datetime }})" \
             --notes-file release_notes.md \
             --prerelease \
-            stimulator-linux-x86_64
+            stimulator-linux-x86_64 \
+            stimulator-linux-aarch64
