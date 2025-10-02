@@ -113,8 +113,10 @@ export class MainWindow {
     );
 
     const builder = Gtk.Builder();
-    builder.add_from_file(
-      new URL(import.meta.resolve("./ui/stimulator.ui")).pathname,
+    builder.add_from_string(
+      Deno.readTextFileSync(
+        new URL(import.meta.resolve("./ui/stimulator.ui")).pathname,
+      ),
     );
     this.#win = builder.get_object("mainWindow");
     this.#win.set_title(APP_NAME);
@@ -668,8 +670,10 @@ class App extends Adw.Application {
 
 if (import.meta.main) {
   const css_provider = Gtk.CssProvider();
-  css_provider.load_from_path(
-    new URL(import.meta.resolve("./main.css")).pathname,
+  css_provider.load_from_data(
+    Deno.readTextFileSync(
+      new URL(import.meta.resolve("./main.css")).pathname,
+    ),
   );
   Gtk.StyleContext.add_provider_for_display(
     Gdk.Display.get_default(),

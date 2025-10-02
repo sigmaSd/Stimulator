@@ -11,8 +11,10 @@ export class PreferencesMenu {
 
   constructor(mainWindow: MainWindow) {
     const builder = Gtk.Builder();
-    builder.add_from_file(
-      new URL(import.meta.resolve("./ui/preferences.ui")).pathname,
+    builder.add_from_string(
+      Deno.readTextFileSync(
+        new URL(import.meta.resolve("./ui/preferences.ui")).pathname,
+      ),
     );
 
     this.#preferencesWin = builder.get_object(

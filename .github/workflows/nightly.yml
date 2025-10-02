@@ -1,0 +1,62 @@
+name: Nightly Release
+
+on:
+  push:
+    branches: ["master"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Add localStorage polyfill import
+        run: |
+          sed -i '2i // This for stimulator compiled with deno compile\nimport "jsr:@sigma/deno-compile-extra@0.12.1/localStoragePolyfill";' src/main.ts
+
+      - name: Verify the edit
+        run: head -n 5 src/main.ts
+
+      - name: Compile for Linux x86_64
+        run: |
+          deno compile -A src/main.ts
+
+      - name: Get current date and time
+        id: date
+        run: echo "datetime=$(date +'%Y-%m-%d-%H%M%S')" >> $GITHUB_OUTPUT
+
+      - name: Get short SHA
+        id: sha
+        run: echo "sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Create nightly release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG_NAME="nightly-${{ steps.sha.outputs.sha }}"
+
+          gh release create "$TAG_NAME" \
+            --title "Nightly Build - ${{ steps.sha.outputs.sha }} (${{ steps.date.outputs.datetime }})" \
+            --notes "Automated nightly build from commit ${{ steps.sha.outputs.sha }}
+
+          Built: ${{ steps.date.outputs.datetime }}
+          Commit: ${{ github.sha }}
+
+          ## Commit Message
+          ${{ github.event.head_commit.message }}
+
+          ## Installation
+          1. Download the binary
+          2. Make it executable: \`chmod +x stimulator-linux-x86_64\`
+          3. Run: \`./stimulator-linux-x86_64\`
