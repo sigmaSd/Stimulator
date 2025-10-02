@@ -34,16 +34,15 @@
   "Suspend Timer": "مؤقت التعليق",
   "Idle Timer": "مؤقت الخمول",
   "Auto-disable after selected time": "التعطيل التلقائي بعد الوقت المحدد",
-  "1 minute": "دقيقة واحدة",
-  "2 minutes": "دقيقتان",
-  "3 minutes": "٣ دقائق",
-  "4 minutes": "٤ دقائق",
   "5 minutes": "٥ دقائق",
-  "8 minutes": "٨ دقائق",
-  "10 minutes": "١٠ دقائق",
-  "12 minutes": "١٢ دقيقة",
   "15 minutes": "١٥ دقيقة",
   "Never": "أبدًا",
   "Current state": "الحالة الحالية",
-  "minutes": "دقائق"
+  "minutes": "دقائق",
+  "30 minutes": "٣٠ دقيقة",
+  "1 hour": "ساعة واحدة",
+  "2 hours": "ساعتان",
+  "4 hours": "٤ ساعات",
+  "hour": "ساعة",
+  "hours": "ساعات"
 }

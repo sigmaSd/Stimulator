@@ -27,15 +27,12 @@ export const GLib: GLib_.GLib = python.import("gi.repository.GLib");
 
 type Flags = "logout" | "switch" | "suspend" | "idle";
 export type TimerDuration =
-  | "1"
-  | "2"
-  | "3"
-  | "4"
   | "5"
-  | "8"
-  | "10"
-  | "12"
   | "15"
+  | "30"
+  | "60"
+  | "120"
+  | "240"
   | "Never";
 
 interface State {
@@ -47,6 +44,7 @@ interface State {
   exitBehaviorV2: Behavior;
   suspendTimer: TimerDuration;
   idleTimer: TimerDuration;
+  version: number;
 }
 
 export class MainWindow {
@@ -82,13 +80,20 @@ export class MainWindow {
     exitBehaviorV2: "Ask Confirmation",
     suspendTimer: "Never",
     idleTimer: "Never",
+    version: 1,
   };
   #cookies: { [key in Flags | "screenSaverCookie"]?: number } = {};
 
   constructor(app: Adw_.Application) {
     const savedState = localStorage.getItem("state");
-    // NOTE: If we update the state with new apis, the spreading will make sure that users who have old versions will get default values
-    if (savedState) this.#state = { ...this.#state, ...JSON.parse(savedState) };
+    if (savedState) {
+      const parsedSavedState = JSON.parse(savedState);
+      // NOTE: Protects from breaking the app with new apis, reset if the internal state representation have changed
+      if (parsedSavedState.version === this.#state.version) {
+        this.#state = { ...this.#state, ...parsedSavedState };
+      }
+      // else we will save the default state
+    }
     // deno-fmt-ignore
     const currentTheme =
         this.#state.themeV2 === "System Theme" ? Adw.ColorScheme.DEFAULT
@@ -319,8 +324,8 @@ export class MainWindow {
 
       // Set up timer if duration is not "Never"
       if (this.#state.suspendTimer !== "Never") {
-        const minutes = parseInt(this.#state.suspendTimer);
-        this.#suspendRemainingMinutes = minutes;
+        const totalMinutes = parseInt(this.#state.suspendTimer);
+        this.#suspendRemainingMinutes = totalMinutes;
         this.#updateSuspendSubtitle();
 
         // Update every minute
@@ -400,10 +405,27 @@ export class MainWindow {
 
   #updateSuspendSubtitle = () => {
     if (this.#suspendRemainingMinutes !== undefined) {
-      const mins = this.#suspendRemainingMinutes;
-      const timeText = mins === 1
-        ? UI_LABELS["1 minute"]
-        : `${mins} ${UI_LABELS["minutes"]}`;
+      const totalMins = this.#suspendRemainingMinutes;
+      let timeText: string;
+
+      if (totalMins >= 60) {
+        const hours = Math.floor(totalMins / 60);
+        const mins = totalMins % 60;
+        if (mins === 0) {
+          timeText = hours === 1
+            ? `1 ${UI_LABELS["hour"]}`
+            : `${hours} ${UI_LABELS["hours"]}`;
+        } else {
+          const hourText = hours === 1
+            ? `1 ${UI_LABELS["hour"]}`
+            : `${hours} ${UI_LABELS["hours"]}`;
+          const minText = `${mins} ${UI_LABELS["minutes"]}`;
+          timeText = `${hourText} ${minText}`;
+        }
+      } else {
+        timeText = `${totalMins} ${UI_LABELS["minutes"]}`;
+      }
+
       this.#suspendRow.set_subtitle(
         `${UI_LABELS["Current state"]}: ${timeText}`,
       );
@@ -419,8 +441,8 @@ export class MainWindow {
 
     // Set up new timer if duration is not "Never"
     if (this.#state.suspendTimer !== "Never") {
-      const minutes = parseInt(this.#state.suspendTimer);
-      this.#suspendRemainingMinutes = minutes;
+      const totalMinutes = parseInt(this.#state.suspendTimer);
+      this.#suspendRemainingMinutes = totalMinutes;
       this.#updateSuspendSubtitle();
 
       // Update every minute
@@ -454,8 +476,8 @@ export class MainWindow {
 
       // Set up timer if duration is not "Never"
       if (this.#state.idleTimer !== "Never") {
-        const minutes = parseInt(this.#state.idleTimer);
-        this.#idleRemainingMinutes = minutes;
+        const totalMinutes = parseInt(this.#state.idleTimer);
+        this.#idleRemainingMinutes = totalMinutes;
         this.#updateIdleSubtitle();
 
         // Update every minute
@@ -522,10 +544,27 @@ export class MainWindow {
 
   #updateIdleSubtitle = () => {
     if (this.#idleRemainingMinutes !== undefined) {
-      const mins = this.#idleRemainingMinutes;
-      const timeText = mins === 1
-        ? UI_LABELS["1 minute"]
-        : `${mins} ${UI_LABELS["minutes"]}`;
+      const totalMins = this.#idleRemainingMinutes;
+      let timeText: string;
+
+      if (totalMins >= 60) {
+        const hours = Math.floor(totalMins / 60);
+        const mins = totalMins % 60;
+        if (mins === 0) {
+          timeText = hours === 1
+            ? `1 ${UI_LABELS["hour"]}`
+            : `${hours} ${UI_LABELS["hours"]}`;
+        } else {
+          const hourText = hours === 1
+            ? `1 ${UI_LABELS["hour"]}`
+            : `${hours} ${UI_LABELS["hours"]}`;
+          const minText = `${mins} ${UI_LABELS["minutes"]}`;
+          timeText = `${hourText} ${minText}`;
+        }
+      } else {
+        timeText = `${totalMins} ${UI_LABELS["minutes"]}`;
+      }
+
       this.#idleRow.set_subtitle(`${UI_LABELS["Current state"]}: ${timeText}`);
     }
   };
@@ -539,8 +578,8 @@ export class MainWindow {
 
     // Set up new timer if duration is not "Never"
     if (this.#state.idleTimer !== "Never") {
-      const minutes = parseInt(this.#state.idleTimer);
-      this.#idleRemainingMinutes = minutes;
+      const totalMinutes = parseInt(this.#state.idleTimer);
+      this.#idleRemainingMinutes = totalMinutes;
       this.#updateIdleSubtitle();
 
       // Update every minute

@@ -105,27 +105,21 @@ export class PreferencesMenu {
 
     const suspendTimer = builder.get_object<Adw_.ComboRow>("suspendTimer");
     const timerOptions = [
-      "1",
-      "2",
-      "3",
-      "4",
       "5",
-      "8",
-      "10",
-      "12",
       "15",
+      "30",
+      "60",
+      "120",
+      "240",
       "Never",
     ] as TimerDuration[];
     const timerLabels = [
-      UI_LABELS["1 minute"],
-      UI_LABELS["2 minutes"],
-      UI_LABELS["3 minutes"],
-      UI_LABELS["4 minutes"],
       UI_LABELS["5 minutes"],
-      UI_LABELS["8 minutes"],
-      UI_LABELS["10 minutes"],
-      UI_LABELS["12 minutes"],
       UI_LABELS["15 minutes"],
+      UI_LABELS["30 minutes"],
+      UI_LABELS["1 hour"],
+      UI_LABELS["2 hours"],
+      UI_LABELS["4 hours"],
       UI_LABELS.Never,
     ];
 

@@ -34,16 +34,15 @@
   "Suspend Timer": "",
   "Idle Timer": "",
   "Auto-disable after selected time": "",
-  "1 minute": "",
-  "2 minutes": "",
-  "3 minutes": "",
-  "4 minutes": "",
   "5 minutes": "",
-  "8 minutes": "",
-  "10 minutes": "",
-  "12 minutes": "",
   "15 minutes": "",
   "Never": "",
   "Current state": "",
-  "minutes": ""
+  "minutes": "",
+  "30 minutes": "",
+  "1 hour": "",
+  "2 hours": "",
+  "4 hours": "",
+  "hour": "",
+  "hours": ""
 }

@@ -39,18 +39,17 @@ export class EN_UI_LABELS {
   static "Suspend Timer": string;
   static "Idle Timer": string;
   static "Auto-disable after selected time": string;
-  static "1 minute": string;
-  static "2 minutes": string;
-  static "3 minutes": string;
-  static "4 minutes": string;
   static "5 minutes": string;
-  static "8 minutes": string;
-  static "10 minutes": string;
-  static "12 minutes": string;
   static "15 minutes": string;
+  static "30 minutes": string;
+  static "1 hour": string;
+  static "2 hours": string;
+  static "4 hours": string;
   static Never: string;
   static "Current state": string;
   static minutes: string;
+  static hour: string;
+  static hours: string;
 }
 
 @translate
