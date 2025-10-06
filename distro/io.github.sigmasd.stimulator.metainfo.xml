@@ -51,6 +51,13 @@
   <content_rating type="oars-1.1" />
 
   <releases>
+    <release version="1.10.0" date="2025-10-06">
+        <description>
+            <ul>
+                <li>New feature: Add suspend and idle timer settings</li>
+            </ul>
+        </description>
+    </release>
     <release version="1.9.6" date="2025-08-22">
         <description>
             <ul>
