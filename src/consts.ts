@@ -50,6 +50,8 @@ export class EN_UI_LABELS {
   static minutes: string;
   static hour: string;
   static hours: string;
+  static "Automatic suspending reactivated": string;
+  static "Automatic idling reactivated": string;
 }
 
 @translate

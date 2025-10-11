@@ -336,6 +336,18 @@ export class MainWindow {
               this.#suspendRemainingMinutes--;
               if (this.#suspendRemainingMinutes <= 0) {
                 this.#suspendRow.set_active(false);
+
+                if (!this.#win.is_visible().valueOf()) {
+                  // inform user via notification
+                  const notification = Gio.Notification.new(
+                    UI_LABELS.Stimulator,
+                  );
+                  notification.set_body(
+                    UI_LABELS["Automatic suspending reactivated"],
+                  );
+                  this.#app.send_notification(APP_ID, notification);
+                }
+
                 return false;
               }
               this.#updateSuspendSubtitle();
@@ -453,6 +465,18 @@ export class MainWindow {
             this.#suspendRemainingMinutes--;
             if (this.#suspendRemainingMinutes <= 0) {
               this.#suspendRow.set_active(false);
+
+              if (!this.#win.is_visible().valueOf()) {
+                // inform user via notification
+                const notification = Gio.Notification.new(
+                  UI_LABELS.Stimulator,
+                );
+                notification.set_body(
+                  UI_LABELS["Automatic idling reactivated"],
+                );
+                this.#app.send_notification(APP_ID, notification);
+              }
+
               return false;
             }
             this.#updateSuspendSubtitle();

@@ -139,3 +139,9 @@ msgstr "hour"
 
 msgid "hours"
 msgstr "hours"
+
+msgid "Automatic suspending reactivated"
+msgstr "Automatic suspending reactivated"
+
+msgid "Automatic idling reactivated"
+msgstr "Automatic idling reactivated"

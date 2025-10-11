@@ -139,3 +139,9 @@ msgstr "ساعة"
 
 msgid "hours"
 msgstr "ساعات"
+
+msgid "Automatic suspending reactivated"
+msgstr "تم إعادة تنشيط التعليق التلقائي"
+
+msgid "Automatic idling reactivated"
+msgstr "تم إعادة تنشيط الخمول التلقائي"
