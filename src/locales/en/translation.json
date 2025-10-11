@@ -44,5 +44,7 @@
   "2 hours": "2 hours",
   "4 hours": "4 hours",
   "hour": "hour",
-  "hours": "hours"
+  "hours": "hours",
+  "Automatic suspending reactivated": "Automatic suspending reactivated",
+  "Automatic idling reactivated": "Automatic idling reactivated"
 }

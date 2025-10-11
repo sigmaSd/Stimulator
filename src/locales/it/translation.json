@@ -44,5 +44,7 @@
   "2 hours": "2 ore",
   "4 hours": "4 ore",
   "hour": "ora",
-  "hours": "ore"
+  "hours": "ore",
+  "Automatic suspending reactivated": "",
+  "Automatic idling reactivated": ""
 }

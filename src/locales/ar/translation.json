@@ -44,5 +44,7 @@
   "2 hours": "ساعتان",
   "4 hours": "٤ ساعات",
   "hour": "ساعة",
-  "hours": "ساعات"
+  "hours": "ساعات",
+  "Automatic suspending reactivated": "تم إعادة تنشيط التعليق التلقائي",
+  "Automatic idling reactivated": "تم إعادة تنشيط الخمول التلقائي"
 }

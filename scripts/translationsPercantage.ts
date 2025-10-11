@@ -38,7 +38,7 @@ ${mdHeader}
     });
   }
   output +=
-    "- Translations with less than 70% completion will not be embedded into the app";
+    "- Translations with less than 60% completion will not be embedded into the app";
 
   return output;
 }
