@@ -25,7 +25,6 @@
   "Your desktop environment doesn't support Stimulator, click close to quit": "Your desktop environment doesn't support Stimulator, click close to quit",
   "Run in Background": "Run in Background",
   "Show": "Show",
-  "Stimulator is running in the backround": "Stimulator is running in the backround",
   "Ask Confirmation": "Ask Confirmation",
   "Behavior on Closing": "Behavior on Closing",
   "Applies only while active": "Applies only while active",
@@ -46,5 +45,6 @@
   "hour": "hour",
   "hours": "hours",
   "Automatic suspending reactivated": "Automatic suspending reactivated",
-  "Automatic idling reactivated": "Automatic idling reactivated"
+  "Automatic idling reactivated": "Automatic idling reactivated",
+  "Stimulator is running in the backround": "Stimulator is running in the backround"
 }

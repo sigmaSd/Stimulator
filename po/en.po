@@ -80,9 +80,6 @@ msgstr "Run in Background"
 msgid "Show"
 msgstr "Show"
 
-msgid "Stimulator is running in the background"
-msgstr "Stimulator is running in the background"
-
 msgid "Ask Confirmation"
 msgstr "Ask Confirmation"
 
@@ -145,3 +142,6 @@ msgstr "Automatic suspending reactivated"
 
 msgid "Automatic idling reactivated"
 msgstr "Automatic idling reactivated"
+
+msgid "Stimulator is running in the backround"
+msgstr "Stimulator is running in the backround"
