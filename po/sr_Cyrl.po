@@ -1,0 +1,147 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Stimulator"
+msgstr "Stimulator"
+
+msgid "Keep your computer awake"
+msgstr "Држи рачунар будним"
+
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "caffeine;nosleep;awake;keepawake;keepon;"
+
+msgid "Disable Automatic Suspending"
+msgstr "Онемогући аутоматско суспендовање"
+
+msgid "Disable Screen Blanking and Locking"
+msgstr "Онемогући гашење и закључавање екрана"
+
+msgid "Current state: System default"
+msgstr "Тренутно стање: Подразумевано системски"
+
+msgid "Current state: Indefinitely"
+msgstr "Тренутно стање: Неограничено"
+
+msgid "Stimulator is active"
+msgstr "Stimulator је активан"
+
+msgid "Close Stimulator?"
+msgstr "Затвори Stimulator?"
+
+msgid "Stimulator is active, do you want to close it?"
+msgstr "Stimulator је активан, желиш ли да га затвориш?"
+
+msgid "Cancel"
+msgstr "Откажи"
+
+msgid "Close"
+msgstr "Затвори"
+
+msgid "Preferences"
+msgstr "Преференце"
+
+msgid "Theme"
+msgstr "Тема"
+
+msgid "System Theme"
+msgstr "Системска тема"
+
+msgid "Light"
+msgstr "Светла"
+
+msgid "Dark"
+msgstr "Тамна"
+
+msgid "Keyboard Shortcuts"
+msgstr "Пречице на тастатури"
+
+msgid "General"
+msgstr "Опште"
+
+msgid "Open Menu"
+msgstr "Отвори мени"
+
+msgid "Quit"
+msgstr "Изађи"
+
+msgid "About Stimulator"
+msgstr "О Stimulator-у"
+
+msgid "Unsupported System"
+msgstr "Неподржани систем"
+
+msgid "Your desktop environment doesn't support Stimulator, click close to quit"
+msgstr "Твоје desktop окружење не подржава Stimulator, кликни на 'Затвори' да изађеш"
+
+msgid "Run in Background"
+msgstr "Покрени у позадини"
+
+msgid "Show"
+msgstr "Прикажи"
+
+msgid "Stimulator is running in the backround"
+msgstr "Stimulator ради у позадини"
+
+msgid "Ask Confirmation"
+msgstr "Питај за потврду"
+
+msgid "Behavior on Closing"
+msgstr "Понашање при затварању"
+
+msgid "Applies only while active"
+msgstr "Примењује се само док је активан"
+
+msgid "Main Menu"
+msgstr "Главни мени"
+
+msgid "translator-credits"
+msgstr "Radoš Milićev: https://github.com/rammba"
+
+msgid "Suspend Timer"
+msgstr "Тајмер суспендовања"
+
+msgid "Idle Timer"
+msgstr "Тајмер неактивности"
+
+msgid "Auto-disable after selected time"
+msgstr "Аутоматски онемогући након одабраног времена"
+
+msgid "5 minutes"
+msgstr "5 минута"
+
+msgid "15 minutes"
+msgstr "15 минута"
+
+msgid "Never"
+msgstr "Никада"
+
+msgid "Current state"
+msgstr "Тренутно стање"
+
+msgid "minutes"
+msgstr "минута"
+
+msgid "30 minutes"
+msgstr "30 минута"
+
+msgid "1 hour"
+msgstr "1 сат"
+
+msgid "2 hours"
+msgstr "2 сата"
+
+msgid "4 hours"
+msgstr "4 сата"
+
+msgid "hour"
+msgstr "сат"
+
+msgid "hours"
+msgstr "сати"
+
+msgid "Automatic suspending reactivated"
+msgstr "Аутоматско суспендовање поново активирано"
+
+msgid "Automatic idling reactivated"
+msgstr "Аутоматска неактивност поново активирана"
