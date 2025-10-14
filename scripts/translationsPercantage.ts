@@ -2,6 +2,7 @@
 // deno-lint-ignore-file no-import-prefix
 import iso6391 from "npm:iso-639-1@3.1.0";
 import { EN_UI_LABELS } from "../src/consts.ts";
+import { CUT_OFF } from "./compileTranslations.ts";
 
 //deno-fmt-ignore
 const TOTAL_TRANSLATIONS = Object.keys(EN_UI_LABELS).length;
@@ -28,9 +29,12 @@ ${mdHeader}
       const emptyMsgStr = [...data.matchAll(/msgstr ""/g)].length -
         1 /* first empty msgstr */;
 
-      const name = langPath.includes("_")
+      let name = langPath.includes("_")
         ? iso6391.getName(langPath.split("_")[0])
         : iso6391.getName(langPath.slice(0, -3));
+      if (langPath.includes("_")) {
+        name += "_" + langPath.split("_")[1].split(".")[0];
+      }
       output += `|${name}|${
         (((TOTAL_TRANSLATIONS - emptyMsgStr) / TOTAL_TRANSLATIONS) * 100)
           .toFixed(2)
@@ -38,7 +42,7 @@ ${mdHeader}
     });
   }
   output +=
-    "- Translations with less than 60% completion will not be embedded into the app";
+    `- Translations with less than ${CUT_OFF}% completion will not be embedded into the app`;
 
   return output;
 }

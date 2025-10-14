@@ -4,6 +4,8 @@ import { gettextToI18next } from "npm:i18next-conv@14.0.0";
 import { APP_ID, EN_UI_LABELS } from "../src/consts.ts";
 import i18n, { i18next } from "../src/i18n.ts";
 
+export const CUT_OFF = 60;
+
 async function genTranslations() {
   for await (const lang of Deno.readDir("./po")) {
     const langName = lang.name.slice(0, -3);
@@ -129,7 +131,6 @@ async function denoFmt() {
 }
 
 function fewTranslations(locales: Record<string, string>) {
-  const CUT_OFF = 60;
   const total = Object.values(locales).length;
   const empty = Object.values(locales).filter((value) => value === "").length;
 
