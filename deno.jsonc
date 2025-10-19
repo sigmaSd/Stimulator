@@ -1,8 +1,6 @@
 {
-  "vendor": false,
   "imports": {
-    // "deno-gtk-py": "../deno-gtk-py/mod.ts",
-    "deno-gtk-py": "jsr:@sigma/gtk-py@0.6.9",
+    "deno-gtk-py": "jsr:@sigma/gtk-py@0.7.0",
     "i18next": "https://deno.land/x/i18next@v25.0.0/index.js",
     "i18next_fs": "https://deno.land/x/i18next_fs_backend@v2.6.0/index.js"
   },

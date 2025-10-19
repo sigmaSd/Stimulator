@@ -1,4 +1,4 @@
-import { type Adw1_ as Adw_, type Gtk4_ as Gtk_, python } from "deno-gtk-py";
+import { type Adw1_ as Adw_, type Gtk4_ as Gtk_ } from "deno-gtk-py";
 import { UI_LABELS } from "./consts.ts";
 import { Indicator } from "./indicator/indicator_api.ts";
 import { Adw, GLib, Gtk, type MainWindow, type TimerDuration } from "./main.ts";
@@ -38,7 +38,7 @@ export class PreferencesMenu {
     );
     themeRow.connect(
       "notify::selected",
-      python.callback(() => {
+      () => {
         const theme = themeItems[themeRow.get_selected().valueOf()];
         //deno-fmt-ignore
         Adw.StyleManager.get_default().set_color_scheme(
@@ -47,7 +47,7 @@ export class PreferencesMenu {
           : Adw.ColorScheme.FORCE_DARK,
         );
         mainWindow.updateState({ themeV2: theme });
-      }),
+      },
     );
 
     const behaviorOnExitRow = builder.get_object(
@@ -74,7 +74,7 @@ export class PreferencesMenu {
 
     behaviorOnExitRow.connect(
       "notify::selected",
-      python.callback(() => {
+      () => {
         const behavior = behaviorOnExitItems[
           behaviorOnExitRow
             .get_selected().valueOf()
@@ -93,12 +93,12 @@ export class PreferencesMenu {
           // NOTE: run this after a bit of time, so messages don't get mixed up in the write buffer
           GLib.timeout_add(
             500,
-            python.callback(() => mainWindow.indicator?.hide()),
+            () => mainWindow.indicator?.hide(),
           );
         }
 
         mainWindow.updateState({ exitBehaviorV2: behavior });
-      }),
+      },
     );
 
     const suspendTimer = builder.get_object<Adw_.ComboRow>("suspendTimer");
@@ -131,10 +131,10 @@ export class PreferencesMenu {
     );
     suspendTimer.connect(
       "notify::selected",
-      python.callback(() => {
+      () => {
         const duration = timerOptions[suspendTimer.get_selected().valueOf()];
         mainWindow.updateState({ suspendTimer: duration });
-      }),
+      },
     );
 
     const idleTimer = builder.get_object<Adw_.ComboRow>("idleTimer");
@@ -148,10 +148,10 @@ export class PreferencesMenu {
     );
     idleTimer.connect(
       "notify::selected",
-      python.callback(() => {
+      () => {
         const duration = timerOptions[idleTimer.get_selected().valueOf()];
         mainWindow.updateState({ idleTimer: duration });
-      }),
+      },
     );
   }
 

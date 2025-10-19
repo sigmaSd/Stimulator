@@ -1,4 +1,4 @@
-import { type Gio2_, python } from "deno-gtk-py";
+import { type Gio2_ } from "deno-gtk-py";
 import { Gio, GLib, type MainWindow } from "../main.ts";
 import { MESSAGES } from "./messages.ts";
 
@@ -53,12 +53,12 @@ export class Indicator {
   }
 
   #monitorStdout(stdoutPipe: Gio2_.InputStream) {
-    const readCallback = python.callback(() => {
+    const readCallback = () => {
       stdoutPipe.read_bytes_async(
         512, /*buffer size*/
         GLib.PRIORITY_DEFAULT,
         undefined,
-        python.callback((_, __, asyncResult) => {
+        (_, __, asyncResult) => {
           const message = stdoutPipe
             .read_bytes_finish(asyncResult)
             .get_data().decode("utf-8")
@@ -81,10 +81,10 @@ export class Indicator {
           }
 
           GLib.idle_add(readCallback);
-        }),
+        },
       );
       return false;
-    });
+    };
     GLib.idle_add(readCallback);
   }
 }

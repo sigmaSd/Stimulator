@@ -40,24 +40,24 @@ if (import.meta.main) {
   );
   showApp.connect(
     "activate",
-    python.callback(() => {
+    () => {
       sendMsg(MESSAGES.Show);
       menu.remove(menu.get_children()[0]);
-    }),
+    },
   );
   closeApp.connect(
     "activate",
-    python.callback(() => {
+    () => {
       sendMsg(MESSAGES.Close);
       Gtk.main_quit();
-    }),
+    },
   );
 
   let first_try = true;
   GLib.io_add_watch(
     0, /*stdin*/
     GLib.IO_IN,
-    python.callback(() => {
+    () => {
       const buf = new Uint8Array(512);
       const n = Deno.stdin.readSync(buf);
       if (!n) throw new Error("recieved an empty message");
@@ -103,14 +103,14 @@ if (import.meta.main) {
       }
 
       return true;
-    }),
+    },
   );
 
   menu.append(closeApp);
   menu.show_all();
   indicator.set_menu(menu);
 
-  signal.signal(signal.SIGINT, python.callback(() => Gtk.main_quit()));
+  signal.signal(signal.SIGINT, () => Gtk.main_quit());
 
   Gtk.main();
 }

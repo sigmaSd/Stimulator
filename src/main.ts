@@ -1,7 +1,6 @@
 #!/usr/bin/env -S  deno run --allow-read=./src/locales --allow-ffi --allow-env=DENO_PYTHON_PATH --unstable-ffi
 import {
   type Adw1_ as Adw_,
-  type Callback,
   type Gdk4_ as Gdk_,
   type Gio2_ as Gio_,
   type GLib2_ as GLib_,
@@ -125,16 +124,14 @@ export class MainWindow {
     builder.add_from_string(stimulatorUi);
     this.#win = builder.get_object("mainWindow");
     this.#win.set_title(APP_NAME);
-    this.#win.connect("close-request", python.callback(this.#onCloseRequest));
+    this.#win.connect("close-request", this.#onCloseRequest);
     this.#mainIcon = builder.get_object("mainIcon");
     this.#suspendRow = builder.get_object("suspendRow");
     this.#suspendRow.set_title(UI_LABELS["Disable Automatic Suspending"]);
     this.#suspendRow.set_subtitle(UI_LABELS["Current state: System default"]);
     this.#suspendRow.connect(
       "notify::active",
-      python.callback(() =>
-        this.#toggleSuspend(this.#suspendRow.get_active().valueOf())
-      ),
+      () => this.#toggleSuspend(this.#suspendRow.get_active().valueOf()),
     );
     this.#idleRow = builder.get_object("idleRow");
     this.#idleRow.set_title(UI_LABELS["Disable Screen Blanking and Locking"]);
@@ -142,9 +139,7 @@ export class MainWindow {
     this.#idleRow.connect(
       "notify::active",
       // NOTE: works but for some reason it issues a warning the first time its called about invalid flags
-      python.callback(() =>
-        this.#toggleIdle(this.#idleRow.get_active().valueOf())
-      ),
+      () => this.#toggleIdle(this.#idleRow.get_active().valueOf()),
     );
 
     this.#preferencesMenu = new PreferencesMenu(this);
@@ -168,7 +163,7 @@ export class MainWindow {
 
     this.#createAction(
       "preferences",
-      python.callback(this.#showPreferences),
+      this.#showPreferences,
       ["<primary>comma"],
     );
     menu.append(UI_LABELS.Preferences, "app.preferences");
@@ -178,16 +173,16 @@ export class MainWindow {
     menu.append(UI_LABELS["About Stimulator"], "app.about");
     this.#createAction(
       "quit",
-      python.callback(() => {
+      () => {
         if (!this.#onCloseRequest()) this.#app.quit();
-      }),
+      },
       ["<primary>q"],
     );
     this.#createAction(
       "close",
-      python.callback(() => {
+      () => {
         if (!this.#onCloseRequest()) this.#app.quit();
-      }),
+      },
       ["<primary>w"],
     );
 
@@ -290,19 +285,23 @@ export class MainWindow {
     );
     dialog.connect(
       "response",
-      python.callback((_, __, id) => {
+      (_, __, id) => {
         if (id === "close") {
           this.#indicator?.close();
           this.#app.quit();
         }
-      }),
+      },
     );
 
     dialog.set_visible(true);
     return true;
   };
 
-  #createAction = (name: string, callback: Callback, shortcuts?: [string]) => {
+  #createAction = (
+    name: string,
+    callback: () => void,
+    shortcuts?: [string],
+  ) => {
     const action = Gio.SimpleAction.new(name);
     action.connect("activate", callback);
     this.#app.add_action(action);
@@ -331,7 +330,7 @@ export class MainWindow {
         // Update every minute
         this.#suspendTimerId = GLib.timeout_add_seconds(
           60,
-          python.callback(() => {
+          () => {
             if (this.#suspendRemainingMinutes !== undefined) {
               this.#suspendRemainingMinutes--;
               if (this.#suspendRemainingMinutes <= 0) {
@@ -353,7 +352,7 @@ export class MainWindow {
               this.#updateSuspendSubtitle();
             }
             return true;
-          }),
+          },
         ).valueOf();
       } else {
         this.#suspendRow.set_subtitle(UI_LABELS["Current state: Indefinitely"]);
@@ -460,7 +459,7 @@ export class MainWindow {
       // Update every minute
       this.#suspendTimerId = GLib.timeout_add_seconds(
         60,
-        python.callback(() => {
+        () => {
           if (this.#suspendRemainingMinutes !== undefined) {
             this.#suspendRemainingMinutes--;
             if (this.#suspendRemainingMinutes <= 0) {
@@ -482,7 +481,7 @@ export class MainWindow {
             this.#updateSuspendSubtitle();
           }
           return true;
-        }),
+        },
       ).valueOf();
     } else {
       this.#suspendRow.set_subtitle(UI_LABELS["Current state: Indefinitely"]);
@@ -507,7 +506,7 @@ export class MainWindow {
         // Update every minute
         this.#idleTimerId = GLib.timeout_add_seconds(
           60,
-          python.callback(() => {
+          () => {
             if (this.#idleRemainingMinutes !== undefined) {
               this.#idleRemainingMinutes--;
               if (this.#idleRemainingMinutes <= 0) {
@@ -517,7 +516,7 @@ export class MainWindow {
               this.#updateIdleSubtitle();
             }
             return true;
-          }),
+          },
         ).valueOf();
       } else {
         this.#idleRow.set_subtitle(UI_LABELS["Current state: Indefinitely"]);
@@ -609,7 +608,7 @@ export class MainWindow {
       // Update every minute
       this.#idleTimerId = GLib.timeout_add_seconds(
         60,
-        python.callback(() => {
+        () => {
           if (this.#idleRemainingMinutes !== undefined) {
             this.#idleRemainingMinutes--;
             if (this.#idleRemainingMinutes <= 0) {
@@ -619,14 +618,14 @@ export class MainWindow {
             this.#updateIdleSubtitle();
           }
           return true;
-        }),
+        },
       ).valueOf();
     } else {
       this.#idleRow.set_subtitle(UI_LABELS["Current state: Indefinitely"]);
     }
   };
 
-  #showAbout = python.callback(() => {
+  #showAbout = () => {
     const dialog = Adw.AboutWindow(
       new NamedArgument("transient_for", this.#app.get_active_window()),
     );
@@ -644,9 +643,9 @@ export class MainWindow {
     dialog.set_application_icon(APP_ID);
 
     dialog.set_visible(true);
-  });
+  };
 
-  #showShortcuts = python.callback(() => {
+  #showShortcuts = () => {
     const builder = Gtk.Builder();
     builder.add_from_file(
       new URL(import.meta.resolve("./ui/shortcuts.ui")).pathname,
@@ -678,7 +677,7 @@ export class MainWindow {
     quitShortcut.props.title = UI_LABELS.Quit;
 
     shortcutsWin.present();
-  });
+  };
 
   #platformUnsupportedExit() {
     const dialog = Adw.MessageDialog(
@@ -701,11 +700,11 @@ export class MainWindow {
     );
     dialog.connect(
       "response",
-      python.callback((_, __, id) => {
+      (_, __, id) => {
         // make sure to turn off the buttons
         this.updateState({ suspend: false, idle: false });
         if (id === "close") this.#app.quit();
-      }),
+      },
     );
 
     dialog.set_visible(true);
@@ -719,7 +718,8 @@ class App extends Adw.Application {
     super(kwArg);
     this.connect("activate", this.#onActivate);
   }
-  #onActivate = python.callback((_kwarg, app: Adw_.Application) => {
+  // deno-lint-ignore no-explicit-any
+  #onActivate = (_kwarg: any, app: Adw_.Application) => {
     // NOTE: there could be already an active window
     // if the app is restored after being hidden on exit
     if (!this.#win) this.#win = new MainWindow(app);
@@ -728,7 +728,7 @@ class App extends Adw.Application {
     this.#win.indicator?.hideShowButton();
     // withdraw any active notification
     this.withdraw_notification(APP_ID);
-  });
+  };
 }
 
 if (import.meta.main) {
@@ -744,9 +744,9 @@ if (import.meta.main) {
   GLib.unix_signal_add(
     GLib.PRIORITY_HIGH,
     signal.SIGINT,
-    python.callback(() => {
+    () => {
       app.quit();
-    }),
+    },
   );
   app.run(Deno.args);
 }
