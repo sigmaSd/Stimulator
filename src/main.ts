@@ -248,6 +248,12 @@ export class MainWindow {
       notification.set_body(
         UI_LABELS["Stimulator is running in the backround"],
       );
+      GLib.timeout_add_seconds(
+        1,
+        () => {
+          this.#app.withdraw_notification(APP_ID);
+        },
+      );
       this.#app.send_notification(APP_ID, notification);
       return true;
     }
