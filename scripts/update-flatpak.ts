@@ -57,7 +57,7 @@ const oldSha = await fetch(
   return sha256;
 });
 
-Deno.readTextFile("./io.github.sigmasd.stimulator.yml")
+await Deno.readTextFile("./io.github.sigmasd.stimulator.yml")
   .then((r) => r.replace(oldSha, newSha))
   .then((r) => Deno.writeTextFile("./io.github.sigmasd.stimulator.yml", r));
 
