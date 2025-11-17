@@ -57,8 +57,12 @@ const oldSha = await fetch(
   return sha256;
 });
 
+const result = await $`git checkout ${version}`.noThrow();
+if (result.code !== 0) await $`git checkout -b ${version}`;
+
 await Deno.readTextFile("./io.github.sigmasd.stimulator.yml")
+  .then((r) => r.replace(`${oldVersion}.tar.gz`, `${version}.tar.gz`))
   .then((r) => r.replace(oldSha, newSha))
   .then((r) => Deno.writeTextFile("./io.github.sigmasd.stimulator.yml", r));
 
-await $`git checkout -b ${version} && git add -A && git commit -m ${version} && git push origin ${version}`;
+await $`git add -A && git commit -m ${version} && git push origin ${version}`;
