@@ -25,14 +25,16 @@ if (appVersion !== version) {
 
 $.setPrintCommand(true);
 
-// tag it and push
-await $`git status && git add -A && git commit -m ${version}`;
-await $`git tag -a ${version} -m ${version}`;
-await $`git push --follow-tags`;
+if (!Deno.args.includes("--skip-tag")) {
+  // tag it and push
+  await $`git status && git add -A && git commit -m ${version}`;
+  await $`git tag -a ${version} -m ${version}`;
+  await $`git push --follow-tags`;
+}
 
 // download flatpak repo and update
 using tempDir = createTempDirSync();
-await $`git clone git@github.com:flathub/io.github.sigmasd.stimulator.git`
+await $`git clone git@github.com:flathub/io.github.sigmasd.stimulator.git stimulator`
   .cwd(tempDir.path);
 Deno.chdir(tempDir.toString() + "/stimulator");
 
