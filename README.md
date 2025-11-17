@@ -64,7 +64,7 @@ For disabling screen blanking/locking, it uses
 | Portuguese_BR | 66.67          |
 | Serbian_Cyrl  | 100.00         |
 | Serbian_Latn  | 100.00         |
-| Turkish       | 66.67          |
+| Turkish       | 100.00         |
 | Ukrainian     | 66.67          |
 | Chinese_CN    | 66.67          |
 
