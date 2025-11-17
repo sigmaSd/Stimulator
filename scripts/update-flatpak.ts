@@ -1,3 +1,4 @@
+#!/usr/bin/env -S deno -A
 // deno-lint-ignore-file no-import-prefix
 import { parse as parseXML } from "jsr:@libs/xml@7.0.2";
 import { $ } from "jsr:@david/dax@0.43.2";
