@@ -23,6 +23,8 @@ if (appVersion !== version) {
   Deno.exit(1);
 }
 
+$.setPrintCommand(true);
+
 // tag it and push
 await $`git status && git add -A && git commit -m ${version}`;
 await $`git tag -a ${version} -m ${version}`;
