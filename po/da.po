@@ -6,7 +6,7 @@ msgid "Stimulator"
 msgstr "Stimulator"
 
 msgid "Keep your computer awake"
-msgstr "Hold din computer vågen"
+msgstr "Hold din computer vågenazezazaee"
 
 msgid "caffeine;nosleep;awake;keepawake;keepon;"
 msgstr "koffein;ingensøvn;vågen;holdevågen;holdetændt;"
