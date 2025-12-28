@@ -1,0 +1,147 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Stimulator"
+msgstr "Стимулятор"
+
+msgid "Keep your computer awake"
+msgstr "Не переводить компьютер в спящий режим"
+
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "caffeine;nosleep;awake;keepawake;keepon;"
+
+msgid "Disable Automatic Suspending"
+msgstr "Отключить автоматический переход в режим сна"
+
+msgid "Disable Screen Blanking and Locking"
+msgstr "Отключить затемнение и блокировку экрана"
+
+msgid "Current state: System default"
+msgstr "Текущее состояние: По умолчанию системы"
+
+msgid "Current state: Indefinitely"
+msgstr "Текущее состояние: Бессрочно"
+
+msgid "Stimulator is active"
+msgstr "Стимулятор активен"
+
+msgid "Close Stimulator?"
+msgstr "Закрыть Стимулятор?"
+
+msgid "Stimulator is active, do you want to close it?"
+msgstr "Стимулятор активен. Закрыть его?"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Close"
+msgstr "Закрыть"
+
+msgid "Preferences"
+msgstr "Настройки"
+
+msgid "Theme"
+msgstr "Тема"
+
+msgid "System Theme"
+msgstr "Системная тема"
+
+msgid "Light"
+msgstr "Светлая"
+
+msgid "Dark"
+msgstr "Тёмная"
+
+msgid "Keyboard Shortcuts"
+msgstr "Горячие клавиши"
+
+msgid "General"
+msgstr "Основные"
+
+msgid "Open Menu"
+msgstr "Открыть меню"
+
+msgid "Quit"
+msgstr "Выход"
+
+msgid "About Stimulator"
+msgstr "О программе Стимулятор"
+
+msgid "Unsupported System"
+msgstr "Система не поддерживается"
+
+msgid "Your desktop environment doesn't support Stimulator, click close to quit"
+msgstr "Ваше окружение рабочего стола не поддерживает Стимулятор, нажмите «Закрыть», чтобы выйти"
+
+msgid "Run in Background"
+msgstr "Запустить в фоновом режиме"
+
+msgid "Show"
+msgstr "Показать"
+
+msgid "Ask Confirmation"
+msgstr "Запрашивать подтверждение"
+
+msgid "Behavior on Closing"
+msgstr "Действие при закрытии"
+
+msgid "Applies only while active"
+msgstr "Действует только в активном состоянии"
+
+msgid "Main Menu"
+msgstr "Главное Меню"
+
+msgid "translator-credits"
+msgstr "Andrey Strelnikov https://github.com/andrewstrel"
+
+msgid "Suspend Timer"
+msgstr "Таймер перехода в сон"
+
+msgid "Idle Timer"
+msgstr "Таймер бездействия"
+
+msgid "Auto-disable after selected time"
+msgstr "Автоотключение через заданное время"
+
+msgid "5 minutes"
+msgstr "5 минут"
+
+msgid "15 minutes"
+msgstr "15 минут"
+
+msgid "Never"
+msgstr "Никогда"
+
+msgid "Current state"
+msgstr "Текущее состояние"
+
+msgid "minutes"
+msgstr "минуты"
+
+msgid "30 minutes"
+msgstr "30 минут"
+
+msgid "1 hour"
+msgstr "1 час"
+
+msgid "2 hours"
+msgstr "2 часа"
+
+msgid "4 hours"
+msgstr "4 часа"
+
+msgid "hour"
+msgstr "час"
+
+msgid "hours"
+msgstr "часы"
+
+msgid "Automatic suspending reactivated"
+msgstr "Автоматический переход в режим сна восстановлен"
+
+msgid "Automatic idling reactivated"
+msgstr "Автоматический режим бездействия восстановлен"
+
+msgid "Stimulator is running in the backround"
+msgstr "Стимулятор запущен в фоновом режиме"
