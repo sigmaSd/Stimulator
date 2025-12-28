@@ -3,7 +3,7 @@ name: Update Translations
 on:
   pull_request_target:
     paths:
-      - 'po/**'
+      - "po/**"
 
 permissions:
   contents: write
@@ -24,7 +24,7 @@ jobs:
         run: |
           # Fetch the base branch to compare
           git fetch origin ${{ github.base_ref }}
-          
+
           # Check if any file in scripts/ has changed compared to base
           if ! git diff --quiet origin/${{ github.base_ref }} -- scripts/; then
             echo "Error: This workflow cannot run on PRs that modify the 'scripts/' directory for security reasons."
