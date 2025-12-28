@@ -62,6 +62,7 @@ For disabling screen blanking/locking, it uses
 | Japanese      | 66.67          |
 | Dutch         | 66.67          |
 | Portuguese_BR | 66.67          |
+| Russian       | 100.00         |
 | Serbian_Cyrl  | 100.00         |
 | Serbian_Latn  | 100.00         |
 | Turkish       | 100.00         |
