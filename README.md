@@ -54,7 +54,7 @@ For disabling screen blanking/locking, it uses
 | German        | 66.67          |
 | English       | 100.00         |
 | Spanish       | 66.67          |
-| Estonian      | 66.67          |
+| Estonian      | 100.00         |
 | French        | 100.00         |
 | Irish         | 100.00         |
 | Hindi         | 66.67          |
