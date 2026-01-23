@@ -1,15 +1,26 @@
-import { type Gio2_ } from "deno-gtk-py";
-import { Gio, GLib, type MainWindow } from "../main.ts";
+import {
+  InputStream,
+  OutputStream,
+  Subprocess,
+  SubprocessFlags,
+} from "@sigmasd/gtk/gio";
+
+import { idleAdd, Priority } from "@sigmasd/gtk/glib";
+
+import type { MainWindow } from "../main.ts";
 import { MESSAGES } from "./messages.ts";
 
 export class Indicator {
   #encoder = new TextEncoder();
-  #io_priority = 0;
-  #stdin;
+  #decoder = new TextDecoder();
+  #stdin: OutputStream | null;
+  #stdout: InputStream | null;
   #mainWindow: MainWindow;
+
   constructor(mainWindow: MainWindow) {
     this.#mainWindow = mainWindow;
-    const child = Gio.Subprocess.new(
+
+    const child = new Subprocess(
       [
         "deno",
         "run",
@@ -17,53 +28,62 @@ export class Indicator {
         "--allow-read",
         "--allow-ffi",
         "--unstable-ffi",
-        import.meta.resolve("./indicator_app.ts"),
+        new URL(import.meta.resolve("./indicator_app.ts")).pathname,
       ],
-      Gio.SubprocessFlags.STDIN_PIPE
-        .__or__(Gio.SubprocessFlags.STDOUT_PIPE),
+      SubprocessFlags.STDIN_PIPE | SubprocessFlags.STDOUT_PIPE,
     );
-    this.#stdin = child.get_stdin_pipe();
-    this.#monitorStdout(child.get_stdout_pipe());
+
+    this.#stdin = child.getStdinPipe();
+    this.#stdout = child.getStdoutPipe();
+    this.#monitorStdout();
   }
 
   activate() {
     this.#writeToStdin(MESSAGES.Activate);
   }
+
   deactivate() {
     this.#writeToStdin(MESSAGES.Deactivate);
   }
+
   hide() {
     this.#writeToStdin(MESSAGES.Hide);
   }
+
   close() {
     this.#writeToStdin(MESSAGES.Close);
   }
+
   showShowButton() {
     this.#writeToStdin(MESSAGES.showShowButton);
   }
+
   hideShowButton() {
     this.#writeToStdin(MESSAGES.HideShowButton);
   }
 
   #writeToStdin(message: string) {
-    this.#stdin.write_all_async(
-      Array.from(this.#encoder.encode(message)),
-      this.#io_priority,
-    );
+    if (!this.#stdin) return;
+
+    const data = this.#encoder.encode(message);
+    this.#stdin.write(data);
   }
 
-  #monitorStdout(stdoutPipe: Gio2_.InputStream) {
-    const readCallback = () => {
-      stdoutPipe.read_bytes_async(
+  #monitorStdout() {
+    if (!this.#stdout) return;
+
+    const readCallback = (): boolean => {
+      this.#stdout!.readBytesAsync(
         512, /*buffer size*/
-        GLib.PRIORITY_DEFAULT,
-        undefined,
-        (_, __, asyncResult) => {
-          const message = stdoutPipe
-            .read_bytes_finish(asyncResult)
-            .get_data().decode("utf-8")
-            .valueOf()
-            .trim();
+        Priority.DEFAULT,
+        (data) => {
+          if (!data || data.length === 0) {
+            // NOTE: the indicator have exited
+            // the only reason for this currently is if the system doesn't support tray icons, so we stop polling data
+            return;
+          }
+
+          const message = this.#decoder.decode(data).trim();
 
           switch (message) {
             case MESSAGES.Show:
@@ -75,16 +95,20 @@ export class Indicator {
             case MESSAGES.Empty:
               // NOTE: the indicator have exited
               // the only reason for this currently is if the system doesn't support tray icons, so we stop polling data
-              return false;
+              return;
             default:
-              throw new Error(`Incorrect message: '${message}'`);
+              if (message) {
+                throw new Error(`Incorrect message: '${message}'`);
+              }
+              return;
           }
 
-          GLib.idle_add(readCallback);
+          idleAdd(readCallback);
         },
       );
       return false;
     };
-    GLib.idle_add(readCallback);
+
+    idleAdd(readCallback);
   }
 }

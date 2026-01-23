@@ -1,7 +1,17 @@
-import { type Adw1_ as Adw_, type Gtk4_ as Gtk_ } from "deno-gtk-py";
+import {
+  ColorScheme,
+  getComboRow,
+  getPreferencesWindow,
+  StyleManager,
+} from "@sigmasd/gtk/adw";
+
+import { Builder, StringList, Window } from "@sigmasd/gtk/gtk4";
+
+import { timeout } from "@sigmasd/gtk/glib";
+
 import { UI_LABELS } from "./consts.ts";
 import { Indicator } from "./indicator/indicator_api.ts";
-import { Adw, GLib, Gtk, type MainWindow, type TimerDuration } from "./main.ts";
+import type { MainWindow, TimerDuration } from "./main.ts";
 
 import preferencesUi from "./ui/preferences.ui" with { type: "text" };
 
@@ -9,75 +19,79 @@ export type Theme = "System Theme" | "Light" | "Dark";
 export type Behavior = "Ask Confirmation" | "Run in Background" | "Quit";
 
 export class PreferencesMenu {
-  #preferencesWin: Adw_.PreferencesWindow;
+  #preferencesWin: Window;
 
   constructor(mainWindow: MainWindow) {
-    const builder = Gtk.Builder();
-    builder.add_from_string(preferencesUi);
+    const builder = new Builder();
+    builder.addFromString(preferencesUi);
 
-    this.#preferencesWin = builder.get_object(
-      "preferencesWin",
-    ) as Adw_.PreferencesWindow;
-    this.#preferencesWin.set_hide_on_close(true);
-    this.#preferencesWin.set_modal(true);
+    const preferencesWin = getPreferencesWindow(builder, "preferencesWin");
+    if (!preferencesWin) {
+      throw new Error("Could not find preferencesWin in UI file");
+    }
+    this.#preferencesWin = preferencesWin;
 
-    const themeRow = builder.get_object<Adw_.ComboRow>("themeRow");
+    this.#preferencesWin.setProperty("hide-on-close", true);
+    this.#preferencesWin.setModal(true);
+
+    const themeRow = getComboRow(builder, "themeRow");
+    if (!themeRow) {
+      throw new Error("Could not find themeRow in UI file");
+    }
     const themeItems = ["System Theme", "Light", "Dark"] as Theme[];
 
-    themeRow.set_title(UI_LABELS.Theme);
-    themeRow.set_model(
-      Gtk.StringList.new(
-        themeItems.map((item) => UI_LABELS[item as keyof UI_LABELS]),
-      ),
-    );
-    //NOTE: ADW bug, set_selected(0) doesn't set the item as selected initilally
+    themeRow.setTitle(UI_LABELS.Theme);
+    const themeModel = new StringList();
+    themeItems.forEach((item) => {
+      themeModel.append(UI_LABELS[item as keyof typeof UI_LABELS] as string);
+    });
+    themeRow.setModel(themeModel);
+    //NOTE: ADW bug, set_selected(0) doesn't set the item as selected initially
     // so trigger it with this, before the actual correct selection
-    themeRow.set_selected(1);
-    themeRow.set_selected(
+    themeRow.setSelected(1);
+    themeRow.setSelected(
       themeItems.indexOf(mainWindow.state.themeV2),
     );
-    themeRow.connect(
-      "notify::selected",
+    themeRow.onSelectedChanged(
       () => {
-        const theme = themeItems[themeRow.get_selected().valueOf()];
+        const theme = themeItems[themeRow.getSelected()];
         //deno-fmt-ignore
-        Adw.StyleManager.get_default().set_color_scheme(
-            theme === "System Theme" ? Adw.ColorScheme.DEFAULT
-          : theme === "Light" ? Adw.ColorScheme.FORCE_LIGHT
-          : Adw.ColorScheme.FORCE_DARK,
+        StyleManager.getDefault().setColorScheme(
+            theme === "System Theme" ? ColorScheme.DEFAULT
+          : theme === "Light" ? ColorScheme.FORCE_LIGHT
+          : ColorScheme.FORCE_DARK,
         );
         mainWindow.updateState({ themeV2: theme });
       },
     );
 
-    const behaviorOnExitRow = builder.get_object(
-      "behaviorOnExitRow",
-    ) as Adw_.ComboRow;
+    const behaviorOnExitRow = getComboRow(builder, "behaviorOnExitRow");
+    if (!behaviorOnExitRow) {
+      throw new Error("Could not find behaviorOnExitRow in UI file");
+    }
     const behaviorOnExitItems = [
       "Ask Confirmation",
       "Run in Background",
       "Quit",
     ] as Behavior[];
-    behaviorOnExitRow.set_title(UI_LABELS["Behavior on Closing"]);
-    behaviorOnExitRow.set_subtitle(UI_LABELS["Applies only while active"]);
-    behaviorOnExitRow.set_model(
-      Gtk.StringList.new(
-        behaviorOnExitItems.map((item) => UI_LABELS[item as keyof UI_LABELS]),
-      ),
-    );
-    //NOTE: ADW bug, set_selected(0) doesn't set the item as selected initilally
+    behaviorOnExitRow.setTitle(UI_LABELS["Behavior on Closing"]);
+    behaviorOnExitRow.setSubtitle(UI_LABELS["Applies only while active"]);
+    const behaviorModel = new StringList();
+    behaviorOnExitItems.forEach((item) => {
+      behaviorModel.append(UI_LABELS[item as keyof typeof UI_LABELS] as string);
+    });
+    behaviorOnExitRow.setModel(behaviorModel);
+    //NOTE: ADW bug, set_selected(0) doesn't set the item as selected initially
     // so trigger it with this, before the actual correct selection
-    behaviorOnExitRow.set_selected(1);
-    behaviorOnExitRow.set_selected(
+    behaviorOnExitRow.setSelected(1);
+    behaviorOnExitRow.setSelected(
       behaviorOnExitItems.indexOf(mainWindow.state.exitBehaviorV2),
     );
 
-    behaviorOnExitRow.connect(
-      "notify::selected",
+    behaviorOnExitRow.onSelectedChanged(
       () => {
         const behavior = behaviorOnExitItems[
-          behaviorOnExitRow
-            .get_selected().valueOf()
+          behaviorOnExitRow.getSelected()
         ];
         // If the option is a `Run In Background` make sure to run the indicator
         if (behavior === "Run in Background") {
@@ -91,9 +105,12 @@ export class PreferencesMenu {
           }
         } else {
           // NOTE: run this after a bit of time, so messages don't get mixed up in the write buffer
-          GLib.timeout_add(
+          timeout(
             500,
-            () => mainWindow.indicator?.hide(),
+            () => {
+              mainWindow.indicator?.hide();
+              return false;
+            },
           );
         }
 
@@ -101,7 +118,10 @@ export class PreferencesMenu {
       },
     );
 
-    const suspendTimer = builder.get_object<Adw_.ComboRow>("suspendTimer");
+    const suspendTimer = getComboRow(builder, "suspendTimer");
+    if (!suspendTimer) {
+      throw new Error("Could not find suspendTimer in UI file");
+    }
     const timerOptions = [
       "5",
       "15",
@@ -121,44 +141,58 @@ export class PreferencesMenu {
       UI_LABELS.Never,
     ];
 
-    suspendTimer.set_title(UI_LABELS["Suspend Timer"]);
-    suspendTimer.set_subtitle(UI_LABELS["Auto-disable after selected time"]);
-    suspendTimer.set_model(Gtk.StringList.new(timerLabels));
+    suspendTimer.setTitle(UI_LABELS["Suspend Timer"]);
+    suspendTimer.setSubtitle(UI_LABELS["Auto-disable after selected time"]);
+    const suspendTimerModel = new StringList();
+    timerLabels.forEach((label) => {
+      suspendTimerModel.append(label);
+    });
+    suspendTimer.setModel(suspendTimerModel);
     //NOTE: ADW bug workaround
-    suspendTimer.set_selected(1);
-    suspendTimer.set_selected(
+    suspendTimer.setSelected(1);
+    suspendTimer.setSelected(
       timerOptions.indexOf(mainWindow.state.suspendTimer),
     );
-    suspendTimer.connect(
-      "notify::selected",
+    suspendTimer.onSelectedChanged(
       () => {
-        const duration = timerOptions[suspendTimer.get_selected().valueOf()];
+        const duration = timerOptions[suspendTimer.getSelected()];
         mainWindow.updateState({ suspendTimer: duration });
       },
     );
 
-    const idleTimer = builder.get_object<Adw_.ComboRow>("idleTimer");
-    idleTimer.set_title(UI_LABELS["Idle Timer"]);
-    idleTimer.set_subtitle(UI_LABELS["Auto-disable after selected time"]);
-    idleTimer.set_model(Gtk.StringList.new(timerLabels));
+    const idleTimer = getComboRow(builder, "idleTimer");
+    if (!idleTimer) {
+      throw new Error("Could not find idleTimer in UI file");
+    }
+    idleTimer.setTitle(UI_LABELS["Idle Timer"]);
+    idleTimer.setSubtitle(UI_LABELS["Auto-disable after selected time"]);
+    const idleTimerModel = new StringList();
+    timerLabels.forEach((label) => {
+      idleTimerModel.append(label);
+    });
+    idleTimer.setModel(idleTimerModel);
     //NOTE: ADW bug workaround
-    idleTimer.set_selected(1);
-    idleTimer.set_selected(
+    idleTimer.setSelected(1);
+    idleTimer.setSelected(
       timerOptions.indexOf(mainWindow.state.idleTimer),
     );
-    idleTimer.connect(
-      "notify::selected",
+    idleTimer.onSelectedChanged(
       () => {
-        const duration = timerOptions[idleTimer.get_selected().valueOf()];
+        const duration = timerOptions[idleTimer.getSelected()];
         mainWindow.updateState({ idleTimer: duration });
       },
     );
   }
 
-  set_transient_for(window: Gtk_.ApplicationWindow) {
-    this.#preferencesWin.set_transient_for(window);
+  setTransientFor(window: Window) {
+    this.#preferencesWin.setTransientFor(window);
   }
+
+  setModal(modal: boolean) {
+    this.#preferencesWin.setModal(modal);
+  }
+
   present() {
-    this.#preferencesWin.set_visible(true);
+    this.#preferencesWin.setVisible(true);
   }
 }

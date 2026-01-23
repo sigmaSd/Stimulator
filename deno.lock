@@ -8,8 +8,8 @@
     "jsr:@david/which@~0.4.1": "0.4.1",
     "jsr:@libs/xml@*": "7.0.2",
     "jsr:@libs/xml@7.0.2": "7.0.2",
-    "jsr:@sigma/gtk-py@0.11.0": "0.11.0",
-    "jsr:@sigma/python@0.4.10": "0.4.10",
+    "jsr:@sigma/deno-compat@0.10": "0.10.0",
+    "jsr:@sigmasd/gtk@0.24": "0.24.0",
     "jsr:@std/bytes@^1.0.5": "1.0.6",
     "jsr:@std/fmt@1": "1.0.8",
     "jsr:@std/fs@1": "1.0.19",
@@ -58,14 +58,14 @@
     "@libs/xml@7.0.2": {
       "integrity": "b0f8eb46328cdfc443e89eeb02dce2a9022c292c6342f2cbddcad8cf06cd5adf"
     },
-    "@sigma/gtk-py@0.11.0": {
-      "integrity": "3ca26cd3b6bcd775644b66e8c7c9a65b2a94c4170800d85c2f01a8fae5459cf7",
-      "dependencies": [
-        "jsr:@sigma/python"
-      ]
+    "@sigma/deno-compat@0.10.0": {
+      "integrity": "f93dca8618d2494770a7b165e15e2cb25c771e079f3f07a125482fd1ca628f83"
     },
-    "@sigma/python@0.4.10": {
-      "integrity": "654eaf8c7a41f20387c6dff8911808076193899c06bf5b77400dee24501aa8f0"
+    "@sigmasd/gtk@0.24.0": {
+      "integrity": "24a0c56fd18719f601a320d6c8734f065f06a3b2cb69b295f702cd5f80f65506",
+      "dependencies": [
+        "jsr:@sigma/deno-compat"
+      ]
     },
     "@std/bytes@1.0.6": {
       "integrity": "f6ac6adbd8ccd99314045f5703e23af0a68d7f7e58364b47d2c7f408aeb5820a"
@@ -573,7 +573,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@sigma/gtk-py@0.11.0"
+      "jsr:@sigmasd/gtk@0.24"
     ]
   }
 }
