@@ -96,52 +96,52 @@ msgid "Main Menu"
 msgstr "Menú principal"
 
 msgid "translator-credits"
-msgstr "Miguel Ángel Nieo https://miguelangelnieto.net"
+msgstr "Miguel Ángel Nieto https://miguelangelnieto.net"
 
 msgid "Suspend Timer"
-msgstr ""
+msgstr "Temporizador de suspensión"
 
 msgid "Idle Timer"
-msgstr ""
+msgstr "Temporizador de inactividad"
 
 msgid "Auto-disable after selected time"
-msgstr ""
+msgstr "Desactivar automáticamente después del tiempo seleccionado"
 
 msgid "5 minutes"
-msgstr ""
+msgstr "5 minutos"
 
 msgid "15 minutes"
-msgstr ""
+msgstr "15 minutos"
 
 msgid "Never"
-msgstr ""
+msgstr "Nunca"
 
 msgid "Current state"
-msgstr ""
+msgstr "Estado actual"
 
 msgid "minutes"
-msgstr ""
+msgstr "minutos"
 
 msgid "30 minutes"
-msgstr ""
+msgstr "30 minutos"
 
 msgid "1 hour"
-msgstr ""
+msgstr "1 hora"
 
 msgid "2 hours"
-msgstr ""
+msgstr "2 horas"
 
 msgid "4 hours"
-msgstr ""
+msgstr "4 horas"
 
 msgid "hour"
-msgstr ""
+msgstr "hora"
 
 msgid "hours"
-msgstr ""
+msgstr "horas"
 
 msgid "Automatic suspending reactivated"
-msgstr ""
+msgstr "Suspensión automática reactivada"
 
 msgid "Automatic idling reactivated"
-msgstr ""
+msgstr "Inactividad automática reactivada"
