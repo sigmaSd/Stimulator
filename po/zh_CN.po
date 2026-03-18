@@ -80,9 +80,6 @@ msgstr "后台运行"
 msgid "Show"
 msgstr "显示"
 
-msgid "Stimulator is running in the background"
-msgstr "Stimulator 正在后台运行"
-
 msgid "Ask Confirmation"
 msgstr "每次询问"
 
@@ -145,3 +142,6 @@ msgstr "自动休眠已重新启用"
 
 msgid "Automatic idling reactivated"
 msgstr "自动空闲已重新启用"
+
+msgid "Stimulator is running in the background"
+msgstr "Stimulator 正在后台运行"

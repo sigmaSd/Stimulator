@@ -67,6 +67,6 @@ For disabling screen blanking/locking, it uses
 | Serbian_Latn  | 100.00         |
 | Turkish       | 100.00         |
 | Ukrainian     | 66.67          |
-| Chinese_CN    | 66.67          |
+| Chinese_CN    | 97.92          |
 
 - Translations with less than 60% completion will not be embedded into the app
