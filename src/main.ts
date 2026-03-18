@@ -246,7 +246,7 @@ export class MainWindow {
       // inform user via notification
       const notification = Gio.Notification.new(UI_LABELS.Stimulator);
       notification.set_body(
-        UI_LABELS["Stimulator is running in the backround"],
+        UI_LABELS["Stimulator is running in the background"],
       );
       GLib.timeout_add_seconds(
         1,

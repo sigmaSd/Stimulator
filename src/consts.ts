@@ -34,7 +34,7 @@ export class EN_UI_LABELS {
     string;
   // we don't advertise tray icon support
   static Show: string;
-  static "Stimulator is running in the backround": string;
+  static "Stimulator is running in the background": string;
   static "translator-credits": string;
   static "Suspend Timer": string;
   static "Idle Timer": string;

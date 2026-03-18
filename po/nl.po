@@ -80,7 +80,7 @@ msgstr "Uitvoeren op achtergrond"
 msgid "Show"
 msgstr "Tonen"
 
-msgid "Stimulator is running in the backround"
+msgid "Stimulator is running in the background"
 msgstr "Stimulator wordt uitgevoerd op de achtergrond"
 
 msgid "Ask Confirmation"

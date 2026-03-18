@@ -89,7 +89,7 @@ msgstr "Rith sa Chúlra"
 msgid "Show"
 msgstr "Taispeáin"
 
-msgid "Stimulator is running in the backround"
+msgid "Stimulator is running in the background"
 msgstr "Tá an stimulator ag rith sa chúlra"
 
 msgid "Ask Confirmation"
