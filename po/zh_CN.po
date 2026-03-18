@@ -12,25 +12,25 @@ msgid "caffeine;nosleep;awake;keepawake;keepon;"
 msgstr "咖啡因;禁止休眠;唤醒;保持唤醒;保持开启;"
 
 msgid "Disable Automatic Suspending"
-msgstr "禁用系统自动休眠"
+msgstr "禁用自动休眠"
 
 msgid "Disable Screen Blanking and Locking"
-msgstr "禁用屏幕熄灭和锁定"
+msgstr "禁用屏幕熄灭和锁屏"
 
 msgid "Current state: System default"
 msgstr "当前状态：系统默认"
 
 msgid "Current state: Indefinitely"
-msgstr "目前状态：无限期"
+msgstr "当前状态：无限期"
 
 msgid "Stimulator is active"
-msgstr "Stimulator 已激活"
+msgstr "Stimulator 正在运行"
 
 msgid "Close Stimulator?"
 msgstr "关闭 Stimulator?"
 
 msgid "Stimulator is active, do you want to close it?"
-msgstr "Stimulator 已经激活, 你想要关闭它吗？"
+msgstr "Stimulator 正在运行, 确定要关闭吗？"
 
 msgid "Cancel"
 msgstr "取消"
@@ -48,10 +48,10 @@ msgid "System Theme"
 msgstr "系统主题"
 
 msgid "Light"
-msgstr "亮"
+msgstr "浅色"
 
 msgid "Dark"
-msgstr "暗"
+msgstr "深色"
 
 msgid "Keyboard Shortcuts"
 msgstr "键盘快捷键"
@@ -78,19 +78,19 @@ msgid "Run in Background"
 msgstr "后台运行"
 
 msgid "Show"
-msgstr "展示"
+msgstr "显示"
 
-msgid "Stimulator is running in the backround"
+msgid "Stimulator is running in the background"
 msgstr "Stimulator 正在后台运行"
 
 msgid "Ask Confirmation"
 msgstr "每次询问"
 
 msgid "Behavior on Closing"
-msgstr "关闭行为"
+msgstr "关闭时的行为"
 
 msgid "Applies only while active"
-msgstr "仅在激活时适用"
+msgstr "仅在启用时生效"
 
 msgid "Main Menu"
 msgstr "主菜单"
@@ -99,49 +99,49 @@ msgid "translator-credits"
 msgstr "thjxs https://github.com/thjxs"
 
 msgid "Suspend Timer"
-msgstr ""
+msgstr "休眠计时器"
 
 msgid "Idle Timer"
-msgstr ""
+msgstr "空闲计时器"
 
 msgid "Auto-disable after selected time"
-msgstr ""
+msgstr "在选定时间后自动禁用"
 
 msgid "5 minutes"
-msgstr ""
+msgstr "5 分钟"
 
 msgid "15 minutes"
-msgstr ""
+msgstr "15 分钟"
 
 msgid "Never"
-msgstr ""
+msgstr "从不"
 
 msgid "Current state"
-msgstr ""
+msgstr "当前状态"
 
 msgid "minutes"
-msgstr ""
+msgstr "分钟"
 
 msgid "30 minutes"
-msgstr ""
+msgstr "30 分钟"
 
 msgid "1 hour"
-msgstr ""
+msgstr "1 小时"
 
 msgid "2 hours"
-msgstr ""
+msgstr "2 小时"
 
 msgid "4 hours"
-msgstr ""
+msgstr "4 小时"
 
 msgid "hour"
-msgstr ""
+msgstr "小时"
 
 msgid "hours"
-msgstr ""
+msgstr "小时"
 
 msgid "Automatic suspending reactivated"
-msgstr ""
+msgstr "自动休眠已重新启用"
 
 msgid "Automatic idling reactivated"
-msgstr ""
+msgstr "自动空闲已重新启用"
