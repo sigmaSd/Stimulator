@@ -51,6 +51,13 @@
   <content_rating type="oars-1.1" />
 
   <releases>
+    <release version="1.18.0" date="2026-03-18">
+        <description>
+            <ul>
+                <li>Update Chinese Translations</li>
+            </ul>
+        </description>
+    </release>
     <release version="1.17.0" date="2026-01-21">
         <description>
             <ul>
