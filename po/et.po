@@ -83,7 +83,7 @@ msgstr "Töötab taustal"
 msgid "Show"
 msgstr "Näita"
 
-msgid "Stimulator is running in the backround"
+msgid "Stimulator is running in the background"
 msgstr "Stimulaator töötab taustal"
 
 msgid "Ask Confirmation"

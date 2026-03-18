@@ -80,7 +80,7 @@ msgstr "Працювати у фоні"
 msgid "Show"
 msgstr "Показати"
 
-msgid "Stimulator is running in the backround"
+msgid "Stimulator is running in the background"
 msgstr "Стимулятор працює у фоні"
 
 msgid "Ask Confirmation"

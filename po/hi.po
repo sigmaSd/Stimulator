@@ -80,7 +80,7 @@ msgstr "पृष्ठभूमि में चलाएं"
 msgid "Show"
 msgstr "दिखाएं"
 
-msgid "Stimulator is running in the backround"
+msgid "Stimulator is running in the background"
 msgstr "Stimulator पृष्ठभूमि में चल रहा है"
 
 msgid "Ask Confirmation"

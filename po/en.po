@@ -143,5 +143,5 @@ msgstr "Automatic suspending reactivated"
 msgid "Automatic idling reactivated"
 msgstr "Automatic idling reactivated"
 
-msgid "Stimulator is running in the backround"
-msgstr "Stimulator is running in the backround"
+msgid "Stimulator is running in the background"
+msgstr "Stimulator is running in the background"

@@ -80,7 +80,7 @@ msgstr "Arka Planda Çalış"
 msgid "Show"
 msgstr "Göster"
 
-msgid "Stimulator is running in the backround"
+msgid "Stimulator is running in the background"
 msgstr "Stimulator arka planda çalışıyor"
 
 msgid "Ask Confirmation"

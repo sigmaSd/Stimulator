@@ -80,7 +80,7 @@ msgstr "Pokreni u pozadini"
 msgid "Show"
 msgstr "Prikaži"
 
-msgid "Stimulator is running in the backround"
+msgid "Stimulator is running in the background"
 msgstr "Stimulator radi u pozadini"
 
 msgid "Ask Confirmation"
