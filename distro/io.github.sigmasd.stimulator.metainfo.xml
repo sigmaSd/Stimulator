@@ -47,6 +47,7 @@
 
   <url type="homepage">https://github.com/sigmaSd/stimulator</url>
   <url type="bugtracker">https://github.com/sigmaSd/stimulator/issues</url>
+  <url type="vcs-browser">https://github.com/flathub/io.github.sigmasd.stimulator</url>
 
   <content_rating type="oars-1.1" />
 
