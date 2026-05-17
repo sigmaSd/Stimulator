@@ -9,19 +9,19 @@ msgid "Keep your computer awake"
 msgstr "Утримує ваш комп'ютер від сну"
 
 msgid "caffeine;nosleep;awake;keepawake;keepon;"
-msgstr "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "кофеїн;безсоння;пробудження;тримати активним;тримати увімкненим;"
 
 msgid "Disable Automatic Suspending"
-msgstr "Вимкнути автоматичну призупинку"
+msgstr "Вимкнути автоматичне призупинення"
 
 msgid "Disable Screen Blanking and Locking"
-msgstr "Вимкнути притлумлення і блокування екрану"
+msgstr "Не вимикати і не блокувати екран"
 
 msgid "Current state: System default"
 msgstr "Поточний стан: системний типовий"
 
 msgid "Current state: Indefinitely"
-msgstr "Поточний стан: не визначено"
+msgstr "Поточний стан: безкінечно"
 
 msgid "Stimulator is active"
 msgstr "Стимулятор активний"
@@ -72,7 +72,7 @@ msgid "Unsupported System"
 msgstr "Система не підтримується"
 
 msgid "Your desktop environment doesn't support Stimulator, click close to quit"
-msgstr "Ваше середовище стільниці не підтримує Стимулятор, натисніть Закрити для виходу"
+msgstr "Ваше графічне середовище не підтримує Стимулятор, натисніть Закрити для виходу"
 
 msgid "Run in Background"
 msgstr "Працювати у фоні"
@@ -80,11 +80,8 @@ msgstr "Працювати у фоні"
 msgid "Show"
 msgstr "Показати"
 
-msgid "Stimulator is running in the background"
-msgstr "Стимулятор працює у фоні"
-
 msgid "Ask Confirmation"
-msgstr "Запитувати підтвердження"
+msgstr "Питати підтвердження"
 
 msgid "Behavior on Closing"
 msgstr "Поведінка при виході"
@@ -96,52 +93,55 @@ msgid "Main Menu"
 msgstr "Головне меню"
 
 msgid "translator-credits"
-msgstr "Oleksii Shumitsky"
+msgstr "Oleksii Shumitsky https://noisedsn.xyz"
 
 msgid "Suspend Timer"
-msgstr ""
+msgstr "Таймер призупинення"
 
 msgid "Idle Timer"
-msgstr ""
+msgstr "Таймер блокування екрану"
 
 msgid "Auto-disable after selected time"
-msgstr ""
+msgstr "Автоматично скасувати через визначений час"
 
 msgid "5 minutes"
-msgstr ""
+msgstr "5 хвилин"
 
 msgid "15 minutes"
-msgstr ""
+msgstr "15 хвилин"
 
 msgid "Never"
-msgstr ""
+msgstr "Ніколи"
 
 msgid "Current state"
-msgstr ""
+msgstr "Поточний стан"
 
 msgid "minutes"
-msgstr ""
+msgstr "хвилин"
 
 msgid "30 minutes"
-msgstr ""
+msgstr "30 хвилин"
 
 msgid "1 hour"
-msgstr ""
+msgstr "1 година"
 
 msgid "2 hours"
-msgstr ""
+msgstr "2 години"
 
 msgid "4 hours"
-msgstr ""
+msgstr "4 години"
 
 msgid "hour"
-msgstr ""
+msgstr "година"
 
 msgid "hours"
-msgstr ""
+msgstr "годин"
 
 msgid "Automatic suspending reactivated"
-msgstr ""
+msgstr "Автоматичне призупинення знову активне"
 
 msgid "Automatic idling reactivated"
-msgstr ""
+msgstr "Блокування екрану знову активне"
+
+msgid "Stimulator is running in the background"
+msgstr "Стимулятор працює у фоні"
