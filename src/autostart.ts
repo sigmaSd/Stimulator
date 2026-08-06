@@ -25,19 +25,28 @@ function getAutostartFilePath(): string {
   return `${getAutostartDir()}/${APP_ID}.desktop`;
 }
 
-// Figures out the command that should be used to relaunch the app.
-function getExecCommand(): string {
+// Figures out the executable (quoted as needed) and extra arguments that
+// should be used to relaunch the app. Kept separate so callers can append
+// their own flags after the executable instead of inside its quoting.
+function getExecInvocation(): { exe: string; args: string[] } {
   if (isFlatpak()) {
     // Inside the sandbox `Deno.execPath()` points to a path that only makes
     // sense inside the sandbox, `flatpak run` is the correct way to autostart
-    return `flatpak run ${APP_ID}`;
+    return { exe: "flatpak", args: ["run", APP_ID] };
   }
-  // AppImages set this to the path of the (mounted) AppImage file itself,
-  // which is what we want to relaunch, instead of the temporary extracted binary
+  // AppImages set this to the path of the AppImage file itself, which is
+  // what we want to relaunch, instead of the temporary extracted binary
   const appImagePath = Deno.env.get("APPIMAGE");
-  if (appImagePath) return appImagePath;
+  if (appImagePath) {
+    // AppImages normally mount themselves through FUSE, which may not be
+    // available yet this early in a desktop session (module not loaded,
+    // /dev/fuse permissions not set up), silently breaking autostart.
+    // --appimage-extract-and-run makes the AppImage runtime extract and
+    // run itself directly instead, sidestepping FUSE entirely.
+    return { exe: appImagePath, args: ["--appimage-extract-and-run"] };
+  }
 
-  return Deno.execPath();
+  return { exe: Deno.execPath(), args: [] };
 }
 
 /** Whether an autostart entry currently exists for Stimulator. */
@@ -77,7 +86,11 @@ export function setAutostart(enabled: boolean, minimized: boolean): void {
     return;
   }
 
-  const exec = `"${getExecCommand()}"${minimized ? ` ${MINIMIZED_FLAG}` : ""}`;
+  const { exe, args } = getExecInvocation();
+  const allArgs = [...args, ...(minimized ? [MINIMIZED_FLAG] : [])];
+  // only the executable itself needs quoting (it may contain spaces),
+  // flags are always simple tokens
+  const exec = [`"${exe}"`, ...allArgs].join(" ");
   const content = `[Desktop Entry]
 Type=Application
 Version=1.0
