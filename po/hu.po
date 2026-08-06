@@ -1,0 +1,147 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Stimulator"
+msgstr "Stimulator"
+
+msgid "Keep your computer awake"
+msgstr "Tartsd ébren a számítógéped"
+
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "koffein;nealudjon;ébren;éber;ébentartás;"
+
+msgid "Disable Automatic Suspending"
+msgstr "Automatikus alvó állapot letiltása"
+
+msgid "Disable Screen Blanking and Locking"
+msgstr "Képernyőelsötétítés és -zárolás letiltása"
+
+msgid "Current state: System default"
+msgstr "Jelenlegi állapot: Rendszer alapértelmezett"
+
+msgid "Current state: Indefinitely"
+msgstr "Jelenlegi állapot: Határozatlan ideig"
+
+msgid "Stimulator is active"
+msgstr "A Stimulator aktív"
+
+msgid "Close Stimulator?"
+msgstr "Bezárja a Stimulatort?"
+
+msgid "Stimulator is active, do you want to close it?"
+msgstr "A Stimulator aktív, biztosan be akarja zárni?"
+
+msgid "Cancel"
+msgstr "Mégse"
+
+msgid "Close"
+msgstr "Bezárás"
+
+msgid "Preferences"
+msgstr "Beállítások"
+
+msgid "Theme"
+msgstr "Téma"
+
+msgid "System Theme"
+msgstr "Rendszertéma"
+
+msgid "Light"
+msgstr "Világos"
+
+msgid "Dark"
+msgstr "Sötét"
+
+msgid "Keyboard Shortcuts"
+msgstr "Gyorsbillentyűk"
+
+msgid "General"
+msgstr "Általános"
+
+msgid "Open Menu"
+msgstr "Menü megnyitása"
+
+msgid "Quit"
+msgstr "Kilépés"
+
+msgid "About Stimulator"
+msgstr "A Stimulator névjegye"
+
+msgid "Unsupported System"
+msgstr "Nem támogatott rendszer"
+
+msgid "Your desktop environment doesn't support Stimulator, click close to quit"
+msgstr "Az asztali környezete nem támogatja a Stimulatort. Kattintson a Bezárás gombra a kilépéshez"
+
+msgid "Run in Background"
+msgstr "Futtatás a háttérben"
+
+msgid "Show"
+msgstr "Megjelenítés"
+
+msgid "Ask Confirmation"
+msgstr "Megerősítés kérése"
+
+msgid "Behavior on Closing"
+msgstr "Viselkedés bezáráskor"
+
+msgid "Applies only while active"
+msgstr "Csak aktív állapotban érvényes"
+
+msgid "Main Menu"
+msgstr "Főmenü"
+
+msgid "translator-credits"
+msgstr "fordító-kreditek"
+
+msgid "Suspend Timer"
+msgstr "Felfüggesztési időzítő"
+
+msgid "Idle Timer"
+msgstr "Tétlenségi időzítő"
+
+msgid "Auto-disable after selected time"
+msgstr "Automatikus letiltás a kiválasztott idő után"
+
+msgid "5 minutes"
+msgstr "5 perc"
+
+msgid "15 minutes"
+msgstr "15 perc"
+
+msgid "Never"
+msgstr "Soha"
+
+msgid "Current state"
+msgstr "Jelenlegi állapot"
+
+msgid "minutes"
+msgstr "perc"
+
+msgid "30 minutes"
+msgstr "30 perc"
+
+msgid "1 hour"
+msgstr "1 óra"
+
+msgid "2 hours"
+msgstr "2 óra"
+
+msgid "4 hours"
+msgstr "4 óra"
+
+msgid "hour"
+msgstr "óra"
+
+msgid "hours"
+msgstr "óra"
+
+msgid "Automatic suspending reactivated"
+msgstr "Automatikus alvó állapot újból engedélyezve"
+
+msgid "Automatic idling reactivated"
+msgstr "Automatikus tétlenségkezelés újból engedélyezve"
+
+msgid "Stimulator is running in the background"
+msgstr "A Stimulator a háttérben fut"
