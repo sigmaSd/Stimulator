@@ -74,6 +74,9 @@ export class Indicator {
             case MESSAGES.Empty:
               // NOTE: the indicator have exited
               // the only reason for this currently is if the system doesn't support tray icons, so we stop polling data
+              // make sure the window is shown, otherwise the app becomes unreachable
+              // (e.g. when launched minimized via the autostart entry)
+              this.#mainWindow.present();
               return;
             default:
               throw new Error(`Incorrect message: '${message}'`);

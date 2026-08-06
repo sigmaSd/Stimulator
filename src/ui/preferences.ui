@@ -25,6 +25,16 @@
             </child>
           </object>
         </child>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <child>
+              <object class="AdwSwitchRow" id="autostartRow"/>
+            </child>
+            <child>
+              <object class="AdwSwitchRow" id="startMinimizedRow"/>
+            </child>
+          </object>
+        </child>
       </object>
     </child>
     <style/>

@@ -1,4 +1,4 @@
-#!/usr/bin/env -S deno run --allow-read=./src/locales --allow-ffi
+#!/usr/bin/env -S deno run -A
 import {
   AboutWindow,
   ColorScheme,
@@ -42,6 +42,7 @@ import {
   unixSignalAdd,
 } from "@sigmasd/gtk/glib";
 
+import { MINIMIZED_FLAG } from "./autostart.ts";
 import { APP_ID, APP_NAME, UI_LABELS, VERSION } from "./consts.ts";
 import { Indicator } from "./indicator/indicator_api.ts";
 import { PreferencesMenu, type Theme } from "./pref-win.ts";
@@ -728,11 +729,16 @@ export class MainWindow {
 }
 
 if (import.meta.main) {
+  // used by the autostart entry to launch directly to the tray,
+  // without presenting the window (see src/autostart.ts)
+  const startMinimized = Deno.args.includes(MINIMIZED_FLAG);
+
   const app = new Application(APP_ID, ApplicationFlags.NONE);
   let win: MainWindow | undefined;
   app.onActivate(() => {
     // NOTE: there could be already an active window
     // if the app is restored after being hidden on exit
+    const isFirstActivate = !win;
     if (!win) {
       // css needs the display which is only available after the app started
       const cssProvider = new CssProvider();
@@ -746,6 +752,19 @@ if (import.meta.main) {
         );
       }
       win = new MainWindow(app);
+    }
+
+    if (startMinimized && isFirstActivate) {
+      // stay in the background, make sure the tray icon is available
+      // so the window can still be shown, since it won't be presented
+      let indicator = win.indicator;
+      if (!indicator) {
+        indicator = new Indicator(win);
+        win.indicator = indicator;
+        if (win.state.suspend) indicator.activate();
+      }
+      indicator.showShowButton();
+      return;
     }
 
     win.present();

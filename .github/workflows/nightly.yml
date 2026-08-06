@@ -36,6 +36,14 @@ jobs:
         run: |
           deno compile --unstable-raw-imports --target aarch64-unknown-linux-gnu --output stimulator-linux-aarch64 -A src/main.ts
 
+      - name: Build AppImage for Linux x86_64
+        run: |
+          ./scripts/build-appimage.sh stimulator-linux-x86_64 x86_64 stimulator-x86_64.AppImage
+
+      - name: Build AppImage for Linux aarch64
+        run: |
+          ./scripts/build-appimage.sh stimulator-linux-aarch64 aarch64 stimulator-aarch64.AppImage
+
       - name: Get current date and time
         id: date
         run: echo "datetime=$(date +'%Y-%m-%d-%H%M%S')" >> $GITHUB_OUTPUT
@@ -71,6 +79,11 @@ jobs:
           1. Download `stimulator-linux-aarch64`
           2. Make it executable: `chmod +x stimulator-linux-aarch64`
           3. Run: `./stimulator-linux-aarch64`
+
+          ### AppImage (x86_64 or aarch64)
+          1. Download `stimulator-x86_64.AppImage` or `stimulator-aarch64.AppImage`
+          2. Make it executable: `chmod +x stimulator-*.AppImage`
+          3. Run: `./stimulator-*.AppImage`
           EOF
 
 
@@ -78,4 +91,6 @@ jobs:
             --title "Nightly Build - (${{ steps.date.outputs.datetime }}) ${{ steps.sha.outputs.sha }}" \
             --notes-file release_notes.md \
             stimulator-linux-x86_64 \
-            stimulator-linux-aarch64
+            stimulator-linux-aarch64 \
+            stimulator-x86_64.AppImage \
+            stimulator-aarch64.AppImage

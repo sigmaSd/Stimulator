@@ -14,12 +14,22 @@ Discussion in Matrix room:
   <img width='240' alt='Download on Flathub' src='https://dl.flathub.org/assets/badges/flathub-badge-i-en.png'/>
 </a>
 
+Standalone binaries and AppImages (x86_64/aarch64) are also published on every
+commit to master as
+<a href="https://github.com/sigmaSd/Stimulator/releases" target="_blank">nightly
+releases</a>. Download `stimulator-x86_64.AppImage` or
+`stimulator-aarch64.AppImage`, `chmod +x` it, and run it.
+
 ## Features
 
 - Overrides system setting and disables automatic suspending
 - Overrides system setting and disables screen blanking and screen locking
 - Option to use system default, light or dark theme
 - AppIndicator support
+- Launch at login, optionally starting minimized straight to the tray
+  (Preferences -> Launch at Startup / Start Minimized). On Flatpak this requires
+  the sandbox to be allowed to write to `~/.config/autostart` (e.g. via the
+  `--filesystem=xdg-config/autostart:create` permission).
 
 ## How it works
 
