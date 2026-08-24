@@ -15,94 +15,97 @@
 // Usage: build-appimage.ts <arch> <output-path>
 //   arch         target architecture: x86_64 or aarch64
 //   output-path  where to write the resulting .AppImage
-import { $ } from "jsr:@david/dax@0.43.2";
+import { $, Path } from "jsr:@david/dax@0.43.2";
 import { createTempDirSync } from "jsr:@david/temp@0.1.1";
-import { copy } from "jsr:@std/fs@1";
-import { dirname } from "jsr:@std/path@1";
 
-const [arch, outputPath] = Deno.args;
-if ((arch !== "x86_64" && arch !== "aarch64") || !outputPath) {
+const [arch, outputPathArg] = Deno.args;
+if ((arch !== "x86_64" && arch !== "aarch64") || !outputPathArg) {
   console.error("Usage: build-appimage.ts <x86_64|aarch64> <output-path>");
   Deno.exit(1);
 }
+const outputPath = new Path(outputPathArg);
 
 $.setPrintCommand(true);
 
 const APP_ID = "io.github.sigmasd.stimulator";
-const ROOT_DIR = new URL("..", import.meta.url).pathname;
+const rootDir = new Path(import.meta.url).parentOrThrow().parentOrThrow();
+const distroDir = rootDir.join("distro");
 
 using workDir = createTempDirSync();
-const appDir = `${workDir.path}/AppDir`;
+const appDir = workDir.path.join("AppDir");
 // where the bundled app source + deno runtime live inside the AppDir
-const appLibDir = `${appDir}/usr/lib/stimulator`;
+const appLibDir = appDir.join("usr", "lib", "stimulator");
 
-await Deno.mkdir(`${appDir}/usr/bin`, { recursive: true });
-await Deno.mkdir(`${appDir}/usr/share/applications`, { recursive: true });
-await Deno.mkdir(`${appDir}/usr/share/icons/hicolor/scalable/apps`, {
-  recursive: true,
-});
-await Deno.mkdir(`${appDir}/usr/share/metainfo`, { recursive: true });
-await Deno.mkdir(appLibDir, { recursive: true });
+await appDir.join("usr", "bin").mkdir();
+await appDir.join("usr", "share", "applications").mkdir();
+await appDir.join("usr", "share", "icons", "hicolor", "scalable", "apps")
+  .mkdir();
+await appDir.join("usr", "share", "metainfo").mkdir();
+await appLibDir.mkdir();
 
 // --- icon, desktop entry, appstream metadata ---
 
-await Deno.copyFile(
-  `${ROOT_DIR}distro/${APP_ID}.svg`,
-  `${appDir}/usr/share/icons/hicolor/scalable/apps/${APP_ID}.svg`,
+await distroDir.join(`${APP_ID}.svg`).copyFile(
+  appDir.join(
+    "usr",
+    "share",
+    "icons",
+    "hicolor",
+    "scalable",
+    "apps",
+    `${APP_ID}.svg`,
+  ),
 );
-await Deno.copyFile(
-  `${ROOT_DIR}distro/${APP_ID}.svg`,
-  `${appDir}/${APP_ID}.svg`,
-);
-await Deno.symlink(`${APP_ID}.svg`, `${appDir}/.DirIcon`);
+await distroDir.join(`${APP_ID}.svg`).copyFile(appDir.join(`${APP_ID}.svg`));
+await appDir.join(".DirIcon").symlinkTo(`${APP_ID}.svg`);
 
-await Deno.copyFile(
-  `${ROOT_DIR}distro/${APP_ID}.desktop`,
-  `${appDir}/usr/share/applications/${APP_ID}.desktop`,
+await distroDir.join(`${APP_ID}.desktop`).copyFile(
+  appDir.join("usr", "share", "applications", `${APP_ID}.desktop`),
 );
-await Deno.copyFile(
-  `${ROOT_DIR}distro/${APP_ID}.desktop`,
-  `${appDir}/${APP_ID}.desktop`,
+await distroDir.join(`${APP_ID}.desktop`).copyFile(
+  appDir.join(`${APP_ID}.desktop`),
 );
 
-await Deno.copyFile(
-  `${ROOT_DIR}distro/${APP_ID}.metainfo.xml`,
-  `${appDir}/usr/share/metainfo/${APP_ID}.metainfo.xml`,
+await distroDir.join(`${APP_ID}.metainfo.xml`).copyFile(
+  appDir.join("usr", "share", "metainfo", `${APP_ID}.metainfo.xml`),
 );
 
 // --- app source + pre-fetched dependency cache ---
 
-await copy(`${ROOT_DIR}src`, `${appLibDir}/src`);
-await Deno.copyFile(`${ROOT_DIR}deno.jsonc`, `${appLibDir}/deno.jsonc`);
-await Deno.copyFile(`${ROOT_DIR}deno.lock`, `${appLibDir}/deno.lock`);
+await rootDir.join("src").copy(appLibDir.join("src"));
+await rootDir.join("deno.jsonc").copyFile(appLibDir.join("deno.jsonc"));
+await rootDir.join("deno.lock").copyFile(appLibDir.join("deno.lock"));
 
 // enable vendoring so `deno cache` below fetches every dependency into a
 // local vendor/ directory, and the bundled runtime never needs the network
-await $`sed -i 's/"vendor": false/"vendor": true/' ${appLibDir}/deno.jsonc`;
+await $`sed -i 's/"vendor": false/"vendor": true/' ${
+  appLibDir.join("deno.jsonc")
+}`;
 await $`deno cache src/main.ts src/indicator/indicator_app.ts`.cwd(appLibDir);
 
 // --- bundle a deno runtime matching the target arch ---
 
-const denoBin = `${appDir}/usr/bin/deno`;
+const denoBin = appDir.join("usr", "bin", "deno");
 if (arch === Deno.build.arch) {
   // cross-packaging aside, packaging for the host's own arch can just reuse
   // the deno currently running this very script
-  await Deno.copyFile(Deno.execPath(), denoBin);
+  await new Path(Deno.execPath()).copyFile(denoBin);
 } else {
   const version = Deno.version.deno;
-  const zipPath = `${workDir.path}/deno.zip`;
-  await $`curl -fsSL -o ${zipPath} https://github.com/denoland/deno/releases/download/v${version}/deno-${arch}-unknown-linux-gnu.zip`;
-  await $`unzip -o ${zipPath} -d ${appDir}/usr/bin`;
+  const zipPath = await $.request(
+    `https://github.com/denoland/deno/releases/download/v${version}/deno-${arch}-unknown-linux-gnu.zip`,
+  ).pipeToPath(workDir.path.join("deno.zip"));
+  await $`unzip -o ${zipPath} -d ${denoBin.parentOrThrow()}`;
 }
-await Deno.chmod(denoBin, 0o755);
+await denoBin.chmod(0o755);
 
 // pin a stable, fake origin: `deno run`'s default origin for the Web
 // Storage APIs (localStorage) is derived from the entry script's path,
 // which changes on every launch since --appimage-extract-and-run
 // re-extracts to a fresh temp dir each time - without this, saved
 // preferences wouldn't survive between runs.
-await Deno.writeTextFile(
-  `${appDir}/AppRun`,
+const appRun = appDir.join("AppRun");
+await appRun.writeText(
   `#!/usr/bin/env bash
 HERE="$(dirname "$(readlink -f "\${0}")")"
 export PATH="$HERE/usr/bin:$PATH"
@@ -111,7 +114,7 @@ exec "$HERE/usr/bin/deno" run -A --cached-only \\
   "$HERE/usr/lib/stimulator/src/main.ts" "$@"
 `,
 );
-await Deno.chmod(`${appDir}/AppRun`, 0o755);
+await appRun.chmod(0o755);
 
 // --- package with appimagetool ---
 //
@@ -122,16 +125,18 @@ await Deno.chmod(`${appDir}/AppRun`, 0o755);
 // non-executable AppImage when cross-packaging for aarch64 - so the matching
 // runtime stub is always fetched explicitly and passed via --runtime-file.
 
-const appimagetool = `${workDir.path}/appimagetool`;
-await $`curl -fsSL -o ${appimagetool} https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage`;
-await Deno.chmod(appimagetool, 0o755);
+const appimagetool = await $.request(
+  "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage",
+).pipeToPath(workDir.path.join("appimagetool"));
+await appimagetool.chmod(0o755);
 
 // appimagetool's own arch names don't all match deno's --target triples
 const appimagetoolArch = arch === "aarch64" ? "arm_aarch64" : arch;
 
-const runtimeFile = `${workDir.path}/runtime-${arch}`;
-await $`curl -fsSL -o ${runtimeFile} https://github.com/AppImage/AppImageKit/releases/download/continuous/runtime-${arch}`;
+const runtimeFile = await $.request(
+  `https://github.com/AppImage/AppImageKit/releases/download/continuous/runtime-${arch}`,
+).pipeToPath(workDir.path.join(`runtime-${arch}`));
 
-await Deno.mkdir(dirname(outputPath), { recursive: true });
+await outputPath.parentOrThrow().mkdir();
 await $`${appimagetool} --appimage-extract-and-run --runtime-file ${runtimeFile} ${appDir} ${outputPath}`
   .env("ARCH", appimagetoolArch);
