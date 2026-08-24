@@ -2,17 +2,11 @@ import {
   ColorScheme,
   getComboRow,
   getPreferencesWindow,
-  getSwitchRow,
   type PreferencesWindow,
   StyleManager,
 } from "@sigmasd/gtk/adw";
 import { Builder, StringList, type Window } from "@sigmasd/gtk/gtk4";
 import { timeout } from "@sigmasd/gtk/glib";
-import {
-  isAutostartEnabled,
-  isAutostartMinimized,
-  setAutostart,
-} from "./autostart.ts";
 import { UI_LABELS } from "./consts.ts";
 import { Indicator } from "./indicator/indicator_api.ts";
 import type { MainWindow, TimerDuration } from "./main.ts";
@@ -157,39 +151,6 @@ export class PreferencesMenu {
       (selected) => {
         const duration = timerOptions[selected];
         mainWindow.updateState({ idleTimer: duration });
-      },
-    );
-
-    const autostartRow = getSwitchRow(builder, "autostartRow")!;
-    autostartRow.setTitle(UI_LABELS["Launch at Startup"]);
-    autostartRow.setSubtitle(
-      UI_LABELS["Start Stimulator automatically when you log in"],
-    );
-
-    const startMinimizedRow = getSwitchRow(builder, "startMinimizedRow")!;
-    startMinimizedRow.setTitle(UI_LABELS["Start Minimized"]);
-    startMinimizedRow.setSubtitle(
-      UI_LABELS["Launch directly to the tray, without showing the window"],
-    );
-
-    // NOTE: the autostart entry (a file on disk) is the source of truth,
-    // read it here instead of persisting a duplicate flag in our own state
-    autostartRow.setActive(isAutostartEnabled());
-    startMinimizedRow.setActive(isAutostartMinimized());
-    startMinimizedRow.setSensitive(isAutostartEnabled());
-
-    autostartRow.onActiveChanged(
-      (active) => {
-        setAutostart(active, startMinimizedRow.getActive());
-        startMinimizedRow.setSensitive(active);
-      },
-    );
-
-    startMinimizedRow.onActiveChanged(
-      (active) => {
-        if (autostartRow.getActive()) {
-          setAutostart(true, active);
-        }
       },
     );
   }

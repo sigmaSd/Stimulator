@@ -26,10 +26,6 @@ releases</a>. Download `stimulator-x86_64.AppImage` or
 - Overrides system setting and disables screen blanking and screen locking
 - Option to use system default, light or dark theme
 - AppIndicator support
-- Launch at login, optionally starting minimized straight to the tray
-  (Preferences -> Launch at Startup / Start Minimized). On Flatpak this requires
-  the sandbox to be allowed to write to `~/.config/autostart` (e.g. via the
-  `--filesystem=xdg-config/autostart:create` permission).
 
 ## How it works
 

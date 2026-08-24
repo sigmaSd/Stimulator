@@ -52,10 +52,6 @@ export class EN_UI_LABELS {
   static hours: string;
   static "Automatic suspending reactivated": string;
   static "Automatic idling reactivated": string;
-  static "Launch at Startup": string;
-  static "Start Stimulator automatically when you log in": string;
-  static "Start Minimized": string;
-  static "Launch directly to the tray, without showing the window": string;
 }
 
 @translate
