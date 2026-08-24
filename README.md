@@ -18,7 +18,9 @@ Standalone binaries and AppImages (x86_64/aarch64) are also published on every
 commit to master as
 <a href="https://github.com/sigmaSd/Stimulator/releases" target="_blank">nightly
 releases</a>. Download `stimulator-x86_64.AppImage` or
-`stimulator-aarch64.AppImage`, `chmod +x` it, and run it.
+`stimulator-aarch64.AppImage`, `chmod +x` it, and run it. Unlike the plain
+`stimulator-linux-*` binaries, the AppImage bundles everything it needs to also
+support the AppIndicator (tray icon).
 
 ## Features
 

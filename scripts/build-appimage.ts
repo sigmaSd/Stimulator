@@ -35,7 +35,7 @@ const appDir = `${workDir.path}/AppDir`;
 // where the bundled app source + deno runtime live inside the AppDir
 const appLib = `${appDir}/usr/lib/stimulator`;
 
-await $`mkdir -p ${appDir}/usr/bin ${appDir}/usr/share/applications \
+await $`mkdir -p ${appDir}/usr/bin ${appDir}/usr/lib ${appDir}/usr/share/applications \
   ${appDir}/usr/share/icons/hicolor/scalable/apps ${appDir}/usr/share/metainfo ${appLib}`;
 
 // --- icon, desktop entry, appstream metadata ---
@@ -75,6 +75,50 @@ if (arch === Deno.build.arch) {
 }
 await $`chmod +x ${denoBin}`;
 
+// --- bundle the appindicator library stack ---
+//
+// GTK4/libadwaita are assumed to already be on the host (see the top-level
+// comment), but libayatana-appindicator3 and its handful of small
+// dependencies aren't guaranteed to be installed even on desktops that
+// otherwise support tray icons - unlike GTK they're small enough to just
+// bundle, so the tray icon works out of the box regardless of the host.
+const appindicatorDebs = [
+  "libayatana-appindicator3-1",
+  "libayatana-indicator3-7",
+  "libayatana-ido3-0.4-0",
+  "libdbusmenu-glib4",
+  "libdbusmenu-gtk3-4",
+];
+const debArch = arch === "aarch64" ? "arm64" : "amd64";
+const debTriplet = arch === "aarch64"
+  ? "aarch64-linux-gnu"
+  : "x86_64-linux-gnu";
+
+if (debArch === "arm64") {
+  // arm64 packages live on the ports archive, not the default one
+  await $`sudo dpkg --add-architecture arm64`;
+  await $`sudo tee /etc/apt/sources.list.d/appimage-arm64.list`
+    .stdinText(
+      "deb [arch=arm64] http://ports.ubuntu.com/ubuntu-ports noble main universe\n",
+    );
+  // some arm64 index files 404 (e.g. restricted/multiverse aren't mirrored
+  // on ports.ubuntu.com) - harmless as long as main/universe came through
+  await $`sudo apt-get update`.noThrow();
+}
+
+const debDir = `${workDir.path}/debs`;
+const debExtractDir = `${workDir.path}/deb-extract`;
+await $`mkdir -p ${debDir} ${debExtractDir}`;
+await $`apt-get download ${appindicatorDebs.map((pkg) => `${pkg}:${debArch}`)}`
+  .cwd(debDir);
+for await (const entry of Deno.readDir(debDir)) {
+  await $`dpkg-deb -x ${debDir}/${entry.name} ${debExtractDir}`;
+}
+// real cp, not dax's `cp` builtin: these files are full of the versioned
+// symlinks (e.g. libayatana-appindicator3.so.1 -> ...so.1.0.0) that make
+// the SONAMEs resolve, and dax's own `cp -r` silently drops symlinks
+await $`/bin/cp -r ${debExtractDir}/usr/lib/${debTriplet}/. ${appDir}/usr/lib/`;
+
 // pin a stable, fake origin: `deno run`'s default origin for the Web
 // Storage APIs (localStorage) is derived from the entry script's path,
 // which changes on every launch since --appimage-extract-and-run
@@ -85,6 +129,7 @@ await Deno.writeTextFile(
   `#!/usr/bin/env bash
 HERE="$(dirname "$(readlink -f "\${0}")")"
 export PATH="$HERE/usr/bin:$PATH"
+export LD_LIBRARY_PATH="$HERE/usr/lib:$LD_LIBRARY_PATH"
 exec "$HERE/usr/bin/deno" run -A --cached-only \\
   --location "https://${APP_ID}.invalid/" \\
   "$HERE/usr/lib/stimulator/src/main.ts" "$@"
