@@ -21,6 +21,14 @@ jobs:
         with:
           deno-version: latest
 
+      - name: Build AppImage for Linux x86_64
+        run: |
+          ./scripts/build-appimage.ts x86_64 stimulator-x86_64.AppImage
+
+      - name: Build AppImage for Linux aarch64
+        run: |
+          ./scripts/build-appimage.ts aarch64 stimulator-aarch64.AppImage
+
       - name: Add localStorage polyfill import
         run: |
           sed -i '2i // This for stimulator compiled with deno compile\nimport "jsr:@sigma/deno-compile-extra@0.12.1/localStoragePolyfill";' src/main.ts
@@ -35,14 +43,6 @@ jobs:
       - name: Compile for Linux aarch64
         run: |
           deno compile --unstable-raw-imports --target aarch64-unknown-linux-gnu --output stimulator-linux-aarch64 -A src/main.ts
-
-      - name: Build AppImage for Linux x86_64
-        run: |
-          ./scripts/build-appimage.sh stimulator-linux-x86_64 x86_64 stimulator-x86_64.AppImage
-
-      - name: Build AppImage for Linux aarch64
-        run: |
-          ./scripts/build-appimage.sh stimulator-linux-aarch64 aarch64 stimulator-aarch64.AppImage
 
       - name: Get current date and time
         id: date
