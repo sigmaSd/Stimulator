@@ -145,6 +145,15 @@ await $`chmod +x ${appDir}/AppRun`;
 // runtime regardless of $ARCH, which would silently produce a broken,
 // non-executable AppImage when cross-packaging for aarch64 - so the matching
 // runtime stub is always fetched explicitly and passed via --runtime-file.
+//
+// The runtime is uruntime rather than AppImageKit's: AppImageKit's runtime
+// needs libfuse2, which most current distros (Ubuntu 22.04+, Fedora, ...)
+// don't install by default, so the AppImage would fail to start there.
+// uruntime is a static musl binary that uses FUSE when it can, and otherwise
+// falls back to mount namespaces or extracting to a temp dir - so the
+// AppImage also starts on hosts without FUSE. Pinned to a tag so builds are
+// reproducible.
+const URUNTIME_VERSION = "v0.7.1";
 
 const appimagetool = `${workDir.path}/appimagetool`;
 await $.request(
@@ -157,7 +166,7 @@ const appimagetoolArch = arch === "aarch64" ? "arm_aarch64" : arch;
 
 const runtimeFile = `${workDir.path}/runtime-${arch}`;
 await $.request(
-  `https://github.com/AppImage/AppImageKit/releases/download/continuous/runtime-${arch}`,
+  `https://github.com/VHSgunzo/uruntime/releases/download/${URUNTIME_VERSION}/uruntime-appimage-squashfs-${arch}`,
 ).pipeToPath(runtimeFile);
 
 await $`mkdir -p ${outputPath.replace(/[^/]+$/, "") || "."}`;
