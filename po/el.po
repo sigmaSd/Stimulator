@@ -93,7 +93,7 @@ msgid "Main Menu"
 msgstr "Κύριο Μενού"
 
 msgid "translator-credits"
-msgstr "εύσημα-μεταφραστή"
+msgstr "trlef19 https://github.com/trlef19"
 
 msgid "Suspend Timer"
 msgstr "Αναστολή Χρονομέτρου"
