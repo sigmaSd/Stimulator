@@ -52,6 +52,14 @@
   <content_rating type="oars-1.1" />
 
   <releases>
+    <release version="2.1.0" date="2026-10-05">
+        <description>
+            <ul>
+                <li>Add Greek translation</li>
+                <li>Add Hungarian translation</li>
+            </ul>
+        </description>
+    </release>
     <release version="2.0.1" date="2026-07-20">
         <description>
             <ul>
