@@ -60,6 +60,7 @@ For disabling screen blanking/locking, it uses
 | Arabic        | 100.00         |
 | Danish        | 66.67          |
 | German        | 66.67          |
+| Greek         | 100.00         |
 | English       | 100.00         |
 | Spanish       | 100.00         |
 | Estonian      | 100.00         |
