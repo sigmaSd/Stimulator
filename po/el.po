@@ -1,0 +1,147 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Stimulator"
+msgstr "Ερέθισμα"
+
+msgid "Keep your computer awake"
+msgstr "Κράτα τον υπολογιστή σου ενεργό"
+
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "καφεΐνη;αφύπνιση;ενεργός;διατήρησηενεργός;διατήρησηανοιχτό;"
+
+msgid "Disable Automatic Suspending"
+msgstr "Απενεργοποίηση Αυτόματης Αναστολής Λειτουργίας"
+
+msgid "Disable Screen Blanking and Locking"
+msgstr "Απενεργοποίηση Μαυρίσματος και Κλειδώματος Οθόνης"
+
+msgid "Current state: System default"
+msgstr "Τρέχουσα κατάσταση: Προεπιλογή συστήματος"
+
+msgid "Current state: Indefinitely"
+msgstr "Τρέχουσα κατάσταση: Επ' αόριστον"
+
+msgid "Stimulator is active"
+msgstr "Το Ερέθισμα είναι ενεργό"
+
+msgid "Close Stimulator?"
+msgstr "Να κλείσει το Ερέθισμα;"
+
+msgid "Stimulator is active, do you want to close it?"
+msgstr "Το Ερέθισμα είναι ενεργό, θες να το κλείσεις;"
+
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+msgid "Close"
+msgstr "Κλείσιμο"
+
+msgid "Preferences"
+msgstr "Προτιμήσεις"
+
+msgid "Theme"
+msgstr "Θέμα"
+
+msgid "System Theme"
+msgstr "Θέμα Συστήματος"
+
+msgid "Light"
+msgstr "Φωτεινό"
+
+msgid "Dark"
+msgstr "Σκοτεινό"
+
+msgid "Keyboard Shortcuts"
+msgstr "Συντομεύσεις Πληκτρολογίου"
+
+msgid "General"
+msgstr "Γενικά"
+
+msgid "Open Menu"
+msgstr "Άνοιγμα Μενού"
+
+msgid "Quit"
+msgstr "Έξοδος"
+
+msgid "About Stimulator"
+msgstr "Σχετικά με το Ερέθισμα"
+
+msgid "Unsupported System"
+msgstr "Μη Υποστηριζόμενο Σύστημα"
+
+msgid "Your desktop environment doesn't support Stimulator, click close to quit"
+msgstr "Το περιβάλλον εργασίας σου δεν υποστηρίζει το Ερέθισμα, κάνε κλικ στο κλείσιμο για έξοδο"
+
+msgid "Run in Background"
+msgstr "Εκτέλεση στο Παρασκήνιο"
+
+msgid "Show"
+msgstr "Εμφάνιση"
+
+msgid "Ask Confirmation"
+msgstr "Ερώτηση Πρώτα"
+
+msgid "Behavior on Closing"
+msgstr "Συμπεριφορά πριν το Κλείσιμο"
+
+msgid "Applies only while active"
+msgstr "Εφαρμόζεται μόνο όταν είναι ενεργό"
+
+msgid "Main Menu"
+msgstr "Κύριο Μενού"
+
+msgid "translator-credits"
+msgstr "trlef19 https://github.com/trlef19"
+
+msgid "Suspend Timer"
+msgstr "Αναστολή Χρονομέτρου"
+
+msgid "Idle Timer"
+msgstr "Χρονόμετρο Αδράνειας"
+
+msgid "Auto-disable after selected time"
+msgstr "Αυτόματη απενεργοποίηση μετά από επιλεγμένη ώρα"
+
+msgid "5 minutes"
+msgstr "5 λεπτά"
+
+msgid "15 minutes"
+msgstr "15 λεπτά"
+
+msgid "Never"
+msgstr "Ποτέ"
+
+msgid "Current state"
+msgstr "Τρέχουσα κατάσταση"
+
+msgid "minutes"
+msgstr "λεπτά"
+
+msgid "30 minutes"
+msgstr "30 λεπτά"
+
+msgid "1 hour"
+msgstr "1 ώρα"
+
+msgid "2 hours"
+msgstr "2 ώρες"
+
+msgid "4 hours"
+msgstr "4 ώρες"
+
+msgid "hour"
+msgstr "ώρα"
+
+msgid "hours"
+msgstr "ώρες"
+
+msgid "Automatic suspending reactivated"
+msgstr "Η αυτόματη αναστολή λειτουργίας ενεργοποίηθηκε ξανά"
+
+msgid "Automatic idling reactivated"
+msgstr "Automatic idling reactivated"
+
+msgid "Stimulator is running in the background"
+msgstr "Stimulator is running in the background"
