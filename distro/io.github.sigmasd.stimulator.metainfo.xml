@@ -52,6 +52,13 @@
   <content_rating type="oars-1.1" />
 
   <releases>
+    <release version="2.2.0" date="2026-10-19">
+        <description>
+            <ul>
+                <li>Add Indonesian translation</li>
+            </ul>
+        </description>
+    </release>
     <release version="2.1.0" date="2026-10-05">
         <description>
             <ul>
