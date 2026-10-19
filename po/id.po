@@ -1,0 +1,147 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Stimulator"
+msgstr "Stimulator"
+
+msgid "Keep your computer awake"
+msgstr "Biarkan komputer anda tetap terjaga"
+
+msgid "caffeine;nosleep;awake;keepawake;keepon;"
+msgstr "kafein;nosleep;bangun;terjaga;biarkan;"
+
+msgid "Disable Automatic Suspending"
+msgstr "Nonaktifkan Suspensi Otomatis"
+
+msgid "Disable Screen Blanking and Locking"
+msgstr "Nonaktifkan Pemadaman dan Kunci Layar"
+
+msgid "Current state: System default"
+msgstr "Keadaan saat ini: Bawaan sistem"
+
+msgid "Current state: Indefinitely"
+msgstr "Keadaan saat ini: Tidak ditentukan"
+
+msgid "Stimulator is active"
+msgstr "Stimulator sedang aktif"
+
+msgid "Close Stimulator?"
+msgstr "Tutup Stimulator?"
+
+msgid "Stimulator is active, do you want to close it?"
+msgstr "Stimulator sedang aktif, apakah anda ingin menutupnya?"
+
+msgid "Cancel"
+msgstr "Batal"
+
+msgid "Close"
+msgstr "Tutup"
+
+msgid "Preferences"
+msgstr "Preferensi"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "System Theme"
+msgstr "Tema Sistem"
+
+msgid "Light"
+msgstr "Terang"
+
+msgid "Dark"
+msgstr "Gelap"
+
+msgid "Keyboard Shortcuts"
+msgstr "Pintasan Papan Tik"
+
+msgid "General"
+msgstr "Umum"
+
+msgid "Open Menu"
+msgstr "Buka Menu"
+
+msgid "Quit"
+msgstr "Keluar"
+
+msgid "About Stimulator"
+msgstr "Tentang Stimulator"
+
+msgid "Unsupported System"
+msgstr "Sistem Tidak didukung"
+
+msgid "Your desktop environment doesn't support Stimulator, click close to quit"
+msgstr "Lingkungan desktop anda tidak mendukung Stimulator, klik tutup untuk keluar"
+
+msgid "Run in Background"
+msgstr "Jalankan di Latar Belakang"
+
+msgid "Show"
+msgstr "Tampilkan"
+
+msgid "Ask Confirmation"
+msgstr "Tanya Konfimasi"
+
+msgid "Behavior on Closing"
+msgstr "Perilaku Saat ditutup"
+
+msgid "Applies only while active"
+msgstr "Hanya berlaku saat sedang aktif"
+
+msgid "Main Menu"
+msgstr "Menu Utama"
+
+msgid "translator-credits"
+msgstr "Tamado Sitohang https://tamado.codes"
+
+msgid "Suspend Timer"
+msgstr "Pewaktu Tidur"
+
+msgid "Idle Timer"
+msgstr "Pewaktu Layar Nonaktif"
+
+msgid "Auto-disable after selected time"
+msgstr "Nonaktif otomatis setelah waktu yang dipilih"
+
+msgid "5 minutes"
+msgstr "5 menit"
+
+msgid "15 minutes"
+msgstr "15 menit"
+
+msgid "Never"
+msgstr "Tidak pernah"
+
+msgid "Current state"
+msgstr "Keadaan saat ini"
+
+msgid "minutes"
+msgstr "menit"
+
+msgid "30 minutes"
+msgstr "30 menit"
+
+msgid "1 hour"
+msgstr "1 jam"
+
+msgid "2 hours"
+msgstr "2 jam"
+
+msgid "4 hours"
+msgstr "4 jam"
+
+msgid "hour"
+msgstr "jam"
+
+msgid "hours"
+msgstr "jam"
+
+msgid "Automatic suspending reactivated"
+msgstr "Suspensi otomatis diaktifkan kembali"
+
+msgid "Automatic idling reactivated"
+msgstr "Layar nonaktif otomatis diaktifkan kembali"
+
+msgid "Stimulator is running in the background"
+msgstr "Stimulator sedang berjalan di latar belakang"
