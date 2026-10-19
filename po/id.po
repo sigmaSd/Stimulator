@@ -9,7 +9,7 @@ msgid "Keep your computer awake"
 msgstr "Biarkan komputer anda tetap terjaga"
 
 msgid "caffeine;nosleep;awake;keepawake;keepon;"
-msgstr "kafein;nosleep;bangun;terjaga;biarkan;"
+msgstr "kafein;tidur;bangun;terjaga;biarkan;"
 
 msgid "Disable Automatic Suspending"
 msgstr "Nonaktifkan Suspensi Otomatis"
